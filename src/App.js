@@ -28,10 +28,31 @@ class App extends Component {
     this.setState({ selectedDays });
   }
 
-  handleSubmit = () => {
-    this.availability = [...this.state.selectedDays]
-    console.log(this.availability)
-    /// POST request adding availability to staff members
+  handleSubmit = async () => {
+    // this.availability = { data: [...this.state.selectedDays]}
+    // console.log(this.availability)
+    // /// POST request adding availability to staff members
+    // try {
+    //   const response = await fetch('http://localhost:3000/api/v1/staff', {
+    //     method: 'POST',
+    //     body: JSON.stringify(this.availability),
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     mode: 'no-cors'
+    //   })
+
+    //   const data = await response.json()
+
+    //   console.log(data)   
+    // } catch (error) {
+    //   console.log(error)
+    // }
+
+    const response = await fetch('http://localhost:3000/api/v1/staff')
+    const data = await response.json()
+    console.log(data)
+
   }
 
   render() {
@@ -42,7 +63,6 @@ class App extends Component {
           <DayPicker
             selectedDays={this.state.selectedDays}
             onDayClick={this.handleDayClick}
-            className='calendar1'
           />
         </section>
         <button onClick={this.handleSubmit}>Submit</button>
