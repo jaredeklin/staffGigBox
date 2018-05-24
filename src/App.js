@@ -4,6 +4,8 @@ import './App.css'
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
+import { EventForm } from './EventForm'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -66,6 +68,7 @@ class App extends Component {
           />
         </section>
         <button onClick={this.handleSubmit}>Submit</button>
+        <EventForm />
       </div>
     );
   }
