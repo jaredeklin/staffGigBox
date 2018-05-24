@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './EventForm.css';
 
 export class EventForm extends Component {
   constructor() {
