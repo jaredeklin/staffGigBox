@@ -5,7 +5,7 @@ export class EventForm extends Component {
   constructor() {
     super()
     this.state = {
-      venue: '',
+      venue: 'Ogden Theatre',
       name: '',
       date: '',
       time: '',
@@ -27,7 +27,7 @@ export class EventForm extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    
+
     const response = await fetch('http://localhost:3000/api/v1/events', {
       method: 'POST',
       body: JSON.stringify(this.state),
@@ -48,7 +48,14 @@ export class EventForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <input placeholder='Venue' name='venue' value={ venue } onChange={ this.handleChange } />
+        <label>
+          Venue
+          <select name='venue' value={ venue } onChange={ this.handleChange }>
+            <option value='Ogden Theatre'>Ogden Theatre</option>
+            <option value='Gothic Theatre'>Gothic Theatre</option>
+            <option value='Bluebird Theater'>Bluebird Theater</option>
+          </select>
+        </label>
         <input placeholder='Name' name='name' value={ name } onChange={ this.handleChange } />
         <input placeholder='Date' name='date' value={ date } onChange={ this.handleChange } />
         <input placeholder='Time' name='time' value={ time } onChange={ this.handleChange } />
