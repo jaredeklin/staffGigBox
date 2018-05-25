@@ -13,7 +13,7 @@ export class Header extends Component {
   login = async () => {
     const result = await auth.signInWithPopup(provider) 
     const { user } = await result
-    this.setState({ user, result })
+    this.setState({ user })
     this.props.addUser(user)
   }
 
@@ -22,6 +22,15 @@ export class Header extends Component {
     this.setState({ user: null });
     this.props.addUser(null)
   }
+
+  // componentDidMount = () => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       this.setState({ user });
+  //     } 
+  //     this.props.addUser(user)
+  //   });
+  // }
 
   render () {
 
