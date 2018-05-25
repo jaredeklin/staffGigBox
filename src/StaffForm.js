@@ -12,8 +12,6 @@ export class StaffForm extends Component {
       barback: false,
       beer_bucket: false
     }
-
-    this.defaultState = this.state
   }
 
   handleChange = (event) => {
@@ -33,7 +31,6 @@ export class StaffForm extends Component {
 
     const staffData = await response.json();
 
-    // this.setState(this.defaultState)
     this.props.addStaff()
   }
 

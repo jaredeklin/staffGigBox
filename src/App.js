@@ -37,9 +37,11 @@ class App extends Component {
 
   addUser = async (user) => {
     const { staff } = this.state
+
     await this.setState({ user })
 
     const match = staff.find(person => person.google_id === user.uid)
+
     if( match) {
       this.setState({ isCurrentStaff: true })   
     } else {
@@ -48,21 +50,17 @@ class App extends Component {
     }
   }
 
-  addStaff = async () => {
+  addStaff = () => {
     this.setState({ 
       isCurrentStaff: true,
       addNewStaff: false
     })
   }
 
-  // handleSubmit = async () => {
-
-  // }
-
   getStaff = async () => {
-
     const response = await fetch('http://localhost:3000/api/v1/staff')
     const staff = await response.json()
+    
     this.setState({ staff })
   }
 
