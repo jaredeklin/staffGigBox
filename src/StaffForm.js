@@ -29,7 +29,7 @@ export class StaffForm extends Component {
       headers: { 'Content-Type': 'application/json'}
     })
 
-    const staffData = await response.json();
+    // const staffData = await response.json();
 
     this.props.addStaff()
   }
@@ -41,7 +41,7 @@ export class StaffForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input placeholder='Name' name='name' value={ name } onChange={ this.handleChange } />
-        <label> Select all that apply:</label>       
+        <label> Select all that apply:</label>
         <label>
           Are you a Bar Manager?
           <select name='bar_manager' value={ bar_manager } onChange={ this.handleChange }>
