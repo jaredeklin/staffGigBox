@@ -4,3 +4,15 @@
   width: 400px;
   height: 300px;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  padding: 20px;
+}
+
+.user-img {
+  width: 60px;
+  border-radius: 50%;
+}
