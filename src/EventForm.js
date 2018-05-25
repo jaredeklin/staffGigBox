@@ -6,7 +6,7 @@ import 'react-day-picker/lib/style.css';
 
 export class EventForm extends Component {
   constructor(props) {
-    super()
+    super(props)
     this.state = {
       venue: 'Ogden Theatre',
       name: '',
@@ -43,11 +43,11 @@ export class EventForm extends Component {
     this.setState(this.defaultState)
   }
 
-  showCalendar = (event) => {
-    console.log(event)
+  // showCalendar = (event) => {
+  //   console.log(event)
 
-    // return <DayPicker />
-  }
+  //   // return <DayPicker />
+  // }
 
   render() {
 
@@ -63,7 +63,7 @@ export class EventForm extends Component {
             <option value='Bluebird Theater'>Bluebird Theater</option>
           </select>
         </label>
-        <input placeholder='Name' name='name' value={ this.props.name } onChange={ this.handleChange } />
+        <input placeholder='Name' name='name' value={ name } onChange={ this.handleChange } />
         <input 
           type='date'
           placeholder='Date' 

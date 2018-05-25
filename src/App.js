@@ -1,76 +1,79 @@
 import React, { Component } from 'react';
 import './App.css'
 import { Header } from './Header'
-import DayPicker, { DateUtils } from 'react-day-picker';
-import 'react-day-picker/lib/style.css';
+import { StaffForm } from './StaffForm'
+// import DayPicker, { DateUtils } from 'react-day-picker';
+// import 'react-day-picker/lib/style.css';
 
 import { EventForm } from './EventForm'
 
-import firebase, { auth, provider } from './firebase.js';
+import { auth } from './firebase.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDays: [],
-      user: null
+      // selectedDays: [],
+      user: null,
+      staff: [],
+      isCurrentStaff: false,
+      addNewStaff: false
     };
-
-    this.availability = []
   }
 
-  handleDayClick = (day, { selected }) => {
-    const { selectedDays } = this.state;
+  // handleDayClick = (day, { selected }) => {
+  //   const { selectedDays } = this.state;
 
-    if (selected) {
-      const selectedIndex = selectedDays.findIndex(selectedDay =>
-        DateUtils.isSameDay(selectedDay, day)
-      );
-      selectedDays.splice(selectedIndex, 1);
+  //   if (selected) {
+  //     const selectedIndex = selectedDays.findIndex(selectedDay =>
+  //       DateUtils.isSameDay(selectedDay, day)
+  //     );
+  //     selectedDays.splice(selectedIndex, 1);
+  //   } else {
+  //     selectedDays.push(day);
+  //   }
+  //   this.setState({ selectedDays });
+  // }
+
+  addUser = async (user) => {
+    const { staff } = this.state
+    await this.setState({ user })
+
+    const match = staff.find(person => person.google_id === user.uid)
+    if( match) {
+      this.setState({ isCurrentStaff: true })   
     } else {
-      selectedDays.push(day);
+      console.log(this.state.user)
+      this.setState({ addNewStaff: true }) 
     }
-    this.setState({ selectedDays });
   }
 
-  addUser = (user) => {
-    this.setState({ user })
+  addStaff = async () => {
+    this.setState({ 
+      isCurrentStaff: true,
+      addNewStaff: false
+    })
   }
 
-  handleSubmit = async () => {
-    // this.availability = { data: [...this.state.selectedDays]}
-    // console.log(this.availability)
-    // /// POST request adding availability to staff members
-    // try {
-    //   const response = await fetch('http://localhost:3000/api/v1/staff', {
-    //     method: 'POST',
-    //     body: JSON.stringify(this.availability),
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     mode: 'no-cors'
-    //   })
+  // handleSubmit = async () => {
 
-    //   const data = await response.json()
+  // }
 
-    //   console.log(data)   
-    // } catch (error) {
-    //   console.log(error)
-    // }
+  getStaff = async () => {
 
     const response = await fetch('http://localhost:3000/api/v1/staff')
-    const data = await response.json()
-    console.log(data)
-
+    const staff = await response.json()
+    this.setState({ staff })
   }
 
   componentDidMount = () => {
     auth.onAuthStateChanged((user) => {
-      console.log(user)
       if (user) {
         this.setState({ user });
       } 
     });
+
+    this.getStaff()
   }
 
           // <section className='calendar'>
@@ -88,8 +91,12 @@ class App extends Component {
        <Header addUser={ this.addUser }/>      
 
         {
-          this.state.user &&
+          this.state.isCurrentStaff &&
           <EventForm name={ this.state.user.uid } />
+        }
+        {
+          this.state.addNewStaff &&
+          <StaffForm user={ this.state.user } addStaff={ this.addStaff }/>
         }
       </div>
     );
