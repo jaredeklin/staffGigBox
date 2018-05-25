@@ -16,6 +16,8 @@ class App extends Component {
       // selectedDays: [],
       user: null,
       staff: [],
+      events: [],
+      schedule: [],
       isCurrentStaff: false,
       addNewStaff: false
     };
@@ -44,20 +46,20 @@ class App extends Component {
       const match = staff.find(person => person.google_id === user.uid)
 
       if( match) {
-        this.setState({ isCurrentStaff: true })   
+        this.setState({ isCurrentStaff: true })
       } else {
-        console.log(this.state.user)
-        this.setState({ 
+        // console.log(this.state.user)
+        this.setState({
           addNewStaff: true,
-          
-        }) 
+
+        })
       }
-      
+
     }
   }
 
   addStaff = () => {
-    this.setState({ 
+    this.setState({
       isCurrentStaff: true,
       addNewStaff: false
     })
@@ -66,18 +68,62 @@ class App extends Component {
   getStaff = async () => {
     const response = await fetch('http://localhost:3000/api/v1/staff')
     const staff = await response.json()
-    
+    // console.log(staff)
     this.setState({ staff })
   }
 
-  componentDidMount = () => {
-    // auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.setState({ user });
-    //   } 
-    // });
+  getEvents = async () => {
+    const response = await fetch('http://localhost:3000/api/v1/events')
 
+    const events = await response.json()
+
+    await this.setState({ events })
+    this.generateSchedule();
+  }
+
+  generateSchedule = async () => {
+    const schedule = this.state.events.map((event) => {
+      let staffNeeded = event.bartenders + event.barbacks;
+
+      if (event.bar_manager) {
+        staffNeeded++
+      }
+
+      if (event.ass_bar_manager) {
+        staffNeeded++
+      }
+
+      let staffArray = []
+
+        this.state.staff.forEach((person, index) => {
+          if (staffNeeded > index) {
+            console.log('person',person)
+            const id = {
+              event_id: event.id,
+              staff_id: person.id
+            }
+            staffArray.push(id);
+          }
+
+
+      })
+
+      console.log('ho')
+
+      return staffArray
+    })
+    const mergedArray = schedule.reduce((acc, eventStaff) => {
+      return [...acc, ...eventStaff]
+
+    },[])
+    
+    this.setState({ mergedArray })
+
+  }
+
+  componentDidMount = () => {
     this.getStaff()
+    this.getEvents();
   }
 
           // <section className='calendar'>
@@ -89,10 +135,10 @@ class App extends Component {
         // <button onClick={this.handleSubmit}>Submit</button>
 
   render() {
-    
+
     return (
       <div className='app'>
-       <Header addUser={ this.addUser }/>      
+       <Header addUser={ this.addUser }/>
 
         {
           this.state.isCurrentStaff &&
@@ -108,5 +154,3 @@ class App extends Component {
 }
 
 export default App;
-
-
