@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
-
+import { Header } from './Header'
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
@@ -13,8 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       selectedDays: [],
-      user: null,
-      result: []
+      user: null
     };
 
     this.availability = []
@@ -34,23 +33,8 @@ class App extends Component {
     this.setState({ selectedDays });
   }
 
-  login = async () => {
-    const result = await auth.signInWithPopup(provider) 
-    const { user } = await result
-    this.setState({ user, result })
-    //   .then((result) => {
-    //     const { user } = result;
-    //     this.setState({ user, result });
-    // }
-    // });
-  }
-
-  logout = async () => {
-    await auth.signOut()
-    this.setState({ user: null });
-    //   .then(() => {
-    //     this.setState({ user: null });
-    // });
+  addUser = (user) => {
+    this.setState({ user })
   }
 
   handleSubmit = async () => {
@@ -98,25 +82,14 @@ class App extends Component {
         // <button onClick={this.handleSubmit}>Submit</button>
 
   render() {
-    // const name = this.state.user.displayName
+    
     return (
       <div className='app'>
-        <header>
-          <h1>Staff Gig Box</h1>
-          { this.state.user ?
-            <div>
-            <button onClick={this.logout}>Log Out</button>
-            <img className='user-img' src={this.state.user.photoURL} />  
-            </div>              
-            :
-            <button onClick={this.login}>Log In</button>              
-          }
-        </header>
-        
+       <Header addUser={ this.addUser }/>      
 
         {
           this.state.user &&
-          <EventForm name={this.state.user.uid} />
+          <EventForm name={ this.state.user.uid } />
         }
       </div>
     );
