@@ -23,14 +23,14 @@ export class Header extends Component {
     this.props.addUser(null)
   }
 
-  // componentDidMount = () => {
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       this.setState({ user });
-  //     } 
-  //     this.props.addUser(user)
-  //   });
-  // }
+  componentDidMount = () => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } 
+      this.props.addUser(user)
+    });
+  }
 
   render () {
 

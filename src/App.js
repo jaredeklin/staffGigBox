@@ -38,15 +38,21 @@ class App extends Component {
   addUser = async (user) => {
     const { staff } = this.state
 
-    await this.setState({ user })
+    await this.setState({ user, isCurrentStaff: false })
 
-    const match = staff.find(person => person.google_id === user.uid)
+    if (user) {
+      const match = staff.find(person => person.google_id === user.uid)
 
-    if( match) {
-      this.setState({ isCurrentStaff: true })   
-    } else {
-      console.log(this.state.user)
-      this.setState({ addNewStaff: true }) 
+      if( match) {
+        this.setState({ isCurrentStaff: true })   
+      } else {
+        console.log(this.state.user)
+        this.setState({ 
+          addNewStaff: true,
+          
+        }) 
+      }
+      
     }
   }
 
