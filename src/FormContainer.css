@@ -30,7 +30,9 @@
   border: 1px solid grey;
   border-top: none;
   padding: 40px 25px;
-  height: auto;
+  /*height: auto;*/
+  max-height: 375px;
+  overflow-y: scroll;
 }
 
 .tab-container input[type='radio'] {

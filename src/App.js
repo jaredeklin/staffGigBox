@@ -96,6 +96,10 @@ class App extends Component {
     const scheduleObj = this.cleanScheduleData(scheduleData)
     const cleanEvents = await this.combineStaffAndEvent(scheduleObj)
 
+    console.log(cleanEvents)  
+    cleanEvents.sort( (a,b) => {
+      return a.date - b.date
+    })
     console.log(cleanEvents)
     this.setState({ cleanEvents })
   }
@@ -187,7 +191,7 @@ class App extends Component {
         <Header addUser={ this.addUser }/>
         <FormContainer schedule={ this.state.cleanEvents }/>
         
-        <button onClick={ this.postSchedule }>Test</button>
+        <button onClick={ this.postSchedule }>Generate schedule</button>
       </div>
     );
   }

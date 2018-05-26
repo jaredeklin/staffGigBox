@@ -1,4 +1,5 @@
 import React from 'react'
+import './Schedule.css'
 
 export const Schedule = ({ event }) => {
 
@@ -10,7 +11,7 @@ export const Schedule = ({ event }) => {
   })
 
   return (
-    <section>
+    <section className='schedule-card'>
       <h4>{ venue }</h4>
       <h4>{ name }</h4>
       <h6>{ date }</h6>
