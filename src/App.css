@@ -10,9 +10,13 @@ header {
   justify-content: space-between;
   height: 100px;
   padding: 20px;
+  background-color: navy;
+  color: #FFF;
 }
 
 .user-img {
   width: 60px;
   border-radius: 50%;
 }
+
+

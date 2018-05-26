@@ -55,7 +55,7 @@ export class EventForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label className='form-label'>
           Venue
           <select name='venue' value={ venue } onChange={ this.handleChange }>
             <option value='Ogden Theatre'>Ogden Theatre</option>
@@ -73,14 +73,14 @@ export class EventForm extends Component {
           />
         <input placeholder='Time' name='time' value={ time } onChange={ this.handleChange } />
         
-        <label>
+        <label className='form-label'>
           Bar Manager needed?
           <select name='bar_manager' value={ bar_manager } onChange={ this.handleChange }>
             <option value={ true }>Yes</option>
             <option value={ false }>No</option>
           </select>
         </label>
-        <label>
+        <label className='form-label'>
           Assistant Bar Manager needed?
           <select name='ass_bar_manager' value={ ass_bar_manager } onChange={ this.handleChange }>
             <option value={ true }>Yes</option>
@@ -89,7 +89,7 @@ export class EventForm extends Component {
         </label>
         <input placeholder='Number of bartenders needed' name='bartenders' value={ bartenders } onChange={ this.handleChange } />
         <input placeholder='Number of barbacks needed' name='barbacks' value={ barbacks } onChange={ this.handleChange } />
-        <label>
+        <label className='form-label'>
           Beer Bucket?
           <select name='beer_bucket' value={ beer_bucket } onChange={ this.handleChange }>
             <option value={ true }>Yes</option>
