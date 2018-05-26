@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import { Header } from './Header'
 import { StaffForm } from './StaffForm';
-
+import { FormContainer } from './FormContainer'
 import { EventForm } from './EventForm'
 
 import { auth } from './firebase.js';
@@ -16,7 +16,8 @@ class App extends Component {
       events: [],
       schedule: [],
       isCurrentStaff: false,
-      addNewStaff: false
+      addNewStaff: false,
+      cleanEvents: []
     };
   }
 
@@ -95,6 +96,10 @@ class App extends Component {
     const scheduleObj = this.cleanScheduleData(scheduleData)
     const cleanEvents = await this.combineStaffAndEvent(scheduleObj)
 
+    console.log(cleanEvents)  
+    cleanEvents.sort( (a,b) => {
+      return a.date - b.date
+    })
     console.log(cleanEvents)
     this.setState({ cleanEvents })
   }
@@ -183,17 +188,10 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-       <Header addUser={ this.addUser }/>
-
-        {
-          this.state.isCurrentStaff &&
-          <EventForm name={ this.state.user.uid } />
-        }
-        {
-          this.state.addNewStaff &&
-          <StaffForm user={ this.state.user } addStaff={ this.addStaff }/>
-        }
-        <button onClick={this.postSchedule}>Test</button>
+        <Header addUser={ this.addUser }/>
+        <FormContainer schedule={ this.state.cleanEvents }/>
+        
+        <button onClick={ this.postSchedule }>Generate schedule</button>
       </div>
     );
   }
