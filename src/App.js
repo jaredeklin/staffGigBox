@@ -96,7 +96,7 @@ class App extends Component {
     const scheduleObj = this.cleanScheduleData(scheduleData)
     const cleanEvents = await this.combineStaffAndEvent(scheduleObj)
 
-    console.log(cleanEvents)  
+    console.log(cleanEvents)
     cleanEvents.sort( (a,b) => {
       return a.date - b.date
     })
@@ -109,14 +109,14 @@ class App extends Component {
 
       if(!obj[event.event_id]) {
         obj[event.event_id] = []
-      }  
+      }
 
       obj[event.event_id] = [...obj[event.event_id], event.staff_id]
 
       return obj
-    }, {})   
+    }, {})
 
-    return scheduleObj 
+    return scheduleObj
   }
 
   combineStaffAndEvent = (eventObj) => {
@@ -136,15 +136,15 @@ class App extends Component {
       return event
     })
 
-    return Promise.all(backflips)    
+    return Promise.all(backflips)
   }
 
   getStaffNames = (ids) => {
-    
+
     const promise = ids.map(async person => {
       const staffResponse = await fetch(`http://localhost:3000/api/v1/staff/${person}`)
       const staffData = await staffResponse.json()
-      
+
       return staffData[0].name
     })
 
@@ -189,9 +189,11 @@ class App extends Component {
     return (
       <div className='app'>
         <Header addUser={ this.addUser }/>
-        <FormContainer schedule={ this.state.cleanEvents }/>
-        
-        <button onClick={ this.postSchedule }>Generate schedule</button>
+        <FormContainer
+          schedule={ this.state.cleanEvents }
+          postSchedule={ this.postSchedule }
+        />
+
       </div>
     );
   }
