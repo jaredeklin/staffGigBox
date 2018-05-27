@@ -54,6 +54,7 @@ export class EventForm extends Component {
     const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket } = this.state
 
     return (
+    <div>
       <form onSubmit={this.handleSubmit}>
         <label className='form-label'>
           Venue
@@ -64,15 +65,15 @@ export class EventForm extends Component {
           </select>
         </label>
         <input placeholder='Name' name='name' value={ name } onChange={ this.handleChange } />
-        <input 
+        <input
           type='date'
-          placeholder='Date' 
-          name='date' value={ date } 
-          onChange={ this.handleChange } 
+          placeholder='Date'
+          name='date' value={ date }
+          onChange={ this.handleChange }
           onFocus={this.showCalendar}
           />
         <input placeholder='Time' name='time' value={ time } onChange={ this.handleChange } />
-        
+
         <label className='form-label'>
           Bar Manager needed?
           <select name='bar_manager' value={ bar_manager } onChange={ this.handleChange }>
@@ -98,6 +99,8 @@ export class EventForm extends Component {
         </label>
         <button>Add Event</button>
       </form>
+      <button onClick={ this.props.postSchedule }>Generate schedule</button>
+    </div>
     )
   }
 }

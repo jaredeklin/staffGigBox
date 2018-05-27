@@ -5,7 +5,7 @@ import { Schedule } from './Schedule'
 import './FormContainer.css'
 
 
-export const FormContainer = ({ schedule }) => {
+export const FormContainer = ({ schedule, postSchedule }) => {
 
 
   // {
@@ -25,12 +25,12 @@ export const FormContainer = ({ schedule }) => {
     return <Schedule event={event} />
   })
 
-  return (  
+  return (
     <section className='tab-container' >
       <input className='radio-btn' type="radio" id="tab1" name="tab" checked />
       <label className= 'tab-label' for="tab1">Event Form</label>
       <article id="content1" class="content">
-        <EventForm />
+        <EventForm postSchedule={ postSchedule }/>
       </article>
       <input className='radio-btn' type="radio" id="tab2" name="tab" />
       <label className= 'tab-label' for="tab2">StaffForm</label>
