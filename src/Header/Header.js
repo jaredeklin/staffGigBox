@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { auth, provider } from './firebase.js';
+import { auth, provider } from '../firebase.js';
 
 export class Header extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export class Header extends Component {
   }
 
   login = async () => {
-    const result = await auth.signInWithPopup(provider) 
+    const result = await auth.signInWithPopup(provider)
     const { user } = await result
     this.setState({ user })
     this.props.addUser(user)
@@ -27,7 +27,7 @@ export class Header extends Component {
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
-      } 
+      }
       this.props.addUser(user)
     });
   }
@@ -40,10 +40,10 @@ export class Header extends Component {
         { this.state.user ?
           <div>
           <button onClick={ this.logout }>Log Out</button>
-          <img className='user-img' src={ this.state.user.photoURL } />  
-          </div>              
+          <img className='user-img' src={ this.state.user.photoURL } />
+          </div>
           :
-          <button onClick={ this.login }>Log In</button>              
+          <button onClick={ this.login }>Log In</button>
         }
       </header>
     )

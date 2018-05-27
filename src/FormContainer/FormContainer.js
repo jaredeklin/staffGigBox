@@ -1,7 +1,7 @@
 import React from 'react'
-import { EventForm } from './EventForm'
-import { StaffForm } from './StaffForm'
-import { Schedule } from './Schedule'
+import { EventForm } from '../EventForm/EventForm';
+import { StaffForm } from '../StaffForm/StaffForm';
+import { Schedule } from '../Schedule/Schedule';
 import './FormContainer.css'
 
 
