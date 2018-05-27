@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css'
-import { Header } from './Header'
-import { StaffForm } from './StaffForm';
-import { FormContainer } from './FormContainer'
-import { EventForm } from './EventForm'
+import { Header } from '../Header/Header'
+import { StaffForm } from '../StaffForm/StaffForm';
+import { FormContainer } from '../FormContainer/FormContainer';
+import { EventForm } from '../EventForm/EventForm';
 
-import { auth } from './firebase.js';
+import { auth } from '../firebase.js';
 
 class App extends Component {
   constructor(props) {
