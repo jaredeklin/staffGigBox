@@ -34,7 +34,7 @@ export class TabContainer extends Component {
 
   activeContent = () => {
     switch (this.state.activeTabIndex) {
-      case 0: return <EventForm />;
+      case 0: return <EventForm schedule={ this.props.schedule} />;
 
       case 1: return <StaffForm />;
 
