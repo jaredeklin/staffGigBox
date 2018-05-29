@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './styles.css';
 
 export class StaffForm extends Component {
   constructor(props) {
@@ -40,8 +41,13 @@ export class StaffForm extends Component {
     const { name, bar_manager, ass_bar_manager, bartender, barback, beer_bucket } = this.state
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input placeholder='Name' name='name' value={ name } onChange={ this.handleChange } />
+      <form className='staff-form' onSubmit={this.handleSubmit}>
+        <input
+          className='input-name'
+          placeholder='Name'
+          name='name' value={ name }
+          onChange={ this.handleChange }
+        />
         <label className='form-label'> Select all that apply:</label>
        <label className='form-label'>
           Are you a Bar Manager?
@@ -78,7 +84,7 @@ export class StaffForm extends Component {
             <option value={ false }>No</option>
           </select>
         </label>
-        <button>Add Staff Member</button>
+        <button className='add-staff-btn'>Add Staff Member</button>
       </form>
     )
   }

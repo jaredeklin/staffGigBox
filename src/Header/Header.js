@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { auth, provider } from '../firebase.js';
+import './styles.css';
 
 export class Header extends Component {
   constructor(props) {
@@ -36,11 +37,11 @@ export class Header extends Component {
 
     return (
       <header>
-        <h1>Staff Gig Box</h1>
+        <h1 className='app-title'>Staff Gig Box</h1>
         { this.state.user ?
-          <div className='user-area'>
-          <img className='user-img' src={ this.state.user.photoURL } />
-          <button onClick={ this.logout }>Log Out</button>
+          <div className='log-out-container'>
+            <img className='user-img' src={ this.state.user.photoURL } />
+            <button onClick={ this.logout }>Log Out</button>
           </div>
           :
           <button onClick={ this.login }>Log In</button>

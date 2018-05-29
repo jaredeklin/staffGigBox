@@ -1,0 +1,13 @@
+.staff-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-name {
+  width: 15rem;
+}
+
+.add-staff-btn {
+  width: 15rem;
+  height: 200px;
+}

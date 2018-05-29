@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Exo');
+
+.app-title {
+  font-family: 'Exo', sans-serif;
+  font-size: 2.5rem;
+}
+
+.log-out-container {
+  display: flex;
+  flex-direction: row;
+}
