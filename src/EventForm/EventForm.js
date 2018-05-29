@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './EventForm.css';
-
-import DayPicker from 'react-day-picker'
-import 'react-day-picker/lib/style.css';
+import { Api } from '../Api'
 
 export class EventForm extends Component {
   constructor(props) {
@@ -20,6 +18,7 @@ export class EventForm extends Component {
     }
 
     this.defaultState = this.state
+    this.api = new Api
   }
 
   handleChange = (event) => {
@@ -42,12 +41,6 @@ export class EventForm extends Component {
 
     this.setState(this.defaultState)
   }
-
-  // showCalendar = (event) => {
-  //   console.log(event)
-
-  //   // return <DayPicker />
-  // }
 
   render() {
 
@@ -102,7 +95,7 @@ export class EventForm extends Component {
       </div>
         <button className='add-event-btn'>Add Event</button>
       </form>
-      <button className='generate-schedule-btn' onClick={ this.props.postSchedule }>Generate schedule</button>
+      <button onClick={ () => this.api.postSchedule(this.props.schedule) }>Generate schedule</button>
     </div>
     )
   }
