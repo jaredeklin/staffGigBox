@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './App.css'
 import { Header } from '../Header/Header'
-import { StaffForm } from '../StaffForm/StaffForm';
-import { FormContainer } from '../FormContainer/FormContainer';
-import { EventForm } from '../EventForm/EventForm';
-import { Tabs } from '../Tabs'
-import { Tab } from '../Tab'
+import { TabContainer } from '../TabContainer/TabContainer'
 import { auth } from '../firebase.js';
-import { ScheduleContainer } from '../ScheduleContainer/ScheduleContainer'
-import { Schedule } from '../Schedule/Schedule'
+
 
 class App extends Component {
   constructor(props) {
@@ -88,10 +83,6 @@ class App extends Component {
       staffNeeded++
     }
     return staffNeeded;
-  }
-
-  viewSchedule = () => {
-
   }
 
   getSchedule = async () => {
@@ -189,7 +180,7 @@ class App extends Component {
       <div className='app'>
         <Header addUser={ this.addUser }/>
 
-        <Tabs events={this.state.cleanEvents} />
+        <TabContainer events={this.state.cleanEvents} />
         
       </div>
     );

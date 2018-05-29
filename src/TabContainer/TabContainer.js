@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Tab } from './Tab'
-import { EventForm } from './EventForm/EventForm'
-import { StaffForm } from './StaffForm/StaffForm'
-import { Schedule } from './Schedule/Schedule'
+import { Tab } from '../Tab/Tab'
+import { EventForm } from '../EventForm/EventForm'
+import { StaffForm } from '../StaffForm/StaffForm'
+import { Schedule } from '../Schedule/Schedule'
+import './TabContainer.css'
 
-export class Tabs extends Component {
+export class TabContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -18,6 +19,7 @@ export class Tabs extends Component {
 
   displayTabs = () => {
     const { tabs, activeTabIndex } = this.state
+
     return tabs.map((tabName, index) => {
       return (
         <Tab 
@@ -42,7 +44,7 @@ export class Tabs extends Component {
 
   render() {
     return (
-      <section className="tabs">
+      <section className="tab-container">
         <ul>
           { this.displayTabs() }
         </ul>
