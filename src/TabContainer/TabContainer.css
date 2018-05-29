@@ -33,4 +33,5 @@ ul {
   width: 85%;
   padding: 20px;
   border: 1px solid black;
+  overflow-y: scroll;
 }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './EventForm.css';
 
-import DayPicker from 'react-day-picker'
-import 'react-day-picker/lib/style.css';
 
 export class EventForm extends Component {
   constructor(props) {
@@ -91,15 +89,12 @@ export class EventForm extends Component {
       <div className='staff-info'>
         <label className='form-label'>
           Bar Manager needed?
-          {/* <select name='bar_manager' value={ bar_manager } onChange={ this.handleChange }>
-            <option value={ true }>Yes</option>
-            <option value={ false }>No</option>
-          </select> */}
           <input type='radio'
             id= 'yes'
             value={ true }
             name='bar_manager'
             onChange={ this.handleChange }
+            
            />
           <label htmlFor='yes'>Yes</label>
 
@@ -114,15 +109,12 @@ export class EventForm extends Component {
         </label>
         <label className='form-label'>
           Assistant Bar Manager needed?
-          {/* <select name='ass_bar_manager' value={ ass_bar_manager } onChange={ this.handleChange }>
-            <option value={ true }>Yes</option>
-            <option value={ false }>No</option>
-          </select> */}
           <input type='radio'
             id= 'yes'
             value={ true }
             name='ass_bar_manager'
             onChange={ this.handleChange }
+            
            />
           <label htmlFor='yes'>Yes</label>
 
@@ -144,10 +136,6 @@ export class EventForm extends Component {
           onChange={ this.handleChange } />
         <label className='form-label'>
           Beer Bucket?
-          {/* <select name='beer_bucket' value={ beer_bucket } onChange={ this.handleChange }>
-            <option value={ true }>Yes</option>
-            <option value={ false }>No</option>
-          </select> */}
           <input type='radio'
             id= 'yes'
             value={ true }
@@ -162,6 +150,7 @@ export class EventForm extends Component {
             value={ false }
             name='beer_bucket'
             onChange={ this.handleChange }
+
           />
           <label htmlFor='no'>No</label>
         </label>
