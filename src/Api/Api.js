@@ -1,52 +1,19 @@
-import React, { Component } from 'react';
-import './App.css'
-import { Header } from '../Header/Header'
-import { StaffForm } from '../StaffForm/StaffForm';
-import { FormContainer } from '../FormContainer/FormContainer';
-import { EventForm } from '../EventForm/EventForm';
-import { Tabs } from '../Tabs'
-import { Tab } from '../Tab'
-import { auth } from '../firebase.js';
-import { ScheduleContainer } from '../ScheduleContainer/ScheduleContainer'
-import { Schedule } from '../Schedule/Schedule'
+import React, { Component } from 'react'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+
+export class Api extends Component {
+  constructor() {
+    super()
     this.state = {
-      user: null,
       staff: [],
       events: [],
       schedule: [],
       isCurrentStaff: false,
       addNewStaff: false,
-      cleanEvents: [],
-      tabs: ['Event Form', 'Staff Form', 'Schedule']
-    };
-  }
-
-  addUser = async (user) => {
-    const { staff } = this.state
-
-    await this.setState({ user, isCurrentStaff: false })
-
-    if (user) {
-      const match = staff.find(person => person.google_id === user.uid)
-
-      if( match) {
-        this.setState({ isCurrentStaff: true })
-      } else {
-        this.setState({ addNewStaff: true })
-      }
+      cleanEvents: []
     }
   }
 
-  addStaff = () => {
-    this.setState({
-      isCurrentStaff: true,
-      addNewStaff: false
-    })
-  }
 
   getStaff = async () => {
     const response = await fetch('http://localhost:3000/api/v1/staff')
@@ -90,9 +57,9 @@ class App extends Component {
     return staffNeeded;
   }
 
-  viewSchedule = () => {
+  // viewSchedule = () => {
 
-  }
+  // }
 
   getSchedule = async () => {
     const response = await fetch('http://localhost:3000/api/v1/schedule')
@@ -100,6 +67,11 @@ class App extends Component {
     const scheduleObj = this.cleanScheduleData(scheduleData)
     const cleanEvents = await this.combineStaffAndEvent(scheduleObj)
 
+    console.log(cleanEvents)
+    cleanEvents.sort( (a,b) => {
+      return a.date - b.date
+    })
+    console.log(cleanEvents)
     this.setState({ cleanEvents })
   }
 
@@ -173,27 +145,10 @@ class App extends Component {
 
     },[])
 
+    // this.setState({ schedule: scheduleBefore })
     this.setState({ schedule })
 
   }
 
-  componentDidMount = () => {
-    this.getStaff()
-    this.getEvents();
-    this.getSchedule()
-  }
 
-  render() {
-
-    return (
-      <div className='app'>
-        <Header addUser={ this.addUser }/>
-
-        <Tabs events={this.state.cleanEvents} />
-        
-      </div>
-    );
-  }
 }
-
-export default App;
