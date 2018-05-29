@@ -54,26 +54,28 @@ export class EventForm extends Component {
     const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket } = this.state
 
     return (
-    <div>
-      <form onSubmit={this.handleSubmit}>
-        <label className='form-label'>
-          Venue
-          <select name='venue' value={ venue } onChange={ this.handleChange }>
-            <option value='Ogden Theatre'>Ogden Theatre</option>
-            <option value='Gothic Theatre'>Gothic Theatre</option>
-            <option value='Bluebird Theater'>Bluebird Theater</option>
-          </select>
-        </label>
-        <input placeholder='Name' name='name' value={ name } onChange={ this.handleChange } />
-        <input
-          type='date'
-          placeholder='Date'
-          name='date' value={ date }
-          onChange={ this.handleChange }
-          onFocus={this.showCalendar}
-          />
-        <input placeholder='Time' name='time' value={ time } onChange={ this.handleChange } />
-
+    <div className='event-div'>
+      <form className= 'event-form' onSubmit={this.handleSubmit}>
+        <div className='venue-info'>
+          <label className='form-label'>
+            Venue
+            <select className='event-select' name='venue' value={ venue } onChange={ this.handleChange }>
+              <option value='Ogden Theatre'>Ogden Theatre</option>
+              <option value='Gothic Theatre'>Gothic Theatre</option>
+              <option value='Bluebird Theater'>Bluebird Theater</option>
+            </select>
+          </label>
+          <input placeholder='Name' name='name' value={ name } onChange={ this.handleChange } />
+          <input
+            type='date'
+            placeholder='Date'
+            name='date' value={ date }
+            onChange={ this.handleChange }
+            onFocus={this.showCalendar}
+            />
+          <input placeholder='Time' name='time' value={ time } onChange={ this.handleChange } />
+      </div>
+      <div className='staff-info'>
         <label className='form-label'>
           Bar Manager needed?
           <select name='bar_manager' value={ bar_manager } onChange={ this.handleChange }>
@@ -97,9 +99,10 @@ export class EventForm extends Component {
             <option value={ false }>No</option>
           </select>
         </label>
-        <button>Add Event</button>
+      </div>
+        <button className='add-event-btn'>Add Event</button>
       </form>
-      <button onClick={ this.props.postSchedule }>Generate schedule</button>
+      <button className='generate-schedule-btn' onClick={ this.props.postSchedule }>Generate schedule</button>
     </div>
     )
   }

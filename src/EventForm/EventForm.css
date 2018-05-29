@@ -1,5 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Exo');
+
 
 form {
   display: grid;
-  width: 300px;
+  grid-template-columns: 25% 25% 25% 25%;
+  height: 70vh;
+  width: 90vw;
+}
+
+select,
+option,
+input,
+button {
+  font-family: 'Exo', sans-serif;
+  font-size: 1.3rem;
+  border-radius: 1px;
+  margin: 1rem;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid navy;
+}
+
+button {
+  border: 1px solid navy;
+}
+
+button:hover {
+  color: #972700;
+}
+
+.staff-info {
+  display: flex;
+  flex-direction: column;
+}
+/* .event-form {
+  display: flex;
+  flex-direction: row;
+} */
+
+.add-event-btn,
+.generate-schedule-btn {
+  width: 200px;
+  height: 20px;
 }
