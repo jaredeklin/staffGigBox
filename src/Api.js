@@ -61,12 +61,11 @@ export class Api  {
 
   cleanScheduleData = (schedule) => {
     const scheduleObj = schedule.reduce((obj, event) => {
-
       if(!obj[event.event_id]) {
         obj[event.event_id] = []
       }
 
-      obj[event.event_id] = [...obj[event.event_id], event.staff_id]
+      obj[event.event_id] = [...obj[event.event_id], { staff_id: event.staff_id, staff_events_id: event.id }]
 
       return obj
     }, {})
@@ -97,10 +96,14 @@ export class Api  {
   getStaffNames = (ids) => {
 
     const promise = ids.map(async person => {
-      const staffResponse = await fetch(`http://localhost:3000/api/v1/staff/${person}`)
+      const staffResponse = await fetch(`http://localhost:3000/api/v1/staff/${person.staff_id}`)
       const staffData = await staffResponse.json()
+      const staff = {
+        name: staffData[0].name,
+        staff_events_id: person.staff_events_id
+      }
 
-      return staffData[0].name
+      return staff
     })
 
     return Promise.all(promise)

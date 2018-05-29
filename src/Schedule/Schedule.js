@@ -7,7 +7,7 @@ export const Schedule = ({ event }) => {
 
   const displayStaff = staff.map((person, index) => {
 
-    return (<li key={ index }>{person}</li>)
+    return (<li key={ person.staff_events_id }>{person.name}</li>)
   })
 
   return (
