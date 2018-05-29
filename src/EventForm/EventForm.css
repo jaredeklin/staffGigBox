@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Exo');
 
 
-form {
+.event-form {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  height: 70vh;
-  width: 90vw;
+  grid-template-columns: 50% 50%;
 }
 
 select,
@@ -18,9 +16,12 @@ button {
   margin: 1rem;
 }
 
-input {
+.input_event-form {
   border: none;
   border-bottom: 1px solid navy;
+  margin: 1rem 0;
+  display: block;
+  width: 80%;
 }
 
 button {
@@ -35,13 +36,13 @@ button:hover {
   display: flex;
   flex-direction: column;
 }
-/* .event-form {
-  display: flex;
-  flex-direction: row;
-} */
 
 .add-event-btn,
 .generate-schedule-btn {
   width: 200px;
   height: 20px;
+}
+
+.event-header {
+  margin: 0;
 }
