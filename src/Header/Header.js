@@ -40,7 +40,7 @@ export class Header extends Component {
         <h1 className='app-title'>Staff Gig Box</h1>
         { this.state.user ?
           <div className='log-out-container'>
-            <img className='user-img' src={ this.state.user.photoURL } />
+            <img className='user-img' src={ this.state.user.photoURL } alt='profile pic'/>
             <button onClick={ this.logout }>Log Out</button>
           </div>
           :

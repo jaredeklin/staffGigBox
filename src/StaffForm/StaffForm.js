@@ -5,9 +5,9 @@ export class StaffForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // google_id: this.props.user.uid,
-      // name: this.props.user.displayName,
-      name: '',
+      google_id: this.props.user.uid,
+      name: this.props.user.displayName,
+      // name: '',
       bar_manager: false,
       ass_bar_manager: false,
       bartender: false,

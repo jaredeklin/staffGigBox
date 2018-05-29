@@ -26,7 +26,8 @@ export class TabContainer extends Component {
           tabName={ tabName } 
           tabIndex={ index } 
           handleTabClick={ this.handleTabClick } 
-          isActive={ index === activeTabIndex } 
+          isActive={ index === activeTabIndex }
+          key={ tabName + index } 
         />
       )
     })
@@ -36,9 +37,9 @@ export class TabContainer extends Component {
     switch (this.state.activeTabIndex) {
       case 0: return <EventForm schedule={ this.props.schedule} />;
 
-      case 1: return <StaffForm />;
+      case 1: return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
-      case 2: return this.props.events.map((event, index) => <Schedule event={event} key={index} />)
+      default: return this.props.events.map((event, index) => <Schedule event={event} key={index} />)
     }
   }
 
