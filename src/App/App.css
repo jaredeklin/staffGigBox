@@ -5,26 +5,6 @@
   height: 300px;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
-  padding: 20px;
-  background-color: navy;
-  /*background-image: url('../concert-background.jpg');*/
-  color: #FFF;
 
-}
-
-.user-area {
-  display: flex;
-  flex-direction: column;
-}
-
-.user-img {
-  width: 60px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
 
 
