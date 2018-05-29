@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css'
 import { Header } from '../Header/Header'
 import { TabContainer } from '../TabContainer/TabContainer'
-import { auth } from '../firebase.js';
 import { Api } from '../Api'
 
 class App extends Component {
@@ -18,7 +17,7 @@ class App extends Component {
       cleanEvents: []
     };
 
-    this.api = new Api
+    this.api = new Api()
   }
 
   addUser = async (user) => {
@@ -51,7 +50,7 @@ class App extends Component {
     const schedule = await this.api.generateSchedule(staff, events)
     const cleanEvents = await this.api.getSchedule()
     
-    await this.setState({ staff, events, schedule ,cleanEvents })
+    this.setState({ staff, events, schedule ,cleanEvents })
   }
 
   componentDidMount = () => {
@@ -63,7 +62,12 @@ class App extends Component {
     return (
       <div className='app'>
         <Header addUser={ this.addUser }/>
-        <TabContainer events={ this.state.cleanEvents } schedule={ this.state.schedule } />        
+        <TabContainer 
+          events={ this.state.cleanEvents } 
+          schedule={ this.state.schedule }
+          addStaff={ this.addStaff }
+          user={ this.state.user } 
+        />        
       </div>
     );
   }

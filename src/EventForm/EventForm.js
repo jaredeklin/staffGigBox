@@ -18,7 +18,7 @@ export class EventForm extends Component {
     }
 
     this.defaultState = this.state
-    this.api = new Api
+    this.api = new Api()
   }
 
   handleChange = (event) => {

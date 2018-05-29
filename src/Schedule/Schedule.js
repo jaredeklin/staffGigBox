@@ -5,9 +5,9 @@ export const Schedule = ({ event }) => {
 
   const { venue, name, date, time, staff } = event;
 
-  const displayStaff = staff.map(person => {
+  const displayStaff = staff.map((person, index) => {
 
-    return (<li>{person}</li>)
+    return (<li key={ index }>{person}</li>)
   })
 
   return (
