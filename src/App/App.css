@@ -11,7 +11,9 @@ header {
   height: 100px;
   padding: 20px;
   background-color: navy;
+  /*background-image: url('../concert-background.jpg');*/
   color: #FFF;
+
 }
 
 .user-img {
