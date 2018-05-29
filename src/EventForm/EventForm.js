@@ -41,12 +41,6 @@ export class EventForm extends Component {
     this.setState(this.defaultState)
   }
 
-  // showCalendar = (event) => {
-  //   console.log(event)
-
-  //   // return <DayPicker />
-  // }
-
   render() {
 
     const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket } = this.state
@@ -97,7 +91,6 @@ export class EventForm extends Component {
             
            />
           <label htmlFor='yes'>Yes</label>
-
           <input
             type='radio'
             id= 'no'

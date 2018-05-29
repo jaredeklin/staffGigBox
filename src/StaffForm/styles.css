@@ -1,13 +1,23 @@
 .staff-form {
   display: flex;
   flex-direction: column;
+  width: 80%;
+  margin: auto;
 }
 
 .input-name {
-  width: 15rem;
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid navy;
+  margin: 1rem 0;
 }
 
 .add-staff-btn {
   width: 15rem;
-  height: 200px;
+  margin: 1rem 0;
+  height: 2.5rem;
+}
+
+.form-header {
+  font-weight: 700;
 }

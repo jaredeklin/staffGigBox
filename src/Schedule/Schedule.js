@@ -18,8 +18,8 @@ export const Schedule = ({ event }) => {
         <h4>{ time }</h4>
       </div>
       <h2>{ name }</h2>
+      <h5>Crew</h5>
       <ul>
-        <h5>Crew</h5>
         { displayStaff }
       </ul>
     </section>

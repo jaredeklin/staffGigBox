@@ -14,7 +14,7 @@ ul {
 }
 
 .tab {
-  background: #6161a7;
+  background: navy;
   color: white;
   height: 75px;
   display: block;
@@ -35,3 +35,4 @@ ul {
   border: 1px solid black;
   overflow-y: scroll;
 }
+
