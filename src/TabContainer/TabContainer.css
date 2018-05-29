@@ -1,0 +1,36 @@
+
+.tab-container {
+  margin: 65px auto;
+  display: flex;
+  width: 80%;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  width: 15%;
+}
+
+.tab {
+  background: #6161a7;
+  color: white;
+  height: 75px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid white;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.tab.active {
+  background: #969696;
+}
+
+.active-content {
+  width: 85%;
+  padding: 20px;
+  border: 1px solid black;
+}
