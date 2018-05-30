@@ -48,6 +48,12 @@ class App extends Component {
     this.setState({ schedule })
   }
 
+  editSchedule = async () => {
+    const schedule = await this.api.getSchedule()
+
+    this.setState({ schedule })
+  }
+
   addStaff = () => {
     this.setState({
       isCurrentStaff: true,
@@ -84,6 +90,7 @@ class App extends Component {
       <div className='app'>
         <Header addUser={ this.addUser }/>
         <TabContainer
+          editSchedule = { this.editSchedule }
           schedule={ this.state.schedule }
           scheduleGenerator={ this.scheduleGenerator }
           staff={ this.state.staff }

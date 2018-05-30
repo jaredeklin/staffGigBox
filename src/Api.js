@@ -80,6 +80,7 @@ export class Api  {
       const eventData = await eventResponse.json()
       const staffNames = await this.getStaffNames(eventObj[events])
       const event = {
+        
         event_id: eventData[0].id,
         venue: eventData[0].venue,
         name: eventData[0].name,
