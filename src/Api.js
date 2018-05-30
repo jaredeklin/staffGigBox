@@ -31,7 +31,7 @@ export class Api  {
     })
 
     return scheduleBefore.reduce((acc, eventStaff) => {
-      
+
       return [...acc, ...eventStaff]
     },[])
   }
@@ -80,6 +80,7 @@ export class Api  {
       const eventData = await eventResponse.json()
       const staffNames = await this.getStaffNames(eventObj[events])
       const event = {
+        event_id: eventData[0].id,
         venue: eventData[0].venue,
         name: eventData[0].name,
         date: eventData[0].date,
@@ -124,7 +125,5 @@ export class Api  {
     })
   }
 
-  
+
 }
-
-
