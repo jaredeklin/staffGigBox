@@ -13,8 +13,7 @@ class App extends Component {
       events: [],
       schedule: [],
       isCurrentStaff: false,
-      addNewStaff: false,
-      // schedule: []
+      addNewStaff: false
     };
 
     this.api = new Api()
@@ -69,7 +68,7 @@ class App extends Component {
     const staff = await this.api.getStaff()
     const events = await this.api.getEvents()
     const schedule = await this.api.getSchedule()
-    
+
     this.setState({ staff, events, schedule })
   }
 
@@ -83,7 +82,7 @@ class App extends Component {
       <div className='app'>
         <Header addUser={ this.addUser }/>
         <TabContainer 
-          events={ this.state.schedule } 
+          schedule={ this.state.schedule } 
           scheduleGenerator={ this.scheduleGenerator }
           addStaff={ this.addStaff }
           user={ this.state.user } 

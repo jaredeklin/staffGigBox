@@ -39,7 +39,15 @@ export class TabContainer extends Component {
 
       case 1: return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
-      default: return this.props.events.map((event, index) => <Schedule event={event} key={index} deleteFromSchedule={this.props.deleteFromSchedule}/>)
+      default: return this.props.schedule.map((event, index) => {
+        return (
+          <Schedule 
+            event={ event } 
+            key={index} 
+            deleteFromSchedule={this.props.deleteFromSchedule}
+          />
+        )
+      })
     }
   }
 
