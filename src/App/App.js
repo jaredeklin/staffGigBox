@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css'
 import { Header } from '../Header/Header'
 import { TabContainer } from '../TabContainer/TabContainer'
-import { Api } from '../Api'
+import { Api } from '../Api';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -42,7 +44,13 @@ class App extends Component {
     })
 
     const schedule = await this.api.getSchedule()
-    
+
+    this.setState({ schedule })
+  }
+
+  editSchedule = async () => {
+    const schedule = await this.api.getSchedule()
+
     this.setState({ schedule })
   }
 
@@ -81,13 +89,15 @@ class App extends Component {
     return (
       <div className='app'>
         <Header addUser={ this.addUser }/>
-        <TabContainer 
-          schedule={ this.state.schedule } 
+        <TabContainer
+          editSchedule = { this.editSchedule }
+          schedule={ this.state.schedule }
           scheduleGenerator={ this.scheduleGenerator }
+          staff={ this.state.staff }
           addStaff={ this.addStaff }
-          user={ this.state.user } 
+          user={ this.state.user }
           deleteFromSchedule= { this.deleteFromSchedule }
-        />        
+        />
       </div>
     );
   }

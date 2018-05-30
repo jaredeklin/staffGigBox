@@ -22,12 +22,12 @@ export class TabContainer extends Component {
 
     return tabs.map((tabName, index) => {
       return (
-        <Tab 
-          tabName={ tabName } 
-          tabIndex={ index } 
-          handleTabClick={ this.handleTabClick } 
+        <Tab
+          tabName={ tabName }
+          tabIndex={ index }
+          handleTabClick={ this.handleTabClick }
           isActive={ index === activeTabIndex }
-          key={ tabName + index } 
+          key={ tabName + index }
         />
       )
     })
@@ -41,9 +41,11 @@ export class TabContainer extends Component {
 
       default: return this.props.schedule.map((event, index) => {
         return (
-          <Schedule 
-            event={ event } 
-            key={index} 
+          <Schedule
+            editSchedule={ this.props.editSchedule }
+            staffList= { this.props.staff }
+            event={ event }
+            key={ event.event_id }
             deleteFromSchedule={this.props.deleteFromSchedule}
           />
         )
