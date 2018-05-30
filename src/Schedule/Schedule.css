@@ -19,16 +19,43 @@
 h4 {
   margin: 5px;
   font-family: 'Exo', sans-serif;
-
 }
 
 .active-content ul {
   list-style-type: none;
   columns: 2 200px;
   height: 100px;
-  /*column-width: 100px;*/
+  width: unset;
 }
 
 .active-content li {
   width: 200px;
 }
+
+.delete, .edit {
+  display: none;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 5px;
+  float: right;
+  border: none;
+}
+
+.delete {
+  background-image: url('../images/trash.svg');
+}
+
+.delete:hover {
+  /*background-image: url('../images/trash-hover.svg');*/
+}
+
+.edit {
+  background-image: url('../images/pencil.svg');
+}
+
+.active-content li:hover .delete,
+.active-content li:hover .edit {
+  display: unset;
+}
+
+

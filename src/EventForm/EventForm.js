@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './EventForm.css';
+import { Api } from '../Api'
 
 
 export class EventForm extends Component {
@@ -18,6 +19,7 @@ export class EventForm extends Component {
     }
 
     this.defaultState = this.state
+    this.api = new Api()
   }
 
   handleChange = (event) => {
@@ -42,7 +44,7 @@ export class EventForm extends Component {
   }
 
   render() {
-
+    
     const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket } = this.state
 
     return (
@@ -150,7 +152,10 @@ export class EventForm extends Component {
       </div>
         <button className='add-event-btn'>Add Event</button>
       </form>
-      <button className='generate-schedule-btn' onClick={ this.props.postSchedule }>Generate schedule</button>
+      <button 
+        className='generate-schedule-btn' 
+        onClick={ this.props.scheduleGenerator }
+      >Generate schedule</button>
     </div>
     )
   }

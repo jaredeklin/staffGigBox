@@ -35,11 +35,11 @@ export class TabContainer extends Component {
 
   activeContent = () => {
     switch (this.state.activeTabIndex) {
-      case 0: return <EventForm schedule={ this.props.schedule} />;
+      case 0: return <EventForm scheduleGenerator={ this.props.scheduleGenerator } />;
 
       case 1: return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
-      default: return this.props.events.map((event, index) => <Schedule event={event} key={index} />)
+      default: return this.props.events.map((event, index) => <Schedule event={event} key={index} deleteFromSchedule={this.props.deleteFromSchedule}/>)
     }
   }
 
