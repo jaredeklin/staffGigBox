@@ -1,13 +1,22 @@
 import React from 'react'
 import './Schedule.css'
 
-export const Schedule = ({ event }) => {
+export const Schedule = ({ event, deleteFromSchedule }) => {
 
   const { venue, name, date, time, staff } = event;
 
   const displayStaff = staff.map((person, index) => {
 
-    return (<li key={ index }>{person}</li>)
+    return (
+      <li key={ person.staff_events_id }>
+        {person.name}
+        <button 
+          className='delete' 
+          onClick={() => deleteFromSchedule(person.staff_events_id)}
+        ></button>
+        <button className='edit'></button>
+      </li>
+    )
   })
 
   return (

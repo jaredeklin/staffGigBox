@@ -13,8 +13,7 @@ class App extends Component {
       events: [],
       schedule: [],
       isCurrentStaff: false,
-      addNewStaff: false,
-      cleanEvents: []
+      addNewStaff: false
     };
 
     this.api = new Api()
@@ -36,6 +35,17 @@ class App extends Component {
     }
   }
 
+  deleteFromSchedule = async (id) => {
+
+    await fetch(`http://localhost:3000/api/v1/schedule/${id}`, {
+      method: 'DELETE'
+    })
+
+    const schedule = await this.api.getSchedule()
+    
+    this.setState({ schedule })
+  }
+
   addStaff = () => {
     this.setState({
       isCurrentStaff: true,
@@ -43,14 +53,23 @@ class App extends Component {
     })
   }
 
+  scheduleGenerator = async () => {
+    const { staff, events } = this.state
+    const generatedSchedule = this.api.generateSchedule(staff, events)
+
+    await this.api.postSchedule(generatedSchedule)
+    const schedule = await this.api.getSchedule()
+
+    this.setState({ schedule })
+  }
+
 
   updateStateFromHelpers = async () => {
     const staff = await this.api.getStaff()
     const events = await this.api.getEvents()
-    const schedule = await this.api.generateSchedule(staff, events)
-    const cleanEvents = await this.api.getSchedule()
-    
-    this.setState({ staff, events, schedule ,cleanEvents })
+    const schedule = await this.api.getSchedule()
+
+    this.setState({ staff, events, schedule })
   }
 
   componentDidMount = () => {
@@ -63,10 +82,11 @@ class App extends Component {
       <div className='app'>
         <Header addUser={ this.addUser }/>
         <TabContainer 
-          events={ this.state.cleanEvents } 
-          schedule={ this.state.schedule }
+          schedule={ this.state.schedule } 
+          scheduleGenerator={ this.scheduleGenerator }
           addStaff={ this.addStaff }
           user={ this.state.user } 
+          deleteFromSchedule= { this.deleteFromSchedule }
         />        
       </div>
     );
