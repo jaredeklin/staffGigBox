@@ -29,9 +29,7 @@ export class Schedule extends Component {
 
     console.log(await response.json())
     this.props.editSchedule()
-    this.setState({
-      edit: false
-    })
+    this.setState({ edit: false })
   }
 
 
@@ -49,7 +47,7 @@ export class Schedule extends Component {
             ></button>
             <button className='edit'
               onClick={() => this.setState({
-                edit: !this.state.edit ,
+                edit: !this.state.edit,
                 staff_events_id: person.staff_events_id
               })}></button>
           </li>
@@ -80,41 +78,3 @@ export class Schedule extends Component {
     )
   }
 }
-
-// export const Schedule = ({ event, deleteFromSchedule, staffList }) => {
-//
-//   const { venue, name, date, time, staff, event_id } = event;
-//   let edit = true;
-//   const displayStaff = staff.map((person, index) => {
-//
-//     return (
-//       <li key={ person.staff_events_id }>
-//         {person.name}
-//         <button
-//           className='delete'
-//           onClick={() => deleteFromSchedule(person.staff_events_id)}
-//         ></button>
-//         <button className='edit'></button>
-//       </li>
-//     )
-//   })
-//
-//   return (
-//     <section className='schedule-card'>
-//       <div className='schedule-container'>
-//         <h4>{ date }</h4>
-//         <h4>{ venue }</h4>
-//         <h4>{ time }</h4>
-//       </div>
-//       <h2>{ name }</h2>
-//       <h5>Crew</h5>
-//       {
-//         edit &&
-//         <EditStaffSelect staff={ staffList } event_id={ event_id }/>
-//       }
-//       <ul>
-//         { displayStaff }
-//       </ul>
-//     </section>
-//   )
-// }

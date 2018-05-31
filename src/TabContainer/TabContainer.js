@@ -11,11 +11,21 @@ export class TabContainer extends Component {
     super(props);
     this.state = {
       activeTabIndex: 0,
-      tabs: ['Event Form', 'Staff Form', 'Schedule']
+      tabs: ['Event Form', 'Staff Form', 'Schedule'],
+      manualSchedule: false,
+      manualScheduleData: {}
     };
   }
 
   handleTabClick = (activeTabIndex) => this.setState({ activeTabIndex });
+
+  checkManualSchedule = (eventData) => {
+    this.setState({ 
+      manualSchedule: true,
+      manualScheduleData: eventData 
+    })
+    // console.log(eventData)
+  }
 
   displayTabs = () => {
     const { tabs, activeTabIndex } = this.state
@@ -33,9 +43,22 @@ export class TabContainer extends Component {
     })
   };
 
+  checkForManuel = () => {
+    if ( this.state.manualSchedule ) {
+      return <h1>manually enter schedule here</h1>
+    } else {
+      return (
+        <EventForm 
+          scheduleGenerator={ this.props.scheduleGenerator }
+          checkManualSchedule={ this.checkManualSchedule } 
+        />
+      );
+    }
+  }
+
   activeContent = () => {
     switch (this.state.activeTabIndex) {
-      case 0: return <EventForm scheduleGenerator={ this.props.scheduleGenerator } />;
+      case 0: return this.checkForManuel()
 
       case 1: return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
