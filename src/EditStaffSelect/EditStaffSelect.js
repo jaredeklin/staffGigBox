@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class EditStaffSelect extends Component {
+export class EditStaffSelect extends Component {
   constructor(props) {
     super(props);
 

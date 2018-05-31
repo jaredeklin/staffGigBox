@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Schedule.css';
-import EditStaffSelect from '../EditStaffSelect/EditStaffSelect';
+import { EditStaffSelect } from '../EditStaffSelect/EditStaffSelect';
 
 export class Schedule extends Component {
   constructor(props) {

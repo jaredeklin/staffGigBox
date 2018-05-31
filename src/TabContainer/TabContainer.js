@@ -3,6 +3,7 @@ import { Tab } from '../Tab/Tab'
 import { EventForm } from '../EventForm/EventForm'
 import { StaffForm } from '../StaffForm/StaffForm'
 import { Schedule } from '../Schedule/Schedule'
+import { ManualMakeSchedule } from '../ManualMakeSchedule/ManualMakeSchedule'
 import './TabContainer.css'
 
 export class TabContainer extends Component {
@@ -45,7 +46,7 @@ export class TabContainer extends Component {
 
   checkForManuel = () => {
     if ( this.state.manualSchedule ) {
-      return <h1>manually enter schedule here</h1>
+      return <ManualMakeSchedule scheduleData={ this.state.manualScheduleData } staffList={ this.props.staff } />
     } else {
       return (
         <EventForm 
