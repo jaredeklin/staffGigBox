@@ -37,17 +37,21 @@ export class Api  {
   }
 
   getNumberOfStaff = (event) => {
-    let staffNeeded = event.bartenders + event.barbacks;
 
-    if (event.bar_manager) {
-      staffNeeded++
+    if( event ){
+      
+      let staffNeeded = event.bartenders + event.barbacks;
+
+      if (event.bar_manager) {
+        staffNeeded++
+      }
+
+      if (event.ass_bar_manager) {
+        staffNeeded++
+      }
+
+      return staffNeeded;
     }
-
-    if (event.ass_bar_manager) {
-      staffNeeded++
-    }
-
-    return staffNeeded;
   }
 
   getSchedule = async () => {

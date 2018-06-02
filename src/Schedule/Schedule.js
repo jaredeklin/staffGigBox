@@ -1,21 +1,24 @@
 import React, { Component } from 'react'
 import './Schedule.css';
-import EditStaffSelect from '../EditStaffSelect/EditStaffSelect';
+import { EditStaffSelect } from '../EditStaffSelect/EditStaffSelect';
+import { Api } from '../Api'
 
 export class Schedule extends Component {
   constructor(props) {
     super(props);
-
+    this.api = new Api()
     this.state = {
       staff_id: '',
       event_id: '',
       staff_events_id: '',
-      edit: false
+      edit: false,
+      manualSchedule: false || this.props.manualSchedule
+      // staffNeeded: this.api.getNumberOfStaff(this.props.scheduleData)
     }
   }
 
   updateEventStaff = async ({staff_id, event_id}) => {
-    console.log(event_id)
+    console.log('staff:', staff_id, 'event', event_id)
     const response = await fetch(`http://localhost:3000/api/v1/schedule/${this.state.staff_events_id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -29,32 +32,83 @@ export class Schedule extends Component {
 
     console.log(await response.json())
     this.props.editSchedule()
-    this.setState({
-      edit: false
+    this.setState({ edit: false })
+  }
+
+
+  handleEditClick = (person) => {
+    console.log(person)
+    this.setState({ edit: !this.state.edit })
+
+    if ( !this.state.manualSchedule ) {
+      this.setState({
+        staff_events_id: person.staff_events_id
+      })
+    } 
+  }
+
+  displayEmpty = () => {
+    let staffNeeded = this.api.getNumberOfStaff(this.props.scheduleData)
+    const emptyStaffArray = []
+
+    for (let i = 0; i < staffNeeded; i++) {
+      emptyStaffArray.push(`Staff ${i + 1}`)
+    }
+
+    return emptyStaffArray.map((staff) => {
+
+      return (
+        <li>{staff}
+          <button 
+            className='edit' 
+            onClick={ () => this.handleEditClick(this.props.event.event_id)}>
+          </button>
+        </li>)
     })
   }
 
+  displayStaff = () => {
+    return this.props.event.staff.map((person, index) => {
+
+      return (
+        <li>
+          {person.name}     
+          <button
+            className='delete'
+            onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+          </button>
+          <button 
+            className='edit'
+            onClick={ () => this.handleEditClick(person) }>
+          </button>
+        </li>
+      )
+    })  
+  }
+
+  addSchedule = () => {
+
+  }
 
   render() {
     const { venue, name, date, time, staff, event_id } = this.props.event
 
-    const displayStaff = staff.map((person, index) => {
+    const handleEditDropdown = (event_id) => {
+      
+      if( this.state.edit ) {
 
-      return (
-        <li key={ person.staff_events_id }>
-          {person.name}
-          <button
-            className='delete'
-            onClick={() => this.props.deleteFromSchedule(person.staff_events_id)}
-            ></button>
-            <button className='edit'
-              onClick={() => this.setState({
-                edit: !this.state.edit ,
-                staff_events_id: person.staff_events_id
-              })}></button>
-          </li>
-        )
-      })
+        return (
+          <EditStaffSelect
+            staff={ this.props.staffList }
+            // manualSchedule={}
+            // this.props.manualSchedule or this.state.manualSchdule ?
+            // or none at all
+            event_id={ event_id }
+            updateEventStaff={ this.props.manualSchedule ? this.addSchedule : this.updateEventStaff }
+          />
+        ) 
+      }
+    }
 
     return (
       <section className='schedule-card'>
@@ -65,56 +119,11 @@ export class Schedule extends Component {
         </div>
         <h2>{ name }</h2>
         <h5>Crew</h5>
-        {
-          this.state.edit &&
-          <EditStaffSelect
-            staff={ this.props.staffList }
-            event_id={ event_id }
-            updateEventStaff={ this.updateEventStaff }
-          />
-        }
+        { handleEditDropdown(event_id) }
         <ul>
-          { displayStaff }
+          { this.props.manualSchedule ? this.displayEmpty() : this.displayStaff() }
         </ul>
       </section>
     )
   }
 }
-
-// export const Schedule = ({ event, deleteFromSchedule, staffList }) => {
-//
-//   const { venue, name, date, time, staff, event_id } = event;
-//   let edit = true;
-//   const displayStaff = staff.map((person, index) => {
-//
-//     return (
-//       <li key={ person.staff_events_id }>
-//         {person.name}
-//         <button
-//           className='delete'
-//           onClick={() => deleteFromSchedule(person.staff_events_id)}
-//         ></button>
-//         <button className='edit'></button>
-//       </li>
-//     )
-//   })
-//
-//   return (
-//     <section className='schedule-card'>
-//       <div className='schedule-container'>
-//         <h4>{ date }</h4>
-//         <h4>{ venue }</h4>
-//         <h4>{ time }</h4>
-//       </div>
-//       <h2>{ name }</h2>
-//       <h5>Crew</h5>
-//       {
-//         edit &&
-//         <EditStaffSelect staff={ staffList } event_id={ event_id }/>
-//       }
-//       <ul>
-//         { displayStaff }
-//       </ul>
-//     </section>
-//   )
-// }
