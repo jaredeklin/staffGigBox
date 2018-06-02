@@ -39,7 +39,7 @@ export class Api  {
   getNumberOfStaff = (event) => {
 
     if( event ){
-      
+
       let staffNeeded = event.bartenders + event.barbacks;
 
       if (event.bar_manager) {
@@ -55,6 +55,7 @@ export class Api  {
   }
 
   getSchedule = async () => {
+    console.log('here')
     const response = await fetch('http://localhost:3000/api/v1/schedule')
     const scheduleData = await response.json()
     const scheduleObj = this.cleanScheduleData(scheduleData)
@@ -84,7 +85,7 @@ export class Api  {
       const eventData = await eventResponse.json()
       const staffNames = await this.getStaffNames(eventObj[events])
       const event = {
-        
+
         event_id: eventData[0].id,
         venue: eventData[0].venue,
         name: eventData[0].name,
