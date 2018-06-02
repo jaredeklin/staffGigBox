@@ -39,7 +39,7 @@ export class Api  {
   getNumberOfStaff = (event) => {
 
     if( event ){
-      
+
       let staffNeeded = event.bartenders + event.barbacks;
 
       if (event.bar_manager) {
@@ -70,7 +70,6 @@ export class Api  {
       }
 
       obj[event.event_id] = [...obj[event.event_id], { staff_id: event.staff_id, staff_events_id: event.id }]
-
       return obj
     }, {})
 
@@ -79,12 +78,11 @@ export class Api  {
 
   combineStaffAndEvent = (eventObj) => {
     const eventWithStaff = Object.keys(eventObj).map(async events => {
-
       const eventResponse = await fetch(`http://localhost:3000/api/v1/events/${events}`)
       const eventData = await eventResponse.json()
       const staffNames = await this.getStaffNames(eventObj[events])
       const event = {
-        
+
         event_id: eventData[0].id,
         venue: eventData[0].venue,
         name: eventData[0].name,
@@ -126,7 +124,6 @@ export class Api  {
       })
 
       const data = await response.json();
-      console.log(data)
     })
   }
 

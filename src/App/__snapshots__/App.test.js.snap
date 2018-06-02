@@ -21,9 +21,14 @@ ShallowWrapper {
         <Header
           addUser={[Function]}
 />,
-        <Unknown
-          postSchedule={[Function]}
+        <TabContainer
+          addStaff={[Function]}
+          deleteFromSchedule={[Function]}
+          editSchedule={[Function]}
           schedule={Array []}
+          scheduleGenerator={[Function]}
+          staff={Array []}
+          user={null}
 />,
       ],
       "className": "app",
@@ -44,10 +49,15 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "postSchedule": [Function],
+          "addStaff": [Function],
+          "deleteFromSchedule": [Function],
+          "editSchedule": [Function],
           "schedule": Array [],
+          "scheduleGenerator": [Function],
+          "staff": Array [],
+          "user": null,
         },
         "ref": null,
         "rendered": null,
@@ -66,9 +76,14 @@ ShallowWrapper {
           <Header
             addUser={[Function]}
 />,
-          <Unknown
-            postSchedule={[Function]}
+          <TabContainer
+            addStaff={[Function]}
+            deleteFromSchedule={[Function]}
+            editSchedule={[Function]}
             schedule={Array []}
+            scheduleGenerator={[Function]}
+            staff={Array []}
+            user={null}
 />,
         ],
         "className": "app",
@@ -89,10 +104,15 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
-            "postSchedule": [Function],
+            "addStaff": [Function],
+            "deleteFromSchedule": [Function],
+            "editSchedule": [Function],
             "schedule": Array [],
+            "scheduleGenerator": [Function],
+            "staff": Array [],
+            "user": null,
           },
           "ref": null,
           "rendered": null,
@@ -108,6 +128,7 @@ ShallowWrapper {
         "enableComponentDidUpdateOnSetState": true,
       },
     },
+    "disableLifecycleMethods": true,
   },
 }
 `;

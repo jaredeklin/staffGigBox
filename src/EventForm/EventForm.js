@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './EventForm.css';
-import { Api } from '../Api'
+import { Api } from '../Api/Api'
 
 
 export class EventForm extends Component {
@@ -58,7 +58,7 @@ export class EventForm extends Component {
   }
 
   render() {
-    
+
     const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket } = this.state
 
     return (
@@ -125,11 +125,11 @@ export class EventForm extends Component {
              />
             <label htmlFor='yes'>Yes</label>
 
-            <input 
-              type='radio' 
-              id= 'no' value={ false } 
-              name='ass_bar_manager' 
-              onChange={ this.handleChange } 
+            <input
+              type='radio'
+              id= 'no' value={ false }
+              name='ass_bar_manager'
+              onChange={ this.handleChange }
             />
             <label htmlFor='no'>No</label>
 
@@ -162,7 +162,7 @@ export class EventForm extends Component {
               name='beer_bucket'
               onChange={ this.handleChange }
             />
-            <label htmlFor='no'>No</label> 
+            <label htmlFor='no'>No</label>
           </label>
           <label className='form-label'>
             Would like to assign staff to this event?
@@ -180,13 +180,13 @@ export class EventForm extends Component {
               name='manualSchedule'
               onChange={ this.handleChange }
             />
-            <label htmlFor='no'>No</label> 
+            <label htmlFor='no'>No</label>
           </label>
         </div>
           <button className='add-event-btn'>Add Event</button>
         </form>
-        <button 
-          className='generate-schedule-btn' 
+        <button
+          className='generate-schedule-btn'
           onClick={ this.props.scheduleGenerator }
         >Generate schedule</button>
       </div>

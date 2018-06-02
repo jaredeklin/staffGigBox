@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import { Header } from '../Header/Header'
 import { TabContainer } from '../TabContainer/TabContainer'
-import { Api } from '../Api';
+import { Api } from '../Api/Api';
 
 
 
@@ -28,7 +28,6 @@ class App extends Component {
 
     if (user) {
       const match = staff.find(person => person.google_id === user.uid)
-
       if( match) {
         this.setState({ isCurrentStaff: true })
       } else {
@@ -43,9 +42,7 @@ class App extends Component {
       method: 'DELETE'
     })
 
-    const schedule = await this.api.getSchedule()
-
-    this.setState({ schedule })
+    this.editSchedule()
   }
 
   editSchedule = async () => {
@@ -66,9 +63,8 @@ class App extends Component {
     const generatedSchedule = this.api.generateSchedule(staff, events)
 
     await this.api.postSchedule(generatedSchedule)
-    const schedule = await this.api.getSchedule()
 
-    this.setState({ schedule })
+    this.editSchedule()
   }
 
 

@@ -1,0 +1,1432 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StaffForm should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <StaffForm
+    addStaff={[Function]}
+    user={
+        Object {
+            "uid": 123456,
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h4>
+          Add new staff member
+</h4>,
+        <input
+          className="input-name"
+          name="name"
+          onChange={[Function]}
+          placeholder="Name"
+          value=""
+/>,
+        <label
+          className="form-label form-header"
+>
+          Select all that apply:
+</label>,
+        <label
+          className="form-label"
+>
+          Are you a Bar Manager?
+          <input
+                    id="yes"
+                    name="bar_manager"
+                    onChange={[Function]}
+                    type="radio"
+                    value={true}
+          />
+          <label
+                    htmlFor="yes"
+          >
+                    Yes
+          </label>
+          <input
+                    id="no"
+                    name="bar_manager"
+                    onChange={[Function]}
+                    type="radio"
+                    value={false}
+          />
+          <label
+                    htmlFor="no"
+          >
+                    No
+          </label>
+</label>,
+        <label
+          className="form-label"
+>
+          Are you an Assistant Bar Manager?
+          <input
+                    id="yes"
+                    name="ass_bar_manager"
+                    onChange={[Function]}
+                    type="radio"
+                    value={true}
+          />
+          <label
+                    htmlFor="yes"
+          >
+                    Yes
+          </label>
+          <input
+                    id="no"
+                    name="ass_bar_manager"
+                    onChange={[Function]}
+                    type="radio"
+                    value={false}
+          />
+          <label
+                    htmlFor="no"
+          >
+                    No
+          </label>
+</label>,
+        <label
+          className="form-label"
+>
+          Are you Bartender?
+          <input
+                    id="yes"
+                    name="bartender"
+                    onChange={[Function]}
+                    type="radio"
+                    value={true}
+          />
+          <label
+                    htmlFor="yes"
+          >
+                    Yes
+          </label>
+          <input
+                    id="no"
+                    name="bartender"
+                    onChange={[Function]}
+                    type="radio"
+                    value={false}
+          />
+          <label
+                    htmlFor="no"
+          >
+                    No
+          </label>
+</label>,
+        <label
+          className="form-label"
+>
+          Are you Barback?
+          <input
+                    id="yes"
+                    name="barback"
+                    onChange={[Function]}
+                    type="radio"
+                    value={true}
+          />
+          <label
+                    htmlFor="yes"
+          >
+                    Yes
+          </label>
+          <input
+                    id="no"
+                    name="barback"
+                    onChange={[Function]}
+                    type="radio"
+                    value={false}
+          />
+          <label
+                    htmlFor="no"
+          >
+                    No
+          </label>
+</label>,
+        <label
+          className="form-label"
+>
+          Do you work the Beer Bucket?
+          <input
+                    id="yes"
+                    name="beer_bucket"
+                    onChange={[Function]}
+                    type="radio"
+                    value={true}
+          />
+          <label
+                    htmlFor="yes"
+          >
+                    Yes
+          </label>
+          <input
+                    id="no"
+                    name="beer_bucket"
+                    onChange={[Function]}
+                    type="radio"
+                    value={false}
+          />
+          <label
+                    htmlFor="no"
+          >
+                    No
+          </label>
+</label>,
+        <button
+          className="add-staff-btn"
+>
+          Add Staff Member
+</button>,
+      ],
+      "className": "staff-form",
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Add new staff member",
+        },
+        "ref": null,
+        "rendered": "Add new staff member",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "input-name",
+          "name": "name",
+          "onChange": [Function],
+          "placeholder": "Name",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Select all that apply:",
+          "className": "form-label form-header",
+        },
+        "ref": null,
+        "rendered": "Select all that apply:",
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Are you a Bar Manager?",
+            <input
+              id="yes"
+              name="bar_manager"
+              onChange={[Function]}
+              type="radio"
+              value={true}
+/>,
+            <label
+              htmlFor="yes"
+>
+              Yes
+</label>,
+            <input
+              id="no"
+              name="bar_manager"
+              onChange={[Function]}
+              type="radio"
+              value={false}
+/>,
+            <label
+              htmlFor="no"
+>
+              No
+</label>,
+          ],
+          "className": "form-label",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Are you a Bar Manager?",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "yes",
+              "name": "bar_manager",
+              "onChange": [Function],
+              "type": "radio",
+              "value": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Yes",
+              "htmlFor": "yes",
+            },
+            "ref": null,
+            "rendered": "Yes",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "no",
+              "name": "bar_manager",
+              "onChange": [Function],
+              "type": "radio",
+              "value": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "No",
+              "htmlFor": "no",
+            },
+            "ref": null,
+            "rendered": "No",
+            "type": "label",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Are you an Assistant Bar Manager?",
+            <input
+              id="yes"
+              name="ass_bar_manager"
+              onChange={[Function]}
+              type="radio"
+              value={true}
+/>,
+            <label
+              htmlFor="yes"
+>
+              Yes
+</label>,
+            <input
+              id="no"
+              name="ass_bar_manager"
+              onChange={[Function]}
+              type="radio"
+              value={false}
+/>,
+            <label
+              htmlFor="no"
+>
+              No
+</label>,
+          ],
+          "className": "form-label",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Are you an Assistant Bar Manager?",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "yes",
+              "name": "ass_bar_manager",
+              "onChange": [Function],
+              "type": "radio",
+              "value": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Yes",
+              "htmlFor": "yes",
+            },
+            "ref": null,
+            "rendered": "Yes",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "no",
+              "name": "ass_bar_manager",
+              "onChange": [Function],
+              "type": "radio",
+              "value": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "No",
+              "htmlFor": "no",
+            },
+            "ref": null,
+            "rendered": "No",
+            "type": "label",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Are you Bartender?",
+            <input
+              id="yes"
+              name="bartender"
+              onChange={[Function]}
+              type="radio"
+              value={true}
+/>,
+            <label
+              htmlFor="yes"
+>
+              Yes
+</label>,
+            <input
+              id="no"
+              name="bartender"
+              onChange={[Function]}
+              type="radio"
+              value={false}
+/>,
+            <label
+              htmlFor="no"
+>
+              No
+</label>,
+          ],
+          "className": "form-label",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Are you Bartender?",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "yes",
+              "name": "bartender",
+              "onChange": [Function],
+              "type": "radio",
+              "value": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Yes",
+              "htmlFor": "yes",
+            },
+            "ref": null,
+            "rendered": "Yes",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "no",
+              "name": "bartender",
+              "onChange": [Function],
+              "type": "radio",
+              "value": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "No",
+              "htmlFor": "no",
+            },
+            "ref": null,
+            "rendered": "No",
+            "type": "label",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Are you Barback?",
+            <input
+              id="yes"
+              name="barback"
+              onChange={[Function]}
+              type="radio"
+              value={true}
+/>,
+            <label
+              htmlFor="yes"
+>
+              Yes
+</label>,
+            <input
+              id="no"
+              name="barback"
+              onChange={[Function]}
+              type="radio"
+              value={false}
+/>,
+            <label
+              htmlFor="no"
+>
+              No
+</label>,
+          ],
+          "className": "form-label",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Are you Barback?",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "yes",
+              "name": "barback",
+              "onChange": [Function],
+              "type": "radio",
+              "value": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Yes",
+              "htmlFor": "yes",
+            },
+            "ref": null,
+            "rendered": "Yes",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "no",
+              "name": "barback",
+              "onChange": [Function],
+              "type": "radio",
+              "value": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "No",
+              "htmlFor": "no",
+            },
+            "ref": null,
+            "rendered": "No",
+            "type": "label",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Do you work the Beer Bucket?",
+            <input
+              id="yes"
+              name="beer_bucket"
+              onChange={[Function]}
+              type="radio"
+              value={true}
+/>,
+            <label
+              htmlFor="yes"
+>
+              Yes
+</label>,
+            <input
+              id="no"
+              name="beer_bucket"
+              onChange={[Function]}
+              type="radio"
+              value={false}
+/>,
+            <label
+              htmlFor="no"
+>
+              No
+</label>,
+          ],
+          "className": "form-label",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Do you work the Beer Bucket?",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "yes",
+              "name": "beer_bucket",
+              "onChange": [Function],
+              "type": "radio",
+              "value": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Yes",
+              "htmlFor": "yes",
+            },
+            "ref": null,
+            "rendered": "Yes",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "no",
+              "name": "beer_bucket",
+              "onChange": [Function],
+              "type": "radio",
+              "value": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "No",
+              "htmlFor": "no",
+            },
+            "ref": null,
+            "rendered": "No",
+            "type": "label",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Add Staff Member",
+          "className": "add-staff-btn",
+        },
+        "ref": null,
+        "rendered": "Add Staff Member",
+        "type": "button",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h4>
+            Add new staff member
+</h4>,
+          <input
+            className="input-name"
+            name="name"
+            onChange={[Function]}
+            placeholder="Name"
+            value=""
+/>,
+          <label
+            className="form-label form-header"
+>
+            Select all that apply:
+</label>,
+          <label
+            className="form-label"
+>
+            Are you a Bar Manager?
+            <input
+                        id="yes"
+                        name="bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+            />
+            <label
+                        htmlFor="yes"
+            >
+                        Yes
+            </label>
+            <input
+                        id="no"
+                        name="bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+            />
+            <label
+                        htmlFor="no"
+            >
+                        No
+            </label>
+</label>,
+          <label
+            className="form-label"
+>
+            Are you an Assistant Bar Manager?
+            <input
+                        id="yes"
+                        name="ass_bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+            />
+            <label
+                        htmlFor="yes"
+            >
+                        Yes
+            </label>
+            <input
+                        id="no"
+                        name="ass_bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+            />
+            <label
+                        htmlFor="no"
+            >
+                        No
+            </label>
+</label>,
+          <label
+            className="form-label"
+>
+            Are you Bartender?
+            <input
+                        id="yes"
+                        name="bartender"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+            />
+            <label
+                        htmlFor="yes"
+            >
+                        Yes
+            </label>
+            <input
+                        id="no"
+                        name="bartender"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+            />
+            <label
+                        htmlFor="no"
+            >
+                        No
+            </label>
+</label>,
+          <label
+            className="form-label"
+>
+            Are you Barback?
+            <input
+                        id="yes"
+                        name="barback"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+            />
+            <label
+                        htmlFor="yes"
+            >
+                        Yes
+            </label>
+            <input
+                        id="no"
+                        name="barback"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+            />
+            <label
+                        htmlFor="no"
+            >
+                        No
+            </label>
+</label>,
+          <label
+            className="form-label"
+>
+            Do you work the Beer Bucket?
+            <input
+                        id="yes"
+                        name="beer_bucket"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+            />
+            <label
+                        htmlFor="yes"
+            >
+                        Yes
+            </label>
+            <input
+                        id="no"
+                        name="beer_bucket"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+            />
+            <label
+                        htmlFor="no"
+            >
+                        No
+            </label>
+</label>,
+          <button
+            className="add-staff-btn"
+>
+            Add Staff Member
+</button>,
+        ],
+        "className": "staff-form",
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Add new staff member",
+          },
+          "ref": null,
+          "rendered": "Add new staff member",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input-name",
+            "name": "name",
+            "onChange": [Function],
+            "placeholder": "Name",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Select all that apply:",
+            "className": "form-label form-header",
+          },
+          "ref": null,
+          "rendered": "Select all that apply:",
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Are you a Bar Manager?",
+              <input
+                id="yes"
+                name="bar_manager"
+                onChange={[Function]}
+                type="radio"
+                value={true}
+/>,
+              <label
+                htmlFor="yes"
+>
+                Yes
+</label>,
+              <input
+                id="no"
+                name="bar_manager"
+                onChange={[Function]}
+                type="radio"
+                value={false}
+/>,
+              <label
+                htmlFor="no"
+>
+                No
+</label>,
+            ],
+            "className": "form-label",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Are you a Bar Manager?",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "yes",
+                "name": "bar_manager",
+                "onChange": [Function],
+                "type": "radio",
+                "value": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Yes",
+                "htmlFor": "yes",
+              },
+              "ref": null,
+              "rendered": "Yes",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "no",
+                "name": "bar_manager",
+                "onChange": [Function],
+                "type": "radio",
+                "value": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "No",
+                "htmlFor": "no",
+              },
+              "ref": null,
+              "rendered": "No",
+              "type": "label",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Are you an Assistant Bar Manager?",
+              <input
+                id="yes"
+                name="ass_bar_manager"
+                onChange={[Function]}
+                type="radio"
+                value={true}
+/>,
+              <label
+                htmlFor="yes"
+>
+                Yes
+</label>,
+              <input
+                id="no"
+                name="ass_bar_manager"
+                onChange={[Function]}
+                type="radio"
+                value={false}
+/>,
+              <label
+                htmlFor="no"
+>
+                No
+</label>,
+            ],
+            "className": "form-label",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Are you an Assistant Bar Manager?",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "yes",
+                "name": "ass_bar_manager",
+                "onChange": [Function],
+                "type": "radio",
+                "value": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Yes",
+                "htmlFor": "yes",
+              },
+              "ref": null,
+              "rendered": "Yes",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "no",
+                "name": "ass_bar_manager",
+                "onChange": [Function],
+                "type": "radio",
+                "value": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "No",
+                "htmlFor": "no",
+              },
+              "ref": null,
+              "rendered": "No",
+              "type": "label",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Are you Bartender?",
+              <input
+                id="yes"
+                name="bartender"
+                onChange={[Function]}
+                type="radio"
+                value={true}
+/>,
+              <label
+                htmlFor="yes"
+>
+                Yes
+</label>,
+              <input
+                id="no"
+                name="bartender"
+                onChange={[Function]}
+                type="radio"
+                value={false}
+/>,
+              <label
+                htmlFor="no"
+>
+                No
+</label>,
+            ],
+            "className": "form-label",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Are you Bartender?",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "yes",
+                "name": "bartender",
+                "onChange": [Function],
+                "type": "radio",
+                "value": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Yes",
+                "htmlFor": "yes",
+              },
+              "ref": null,
+              "rendered": "Yes",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "no",
+                "name": "bartender",
+                "onChange": [Function],
+                "type": "radio",
+                "value": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "No",
+                "htmlFor": "no",
+              },
+              "ref": null,
+              "rendered": "No",
+              "type": "label",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Are you Barback?",
+              <input
+                id="yes"
+                name="barback"
+                onChange={[Function]}
+                type="radio"
+                value={true}
+/>,
+              <label
+                htmlFor="yes"
+>
+                Yes
+</label>,
+              <input
+                id="no"
+                name="barback"
+                onChange={[Function]}
+                type="radio"
+                value={false}
+/>,
+              <label
+                htmlFor="no"
+>
+                No
+</label>,
+            ],
+            "className": "form-label",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Are you Barback?",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "yes",
+                "name": "barback",
+                "onChange": [Function],
+                "type": "radio",
+                "value": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Yes",
+                "htmlFor": "yes",
+              },
+              "ref": null,
+              "rendered": "Yes",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "no",
+                "name": "barback",
+                "onChange": [Function],
+                "type": "radio",
+                "value": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "No",
+                "htmlFor": "no",
+              },
+              "ref": null,
+              "rendered": "No",
+              "type": "label",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Do you work the Beer Bucket?",
+              <input
+                id="yes"
+                name="beer_bucket"
+                onChange={[Function]}
+                type="radio"
+                value={true}
+/>,
+              <label
+                htmlFor="yes"
+>
+                Yes
+</label>,
+              <input
+                id="no"
+                name="beer_bucket"
+                onChange={[Function]}
+                type="radio"
+                value={false}
+/>,
+              <label
+                htmlFor="no"
+>
+                No
+</label>,
+            ],
+            "className": "form-label",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Do you work the Beer Bucket?",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "yes",
+                "name": "beer_bucket",
+                "onChange": [Function],
+                "type": "radio",
+                "value": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Yes",
+                "htmlFor": "yes",
+              },
+              "ref": null,
+              "rendered": "Yes",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "no",
+                "name": "beer_bucket",
+                "onChange": [Function],
+                "type": "radio",
+                "value": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "No",
+                "htmlFor": "no",
+              },
+              "ref": null,
+              "rendered": "No",
+              "type": "label",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Add Staff Member",
+            "className": "add-staff-btn",
+          },
+          "ref": null,
+          "rendered": "Add Staff Member",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
