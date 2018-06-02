@@ -4,8 +4,13 @@ import App from './App';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
-  it('should match the snapshot', () => {
-    const wrapper = shallow(<App />)
-    expect(wrapper).toMatchSnapshot();
+
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<App />, {disableLifecycleMethods: true});
   })
-})
+
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+});
