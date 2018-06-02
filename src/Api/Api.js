@@ -55,7 +55,6 @@ export class Api  {
   }
 
   getSchedule = async () => {
-    console.log('here')
     const response = await fetch('http://localhost:3000/api/v1/schedule')
     const scheduleData = await response.json()
     const scheduleObj = this.cleanScheduleData(scheduleData)
@@ -71,7 +70,6 @@ export class Api  {
       }
 
       obj[event.event_id] = [...obj[event.event_id], { staff_id: event.staff_id, staff_events_id: event.id }]
-
       return obj
     }, {})
 
@@ -80,10 +78,11 @@ export class Api  {
 
   combineStaffAndEvent = (eventObj) => {
     const eventWithStaff = Object.keys(eventObj).map(async events => {
-
       const eventResponse = await fetch(`http://localhost:3000/api/v1/events/${events}`)
       const eventData = await eventResponse.json()
+      console.log(eventData)
       const staffNames = await this.getStaffNames(eventObj[events])
+      console.log(staffNames)
       const event = {
 
         event_id: eventData[0].id,

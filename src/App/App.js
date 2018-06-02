@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import { Header } from '../Header/Header'
 import { TabContainer } from '../TabContainer/TabContainer'
-import { Api } from '../Api';
+import { Api } from '../Api/Api';
 
 
 
@@ -63,7 +63,7 @@ class App extends Component {
     const generatedSchedule = this.api.generateSchedule(staff, events)
 
     await this.api.postSchedule(generatedSchedule)
-    
+
     this.editSchedule()
   }
 

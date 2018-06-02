@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Schedule.css';
 import { EditStaffSelect } from '../EditStaffSelect/EditStaffSelect';
-import { Api } from '../Api'
+import { Api } from '../Api/Api';
 
 export class Schedule extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ export class Schedule extends Component {
       this.setState({
         staff_events_id: person.staff_events_id
       })
-    } 
+    }
   }
 
   displayEmpty = () => {
@@ -59,8 +59,8 @@ export class Schedule extends Component {
 
       return (
         <li>{staff}
-          <button 
-            className='edit' 
+          <button
+            className='edit'
             onClick={ () => this.handleEditClick(this.props.event.event_id)}>
           </button>
         </li>)
@@ -72,18 +72,18 @@ export class Schedule extends Component {
 
       return (
         <li>
-          {person.name}     
+          {person.name}
           <button
             className='delete'
             onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
           </button>
-          <button 
+          <button
             className='edit'
             onClick={ () => this.handleEditClick(person) }>
           </button>
         </li>
       )
-    })  
+    })
   }
 
   addSchedule = () => {
@@ -94,7 +94,7 @@ export class Schedule extends Component {
     const { venue, name, date, time, staff, event_id } = this.props.event
 
     const handleEditDropdown = (event_id) => {
-      
+
       if( this.state.edit ) {
 
         return (
@@ -106,7 +106,7 @@ export class Schedule extends Component {
             event_id={ event_id }
             updateEventStaff={ this.props.manualSchedule ? this.addSchedule : this.updateEventStaff }
           />
-        ) 
+        )
       }
     }
 
