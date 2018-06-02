@@ -80,9 +80,7 @@ export class Api  {
     const eventWithStaff = Object.keys(eventObj).map(async events => {
       const eventResponse = await fetch(`http://localhost:3000/api/v1/events/${events}`)
       const eventData = await eventResponse.json()
-      console.log(eventData)
       const staffNames = await this.getStaffNames(eventObj[events])
-      console.log(staffNames)
       const event = {
 
         event_id: eventData[0].id,
@@ -126,7 +124,6 @@ export class Api  {
       })
 
       const data = await response.json();
-      console.log(data)
     })
   }
 

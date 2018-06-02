@@ -20,7 +20,6 @@ describe('Api', () => {
         })
       })
     )
-    // window.fetch = jest.fn().mockResolvedValue(mockStaff);
   });
 
   it('should get staff', async () => {
@@ -51,15 +50,6 @@ describe('Api', () => {
 
   it('should get the schedules', async () => {
     const mockSchedule = { schedule: 'thebesten'}
-    // const mockScheduleData = [
-    //   { id: 1, event_id: 1, staff_id: 3 },
-    //   { id: 2, event_id: 1, staff_id: 4 }
-    // ]
-    //
-    // const mockCleanScheduleData = {"1": [
-    //   {"staff_events_id": 1, "staff_id": 3},
-    //   {"staff_events_id": 2, "staff_id": 4}
-    // ]}
 
     const expected = 'http://localhost:3000/api/v1/schedule';
     api.cleanScheduleData = jest.fn();
@@ -75,9 +65,6 @@ describe('Api', () => {
 
 
   it('should clean the schedule data', () => {
-    // const api = new Api();
-    // api.cleanScheduleData() = mockClear()
-
     const mockScheduleData = [
       { id: 1, event_id: 1, staff_id: 3 },
       { id: 2, event_id: 1, staff_id: 4 }
@@ -93,7 +80,7 @@ describe('Api', () => {
     expect(api.cleanScheduleData(mockScheduleData)).toEqual(mockCleanScheduleData)
   })
 
-  it.skip('should combine staff and event', async () => {
+  it('should combine staff and event', async () => {
     const mockEventResponse = [{
       event_id: 1,
       venue: 'Bluebird',
@@ -105,9 +92,9 @@ describe('Api', () => {
     window.fetch = jest.fn(
       () => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve({
-          eventData: mockEventResponse
-        })
+        json: () => Promise.resolve(
+          mockEventResponse
+        )
       })
     )
 
@@ -116,15 +103,55 @@ describe('Api', () => {
       {"staff_events_id": 2, "staff_id": 4}
     ]}
 
-    // api.getStaffNames = jest.fn().mockReturnValue()
+    api.getStaffNames = jest.fn()
 
     const expected = 'http://localhost:3000/api/v1/events/1';
     await api.combineStaffAndEvent(mockCleanScheduleData);
 
-    // expect(window.fetch).toHaveBeenCalledWith(expected)
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+    expect(api.getStaffNames).toHaveBeenCalled();
   })
 
-  it('should get the names of the staff', () => {
-    
+  it('should get the names of the staff', async () => {
+    const mockIds = [{"staff_events_id": 1, "staff_id": 3}]
+    const mockEventResponse = [{
+      id: 3,
+      name: 'hotman'
+    }]
+    const expected = 'http://localhost:3000/api/v1/staff/3';
+
+    window.fetch = jest.fn(
+      () => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve([
+          { id: 3, name: 'hotman' }
+        ]
+      )})
+    )
+
+    await api.getStaffNames(mockIds);
+
+    expect(await window.fetch).toHaveBeenCalledWith(expected)
+  });
+
+  it('should post schedules to the database', () => {
+    const mockScheduleData = [
+      { id: 2, event_id: 1, staff_id: 4 }
+    ]
+
+    const expected = [
+      'http://localhost:3000/api/v1/schedule',
+      {
+        method: 'POST',
+        body: JSON.stringify({ id: 2, event_id: 1, staff_id: 4 }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    ];
+
+    api.postSchedule(mockScheduleData)
+
+    expect(window.fetch).toHaveBeenCalledWith(...expected)
   })
 })
