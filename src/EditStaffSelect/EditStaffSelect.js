@@ -15,8 +15,13 @@ export class EditStaffSelect extends Component {
     await this.setState({
       staff_id: event.target.value
     })
-
-    this.props.updateEventStaff(this.state)
+    console.log(this.state)
+    if( this.props.manualSchedule ) {
+      this.props.createEventStaff(this.state)
+      
+    } else {
+      this.props.updateEventStaff(this.state)
+    }
   }
 
   displayStaff = () => {

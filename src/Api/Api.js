@@ -57,6 +57,7 @@ export class Api  {
   getSchedule = async () => {
     const response = await fetch('http://localhost:3000/api/v1/schedule')
     const scheduleData = await response.json()
+    // console.log(scheduleData)
     const scheduleObj = this.cleanScheduleData(scheduleData)
     const cleanEvents = await this.combineStaffAndEvent(scheduleObj)
 
@@ -90,7 +91,6 @@ export class Api  {
         time: eventData[0].time,
         staff: staffNames
       }
-
       return event
     })
 
@@ -98,7 +98,6 @@ export class Api  {
   }
 
   getStaffNames = (ids) => {
-
     const promise = ids.map(async person => {
       const staffResponse = await fetch(`http://localhost:3000/api/v1/staff/${person.staff_id}`)
       const staffData = await staffResponse.json()
@@ -114,6 +113,7 @@ export class Api  {
   }
 
   postSchedule = (schedule) => {
+
     schedule.forEach ( async (staffEvent) => {
       const response = await fetch('http://localhost:3000/api/v1/schedule', {
         method: 'POST',

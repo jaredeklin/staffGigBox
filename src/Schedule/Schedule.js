@@ -13,12 +13,11 @@ export class Schedule extends Component {
       staff_events_id: '',
       edit: false,
       manualSchedule: false || this.props.manualSchedule
-      // staffNeeded: this.api.getNumberOfStaff(this.props.scheduleData)
     }
   }
 
   updateEventStaff = async ({staff_id, event_id}) => {
-    console.log('staff:', staff_id, 'event', event_id)
+    
     const response = await fetch(`http://localhost:3000/api/v1/schedule/${this.state.staff_events_id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -36,8 +35,26 @@ export class Schedule extends Component {
   }
 
 
+  createEventStaff = async ({ staff_id, event_id }) => {
+    console.log('staff:', staff_id, 'event', event_id)
+    const response = await fetch('http://localhost:3000/api/v1/schedule', {
+      method: 'POST',
+      body: JSON.stringify({
+        staff_id,
+        event_id
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    console.log(await response.json())
+    this.props.editSchedule()
+    this.setState({ edit: false })
+  }
+
+
   handleEditClick = (person) => {
-    console.log(person)
     this.setState({ edit: !this.state.edit })
 
     if ( !this.state.manualSchedule ) {
@@ -47,25 +64,7 @@ export class Schedule extends Component {
     }
   }
 
-  displayEmpty = () => {
-    let staffNeeded = this.api.getNumberOfStaff(this.props.scheduleData)
-    const emptyStaffArray = []
-
-    for (let i = 0; i < staffNeeded; i++) {
-      emptyStaffArray.push(`Staff ${i + 1}`)
-    }
-
-    return emptyStaffArray.map((staff) => {
-
-      return (
-        <li>{staff}
-          <button
-            className='edit'
-            onClick={ () => this.handleEditClick(this.props.event.event_id)}>
-          </button>
-        </li>)
-    })
-  }
+ 
 
   displayStaff = () => {
     return this.props.event.staff.map((person, index) => {
@@ -86,29 +85,22 @@ export class Schedule extends Component {
     })
   }
 
-  addSchedule = () => {
 
+  handleEditDropdown = (event_id) => {
+    return (
+      <EditStaffSelect
+        staff={ this.props.staffList }
+        createEventStaff={ this.createEventStaff }
+        manualSchedule={ this.state.manualSchedule }
+        event_id={ this.state.manualSchedule ? this.props.event.id : event_id }
+        updateEventStaff={ this.updateEventStaff }
+      />
+    ) 
   }
 
   render() {
-    const { venue, name, date, time, staff, event_id } = this.props.event
 
-    const handleEditDropdown = (event_id) => {
-
-      if( this.state.edit ) {
-
-        return (
-          <EditStaffSelect
-            staff={ this.props.staffList }
-            // manualSchedule={}
-            // this.props.manualSchedule or this.state.manualSchdule ?
-            // or none at all
-            event_id={ event_id }
-            updateEventStaff={ this.props.manualSchedule ? this.addSchedule : this.updateEventStaff }
-          />
-        )
-      }
-    }
+    const { venue, name, date, time, event_id } = this.props.event
 
     return (
       <section className='schedule-card'>
@@ -119,7 +111,10 @@ export class Schedule extends Component {
         </div>
         <h2>{ name }</h2>
         <h5>Crew</h5>
-        { handleEditDropdown(event_id) }
+        { 
+          this.state.edit && 
+          this.handleEditDropdown(event_id) 
+        }
         <ul>
           { this.props.manualSchedule ? this.displayEmpty() : this.displayStaff() }
         </ul>

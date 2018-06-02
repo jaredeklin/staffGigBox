@@ -29,6 +29,7 @@ export class Header extends Component {
       if (user) {
         this.setState({ user });
       }
+    
       this.props.addUser(user)
     });
   }

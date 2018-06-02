@@ -25,7 +25,6 @@ export class TabContainer extends Component {
       manualSchedule: true,
       manualScheduleData: eventData 
     })
-    // console.log(eventData)
   }
 
   displayTabs = () => {
@@ -44,13 +43,12 @@ export class TabContainer extends Component {
     })
   };
 
-  checkForManuel = () => {
+  checkForManual = () => {
     if ( this.state.manualSchedule ) {
-      // return <ManualMakeSchedule scheduleData={ this.state.manualScheduleData } staffList={ this.props.staff } />
       return (
         <Schedule 
-          scheduleData={ this.state.manualScheduleData } 
-          staffList={ this.props.staff } 
+          staffList={ this.props.staff }
+          editSchedule={ this.props.editSchedule } 
           event={ this.state.manualScheduleData }
           manualSchedule={ true }
         />)
@@ -66,7 +64,7 @@ export class TabContainer extends Component {
 
   activeContent = () => {
     switch (this.state.activeTabIndex) {
-      case 0: return this.checkForManuel()
+      case 0: return this.checkForManual()
 
       case 1: return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 

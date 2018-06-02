@@ -30,8 +30,7 @@ export class StaffForm extends Component {
       headers: { 'Content-Type': 'application/json'}
     })
 
-    // const staffData = await response.json();
-    if (response.status === 201) {
+    if( response.status === 201 ) {
       this.props.addStaff()
     }
   }
