@@ -50,7 +50,6 @@ export class EventForm extends Component {
       headers: { 'Content-Type': 'application/json'}
     })
 
-    console.log(response.status)
     if (response.status === 201) {
       const eventData = await response.json();
       this.props.checkManualSchedule(eventData)

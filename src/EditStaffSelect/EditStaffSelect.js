@@ -5,13 +5,13 @@ export class EditStaffSelect extends Component {
     super(props);
 
     this.state = {
-      staff_id: '',
+      staff_id: null,
       event_id: this.props.event_id
     }
   }
 
   handleChange = async (event) => {
-
+    // console.log(parseInt(event.target.value))
     await this.setState({
       staff_id: event.target.value
     })
@@ -24,8 +24,8 @@ export class EditStaffSelect extends Component {
       // console.log('map', person)
       return (
         <option key={person.id}>
-            { person.name }
-          </option>
+          { person.name }
+        </option>
       )
     })
   }
@@ -37,9 +37,9 @@ export class EditStaffSelect extends Component {
         <option
           key={ person.id }
           value={ person.id }
-          >
-            { person.name }
-          </option>
+        >
+          { person.name }
+        </option>
       )
     })
     return (
