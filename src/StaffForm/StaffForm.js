@@ -31,8 +31,9 @@ export class StaffForm extends Component {
     })
 
     // const staffData = await response.json();
-
-    this.props.addStaff()
+    if (response.status === 201) {
+      this.props.addStaff()
+    }
   }
 
 
@@ -56,7 +57,7 @@ export class StaffForm extends Component {
             value={ true }
             name='bar_manager'
             onChange={ this.handleChange }
-            
+
            />
           <label htmlFor='yes'>Yes</label>
           <input
@@ -75,7 +76,7 @@ export class StaffForm extends Component {
             value={ true }
             name='ass_bar_manager'
             onChange={ this.handleChange }
-            
+
            />
           <label htmlFor='yes'>Yes</label>
           <input
@@ -94,7 +95,7 @@ export class StaffForm extends Component {
             value={ true }
             name='bartender'
             onChange={ this.handleChange }
-            
+
            />
           <label htmlFor='yes'>Yes</label>
           <input
@@ -113,7 +114,7 @@ export class StaffForm extends Component {
             value={ true }
             name='barback'
             onChange={ this.handleChange }
-            
+
            />
           <label htmlFor='yes'>Yes</label>
           <input
@@ -132,7 +133,7 @@ export class StaffForm extends Component {
             value={ true }
             name='beer_bucket'
             onChange={ this.handleChange }
-            
+
            />
           <label htmlFor='yes'>Yes</label>
           <input

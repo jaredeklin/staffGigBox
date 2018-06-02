@@ -1,0 +1,2497 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventForm should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EventForm
+    checkManualSchedule={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h4
+          className="event-header"
+>
+          Add an event
+</h4>,
+        <form
+          className="event-form"
+          onSubmit={[Function]}
+>
+          <div
+                    className="venue-info"
+          >
+                    <label
+                              className="form-label"
+                    >
+                              Venue
+                              <select
+                                        className="event-select"
+                                        name="venue"
+                                        onChange={[Function]}
+                                        value="Ogden Theatre"
+                              >
+                                        <option
+                                                  value="Ogden Theatre"
+                                        >
+                                                  Ogden Theatre
+                                        </option>
+                                        <option
+                                                  value="Gothic Theatre"
+                                        >
+                                                  Gothic Theatre
+                                        </option>
+                                        <option
+                                                  value="Bluebird Theater"
+                                        >
+                                                  Bluebird Theater
+                                        </option>
+                              </select>
+                    </label>
+                    <input
+                              className="input_event-form"
+                              name="name"
+                              onChange={[Function]}
+                              placeholder="Name"
+                              value=""
+                    />
+                    <input
+                              className="input_event-form"
+                              name="date"
+                              onChange={[Function]}
+                              onFocus={undefined}
+                              placeholder="Date"
+                              type="date"
+                              value=""
+                    />
+                    <input
+                              className="input_event-form"
+                              name="time"
+                              onChange={[Function]}
+                              placeholder="Time"
+                              value=""
+                    />
+          </div>
+          <div
+                    className="staff-info"
+          >
+                    <label
+                              className="form-label"
+                    >
+                              Bar Manager needed?
+                              <input
+                                        id="yes"
+                                        name="bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                              />
+                              <label
+                                        htmlFor="yes"
+                              >
+                                        Yes
+                              </label>
+                              <input
+                                        id="no"
+                                        name="bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                              />
+                              <label
+                                        htmlFor="no"
+                              >
+                                        No
+                              </label>
+                    </label>
+                    <label
+                              className="form-label"
+                    >
+                              Assistant Bar Manager needed?
+                              <input
+                                        id="yes"
+                                        name="ass_bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                              />
+                              <label
+                                        htmlFor="yes"
+                              >
+                                        Yes
+                              </label>
+                              <input
+                                        id="no"
+                                        name="ass_bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                              />
+                              <label
+                                        htmlFor="no"
+                              >
+                                        No
+                              </label>
+                    </label>
+                    <input
+                              className="input_event-form"
+                              name="bartenders"
+                              onChange={[Function]}
+                              placeholder="Number of bartenders needed"
+                              value=""
+                    />
+                    <input
+                              className="input_event-form"
+                              name="barbacks"
+                              onChange={[Function]}
+                              placeholder="Number of barbacks needed"
+                              value=""
+                    />
+                    <label
+                              className="form-label"
+                    >
+                              Beer Bucket?
+                              <input
+                                        id="yes"
+                                        name="beer_bucket"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                              />
+                              <label
+                                        htmlFor="yes"
+                              >
+                                        Yes
+                              </label>
+                              <input
+                                        id="no"
+                                        name="beer_bucket"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                              />
+                              <label
+                                        htmlFor="no"
+                              >
+                                        No
+                              </label>
+                    </label>
+                    <label
+                              className="form-label"
+                    >
+                              Would like to assign staff to this event?
+                              <input
+                                        id="yes"
+                                        name="manualSchedule"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                              />
+                              <label
+                                        htmlFor="yes"
+                              >
+                                        Yes
+                              </label>
+                              <input
+                                        id="no"
+                                        name="manualSchedule"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                              />
+                              <label
+                                        htmlFor="no"
+                              >
+                                        No
+                              </label>
+                    </label>
+          </div>
+          <button
+                    className="add-event-btn"
+          >
+                    Add Event
+          </button>
+</form>,
+        <button
+          className="generate-schedule-btn"
+          onClick={undefined}
+>
+          Generate schedule
+</button>,
+      ],
+      "className": "event-div",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Add an event",
+          "className": "event-header",
+        },
+        "ref": null,
+        "rendered": "Add an event",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="venue-info"
+>
+              <label
+                            className="form-label"
+              >
+                            Venue
+                            <select
+                                          className="event-select"
+                                          name="venue"
+                                          onChange={[Function]}
+                                          value="Ogden Theatre"
+                            >
+                                          <option
+                                                        value="Ogden Theatre"
+                                          >
+                                                        Ogden Theatre
+                                          </option>
+                                          <option
+                                                        value="Gothic Theatre"
+                                          >
+                                                        Gothic Theatre
+                                          </option>
+                                          <option
+                                                        value="Bluebird Theater"
+                                          >
+                                                        Bluebird Theater
+                                          </option>
+                            </select>
+              </label>
+              <input
+                            className="input_event-form"
+                            name="name"
+                            onChange={[Function]}
+                            placeholder="Name"
+                            value=""
+              />
+              <input
+                            className="input_event-form"
+                            name="date"
+                            onChange={[Function]}
+                            onFocus={undefined}
+                            placeholder="Date"
+                            type="date"
+                            value=""
+              />
+              <input
+                            className="input_event-form"
+                            name="time"
+                            onChange={[Function]}
+                            placeholder="Time"
+                            value=""
+              />
+</div>,
+            <div
+              className="staff-info"
+>
+              <label
+                            className="form-label"
+              >
+                            Bar Manager needed?
+                            <input
+                                          id="yes"
+                                          name="bar_manager"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={true}
+                            />
+                            <label
+                                          htmlFor="yes"
+                            >
+                                          Yes
+                            </label>
+                            <input
+                                          id="no"
+                                          name="bar_manager"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={false}
+                            />
+                            <label
+                                          htmlFor="no"
+                            >
+                                          No
+                            </label>
+              </label>
+              <label
+                            className="form-label"
+              >
+                            Assistant Bar Manager needed?
+                            <input
+                                          id="yes"
+                                          name="ass_bar_manager"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={true}
+                            />
+                            <label
+                                          htmlFor="yes"
+                            >
+                                          Yes
+                            </label>
+                            <input
+                                          id="no"
+                                          name="ass_bar_manager"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={false}
+                            />
+                            <label
+                                          htmlFor="no"
+                            >
+                                          No
+                            </label>
+              </label>
+              <input
+                            className="input_event-form"
+                            name="bartenders"
+                            onChange={[Function]}
+                            placeholder="Number of bartenders needed"
+                            value=""
+              />
+              <input
+                            className="input_event-form"
+                            name="barbacks"
+                            onChange={[Function]}
+                            placeholder="Number of barbacks needed"
+                            value=""
+              />
+              <label
+                            className="form-label"
+              >
+                            Beer Bucket?
+                            <input
+                                          id="yes"
+                                          name="beer_bucket"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={true}
+                            />
+                            <label
+                                          htmlFor="yes"
+                            >
+                                          Yes
+                            </label>
+                            <input
+                                          id="no"
+                                          name="beer_bucket"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={false}
+                            />
+                            <label
+                                          htmlFor="no"
+                            >
+                                          No
+                            </label>
+              </label>
+              <label
+                            className="form-label"
+              >
+                            Would like to assign staff to this event?
+                            <input
+                                          id="yes"
+                                          name="manualSchedule"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={true}
+                            />
+                            <label
+                                          htmlFor="yes"
+                            >
+                                          Yes
+                            </label>
+                            <input
+                                          id="no"
+                                          name="manualSchedule"
+                                          onChange={[Function]}
+                                          type="radio"
+                                          value={false}
+                            />
+                            <label
+                                          htmlFor="no"
+                            >
+                                          No
+                            </label>
+              </label>
+</div>,
+            <button
+              className="add-event-btn"
+>
+              Add Event
+</button>,
+          ],
+          "className": "event-form",
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  className="form-label"
+>
+                  Venue
+                  <select
+                                    className="event-select"
+                                    name="venue"
+                                    onChange={[Function]}
+                                    value="Ogden Theatre"
+                  >
+                                    <option
+                                                      value="Ogden Theatre"
+                                    >
+                                                      Ogden Theatre
+                                    </option>
+                                    <option
+                                                      value="Gothic Theatre"
+                                    >
+                                                      Gothic Theatre
+                                    </option>
+                                    <option
+                                                      value="Bluebird Theater"
+                                    >
+                                                      Bluebird Theater
+                                    </option>
+                  </select>
+</label>,
+                <input
+                  className="input_event-form"
+                  name="name"
+                  onChange={[Function]}
+                  placeholder="Name"
+                  value=""
+/>,
+                <input
+                  className="input_event-form"
+                  name="date"
+                  onChange={[Function]}
+                  onFocus={undefined}
+                  placeholder="Date"
+                  type="date"
+                  value=""
+/>,
+                <input
+                  className="input_event-form"
+                  name="time"
+                  onChange={[Function]}
+                  placeholder="Time"
+                  value=""
+/>,
+              ],
+              "className": "venue-info",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Venue",
+                    <select
+                      className="event-select"
+                      name="venue"
+                      onChange={[Function]}
+                      value="Ogden Theatre"
+>
+                      <option
+                                            value="Ogden Theatre"
+                      >
+                                            Ogden Theatre
+                      </option>
+                      <option
+                                            value="Gothic Theatre"
+                      >
+                                            Gothic Theatre
+                      </option>
+                      <option
+                                            value="Bluebird Theater"
+                      >
+                                            Bluebird Theater
+                      </option>
+</select>,
+                  ],
+                  "className": "form-label",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Venue",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <option
+                          value="Ogden Theatre"
+>
+                          Ogden Theatre
+</option>,
+                        <option
+                          value="Gothic Theatre"
+>
+                          Gothic Theatre
+</option>,
+                        <option
+                          value="Bluebird Theater"
+>
+                          Bluebird Theater
+</option>,
+                      ],
+                      "className": "event-select",
+                      "name": "venue",
+                      "onChange": [Function],
+                      "value": "Ogden Theatre",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Ogden Theatre",
+                          "value": "Ogden Theatre",
+                        },
+                        "ref": null,
+                        "rendered": "Ogden Theatre",
+                        "type": "option",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Gothic Theatre",
+                          "value": "Gothic Theatre",
+                        },
+                        "ref": null,
+                        "rendered": "Gothic Theatre",
+                        "type": "option",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Bluebird Theater",
+                          "value": "Bluebird Theater",
+                        },
+                        "ref": null,
+                        "rendered": "Bluebird Theater",
+                        "type": "option",
+                      },
+                    ],
+                    "type": "select",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "input_event-form",
+                  "name": "name",
+                  "onChange": [Function],
+                  "placeholder": "Name",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "input_event-form",
+                  "name": "date",
+                  "onChange": [Function],
+                  "onFocus": undefined,
+                  "placeholder": "Date",
+                  "type": "date",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "input_event-form",
+                  "name": "time",
+                  "onChange": [Function],
+                  "placeholder": "Time",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  className="form-label"
+>
+                  Bar Manager needed?
+                  <input
+                                    id="yes"
+                                    name="bar_manager"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={true}
+                  />
+                  <label
+                                    htmlFor="yes"
+                  >
+                                    Yes
+                  </label>
+                  <input
+                                    id="no"
+                                    name="bar_manager"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={false}
+                  />
+                  <label
+                                    htmlFor="no"
+                  >
+                                    No
+                  </label>
+</label>,
+                <label
+                  className="form-label"
+>
+                  Assistant Bar Manager needed?
+                  <input
+                                    id="yes"
+                                    name="ass_bar_manager"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={true}
+                  />
+                  <label
+                                    htmlFor="yes"
+                  >
+                                    Yes
+                  </label>
+                  <input
+                                    id="no"
+                                    name="ass_bar_manager"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={false}
+                  />
+                  <label
+                                    htmlFor="no"
+                  >
+                                    No
+                  </label>
+</label>,
+                <input
+                  className="input_event-form"
+                  name="bartenders"
+                  onChange={[Function]}
+                  placeholder="Number of bartenders needed"
+                  value=""
+/>,
+                <input
+                  className="input_event-form"
+                  name="barbacks"
+                  onChange={[Function]}
+                  placeholder="Number of barbacks needed"
+                  value=""
+/>,
+                <label
+                  className="form-label"
+>
+                  Beer Bucket?
+                  <input
+                                    id="yes"
+                                    name="beer_bucket"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={true}
+                  />
+                  <label
+                                    htmlFor="yes"
+                  >
+                                    Yes
+                  </label>
+                  <input
+                                    id="no"
+                                    name="beer_bucket"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={false}
+                  />
+                  <label
+                                    htmlFor="no"
+                  >
+                                    No
+                  </label>
+</label>,
+                <label
+                  className="form-label"
+>
+                  Would like to assign staff to this event?
+                  <input
+                                    id="yes"
+                                    name="manualSchedule"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={true}
+                  />
+                  <label
+                                    htmlFor="yes"
+                  >
+                                    Yes
+                  </label>
+                  <input
+                                    id="no"
+                                    name="manualSchedule"
+                                    onChange={[Function]}
+                                    type="radio"
+                                    value={false}
+                  />
+                  <label
+                                    htmlFor="no"
+                  >
+                                    No
+                  </label>
+</label>,
+              ],
+              "className": "staff-info",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Bar Manager needed?",
+                    <input
+                      id="yes"
+                      name="bar_manager"
+                      onChange={[Function]}
+                      type="radio"
+                      value={true}
+/>,
+                    <label
+                      htmlFor="yes"
+>
+                      Yes
+</label>,
+                    <input
+                      id="no"
+                      name="bar_manager"
+                      onChange={[Function]}
+                      type="radio"
+                      value={false}
+/>,
+                    <label
+                      htmlFor="no"
+>
+                      No
+</label>,
+                  ],
+                  "className": "form-label",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Bar Manager needed?",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "yes",
+                      "name": "bar_manager",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": true,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Yes",
+                      "htmlFor": "yes",
+                    },
+                    "ref": null,
+                    "rendered": "Yes",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "no",
+                      "name": "bar_manager",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "No",
+                      "htmlFor": "no",
+                    },
+                    "ref": null,
+                    "rendered": "No",
+                    "type": "label",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Assistant Bar Manager needed?",
+                    <input
+                      id="yes"
+                      name="ass_bar_manager"
+                      onChange={[Function]}
+                      type="radio"
+                      value={true}
+/>,
+                    <label
+                      htmlFor="yes"
+>
+                      Yes
+</label>,
+                    <input
+                      id="no"
+                      name="ass_bar_manager"
+                      onChange={[Function]}
+                      type="radio"
+                      value={false}
+/>,
+                    <label
+                      htmlFor="no"
+>
+                      No
+</label>,
+                  ],
+                  "className": "form-label",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Assistant Bar Manager needed?",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "yes",
+                      "name": "ass_bar_manager",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": true,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Yes",
+                      "htmlFor": "yes",
+                    },
+                    "ref": null,
+                    "rendered": "Yes",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "no",
+                      "name": "ass_bar_manager",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "No",
+                      "htmlFor": "no",
+                    },
+                    "ref": null,
+                    "rendered": "No",
+                    "type": "label",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "input_event-form",
+                  "name": "bartenders",
+                  "onChange": [Function],
+                  "placeholder": "Number of bartenders needed",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "input_event-form",
+                  "name": "barbacks",
+                  "onChange": [Function],
+                  "placeholder": "Number of barbacks needed",
+                  "value": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Beer Bucket?",
+                    <input
+                      id="yes"
+                      name="beer_bucket"
+                      onChange={[Function]}
+                      type="radio"
+                      value={true}
+/>,
+                    <label
+                      htmlFor="yes"
+>
+                      Yes
+</label>,
+                    <input
+                      id="no"
+                      name="beer_bucket"
+                      onChange={[Function]}
+                      type="radio"
+                      value={false}
+/>,
+                    <label
+                      htmlFor="no"
+>
+                      No
+</label>,
+                  ],
+                  "className": "form-label",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Beer Bucket?",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "yes",
+                      "name": "beer_bucket",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": true,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Yes",
+                      "htmlFor": "yes",
+                    },
+                    "ref": null,
+                    "rendered": "Yes",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "no",
+                      "name": "beer_bucket",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "No",
+                      "htmlFor": "no",
+                    },
+                    "ref": null,
+                    "rendered": "No",
+                    "type": "label",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Would like to assign staff to this event?",
+                    <input
+                      id="yes"
+                      name="manualSchedule"
+                      onChange={[Function]}
+                      type="radio"
+                      value={true}
+/>,
+                    <label
+                      htmlFor="yes"
+>
+                      Yes
+</label>,
+                    <input
+                      id="no"
+                      name="manualSchedule"
+                      onChange={[Function]}
+                      type="radio"
+                      value={false}
+/>,
+                    <label
+                      htmlFor="no"
+>
+                      No
+</label>,
+                  ],
+                  "className": "form-label",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Would like to assign staff to this event?",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "yes",
+                      "name": "manualSchedule",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": true,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Yes",
+                      "htmlFor": "yes",
+                    },
+                    "ref": null,
+                    "rendered": "Yes",
+                    "type": "label",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "id": "no",
+                      "name": "manualSchedule",
+                      "onChange": [Function],
+                      "type": "radio",
+                      "value": false,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "No",
+                      "htmlFor": "no",
+                    },
+                    "ref": null,
+                    "rendered": "No",
+                    "type": "label",
+                  },
+                ],
+                "type": "label",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Add Event",
+              "className": "add-event-btn",
+            },
+            "ref": null,
+            "rendered": "Add Event",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Generate schedule",
+          "className": "generate-schedule-btn",
+          "onClick": undefined,
+        },
+        "ref": null,
+        "rendered": "Generate schedule",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h4
+            className="event-header"
+>
+            Add an event
+</h4>,
+          <form
+            className="event-form"
+            onSubmit={[Function]}
+>
+            <div
+                        className="venue-info"
+            >
+                        <label
+                                    className="form-label"
+                        >
+                                    Venue
+                                    <select
+                                                className="event-select"
+                                                name="venue"
+                                                onChange={[Function]}
+                                                value="Ogden Theatre"
+                                    >
+                                                <option
+                                                            value="Ogden Theatre"
+                                                >
+                                                            Ogden Theatre
+                                                </option>
+                                                <option
+                                                            value="Gothic Theatre"
+                                                >
+                                                            Gothic Theatre
+                                                </option>
+                                                <option
+                                                            value="Bluebird Theater"
+                                                >
+                                                            Bluebird Theater
+                                                </option>
+                                    </select>
+                        </label>
+                        <input
+                                    className="input_event-form"
+                                    name="name"
+                                    onChange={[Function]}
+                                    placeholder="Name"
+                                    value=""
+                        />
+                        <input
+                                    className="input_event-form"
+                                    name="date"
+                                    onChange={[Function]}
+                                    onFocus={undefined}
+                                    placeholder="Date"
+                                    type="date"
+                                    value=""
+                        />
+                        <input
+                                    className="input_event-form"
+                                    name="time"
+                                    onChange={[Function]}
+                                    placeholder="Time"
+                                    value=""
+                        />
+            </div>
+            <div
+                        className="staff-info"
+            >
+                        <label
+                                    className="form-label"
+                        >
+                                    Bar Manager needed?
+                                    <input
+                                                id="yes"
+                                                name="bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                    />
+                                    <label
+                                                htmlFor="yes"
+                                    >
+                                                Yes
+                                    </label>
+                                    <input
+                                                id="no"
+                                                name="bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                    />
+                                    <label
+                                                htmlFor="no"
+                                    >
+                                                No
+                                    </label>
+                        </label>
+                        <label
+                                    className="form-label"
+                        >
+                                    Assistant Bar Manager needed?
+                                    <input
+                                                id="yes"
+                                                name="ass_bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                    />
+                                    <label
+                                                htmlFor="yes"
+                                    >
+                                                Yes
+                                    </label>
+                                    <input
+                                                id="no"
+                                                name="ass_bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                    />
+                                    <label
+                                                htmlFor="no"
+                                    >
+                                                No
+                                    </label>
+                        </label>
+                        <input
+                                    className="input_event-form"
+                                    name="bartenders"
+                                    onChange={[Function]}
+                                    placeholder="Number of bartenders needed"
+                                    value=""
+                        />
+                        <input
+                                    className="input_event-form"
+                                    name="barbacks"
+                                    onChange={[Function]}
+                                    placeholder="Number of barbacks needed"
+                                    value=""
+                        />
+                        <label
+                                    className="form-label"
+                        >
+                                    Beer Bucket?
+                                    <input
+                                                id="yes"
+                                                name="beer_bucket"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                    />
+                                    <label
+                                                htmlFor="yes"
+                                    >
+                                                Yes
+                                    </label>
+                                    <input
+                                                id="no"
+                                                name="beer_bucket"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                    />
+                                    <label
+                                                htmlFor="no"
+                                    >
+                                                No
+                                    </label>
+                        </label>
+                        <label
+                                    className="form-label"
+                        >
+                                    Would like to assign staff to this event?
+                                    <input
+                                                id="yes"
+                                                name="manualSchedule"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                    />
+                                    <label
+                                                htmlFor="yes"
+                                    >
+                                                Yes
+                                    </label>
+                                    <input
+                                                id="no"
+                                                name="manualSchedule"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                    />
+                                    <label
+                                                htmlFor="no"
+                                    >
+                                                No
+                                    </label>
+                        </label>
+            </div>
+            <button
+                        className="add-event-btn"
+            >
+                        Add Event
+            </button>
+</form>,
+          <button
+            className="generate-schedule-btn"
+            onClick={undefined}
+>
+            Generate schedule
+</button>,
+        ],
+        "className": "event-div",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Add an event",
+            "className": "event-header",
+          },
+          "ref": null,
+          "rendered": "Add an event",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="venue-info"
+>
+                <label
+                                className="form-label"
+                >
+                                Venue
+                                <select
+                                                className="event-select"
+                                                name="venue"
+                                                onChange={[Function]}
+                                                value="Ogden Theatre"
+                                >
+                                                <option
+                                                                value="Ogden Theatre"
+                                                >
+                                                                Ogden Theatre
+                                                </option>
+                                                <option
+                                                                value="Gothic Theatre"
+                                                >
+                                                                Gothic Theatre
+                                                </option>
+                                                <option
+                                                                value="Bluebird Theater"
+                                                >
+                                                                Bluebird Theater
+                                                </option>
+                                </select>
+                </label>
+                <input
+                                className="input_event-form"
+                                name="name"
+                                onChange={[Function]}
+                                placeholder="Name"
+                                value=""
+                />
+                <input
+                                className="input_event-form"
+                                name="date"
+                                onChange={[Function]}
+                                onFocus={undefined}
+                                placeholder="Date"
+                                type="date"
+                                value=""
+                />
+                <input
+                                className="input_event-form"
+                                name="time"
+                                onChange={[Function]}
+                                placeholder="Time"
+                                value=""
+                />
+</div>,
+              <div
+                className="staff-info"
+>
+                <label
+                                className="form-label"
+                >
+                                Bar Manager needed?
+                                <input
+                                                id="yes"
+                                                name="bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                />
+                                <label
+                                                htmlFor="yes"
+                                >
+                                                Yes
+                                </label>
+                                <input
+                                                id="no"
+                                                name="bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                />
+                                <label
+                                                htmlFor="no"
+                                >
+                                                No
+                                </label>
+                </label>
+                <label
+                                className="form-label"
+                >
+                                Assistant Bar Manager needed?
+                                <input
+                                                id="yes"
+                                                name="ass_bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                />
+                                <label
+                                                htmlFor="yes"
+                                >
+                                                Yes
+                                </label>
+                                <input
+                                                id="no"
+                                                name="ass_bar_manager"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                />
+                                <label
+                                                htmlFor="no"
+                                >
+                                                No
+                                </label>
+                </label>
+                <input
+                                className="input_event-form"
+                                name="bartenders"
+                                onChange={[Function]}
+                                placeholder="Number of bartenders needed"
+                                value=""
+                />
+                <input
+                                className="input_event-form"
+                                name="barbacks"
+                                onChange={[Function]}
+                                placeholder="Number of barbacks needed"
+                                value=""
+                />
+                <label
+                                className="form-label"
+                >
+                                Beer Bucket?
+                                <input
+                                                id="yes"
+                                                name="beer_bucket"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                />
+                                <label
+                                                htmlFor="yes"
+                                >
+                                                Yes
+                                </label>
+                                <input
+                                                id="no"
+                                                name="beer_bucket"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                />
+                                <label
+                                                htmlFor="no"
+                                >
+                                                No
+                                </label>
+                </label>
+                <label
+                                className="form-label"
+                >
+                                Would like to assign staff to this event?
+                                <input
+                                                id="yes"
+                                                name="manualSchedule"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={true}
+                                />
+                                <label
+                                                htmlFor="yes"
+                                >
+                                                Yes
+                                </label>
+                                <input
+                                                id="no"
+                                                name="manualSchedule"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value={false}
+                                />
+                                <label
+                                                htmlFor="no"
+                                >
+                                                No
+                                </label>
+                </label>
+</div>,
+              <button
+                className="add-event-btn"
+>
+                Add Event
+</button>,
+            ],
+            "className": "event-form",
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    className="form-label"
+>
+                    Venue
+                    <select
+                                        className="event-select"
+                                        name="venue"
+                                        onChange={[Function]}
+                                        value="Ogden Theatre"
+                    >
+                                        <option
+                                                            value="Ogden Theatre"
+                                        >
+                                                            Ogden Theatre
+                                        </option>
+                                        <option
+                                                            value="Gothic Theatre"
+                                        >
+                                                            Gothic Theatre
+                                        </option>
+                                        <option
+                                                            value="Bluebird Theater"
+                                        >
+                                                            Bluebird Theater
+                                        </option>
+                    </select>
+</label>,
+                  <input
+                    className="input_event-form"
+                    name="name"
+                    onChange={[Function]}
+                    placeholder="Name"
+                    value=""
+/>,
+                  <input
+                    className="input_event-form"
+                    name="date"
+                    onChange={[Function]}
+                    onFocus={undefined}
+                    placeholder="Date"
+                    type="date"
+                    value=""
+/>,
+                  <input
+                    className="input_event-form"
+                    name="time"
+                    onChange={[Function]}
+                    placeholder="Time"
+                    value=""
+/>,
+                ],
+                "className": "venue-info",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Venue",
+                      <select
+                        className="event-select"
+                        name="venue"
+                        onChange={[Function]}
+                        value="Ogden Theatre"
+>
+                        <option
+                                                value="Ogden Theatre"
+                        >
+                                                Ogden Theatre
+                        </option>
+                        <option
+                                                value="Gothic Theatre"
+                        >
+                                                Gothic Theatre
+                        </option>
+                        <option
+                                                value="Bluebird Theater"
+                        >
+                                                Bluebird Theater
+                        </option>
+</select>,
+                    ],
+                    "className": "form-label",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Venue",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <option
+                            value="Ogden Theatre"
+>
+                            Ogden Theatre
+</option>,
+                          <option
+                            value="Gothic Theatre"
+>
+                            Gothic Theatre
+</option>,
+                          <option
+                            value="Bluebird Theater"
+>
+                            Bluebird Theater
+</option>,
+                        ],
+                        "className": "event-select",
+                        "name": "venue",
+                        "onChange": [Function],
+                        "value": "Ogden Theatre",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Ogden Theatre",
+                            "value": "Ogden Theatre",
+                          },
+                          "ref": null,
+                          "rendered": "Ogden Theatre",
+                          "type": "option",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Gothic Theatre",
+                            "value": "Gothic Theatre",
+                          },
+                          "ref": null,
+                          "rendered": "Gothic Theatre",
+                          "type": "option",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Bluebird Theater",
+                            "value": "Bluebird Theater",
+                          },
+                          "ref": null,
+                          "rendered": "Bluebird Theater",
+                          "type": "option",
+                        },
+                      ],
+                      "type": "select",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "input_event-form",
+                    "name": "name",
+                    "onChange": [Function],
+                    "placeholder": "Name",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "input_event-form",
+                    "name": "date",
+                    "onChange": [Function],
+                    "onFocus": undefined,
+                    "placeholder": "Date",
+                    "type": "date",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "input_event-form",
+                    "name": "time",
+                    "onChange": [Function],
+                    "placeholder": "Time",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    className="form-label"
+>
+                    Bar Manager needed?
+                    <input
+                                        id="yes"
+                                        name="bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                    />
+                    <label
+                                        htmlFor="yes"
+                    >
+                                        Yes
+                    </label>
+                    <input
+                                        id="no"
+                                        name="bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                    />
+                    <label
+                                        htmlFor="no"
+                    >
+                                        No
+                    </label>
+</label>,
+                  <label
+                    className="form-label"
+>
+                    Assistant Bar Manager needed?
+                    <input
+                                        id="yes"
+                                        name="ass_bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                    />
+                    <label
+                                        htmlFor="yes"
+                    >
+                                        Yes
+                    </label>
+                    <input
+                                        id="no"
+                                        name="ass_bar_manager"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                    />
+                    <label
+                                        htmlFor="no"
+                    >
+                                        No
+                    </label>
+</label>,
+                  <input
+                    className="input_event-form"
+                    name="bartenders"
+                    onChange={[Function]}
+                    placeholder="Number of bartenders needed"
+                    value=""
+/>,
+                  <input
+                    className="input_event-form"
+                    name="barbacks"
+                    onChange={[Function]}
+                    placeholder="Number of barbacks needed"
+                    value=""
+/>,
+                  <label
+                    className="form-label"
+>
+                    Beer Bucket?
+                    <input
+                                        id="yes"
+                                        name="beer_bucket"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                    />
+                    <label
+                                        htmlFor="yes"
+                    >
+                                        Yes
+                    </label>
+                    <input
+                                        id="no"
+                                        name="beer_bucket"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                    />
+                    <label
+                                        htmlFor="no"
+                    >
+                                        No
+                    </label>
+</label>,
+                  <label
+                    className="form-label"
+>
+                    Would like to assign staff to this event?
+                    <input
+                                        id="yes"
+                                        name="manualSchedule"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={true}
+                    />
+                    <label
+                                        htmlFor="yes"
+                    >
+                                        Yes
+                    </label>
+                    <input
+                                        id="no"
+                                        name="manualSchedule"
+                                        onChange={[Function]}
+                                        type="radio"
+                                        value={false}
+                    />
+                    <label
+                                        htmlFor="no"
+                    >
+                                        No
+                    </label>
+</label>,
+                ],
+                "className": "staff-info",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Bar Manager needed?",
+                      <input
+                        id="yes"
+                        name="bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+/>,
+                      <label
+                        htmlFor="yes"
+>
+                        Yes
+</label>,
+                      <input
+                        id="no"
+                        name="bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+/>,
+                      <label
+                        htmlFor="no"
+>
+                        No
+</label>,
+                    ],
+                    "className": "form-label",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Bar Manager needed?",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "yes",
+                        "name": "bar_manager",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": true,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Yes",
+                        "htmlFor": "yes",
+                      },
+                      "ref": null,
+                      "rendered": "Yes",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "no",
+                        "name": "bar_manager",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": false,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "No",
+                        "htmlFor": "no",
+                      },
+                      "ref": null,
+                      "rendered": "No",
+                      "type": "label",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Assistant Bar Manager needed?",
+                      <input
+                        id="yes"
+                        name="ass_bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+/>,
+                      <label
+                        htmlFor="yes"
+>
+                        Yes
+</label>,
+                      <input
+                        id="no"
+                        name="ass_bar_manager"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+/>,
+                      <label
+                        htmlFor="no"
+>
+                        No
+</label>,
+                    ],
+                    "className": "form-label",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Assistant Bar Manager needed?",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "yes",
+                        "name": "ass_bar_manager",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": true,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Yes",
+                        "htmlFor": "yes",
+                      },
+                      "ref": null,
+                      "rendered": "Yes",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "no",
+                        "name": "ass_bar_manager",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": false,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "No",
+                        "htmlFor": "no",
+                      },
+                      "ref": null,
+                      "rendered": "No",
+                      "type": "label",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "input_event-form",
+                    "name": "bartenders",
+                    "onChange": [Function],
+                    "placeholder": "Number of bartenders needed",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "input_event-form",
+                    "name": "barbacks",
+                    "onChange": [Function],
+                    "placeholder": "Number of barbacks needed",
+                    "value": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Beer Bucket?",
+                      <input
+                        id="yes"
+                        name="beer_bucket"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+/>,
+                      <label
+                        htmlFor="yes"
+>
+                        Yes
+</label>,
+                      <input
+                        id="no"
+                        name="beer_bucket"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+/>,
+                      <label
+                        htmlFor="no"
+>
+                        No
+</label>,
+                    ],
+                    "className": "form-label",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Beer Bucket?",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "yes",
+                        "name": "beer_bucket",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": true,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Yes",
+                        "htmlFor": "yes",
+                      },
+                      "ref": null,
+                      "rendered": "Yes",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "no",
+                        "name": "beer_bucket",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": false,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "No",
+                        "htmlFor": "no",
+                      },
+                      "ref": null,
+                      "rendered": "No",
+                      "type": "label",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Would like to assign staff to this event?",
+                      <input
+                        id="yes"
+                        name="manualSchedule"
+                        onChange={[Function]}
+                        type="radio"
+                        value={true}
+/>,
+                      <label
+                        htmlFor="yes"
+>
+                        Yes
+</label>,
+                      <input
+                        id="no"
+                        name="manualSchedule"
+                        onChange={[Function]}
+                        type="radio"
+                        value={false}
+/>,
+                      <label
+                        htmlFor="no"
+>
+                        No
+</label>,
+                    ],
+                    "className": "form-label",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Would like to assign staff to this event?",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "yes",
+                        "name": "manualSchedule",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": true,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Yes",
+                        "htmlFor": "yes",
+                      },
+                      "ref": null,
+                      "rendered": "Yes",
+                      "type": "label",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "no",
+                        "name": "manualSchedule",
+                        "onChange": [Function],
+                        "type": "radio",
+                        "value": false,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "No",
+                        "htmlFor": "no",
+                      },
+                      "ref": null,
+                      "rendered": "No",
+                      "type": "label",
+                    },
+                  ],
+                  "type": "label",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Add Event",
+                "className": "add-event-btn",
+              },
+              "ref": null,
+              "rendered": "Add Event",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Generate schedule",
+            "className": "generate-schedule-btn",
+            "onClick": undefined,
+          },
+          "ref": null,
+          "rendered": "Generate schedule",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
