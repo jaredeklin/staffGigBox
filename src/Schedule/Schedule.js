@@ -6,62 +6,42 @@ import { Api } from '../Api/Api';
 export class Schedule extends Component {
   constructor(props) {
     super(props);
-    this.api = new Api()
+    this.api = new Api();
     this.state = {
       staff_id: '',
       event_id: '',
       staff_events_id: '',
       edit: false,
-      manualSchedule: false || this.props.manualSchedule
+      manualSchedule: false || this.props.manualSchedule,
     }
   }
 
   updateEventStaff = async ({staff_id, event_id}) => {
+    console.log('staff:', staff_id, 'event', event_id)
     
     const response = await fetch(`http://localhost:3000/api/v1/schedule/${this.state.staff_events_id}`, {
       method: 'PUT',
-      body: JSON.stringify({
-        staff_id,
-        event_id
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      body: JSON.stringify({ staff_id, event_id }),
+      headers: { 'Content-Type': 'application/json' }
     })
 
     console.log(await response.json())
-    this.props.editSchedule()
+
+    if( this.state.manualSchedule ) {
+      this.props.updateSchedule(event_id)
+    } else {
+      this.props.editSchedule()
+    }
+
     this.setState({ edit: false })
   }
-
-
-  createEventStaff = async ({ staff_id, event_id }) => {
-    console.log('staff:', staff_id, 'event', event_id)
-    const response = await fetch('http://localhost:3000/api/v1/schedule', {
-      method: 'POST',
-      body: JSON.stringify({
-        staff_id,
-        event_id
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    console.log(await response.json())
-    this.props.editSchedule()
-    this.setState({ edit: false })
-  }
-
 
   handleEditClick = (person) => {
-    this.setState({ edit: !this.state.edit })
 
-    if ( !this.state.manualSchedule ) {
-      this.setState({
-        staff_events_id: person.staff_events_id
-      })
-    }
+    this.setState({ 
+      edit: !this.state.edit,
+      staff_events_id: person.staff_events_id 
+    })
   }
 
  
@@ -92,7 +72,7 @@ export class Schedule extends Component {
         staff={ this.props.staffList }
         createEventStaff={ this.createEventStaff }
         manualSchedule={ this.state.manualSchedule }
-        event_id={ this.state.manualSchedule ? this.props.event.id : event_id }
+        event_id={ event_id }
         updateEventStaff={ this.updateEventStaff }
       />
     ) 
@@ -113,10 +93,10 @@ export class Schedule extends Component {
         <h5>Crew</h5>
         { 
           this.state.edit && 
-          this.handleEditDropdown(event_id) 
+          this.handleEditDropdown( event_id ) 
         }
         <ul>
-          { this.props.manualSchedule ? this.displayEmpty() : this.displayStaff() }
+          { this.displayStaff() }
         </ul>
       </section>
     )

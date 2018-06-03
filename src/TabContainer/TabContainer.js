@@ -3,13 +3,14 @@ import { Tab } from '../Tab/Tab'
 import { EventForm } from '../EventForm/EventForm'
 import { StaffForm } from '../StaffForm/StaffForm'
 import { Schedule } from '../Schedule/Schedule'
-// import { ManualMakeSchedule } from '../ManualMakeSchedule/ManualMakeSchedule'
+import { Api } from '../Api'
 import './TabContainer.css'
 
 export class TabContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.api = new Api()
     this.state = {
       activeTabIndex: 0,
       tabs: ['Event Form', 'Staff Form', 'Schedule'],
@@ -25,6 +26,11 @@ export class TabContainer extends Component {
       manualSchedule: true,
       manualScheduleData: eventData 
     })
+  }
+
+  updateSchedule = async (event_id) => {
+    const manualScheduleData = await this.api.getSchedule(event_id)
+    this.setState({ manualScheduleData })
   }
 
   displayTabs = () => {
@@ -51,6 +57,7 @@ export class TabContainer extends Component {
           editSchedule={ this.props.editSchedule } 
           event={ this.state.manualScheduleData }
           manualSchedule={ true }
+          updateSchedule={ this.updateSchedule}
         />)
     } else {
       return (

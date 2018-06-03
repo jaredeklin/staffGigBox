@@ -11,24 +11,18 @@ export class EditStaffSelect extends Component {
   }
 
   handleChange = async (event) => {
-    // console.log(parseInt(event.target.value))
     await this.setState({
       staff_id: event.target.value
     })
-    console.log(this.state)
-    if( this.props.manualSchedule ) {
-      this.props.createEventStaff(this.state)
-      
-    } else {
-      this.props.updateEventStaff(this.state)
-    }
+
+    this.props.updateEventStaff(this.state)
   }
 
   displayStaff = () => {
-    this.props.staff.map(person => {
-      // console.log('map', person)
+    return this.props.staff.map(person => {
+      
       return (
-        <option key={person.id}>
+        <option key={ person.id } value={ person.id }>
           { person.name }
         </option>
       )
@@ -37,20 +31,11 @@ export class EditStaffSelect extends Component {
 
   render() {
 
-    const displayStaff = this.props.staff.map(person => {
-      return (
-        <option
-          key={ person.id }
-          value={ person.id }
-        >
-          { person.name }
-        </option>
-      )
-    })
     return (
       <form>
         <select onChange={ this.handleChange }>
-          { displayStaff }
+          <option>Select staff</option>
+          { this.displayStaff() }
         </select>
       </form>
     )
