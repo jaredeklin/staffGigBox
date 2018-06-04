@@ -52,8 +52,20 @@ export class EventForm extends Component {
 
     if (response.status === 201) {
       const eventData = await response.json();
-      this.props.checkManualSchedule(eventData)
-      this.setState(this.defaultState)
+      const staffNeeded = this.api.getNumberOfStaff(eventData)
+      const newEventStaffArray = []
+
+      for (let i = 0; i < staffNeeded; i++) {
+        newEventStaffArray.push({  
+          staff_id: null, 
+          event_id: eventData.id
+        })
+      }
+
+      await this.api.postSchedule(newEventStaffArray)
+      const newEventSchedule = await this.api.getSchedule(eventData.id)  
+
+      this.props.checkManualSchedule(newEventSchedule)
     }
   }
 

@@ -3,13 +3,14 @@ import { Tab } from '../Tab/Tab'
 import { EventForm } from '../EventForm/EventForm'
 import { StaffForm } from '../StaffForm/StaffForm'
 import { Schedule } from '../Schedule/Schedule'
-// import { ManualMakeSchedule } from '../ManualMakeSchedule/ManualMakeSchedule'
+import { Api } from '../Api'
 import './TabContainer.css'
 
 export class TabContainer extends Component {
 
   constructor(props) {
     super(props);
+    this.api = new Api()
     this.state = {
       activeTabIndex: 0,
       tabs: ['Event Form', 'Staff Form', 'Schedule'],
@@ -25,7 +26,11 @@ export class TabContainer extends Component {
       manualSchedule: true,
       manualScheduleData: eventData 
     })
-    // console.log(eventData)
+  }
+
+  updateSchedule = async (event_id) => {
+    const manualScheduleData = await this.api.getSchedule(event_id)
+    this.setState({ manualScheduleData })
   }
 
   displayTabs = () => {
@@ -44,15 +49,15 @@ export class TabContainer extends Component {
     })
   };
 
-  checkForManuel = () => {
+  checkForManual = () => {
     if ( this.state.manualSchedule ) {
-      // return <ManualMakeSchedule scheduleData={ this.state.manualScheduleData } staffList={ this.props.staff } />
       return (
         <Schedule 
-          scheduleData={ this.state.manualScheduleData } 
-          staffList={ this.props.staff } 
+          staffList={ this.props.staff }
+          editSchedule={ this.props.editSchedule } 
           event={ this.state.manualScheduleData }
           manualSchedule={ true }
+          updateSchedule={ this.updateSchedule}
         />)
     } else {
       return (
@@ -66,7 +71,7 @@ export class TabContainer extends Component {
 
   activeContent = () => {
     switch (this.state.activeTabIndex) {
-      case 0: return this.checkForManuel()
+      case 0: return this.checkForManual()
 
       case 1: return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
