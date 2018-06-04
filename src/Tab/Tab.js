@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const Tab = ({ isActive, tabName, tabIndex, handleTabClick }) => {
+export const Tab = ({ isActive, tabName, handleTabClick }) => {
 
   return (
     <li 
       className={`tab ${ isActive ? 'active' : '' }`}
-      onClick={ () => handleTabClick(tabIndex) }>
+      onClick={ () => handleTabClick(tabName) }>
       { tabName }
     </li>
   );
