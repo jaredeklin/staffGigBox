@@ -3,7 +3,7 @@ import { Tab } from '../Tab/Tab'
 import { EventForm } from '../EventForm/EventForm'
 import { StaffForm } from '../StaffForm/StaffForm'
 import { Schedule } from '../Schedule/Schedule'
-import { Api } from '../Api'
+import { Api } from '../Api/Api'
 import './TabContainer.css'
 
 export class TabContainer extends Component {
