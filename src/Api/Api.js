@@ -12,6 +12,7 @@ export class Api  {
     return await response.json()
   }
 
+  // ripe for refactor
   generateSchedule = (staff, events) => {
     const scheduleBefore = events.map((event) => {
       let { bar_manager, ass_bar_manager, bartenders, barbacks } = event
@@ -59,14 +60,13 @@ export class Api  {
         }
       })
 
-      console.log(staffArray)
       return staffArray
     })
 
     return scheduleBefore.reduce((acc, eventStaff) => {
-
       return [...acc, ...eventStaff]
     },[])
+
   }
 
   getNumberOfStaff = (event) => {
@@ -162,7 +162,6 @@ export class Api  {
   }
 
   postSchedule = (schedule) => {
-
     const promise = schedule.map( async (staffEvent) => {
       var response = await fetch('http://localhost:3000/api/v1/schedule', {
         method: 'POST',
