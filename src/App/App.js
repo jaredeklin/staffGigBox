@@ -18,7 +18,8 @@ class App extends Component {
       schedule: [],
       isCurrentStaff: false,
       addNewStaff: false,
-      tabs: []
+      tabs: [],
+      admin: false
     };
 
   }
@@ -34,7 +35,10 @@ class App extends Component {
       this.checkAuthorization(isAuthorized[0])
 
     } else {
-      this.setState({ tabs: ['Schedule'] })
+      this.setState({ 
+        tabs: ['Schedule'], 
+        admin: false 
+      })
     }
   }
 
@@ -47,7 +51,8 @@ class App extends Component {
 
         this.setState({ 
           isCurrentStaff: true,
-          tabs: isAdmin ? adminTabs : staffTabs
+          tabs: isAdmin ? adminTabs : staffTabs,
+          admin: isAdmin ? true : false
         })
       } else {
         this.setState({ 
@@ -82,7 +87,7 @@ class App extends Component {
   scheduleGenerator = async () => {
     const { staff, events } = this.state
     const generatedSchedule = this.api.generateSchedule(staff, events)
-    
+
     await this.api.postSchedule(generatedSchedule)
 
     this.editSchedule()
@@ -103,7 +108,7 @@ class App extends Component {
 
   render() {
 
-    const { schedule, staff, user, tabs } = this.state
+    const { schedule, staff, user, tabs, admin } = this.state
 
     return (
       <div className='app'>
@@ -117,6 +122,7 @@ class App extends Component {
           user={ user }
           deleteFromSchedule= { this.deleteFromSchedule }
           tabs={ tabs }
+          admin={ admin }
         />
       </div>
     );
