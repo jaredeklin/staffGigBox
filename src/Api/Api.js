@@ -12,18 +12,51 @@ export class Api  {
     return await response.json()
   }
 
+  // ripe for refactor
   generateSchedule = (staff, events) => {
     const scheduleBefore = events.map((event) => {
-      const staffNeeded = this.getNumberOfStaff(event);
-      let staffArray = [];
-      /// should probably refactor this to a filter
+      let { bar_manager, ass_bar_manager, bartenders, barbacks } = event
+      let bartenderCount = 0
+      let barbackCount = 0
+      const staffNeeded = this.getNumberOfStaff(event)
+      const staffArray = []
+      
       staff.forEach((person, index) => {
-        if (staffNeeded > index) {
-          const id = {
-            event_id: event.id,
-            staff_id: person.id
+        if ( index < staffNeeded ) {
+
+          if ( bar_manager ) {
+            bar_manager = false
+            staffArray.push({
+              event_id: event.id,
+              staff_id: person.id,
+              role: "Bar Manager"
+            })
           }
-          staffArray.push(id);
+
+          if ( ass_bar_manager ) {
+            ass_bar_manager = false
+            staffArray.push({
+                event_id: event.id,
+                staff_id: person.id,
+                role: 'Assistant Bar Manager'
+              })
+          }
+
+          if ( bartenderCount < bartenders ) {
+            bartenderCount++
+            staffArray.push({
+                event_id: event.id,
+                staff_id: person.id,
+                role: 'Bartender'
+            })
+          } else if ( barbackCount < barbacks ) {
+            barbackCount++
+            staffArray.push({
+                event_id: event.id,
+                staff_id: person.id,
+                role: 'Barback'
+            })
+          }
         }
       })
 
@@ -31,14 +64,14 @@ export class Api  {
     })
 
     return scheduleBefore.reduce((acc, eventStaff) => {
-
       return [...acc, ...eventStaff]
     },[])
+
   }
 
   getNumberOfStaff = (event) => {
 
-    if( event ){
+    if( event ) {
 
       let staffNeeded = event.bartenders + event.barbacks;
 
@@ -129,7 +162,6 @@ export class Api  {
   }
 
   postSchedule = (schedule) => {
-
     const promise = schedule.map( async (staffEvent) => {
       var response = await fetch('http://localhost:3000/api/v1/schedule', {
         method: 'POST',
