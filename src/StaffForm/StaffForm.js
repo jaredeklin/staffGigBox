@@ -37,7 +37,7 @@ export class StaffForm extends Component {
 
 
   render() {
-    
+
     return (
         <form className='staff-form' onSubmit={this.handleSubmit}>
         <h4>Add new staff member</h4>
@@ -49,7 +49,7 @@ export class StaffForm extends Component {
             onChange={ this.handleChange }
           />
           <label className='form-label form-header'>Select all that apply:</label>
-         <label className='form-label'>
+          <label className='form-label'>
             Are you a Bar Manager?
             <input type='radio'
             id= 'yes'
