@@ -15,7 +15,8 @@ class App extends Component {
       events: [],
       schedule: [],
       isCurrentStaff: false,
-      addNewStaff: false
+      addNewStaff: false,
+      tabs: ['Schedule']
     };
 
     this.api = new Api()
@@ -29,7 +30,10 @@ class App extends Component {
     if (user) {
       const match = staff.find(person => person.google_id === user.uid)
       if( match) {
-        this.setState({ isCurrentStaff: true })
+        this.setState({ 
+          isCurrentStaff: true,
+          tabs: ['Event Form', 'Staff Form', 'Schedule'] 
+        })
       } else {
         this.setState({ addNewStaff: true })
       }
@@ -82,17 +86,20 @@ class App extends Component {
 
   render() {
 
+    const { schedule, staff, user, tabs } = this.state
+
     return (
       <div className='app'>
         <Header addUser={ this.addUser }/>
         <TabContainer
           editSchedule = { this.editSchedule }
-          schedule={ this.state.schedule }
+          schedule={ schedule }
           scheduleGenerator={ this.scheduleGenerator }
-          staff={ this.state.staff }
+          staff={ staff }
           addStaff={ this.addStaff }
-          user={ this.state.user }
+          user={ user }
           deleteFromSchedule= { this.deleteFromSchedule }
+          tabs={ tabs }
         />
       </div>
     );

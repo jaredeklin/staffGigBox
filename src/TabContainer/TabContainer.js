@@ -12,11 +12,9 @@ export class TabContainer extends Component {
     super(props);
     this.api = new Api()
     this.state = {
-      // activeTabIndex: 0,
-      tabs: ['Event Form', 'Staff Form', 'Schedule'],
       manualSchedule: false,
       manualScheduleData: {},
-      activeTabName: 'Event Form'
+      activeTabName: this.props.tabs[0]
     };
   }
 
@@ -35,9 +33,9 @@ export class TabContainer extends Component {
   }
 
   displayTabs = () => {
-    const { tabs, activeTabName } = this.state
+    const { activeTabName } = this.state
 
-    return tabs.map((tabName, index) => {
+    return this.props.tabs.map((tabName, index) => {
       return (
         <Tab
           tabName={ tabName }
