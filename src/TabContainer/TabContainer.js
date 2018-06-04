@@ -69,9 +69,9 @@ export class TabContainer extends Component {
 
   activeContent = () => {
     switch (this.state.activeTabName) {
-      case 'Event Form': return this.checkForManual()
+      case 'Add Event': return this.checkForManual()
 
-      case 'Staff Form': return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
+      case 'Add New Staff': return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
       default: return this.props.schedule.map((event, index) => {
         return (

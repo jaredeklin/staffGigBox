@@ -16,7 +16,7 @@ class App extends Component {
       schedule: [],
       isCurrentStaff: false,
       addNewStaff: false,
-      tabs: ['Schedule']
+      tabs: []
     };
 
     this.api = new Api()
@@ -28,24 +28,35 @@ class App extends Component {
     await this.setState({ user, isCurrentStaff: false })
 
     if (user) {
-      const match = staff.find(person => person.google_id === user.uid)
-      if( match) {
-        this.setState({ 
-          isCurrentStaff: true,
-          tabs: ['Event Form', 'Staff Form', 'Schedule'] 
-        })
-      } else {
-        this.setState({ 
-          addNewStaff: true,
-          tabs: ['Staff Form', 'Schedule']
-        })
-      }
+      const isAuthorized = staff.filter(person => person.google_id === user.uid)
+
+      this.checkAuthorization(isAuthorized[0])
+      
     } else {
       this.setState({ 
         user: null,
         tabs: ['Schedule']
       })
     }
+  }
+
+  checkAuthorization = (isAuthorized) => {
+
+      if( isAuthorized ) {
+        const isAdmin = isAuthorized.bar_manager
+        const adminTabs = ['Add Event', 'Add New Staff', 'Schedule', 'Submit Availability']
+        const staffTabs = ['Schedule', 'Submit Availability']
+
+        this.setState({ 
+          isCurrentStaff: true,
+          tabs: isAdmin ? adminTabs : staffTabs
+        })
+      } else {
+        this.setState({ 
+          addNewStaff: true,
+          tabs: ['Add New Staff', 'Schedule']
+        })
+      }
   }
 
   deleteFromSchedule = async (id) => {
