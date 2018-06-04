@@ -9,6 +9,8 @@ import { Api } from '../Api/Api';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.api = new Api()
+    
     this.state = {
       user: null,
       staff: [],
@@ -19,7 +21,6 @@ class App extends Component {
       tabs: []
     };
 
-    this.api = new Api()
   }
 
   addUser = async (user) => {
@@ -31,12 +32,9 @@ class App extends Component {
       const isAuthorized = staff.filter(person => person.google_id === user.uid)
 
       this.checkAuthorization(isAuthorized[0])
-      
+
     } else {
-      this.setState({ 
-        user: null,
-        tabs: ['Schedule']
-      })
+      this.setState({ tabs: ['Schedule'] })
     }
   }
 
