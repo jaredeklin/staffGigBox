@@ -35,8 +35,16 @@ class App extends Component {
           tabs: ['Event Form', 'Staff Form', 'Schedule'] 
         })
       } else {
-        this.setState({ addNewStaff: true })
+        this.setState({ 
+          addNewStaff: true,
+          tabs: ['Staff Form', 'Schedule']
+        })
       }
+    } else {
+      this.setState({ 
+        user: null,
+        tabs: ['Schedule']
+      })
     }
   }
 
