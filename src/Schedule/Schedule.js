@@ -154,7 +154,8 @@ export class Schedule extends Component {
 
   render() {
 
-    const { venue, name, date, time, event_id } = this.props.event
+    const { venue, name, date, time, event_id, ass_bar_manager } = this.props.event
+
     return (
       <section className='schedule-card'>
         <div className='schedule-container'>
@@ -173,10 +174,12 @@ export class Schedule extends Component {
               <h4>Bar Manager</h4> 
               { this.displayBarManager() }
             </ul>
-            <ul className='ass-bar-manager'> 
-              <h4>Assistant Bar Manager</h4> 
-              { this.displayAssBarMan() }
-            </ul>
+            { ass_bar_manager &&
+              <ul className='ass-bar-manager'> 
+                <h4>Assistant Bar Manager</h4> 
+                { this.displayAssBarMan() }
+              </ul>
+            }
           </article>
         <ul className='bartenders'>
           <h4>Bartenders</h4>

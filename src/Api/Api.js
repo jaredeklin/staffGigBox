@@ -129,7 +129,10 @@ export class Api  {
         name: eventData[0].name,
         date: eventData[0].date,
         time: eventData[0].time,
-        staff: staffNames
+        staff: staffNames,
+        ass_bar_manager: eventData[0].ass_bar_manager,
+        bar_manager: eventData[0].bar_manager,
+        beer_bucket: eventData[0].beer_bucket
       }
       return event
     })
