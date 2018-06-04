@@ -44,25 +44,95 @@ export class Schedule extends Component {
     })
   }
 
+
+  displayBarManager = () => {
+    const { staff } = this.props.event
+
+    return staff.filter(staffMember => staffMember.role === 'Bar Manager')
+      .map((person, index) => {
+        return (
+          <li key={ person.staff_events_id }>
+            {person.name}
+            <button
+              className='delete'
+              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+            </button>
+            <button
+              className='edit'
+              onClick={ () => this.handleEditClick(person) }>
+            </button>
+          </li>
+        )
+      }
+    )
+  }
+
+  displayAssBarMan = () => {
+    const { staff } = this.props.event
+
+    return staff.filter(staffMember => staffMember.role === 'Assistant Bar Manager')
+      .map((person, index) => {
+        return (
+          <li key={ person.staff_events_id }>
+            {person.name}
+            <button
+              className='delete'
+              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+            </button>
+            <button
+              className='edit'
+              onClick={ () => this.handleEditClick(person) }>
+            </button>
+          </li>
+        )
+      }
+    )
+  }
+
  
 
-  displayStaff = () => {
-    return this.props.event.staff.map((person, index) => {
+  displayBartenders = () => {
+    const { staff } = this.props.event
 
-      return (
-        <li key={ person.staff_events_id }>
-          {person.name}
-          <button
-            className='delete'
-            onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
-          </button>
-          <button
-            className='edit'
-            onClick={ () => this.handleEditClick(person) }>
-          </button>
-        </li>
-      )
-    })
+    return staff.filter(staffMember => staffMember.role === 'Bartender')
+      .map((person, index) => {
+        return (
+          <li key={ person.staff_events_id }>
+            {person.name}
+            <button
+              className='delete'
+              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+            </button>
+            <button
+              className='edit'
+              onClick={ () => this.handleEditClick(person) }>
+            </button>
+          </li>
+        )
+      }
+    )
+  }
+
+  displayBarbacks = () => {
+    const { staff } = this.props.event
+
+    return staff.filter(staffMember => staffMember.role === 'Barback')
+      .map((person, index) => {
+        return (
+          <li key={ person.staff_events_id }>
+            {person.name}
+            <button
+              className='delete'
+              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+            </button>
+            <button
+              className='edit'
+              onClick={ () => this.handleEditClick(person) }>
+            </button>
+          </li>
+        )
+      }
+    )    
   }
 
 
@@ -81,7 +151,6 @@ export class Schedule extends Component {
   render() {
 
     const { venue, name, date, time, event_id } = this.props.event
-
     return (
       <section className='schedule-card'>
         <div className='schedule-container'>
@@ -90,14 +159,30 @@ export class Schedule extends Component {
           <h4>{ time }</h4>
         </div>
         <h2>{ name }</h2>
-        <h5>Crew</h5>
         { 
           this.state.edit && 
           this.handleEditDropdown( event_id ) 
         }
-        <ul>
-          { this.displayStaff() }
+        <section className='staff-container'>
+          <article className='managers'>
+            <ul className='bar-manager'>
+              <h4>Bar Manager</h4> 
+              { this.displayBarManager() }
+            </ul>
+            <ul className='ass-bar-manager'> 
+              <h4>Assistant Bar Manager</h4> 
+              { this.displayAssBarMan() }
+            </ul>
+          </article>
+        <ul className='bartenders'>
+          <h4>Bartenders</h4>
+          { this.displayBartenders() }
         </ul>
+        <ul className='barbacks'> 
+          <h4>Barbacks</h4> 
+          { this.displayBarbacks() }
+        </ul>
+        </section>
       </section>
     )
   }
