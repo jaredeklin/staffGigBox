@@ -7,7 +7,6 @@ export class Header extends Component {
     super()
     this.state = {
       user: null,
-      // result: []
     }
   }
 

@@ -3,7 +3,7 @@ import { Tab } from '../Tab/Tab'
 import { EventForm } from '../EventForm/EventForm'
 import { StaffForm } from '../StaffForm/StaffForm'
 import { Schedule } from '../Schedule/Schedule'
-import { Api } from '../Api'
+import { Api } from '../Api/Api'
 import './TabContainer.css'
 
 export class TabContainer extends Component {
@@ -12,14 +12,13 @@ export class TabContainer extends Component {
     super(props);
     this.api = new Api()
     this.state = {
-      activeTabIndex: 0,
-      tabs: ['Event Form', 'Staff Form', 'Schedule'],
       manualSchedule: false,
-      manualScheduleData: {}
+      manualScheduleData: {},
+      activeTabName: this.props.tabs[0]
     };
   }
 
-  handleTabClick = (activeTabIndex) => this.setState({ activeTabIndex });
+  handleTabClick = (activeTabName) => this.setState({ activeTabName });
 
   checkManualSchedule = (eventData) => {
     this.setState({ 
@@ -34,15 +33,14 @@ export class TabContainer extends Component {
   }
 
   displayTabs = () => {
-    const { tabs, activeTabIndex } = this.state
+    const { activeTabName } = this.state
 
-    return tabs.map((tabName, index) => {
+    return this.props.tabs.map((tabName, index) => {
       return (
         <Tab
           tabName={ tabName }
-          tabIndex={ index }
           handleTabClick={ this.handleTabClick }
-          isActive={ index === activeTabIndex }
+          isActive={ tabName === activeTabName }
           key={ tabName + index }
         />
       )
@@ -70,10 +68,10 @@ export class TabContainer extends Component {
   }
 
   activeContent = () => {
-    switch (this.state.activeTabIndex) {
-      case 0: return this.checkForManual()
+    switch (this.state.activeTabName) {
+      case 'Add Event': return this.checkForManual()
 
-      case 1: return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
+      case 'Add New Staff': return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
       default: return this.props.schedule.map((event, index) => {
         return (

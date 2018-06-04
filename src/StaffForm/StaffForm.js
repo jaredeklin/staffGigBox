@@ -37,7 +37,6 @@ export class StaffForm extends Component {
 
 
   render() {
-    const { name, bar_manager, ass_bar_manager, bartender, barback, beer_bucket } = this.state
 
     return (
         <form className='staff-form' onSubmit={this.handleSubmit}>
@@ -45,11 +44,12 @@ export class StaffForm extends Component {
           <input
             className='input-name'
             placeholder='Name'
-            name='name' value={ name }
+            name='name' 
+            value={ this.state.name }
             onChange={ this.handleChange }
           />
           <label className='form-label form-header'>Select all that apply:</label>
-         <label className='form-label'>
+          <label className='form-label'>
             Are you a Bar Manager?
             <input type='radio'
             id= 'yes'

@@ -71,7 +71,7 @@ export class EventForm extends Component {
 
   render() {
 
-    const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket } = this.state
+    const { venue, name, date, time, bartenders, barbacks } = this.state
 
     return (
       <div className='event-div'>

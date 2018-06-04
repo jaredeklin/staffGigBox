@@ -9,16 +9,18 @@ import { Api } from '../Api/Api';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.api = new Api()
+    
     this.state = {
       user: null,
       staff: [],
       events: [],
       schedule: [],
       isCurrentStaff: false,
-      addNewStaff: false
+      addNewStaff: false,
+      tabs: []
     };
 
-    this.api = new Api()
   }
 
   addUser = async (user) => {
@@ -27,13 +29,32 @@ class App extends Component {
     await this.setState({ user, isCurrentStaff: false })
 
     if (user) {
-      const match = staff.find(person => person.google_id === user.uid)
-      if( match) {
-        this.setState({ isCurrentStaff: true })
-      } else {
-        this.setState({ addNewStaff: true })
-      }
+      const isAuthorized = staff.filter(person => person.google_id === user.uid)
+
+      this.checkAuthorization(isAuthorized[0])
+
+    } else {
+      this.setState({ tabs: ['Schedule'] })
     }
+  }
+
+  checkAuthorization = (isAuthorized) => {
+
+      if( isAuthorized ) {
+        const isAdmin = isAuthorized.bar_manager
+        const adminTabs = ['Add Event', 'Add New Staff', 'Schedule', 'Submit Availability']
+        const staffTabs = ['Schedule', 'Submit Availability']
+
+        this.setState({ 
+          isCurrentStaff: true,
+          tabs: isAdmin ? adminTabs : staffTabs
+        })
+      } else {
+        this.setState({ 
+          addNewStaff: true,
+          tabs: ['Add New Staff', 'Schedule']
+        })
+      }
   }
 
   deleteFromSchedule = async (id) => {
@@ -82,17 +103,20 @@ class App extends Component {
 
   render() {
 
+    const { schedule, staff, user, tabs } = this.state
+
     return (
       <div className='app'>
         <Header addUser={ this.addUser }/>
         <TabContainer
           editSchedule = { this.editSchedule }
-          schedule={ this.state.schedule }
+          schedule={ schedule }
           scheduleGenerator={ this.scheduleGenerator }
-          staff={ this.state.staff }
+          staff={ staff }
           addStaff={ this.addStaff }
-          user={ this.state.user }
+          user={ user }
           deleteFromSchedule= { this.deleteFromSchedule }
+          tabs={ tabs }
         />
       </div>
     );
