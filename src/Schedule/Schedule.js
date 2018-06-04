@@ -99,14 +99,18 @@ export class Schedule extends Component {
         return (
           <li key={ person.staff_events_id }>
             {person.name}
-            <button
-              className='delete'
-              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
-            </button>
-            <button
-              className='edit'
-              onClick={ () => this.handleEditClick(person) }>
-            </button>
+            { this.props.admin &&
+              <div>
+                <button
+                className='delete'
+                onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+                </button>
+                <button
+                className='edit'
+                onClick={ () => this.handleEditClick(person) }>
+                </button>
+              </div>
+            }
           </li>
         )
       }

@@ -56,6 +56,7 @@ export class TabContainer extends Component {
           event={ this.state.manualScheduleData }
           manualSchedule={ true }
           updateSchedule={ this.updateSchedule}
+          admin={ this.props.admin }
         />)
     } else {
       return (
@@ -81,6 +82,7 @@ export class TabContainer extends Component {
             event={ event }
             key={ event.event_id }
             deleteFromSchedule={this.props.deleteFromSchedule}
+            admin={ this.props.admin }
           />
         )
       })
