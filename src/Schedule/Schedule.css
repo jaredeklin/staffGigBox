@@ -21,10 +21,18 @@ h4 {
   font-family: 'Exo', sans-serif;
 }
 
+.staff-container {
+  display: flex;
+}
+
+.staff-container h4 {
+  margin: 0 0 5px 0;
+}
+
 .active-content ul {
   list-style-type: none;
-  columns: 3 100px;
-  height: 100px;
+  /*columns: 3 100px;*/
+  /*height: 100px;*/
   width: unset;
 }
 

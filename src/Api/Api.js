@@ -106,11 +106,12 @@ export class Api  {
   cleanScheduleData = (schedule) => {
     // console.log(schedule)
     const scheduleObj = schedule.reduce((obj, event) => {
+      const { staff_id, id, role } = event
       if(!obj[event.event_id]) {
         obj[event.event_id] = []
       }
 
-      obj[event.event_id] = [...obj[event.event_id], { staff_id: event.staff_id, staff_events_id: event.id }]
+      obj[event.event_id] = [...obj[event.event_id], { staff_id, staff_events_id: id, role}]
       return obj
     }, {})
 
@@ -123,7 +124,6 @@ export class Api  {
       const eventData = await eventResponse.json()
       const staffNames = await this.getStaffNames(eventObj[events])
       const event = {
-
         event_id: eventData[0].id,
         venue: eventData[0].venue,
         name: eventData[0].name,
@@ -138,21 +138,19 @@ export class Api  {
   }
 
   getStaffNames = (ids) => {
+    
     const promise = ids.map(async person => {
-      let staff;
-
-      if(person.staff_id === null) {
-        staff = {
+      const { staff_events_id, role } = person
+      let staff = {
           name: 'Staff Needed',
-          staff_events_id: person.staff_events_id
+          staff_events_id,
+          role
         }
-      } else {
+
+      if ( person.staff_id !== null ){
         const staffResponse = await fetch(`http://localhost:3000/api/v1/staff/${person.staff_id}`)
         const staffData = await staffResponse.json()
-        staff = {
-          name: staffData[0].name,
-          staff_events_id: person.staff_events_id
-        }        
+        staff.name = staffData[0].name
       }
 
       return staff
