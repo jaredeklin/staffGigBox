@@ -2,7 +2,7 @@
 
 
 .schedule-card {
-  width: 80%;
+  width: 90%;
   border: 1px solid black;
   margin: 10px auto;
   padding: 5px 20px;
@@ -23,7 +23,7 @@ h4 {
 
 .active-content ul {
   list-style-type: none;
-  columns: 2 200px;
+  columns: 3 100px;
   height: 100px;
   width: unset;
 }
