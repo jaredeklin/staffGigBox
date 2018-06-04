@@ -50,7 +50,7 @@ export class Schedule extends Component {
     return this.props.event.staff.map((person, index) => {
 
       return (
-        <li>
+        <li key={ person.staff_events_id }>
           {person.name}
           <button
             className='delete'
