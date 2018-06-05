@@ -16,20 +16,7 @@ export class Api  {
   generateSchedule = async (staff, events) => {
     const response = await fetch('http://localhost:3000/api/v1/schedule');
     const currentScheduleData = await response.json();
-    // const unscheduledEvents = events.reduce((array, event) => {
-
-    //   const match = currentScheduleData.find(schedule => event.id === schedule.event_id);
-    //   const unscheduledArray = [];  
-
-    //   if (!match) {
-    //     unscheduledArray.push(event);
-    //   }
-
-    //   return [...unscheduledArray];
-    // }, []);
-
     const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null)
-    // console.log(unscheduledEvents)
     const schedule = unscheduledEvents.reduce((array, event) => {
 
       event.staff_id = Math.floor(Math.random() * staff.length) + 1
@@ -37,10 +24,6 @@ export class Api  {
       return [...array, event];
     });
 
-    // console.log(scheduleBefore)
-    // return scheduleBefore.reduce((acc, eventStaff) => {
-    //   return [...acc, ...eventStaff];
-    // }, []);
     return schedule
   }
 
@@ -168,5 +151,46 @@ export class Api  {
     })
 
     return Promise.all(promise)
+  }
+
+  buildScheduleWithRoles = (event) => {
+    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event;
+    const newEventStaffArray = [];
+
+    if ( bar_manager ) {
+      bar_manager = false;
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Bar Manager'
+      });
+    }
+
+    if ( ass_bar_manager ) {
+      ass_bar_manager = false;
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Assistant Bar Manager'
+      });
+    }
+
+    for (let i = 0; i < bartenders; i++) {
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Bartender'
+      });
+    }
+
+    for (let i = 0; i < barbacks; i++) {
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Barback'
+      });
+    }
+
+    return newEventStaffArray;
   }
 }

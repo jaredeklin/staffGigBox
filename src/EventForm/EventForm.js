@@ -54,57 +54,20 @@ export class EventForm extends Component {
     if (response.status === 201) {
       const eventData = await response.json();
 
-      if (this.state.manualSchedule) {
-        const newEventStaffArray = this.buildScheduleWithRoles(eventData);
+      if ( manualSchedule ) {
+        const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
 
         await this.api.postSchedule(newEventStaffArray);
+
         const newEventSchedule = await this.api.getSchedule(eventData.id);
+        
         this.props.checkManualSchedule(newEventSchedule, manualSchedule);
+        this.setState(this.defaultState)
       }
-
     }
   }
 
-  buildScheduleWithRoles = (event) => {
-    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event;
-    const newEventStaffArray = [];
-
-    if ( bar_manager ) {
-      bar_manager = false;
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: event.id,
-        role: 'Bar Manager'
-      });
-    }
-
-    if ( ass_bar_manager ) {
-      ass_bar_manager = false;
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: event.id,
-        role: 'Assistant Bar Manager'
-      });
-    }
-
-    for (let i = 0; i < bartenders; i++) {
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: event.id,
-        role: 'Bartender'
-      });
-    }
-
-    for (let i = 0; i < barbacks; i++) {
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: event.id,
-        role: 'Barback'
-      });
-    }
-
-    return newEventStaffArray;
-  }
+  
 
 
   render() {

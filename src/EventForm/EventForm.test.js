@@ -31,6 +31,10 @@ describe('EventForm', () => {
   });
 
   it('should post event on handle Submit', async () => {
+    const api = new Api()
+
+    
+
     const mockEvent = {
       preventDefault: jest.fn()
     };
@@ -77,8 +81,18 @@ describe('EventForm', () => {
 
       })
     }));
+
+    wrapper.setState({ manualSchedule: true })
+    wrapper.instance().api.postSchedule = jest.fn();
+    wrapper.instance().api.buildScheduleWithRoles = jest.fn();
+    wrapper.instance().api.getSchedule = jest.fn();
+
     await wrapper.instance().handleSubmit(mockEvent);
     expect(window.fetch).toHaveBeenCalledWith(...expected);
+
+    expect(wrapper.instance().api.buildScheduleWithRoles).toHaveBeenCalled()
+    expect(wrapper.instance().api.postSchedule).toHaveBeenCalled()
+    expect(wrapper.instance().api.getSchedule).toHaveBeenCalled()   
     expect(mockCheck).toHaveBeenCalled();
     expect(wrapper.state()).toEqual(mockDefaultState);
   });

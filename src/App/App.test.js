@@ -114,14 +114,14 @@ describe('App', () => {
 
   it('should generate a schedule', async () => {
     wrapper.instance().api.generateSchedule = jest.fn();
-    wrapper.instance().api.postSchedule = jest.fn();
+    wrapper.instance().api.modifySchedule = jest.fn();
     wrapper.instance().editSchedule = jest.fn();
 
 
     await wrapper.instance().scheduleGenerator();
 
     expect(wrapper.instance().api.generateSchedule).toHaveBeenCalled();
-    expect(wrapper.instance().api.postSchedule).toHaveBeenCalled();
+    expect(wrapper.instance().api.modifySchedule).toHaveBeenCalled();
     expect(wrapper.instance().editSchedule).toHaveBeenCalled();
   });
 
@@ -141,7 +141,7 @@ describe('App', () => {
     expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();
 
     expect(wrapper.state()).toEqual({
-      addNewStaff: false, events: { event: 'idone' }, isCurrentStaff: false, schedule: { schedule: 'thebesten' }, staff: { name: 'taco' }, user: null
+      addNewStaff: false, admin: false, tabs: [], events: { event: 'idone' }, isCurrentStaff: false, schedule: { schedule: 'thebesten' }, staff: { name: 'taco' }, user: null
     });
   });
 
