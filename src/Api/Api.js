@@ -1,20 +1,25 @@
+
+
 export class Api  {
+  constructor() {
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
+  }
 
   getStaff = async () => {
-    const response = await fetch('http://localhost:3000/api/v1/staff');
+    const response = await fetch(`${this.url}api/v1/staff`);
 
     return await response.json();
   }
 
   getEvents = async () => {
-    const response = await fetch('http://localhost:3000/api/v1/events');
+    const response = await fetch(`${this.url}api/v1/events`);
 
     return await response.json();
   }
 
   // ripe for refactor
   generateSchedule = async (staff) => {
-    const response = await fetch('http://localhost:3000/api/v1/schedule');
+    const response = await fetch(`${this.url}api/v1/schedule`);
     const currentScheduleData = await response.json();
     const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null);
     const schedule = unscheduledEvents.reduce((array, event) => {
@@ -49,9 +54,9 @@ export class Api  {
     let response;
 
     if (id) {
-      response = await fetch(`http://localhost:3000/api/v1/schedule?event_id=${id}`);
+      response = await fetch(`${this.url}api/v1/schedule?event_id=${id}`);
     } else {
-      response = await fetch('http://localhost:3000/api/v1/schedule');
+      response = await fetch(`${this.url}api/v1/schedule`);
     }
 
     const scheduleData = await response.json();
@@ -80,7 +85,7 @@ export class Api  {
 
   combineStaffAndEvent = (eventObj) => {
     const eventWithStaff = Object.keys(eventObj).map(async events => {
-      const eventResponse = await fetch(`http://localhost:3000/api/v1/events/${events}`);
+      const eventResponse = await fetch(`${this.url}api/v1/events/${events}`);
       const eventData = await eventResponse.json();
       const staffNames = await this.getStaffNames(eventObj[events]);
       const event = {
@@ -111,7 +116,7 @@ export class Api  {
       };
 
       if ( person.staff_id !== null ){
-        const staffResponse = await fetch(`http://localhost:3000/api/v1/staff/${person.staff_id}`);
+        const staffResponse = await fetch(`${this.url}api/v1/staff/${person.staff_id}`);
         const staffData = await staffResponse.json();
 
         staff.name = staffData[0].name;
@@ -125,7 +130,7 @@ export class Api  {
 
   postSchedule = (schedule) => {
     const promise = schedule.map( async (staffEvent) => {
-      var response = await fetch('http://localhost:3000/api/v1/schedule', {
+      var response = await fetch(`${this.url}api/v1/schedule`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -142,7 +147,7 @@ export class Api  {
   modifySchedule = (schedule) => {
     const promise = schedule.map( async (event) => {
       const { staff_events_id, staff_id, event_id, id } = event;
-      const response = await fetch(`http://localhost:3000/api/v1/schedule/${staff_events_id ? staff_events_id : id}`, {
+      const response = await fetch(`${this.url}api/v1/schedule/${staff_events_id ? staff_events_id : id}`, {
         method: 'PUT',
         body: JSON.stringify({ staff_id, event_id }),
         headers: { 'Content-Type': 'application/json' }
