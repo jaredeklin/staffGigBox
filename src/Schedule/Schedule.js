@@ -39,57 +39,10 @@ export class Schedule extends Component {
     });
   }
 
-
-  displayBarManager = () => {
+  displayStaff = (role) => {
     const { staff } = this.props.event;
 
-    return staff.filter(staffMember => staffMember.role === 'Bar Manager')
-      .map((person, index) => {
-        return (
-          <li key={ person.staff_events_id }>
-            {person.name}
-            <button
-              className='delete'
-              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
-            </button>
-            <button
-              className='edit'
-              onClick={ () => this.handleEditClick(person) }>
-            </button>
-          </li>
-        );
-      }
-      );
-  }
-
-  displayAssBarMan = () => {
-    const { staff } = this.props.event;
-
-    return staff.filter(staffMember => staffMember.role === 'Assistant Bar Manager')
-      .map((person, index) => {
-        return (
-          <li key={ person.staff_events_id }>
-            {person.name}
-            <button
-              className='delete'
-              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
-            </button>
-            <button
-              className='edit'
-              onClick={ () => this.handleEditClick(person) }>
-            </button>
-          </li>
-        );
-      }
-      );
-  }
-
-
-
-  displayBartenders = () => {
-    const { staff } = this.props.event;
-
-    return staff.filter(staffMember => staffMember.role === 'Bartender')
+    return staff.filter(staffMember => staffMember.role === role)
       .map((person, index) => {
         return (
           <li key={ person.staff_events_id }>
@@ -109,29 +62,7 @@ export class Schedule extends Component {
           </li>
         );
       }
-      );
-  }
-
-  displayBarbacks = () => {
-    const { staff } = this.props.event;
-
-    return staff.filter(staffMember => staffMember.role === 'Barback')
-      .map((person, index) => {
-        return (
-          <li key={ person.staff_events_id }>
-            {person.name}
-            <button
-              className='delete'
-              onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
-            </button>
-            <button
-              className='edit'
-              onClick={ () => this.handleEditClick(person) }>
-            </button>
-          </li>
-        );
-      }
-      );
+    );
   }
 
 
@@ -167,22 +98,22 @@ export class Schedule extends Component {
           <article className='managers'>
             <ul className='bar-manager'>
               <h4>Bar Manager</h4>
-              { this.displayBarManager() }
+              { this.displayStaff('Bar Manager') }
             </ul>
             { ass_bar_manager &&
               <ul className='ass-bar-manager'>
                 <h4>Assistant Bar Manager</h4>
-                { this.displayAssBarMan() }
+                { this.displayStaff('Assistant Bar Manager') }
               </ul>
             }
           </article>
           <ul className='bartenders'>
             <h4>Bartenders</h4>
-            { this.displayBartenders() }
+            { this.displayStaff('Bartender') }
           </ul>
           <ul className='barbacks'>
             <h4>Barbacks</h4>
-            { this.displayBarbacks() }
+            { this.displayStaff('Barback') }
           </ul>
         </section>
       </section>
