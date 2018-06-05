@@ -123,7 +123,7 @@ export class Schedule extends Component {
 }
 
 Schedule.propTypes = {
-  adming: PropTypes.bool,
+  admin: PropTypes.bool,
   manualSchedule: PropTypes.bool,
   updateSchedule: PropTypes.func,
   editSchedule: PropTypes.func,

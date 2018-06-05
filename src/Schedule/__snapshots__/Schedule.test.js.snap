@@ -1,0 +1,2043 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schedule should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Schedule
+    admin={false}
+    deleteFromSchedule={[Function]}
+    editSchedule={[Function]}
+    event={
+        Object {
+            "staff": Array [
+              Object {
+                "role": "Bartender",
+              },
+              Object {
+                "role": "Barback",
+              },
+              Object {
+                "role": "Bar Manager",
+              },
+              Object {
+                "role": "Assistant Bar Manager",
+              },
+            ],
+          }
+    }
+    manualSchedule={false}
+    staffList={Array []}
+    updateSchedule={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="schedule-container"
+>
+          <h4 />
+          <h4 />
+          <h4 />
+</div>,
+        <h2 />,
+        false,
+        <section
+          className="staff-container"
+>
+          <article
+                    className="managers"
+          >
+                    <ul
+                              className="bar-manager"
+                    >
+                              <h4>
+                                        Bar Manager
+                              </h4>
+                              <li>
+                                        
+                              </li>
+                    </ul>
+          </article>
+          <ul
+                    className="bartenders"
+          >
+                    <h4>
+                              Bartenders
+                    </h4>
+                    <li>
+                              
+                    </li>
+          </ul>
+          <ul
+                    className="barbacks"
+          >
+                    <h4>
+                              Barbacks
+                    </h4>
+                    <li>
+                              
+                    </li>
+          </ul>
+</section>,
+      ],
+      "className": "schedule-card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h4 />,
+            <h4 />,
+            <h4 />,
+          ],
+          "className": "schedule-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h2",
+      },
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <article
+              className="managers"
+>
+              <ul
+                            className="bar-manager"
+              >
+                            <h4>
+                                          Bar Manager
+                            </h4>
+                            <li>
+                                          
+                            </li>
+              </ul>
+</article>,
+            <ul
+              className="bartenders"
+>
+              <h4>
+                            Bartenders
+              </h4>
+              <li>
+                            
+              </li>
+</ul>,
+            <ul
+              className="barbacks"
+>
+              <h4>
+                            Barbacks
+              </h4>
+              <li>
+                            
+              </li>
+</ul>,
+          ],
+          "className": "staff-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ul
+                  className="bar-manager"
+>
+                  <h4>
+                                    Bar Manager
+                  </h4>
+                  <li>
+                                    
+                  </li>
+</ul>,
+                undefined,
+              ],
+              "className": "managers",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h4>
+                      Bar Manager
+</h4>,
+                    Array [
+                      <li>
+                        
+</li>,
+                    ],
+                  ],
+                  "className": "bar-manager",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Bar Manager",
+                    },
+                    "ref": null,
+                    "rendered": "Bar Manager",
+                    "type": "h4",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        undefined,
+                        false,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                      false,
+                    ],
+                    "type": "li",
+                  },
+                ],
+                "type": "ul",
+              },
+              undefined,
+            ],
+            "type": "article",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h4>
+                  Bartenders
+</h4>,
+                Array [
+                  <li>
+                    
+</li>,
+                ],
+              ],
+              "className": "bartenders",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Bartenders",
+                },
+                "ref": null,
+                "rendered": "Bartenders",
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    undefined,
+                    false,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                  false,
+                ],
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h4>
+                  Barbacks
+</h4>,
+                Array [
+                  <li>
+                    
+</li>,
+                ],
+              ],
+              "className": "barbacks",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Barbacks",
+                },
+                "ref": null,
+                "rendered": "Barbacks",
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    undefined,
+                    false,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                  false,
+                ],
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+        ],
+        "type": "section",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="schedule-container"
+>
+            <h4 />
+            <h4 />
+            <h4 />
+</div>,
+          <h2 />,
+          false,
+          <section
+            className="staff-container"
+>
+            <article
+                        className="managers"
+            >
+                        <ul
+                                    className="bar-manager"
+                        >
+                                    <h4>
+                                                Bar Manager
+                                    </h4>
+                                    <li>
+                                                
+                                    </li>
+                        </ul>
+            </article>
+            <ul
+                        className="bartenders"
+            >
+                        <h4>
+                                    Bartenders
+                        </h4>
+                        <li>
+                                    
+                        </li>
+            </ul>
+            <ul
+                        className="barbacks"
+            >
+                        <h4>
+                                    Barbacks
+                        </h4>
+                        <li>
+                                    
+                        </li>
+            </ul>
+</section>,
+        ],
+        "className": "schedule-card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h4 />,
+              <h4 />,
+              <h4 />,
+            ],
+            "className": "schedule-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h2",
+        },
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <article
+                className="managers"
+>
+                <ul
+                                className="bar-manager"
+                >
+                                <h4>
+                                                Bar Manager
+                                </h4>
+                                <li>
+                                                
+                                </li>
+                </ul>
+</article>,
+              <ul
+                className="bartenders"
+>
+                <h4>
+                                Bartenders
+                </h4>
+                <li>
+                                
+                </li>
+</ul>,
+              <ul
+                className="barbacks"
+>
+                <h4>
+                                Barbacks
+                </h4>
+                <li>
+                                
+                </li>
+</ul>,
+            ],
+            "className": "staff-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ul
+                    className="bar-manager"
+>
+                    <h4>
+                                        Bar Manager
+                    </h4>
+                    <li>
+                                        
+                    </li>
+</ul>,
+                  undefined,
+                ],
+                "className": "managers",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h4>
+                        Bar Manager
+</h4>,
+                      Array [
+                        <li>
+                          
+</li>,
+                      ],
+                    ],
+                    "className": "bar-manager",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Bar Manager",
+                      },
+                      "ref": null,
+                      "rendered": "Bar Manager",
+                      "type": "h4",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          undefined,
+                          false,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        undefined,
+                        false,
+                      ],
+                      "type": "li",
+                    },
+                  ],
+                  "type": "ul",
+                },
+                undefined,
+              ],
+              "type": "article",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h4>
+                    Bartenders
+</h4>,
+                  Array [
+                    <li>
+                      
+</li>,
+                  ],
+                ],
+                "className": "bartenders",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Bartenders",
+                  },
+                  "ref": null,
+                  "rendered": "Bartenders",
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      undefined,
+                      false,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                    false,
+                  ],
+                  "type": "li",
+                },
+              ],
+              "type": "ul",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h4>
+                    Barbacks
+</h4>,
+                  Array [
+                    <li>
+                      
+</li>,
+                  ],
+                ],
+                "className": "barbacks",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Barbacks",
+                  },
+                  "ref": null,
+                  "rendered": "Barbacks",
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      undefined,
+                      false,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                    false,
+                  ],
+                  "type": "li",
+                },
+              ],
+              "type": "ul",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Schedule should match the snapshot when admin is true 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Schedule
+    admin={true}
+    deleteFromSchedule={[Function]}
+    editSchedule={[Function]}
+    event={
+        Object {
+            "staff": Array [
+              Object {
+                "role": "Bartender",
+              },
+              Object {
+                "role": "Barback",
+              },
+              Object {
+                "role": "Bar Manager",
+              },
+              Object {
+                "role": "Assistant Bar Manager",
+              },
+            ],
+          }
+    }
+    manualSchedule={false}
+    staffList={Array []}
+    updateSchedule={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="schedule-container"
+>
+          <h4 />
+          <h4 />
+          <h4 />
+</div>,
+        <h2 />,
+        false,
+        <section
+          className="staff-container"
+>
+          <article
+                    className="managers"
+          >
+                    <ul
+                              className="bar-manager"
+                    >
+                              <h4>
+                                        Bar Manager
+                              </h4>
+                              <li>
+                                        <div
+                                                  className="edit-container"
+                                        >
+                                                  <button
+                                                            className="delete"
+                                                            onClick={[Function]}
+                                                  />
+                                                  <button
+                                                            className="edit"
+                                                            onClick={[Function]}
+                                                  />
+                                        </div>
+                              </li>
+                    </ul>
+          </article>
+          <ul
+                    className="bartenders"
+          >
+                    <h4>
+                              Bartenders
+                    </h4>
+                    <li>
+                              <div
+                                        className="edit-container"
+                              >
+                                        <button
+                                                  className="delete"
+                                                  onClick={[Function]}
+                                        />
+                                        <button
+                                                  className="edit"
+                                                  onClick={[Function]}
+                                        />
+                              </div>
+                    </li>
+          </ul>
+          <ul
+                    className="barbacks"
+          >
+                    <h4>
+                              Barbacks
+                    </h4>
+                    <li>
+                              <div
+                                        className="edit-container"
+                              >
+                                        <button
+                                                  className="delete"
+                                                  onClick={[Function]}
+                                        />
+                                        <button
+                                                  className="edit"
+                                                  onClick={[Function]}
+                                        />
+                              </div>
+                    </li>
+          </ul>
+</section>,
+      ],
+      "className": "schedule-card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h4 />,
+            <h4 />,
+            <h4 />,
+          ],
+          "className": "schedule-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h2",
+      },
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <article
+              className="managers"
+>
+              <ul
+                            className="bar-manager"
+              >
+                            <h4>
+                                          Bar Manager
+                            </h4>
+                            <li>
+                                          <div
+                                                        className="edit-container"
+                                          >
+                                                        <button
+                                                                      className="delete"
+                                                                      onClick={[Function]}
+                                                        />
+                                                        <button
+                                                                      className="edit"
+                                                                      onClick={[Function]}
+                                                        />
+                                          </div>
+                            </li>
+              </ul>
+</article>,
+            <ul
+              className="bartenders"
+>
+              <h4>
+                            Bartenders
+              </h4>
+              <li>
+                            <div
+                                          className="edit-container"
+                            >
+                                          <button
+                                                        className="delete"
+                                                        onClick={[Function]}
+                                          />
+                                          <button
+                                                        className="edit"
+                                                        onClick={[Function]}
+                                          />
+                            </div>
+              </li>
+</ul>,
+            <ul
+              className="barbacks"
+>
+              <h4>
+                            Barbacks
+              </h4>
+              <li>
+                            <div
+                                          className="edit-container"
+                            >
+                                          <button
+                                                        className="delete"
+                                                        onClick={[Function]}
+                                          />
+                                          <button
+                                                        className="edit"
+                                                        onClick={[Function]}
+                                          />
+                            </div>
+              </li>
+</ul>,
+          ],
+          "className": "staff-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ul
+                  className="bar-manager"
+>
+                  <h4>
+                                    Bar Manager
+                  </h4>
+                  <li>
+                                    <div
+                                                      className="edit-container"
+                                    >
+                                                      <button
+                                                                        className="delete"
+                                                                        onClick={[Function]}
+                                                      />
+                                                      <button
+                                                                        className="edit"
+                                                                        onClick={[Function]}
+                                                      />
+                                    </div>
+                  </li>
+</ul>,
+                undefined,
+              ],
+              "className": "managers",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h4>
+                      Bar Manager
+</h4>,
+                    Array [
+                      <li>
+                        <div
+                                                className="edit-container"
+                        >
+                                                <button
+                                                                        className="delete"
+                                                                        onClick={[Function]}
+                                                />
+                                                <button
+                                                                        className="edit"
+                                                                        onClick={[Function]}
+                                                />
+                        </div>
+</li>,
+                    ],
+                  ],
+                  "className": "bar-manager",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Bar Manager",
+                    },
+                    "ref": null,
+                    "rendered": "Bar Manager",
+                    "type": "h4",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        undefined,
+                        <div
+                          className="edit-container"
+>
+                          <button
+                                                    className="delete"
+                                                    onClick={[Function]}
+                          />
+                          <button
+                                                    className="edit"
+                                                    onClick={[Function]}
+                          />
+</div>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <button
+                              className="delete"
+                              onClick={[Function]}
+/>,
+                            <button
+                              className="edit"
+                              onClick={[Function]}
+/>,
+                          ],
+                          "className": "edit-container",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "delete",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "button",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "edit",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "button",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                    ],
+                    "type": "li",
+                  },
+                ],
+                "type": "ul",
+              },
+              undefined,
+            ],
+            "type": "article",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h4>
+                  Bartenders
+</h4>,
+                Array [
+                  <li>
+                    <div
+                                        className="edit-container"
+                    >
+                                        <button
+                                                            className="delete"
+                                                            onClick={[Function]}
+                                        />
+                                        <button
+                                                            className="edit"
+                                                            onClick={[Function]}
+                                        />
+                    </div>
+</li>,
+                ],
+              ],
+              "className": "bartenders",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Bartenders",
+                },
+                "ref": null,
+                "rendered": "Bartenders",
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    undefined,
+                    <div
+                      className="edit-container"
+>
+                      <button
+                                            className="delete"
+                                            onClick={[Function]}
+                      />
+                      <button
+                                            className="edit"
+                                            onClick={[Function]}
+                      />
+</div>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <button
+                          className="delete"
+                          onClick={[Function]}
+/>,
+                        <button
+                          className="edit"
+                          onClick={[Function]}
+/>,
+                      ],
+                      "className": "edit-container",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "delete",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "button",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "edit",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "button",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h4>
+                  Barbacks
+</h4>,
+                Array [
+                  <li>
+                    <div
+                                        className="edit-container"
+                    >
+                                        <button
+                                                            className="delete"
+                                                            onClick={[Function]}
+                                        />
+                                        <button
+                                                            className="edit"
+                                                            onClick={[Function]}
+                                        />
+                    </div>
+</li>,
+                ],
+              ],
+              "className": "barbacks",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Barbacks",
+                },
+                "ref": null,
+                "rendered": "Barbacks",
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    undefined,
+                    <div
+                      className="edit-container"
+>
+                      <button
+                                            className="delete"
+                                            onClick={[Function]}
+                      />
+                      <button
+                                            className="edit"
+                                            onClick={[Function]}
+                      />
+</div>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <button
+                          className="delete"
+                          onClick={[Function]}
+/>,
+                        <button
+                          className="edit"
+                          onClick={[Function]}
+/>,
+                      ],
+                      "className": "edit-container",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "delete",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "button",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "className": "edit",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "button",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+        ],
+        "type": "section",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="schedule-container"
+>
+            <h4 />
+            <h4 />
+            <h4 />
+</div>,
+          <h2 />,
+          false,
+          <section
+            className="staff-container"
+>
+            <article
+                        className="managers"
+            >
+                        <ul
+                                    className="bar-manager"
+                        >
+                                    <h4>
+                                                Bar Manager
+                                    </h4>
+                                    <li>
+                                                <div
+                                                            className="edit-container"
+                                                >
+                                                            <button
+                                                                        className="delete"
+                                                                        onClick={[Function]}
+                                                            />
+                                                            <button
+                                                                        className="edit"
+                                                                        onClick={[Function]}
+                                                            />
+                                                </div>
+                                    </li>
+                        </ul>
+            </article>
+            <ul
+                        className="bartenders"
+            >
+                        <h4>
+                                    Bartenders
+                        </h4>
+                        <li>
+                                    <div
+                                                className="edit-container"
+                                    >
+                                                <button
+                                                            className="delete"
+                                                            onClick={[Function]}
+                                                />
+                                                <button
+                                                            className="edit"
+                                                            onClick={[Function]}
+                                                />
+                                    </div>
+                        </li>
+            </ul>
+            <ul
+                        className="barbacks"
+            >
+                        <h4>
+                                    Barbacks
+                        </h4>
+                        <li>
+                                    <div
+                                                className="edit-container"
+                                    >
+                                                <button
+                                                            className="delete"
+                                                            onClick={[Function]}
+                                                />
+                                                <button
+                                                            className="edit"
+                                                            onClick={[Function]}
+                                                />
+                                    </div>
+                        </li>
+            </ul>
+</section>,
+        ],
+        "className": "schedule-card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h4 />,
+              <h4 />,
+              <h4 />,
+            ],
+            "className": "schedule-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h2",
+        },
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <article
+                className="managers"
+>
+                <ul
+                                className="bar-manager"
+                >
+                                <h4>
+                                                Bar Manager
+                                </h4>
+                                <li>
+                                                <div
+                                                                className="edit-container"
+                                                >
+                                                                <button
+                                                                                className="delete"
+                                                                                onClick={[Function]}
+                                                                />
+                                                                <button
+                                                                                className="edit"
+                                                                                onClick={[Function]}
+                                                                />
+                                                </div>
+                                </li>
+                </ul>
+</article>,
+              <ul
+                className="bartenders"
+>
+                <h4>
+                                Bartenders
+                </h4>
+                <li>
+                                <div
+                                                className="edit-container"
+                                >
+                                                <button
+                                                                className="delete"
+                                                                onClick={[Function]}
+                                                />
+                                                <button
+                                                                className="edit"
+                                                                onClick={[Function]}
+                                                />
+                                </div>
+                </li>
+</ul>,
+              <ul
+                className="barbacks"
+>
+                <h4>
+                                Barbacks
+                </h4>
+                <li>
+                                <div
+                                                className="edit-container"
+                                >
+                                                <button
+                                                                className="delete"
+                                                                onClick={[Function]}
+                                                />
+                                                <button
+                                                                className="edit"
+                                                                onClick={[Function]}
+                                                />
+                                </div>
+                </li>
+</ul>,
+            ],
+            "className": "staff-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ul
+                    className="bar-manager"
+>
+                    <h4>
+                                        Bar Manager
+                    </h4>
+                    <li>
+                                        <div
+                                                            className="edit-container"
+                                        >
+                                                            <button
+                                                                                className="delete"
+                                                                                onClick={[Function]}
+                                                            />
+                                                            <button
+                                                                                className="edit"
+                                                                                onClick={[Function]}
+                                                            />
+                                        </div>
+                    </li>
+</ul>,
+                  undefined,
+                ],
+                "className": "managers",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h4>
+                        Bar Manager
+</h4>,
+                      Array [
+                        <li>
+                          <div
+                                                    className="edit-container"
+                          >
+                                                    <button
+                                                                              className="delete"
+                                                                              onClick={[Function]}
+                                                    />
+                                                    <button
+                                                                              className="edit"
+                                                                              onClick={[Function]}
+                                                    />
+                          </div>
+</li>,
+                      ],
+                    ],
+                    "className": "bar-manager",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Bar Manager",
+                      },
+                      "ref": null,
+                      "rendered": "Bar Manager",
+                      "type": "h4",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          undefined,
+                          <div
+                            className="edit-container"
+>
+                            <button
+                                                        className="delete"
+                                                        onClick={[Function]}
+                            />
+                            <button
+                                                        className="edit"
+                                                        onClick={[Function]}
+                            />
+</div>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        undefined,
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <button
+                                className="delete"
+                                onClick={[Function]}
+/>,
+                              <button
+                                className="edit"
+                                onClick={[Function]}
+/>,
+                            ],
+                            "className": "edit-container",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "className": "delete",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "button",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "className": "edit",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "button",
+                            },
+                          ],
+                          "type": "div",
+                        },
+                      ],
+                      "type": "li",
+                    },
+                  ],
+                  "type": "ul",
+                },
+                undefined,
+              ],
+              "type": "article",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h4>
+                    Bartenders
+</h4>,
+                  Array [
+                    <li>
+                      <div
+                                            className="edit-container"
+                      >
+                                            <button
+                                                                  className="delete"
+                                                                  onClick={[Function]}
+                                            />
+                                            <button
+                                                                  className="edit"
+                                                                  onClick={[Function]}
+                                            />
+                      </div>
+</li>,
+                  ],
+                ],
+                "className": "bartenders",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Bartenders",
+                  },
+                  "ref": null,
+                  "rendered": "Bartenders",
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      undefined,
+                      <div
+                        className="edit-container"
+>
+                        <button
+                                                className="delete"
+                                                onClick={[Function]}
+                        />
+                        <button
+                                                className="edit"
+                                                onClick={[Function]}
+                        />
+</div>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <button
+                            className="delete"
+                            onClick={[Function]}
+/>,
+                          <button
+                            className="edit"
+                            onClick={[Function]}
+/>,
+                        ],
+                        "className": "edit-container",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "delete",
+                            "onClick": [Function],
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "button",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "edit",
+                            "onClick": [Function],
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "button",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "li",
+                },
+              ],
+              "type": "ul",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h4>
+                    Barbacks
+</h4>,
+                  Array [
+                    <li>
+                      <div
+                                            className="edit-container"
+                      >
+                                            <button
+                                                                  className="delete"
+                                                                  onClick={[Function]}
+                                            />
+                                            <button
+                                                                  className="edit"
+                                                                  onClick={[Function]}
+                                            />
+                      </div>
+</li>,
+                  ],
+                ],
+                "className": "barbacks",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Barbacks",
+                  },
+                  "ref": null,
+                  "rendered": "Barbacks",
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      undefined,
+                      <div
+                        className="edit-container"
+>
+                        <button
+                                                className="delete"
+                                                onClick={[Function]}
+                        />
+                        <button
+                                                className="edit"
+                                                onClick={[Function]}
+                        />
+</div>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <button
+                            className="delete"
+                            onClick={[Function]}
+/>,
+                          <button
+                            className="edit"
+                            onClick={[Function]}
+/>,
+                        ],
+                        "className": "edit-container",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "delete",
+                            "onClick": [Function],
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "button",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "edit",
+                            "onClick": [Function],
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "button",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "li",
+                },
+              ],
+              "type": "ul",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
