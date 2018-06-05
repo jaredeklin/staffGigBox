@@ -1,13 +1,13 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 const config = {
-    apiKey: "AIzaSyBtLEpO0AAJilQOc-qtUUqIRz5Zc7gayMM",
-    authDomain: "staffgigbox.firebaseapp.com",
-    databaseURL: "https://staffgigbox.firebaseio.com",
-    projectId: "staffgigbox",
-    storageBucket: "",
-    messagingSenderId: "259666695833"
-  };
+  apiKey: 'AIzaSyBtLEpO0AAJilQOc-qtUUqIRz5Zc7gayMM',
+  authDomain: 'staffgigbox.firebaseapp.com',
+  databaseURL: 'https://staffgigbox.firebaseio.com',
+  projectId: 'staffgigbox',
+  storageBucket: '',
+  messagingSenderId: '259666695833'
+};
 
 firebase.initializeApp(config);
 

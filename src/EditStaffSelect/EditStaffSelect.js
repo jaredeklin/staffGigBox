@@ -7,15 +7,15 @@ export class EditStaffSelect extends Component {
     this.state = {
       staff_id: null,
       event_id: this.props.event_id
-    }
+    };
   }
 
   handleChange = async (event) => {
     await this.setState({
       staff_id: event.target.value
-    })
+    });
 
-    this.props.updateEventStaff(this.state)
+    this.props.updateEventStaff(this.state);
   }
 
   displayStaff = () => {
@@ -25,8 +25,8 @@ export class EditStaffSelect extends Component {
         <option key={ person.id } value={ person.id }>
           { person.name }
         </option>
-      )
-    })
+      );
+    });
   }
 
   render() {
@@ -38,6 +38,6 @@ export class EditStaffSelect extends Component {
           { this.displayStaff() }
         </select>
       </form>
-    )
+    );
   }
 }

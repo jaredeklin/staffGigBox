@@ -12,14 +12,12 @@ describe('Api', () => {
       { name: 'hipster pant' }
     ];
 
-    window.fetch = jest.fn(
-      () => Promise.resolve({
-        status: 200,
-        json: () => Promise.resolve({
-          staff: mockStaff
-        })
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve({
+        staff: mockStaff
       })
-    )
+    }));
   });
 
   it('should get staff', async () => {
@@ -49,7 +47,7 @@ describe('Api', () => {
 
 
   it('should get the schedules', async () => {
-    const mockSchedule = { schedule: 'thebesten'}
+    const mockSchedule = { schedule: 'thebesten' };
 
     const expected = 'http://localhost:3000/api/v1/schedule';
     api.cleanScheduleData = jest.fn();
@@ -57,28 +55,30 @@ describe('Api', () => {
 
 
     await api.getSchedule();
-    expect(window.fetch).toHaveBeenCalledWith(expected)
+    expect(window.fetch).toHaveBeenCalledWith(expected);
     expect(api.cleanScheduleData).toHaveBeenCalled();
     expect(api.combineStaffAndEvent).toHaveBeenCalled();
     expect(await api.getSchedule()).toEqual(mockSchedule);
-  })
+  });
 
 
   it('should clean the schedule data', () => {
     const mockScheduleData = [
       { id: 1, event_id: 1, staff_id: 3 },
       { id: 2, event_id: 1, staff_id: 4 }
-    ]
+    ];
 
-    const mockCleanScheduleData = {"1": [
-      {"staff_events_id": 1, "staff_id": 3},
-      {"staff_events_id": 2, "staff_id": 4}
-    ]}
+    const mockCleanScheduleData = {
+      1: [
+        { staff_events_id: 1, staff_id: 3 },
+        { staff_events_id: 2, staff_id: 4 }
+      ]
+    };
 
-    api.cleanScheduleData(mockScheduleData)
+    api.cleanScheduleData(mockScheduleData);
 
-    expect(api.cleanScheduleData(mockScheduleData)).toEqual(mockCleanScheduleData)
-  })
+    expect(api.cleanScheduleData(mockScheduleData)).toEqual(mockCleanScheduleData);
+  });
 
   it('should combine staff and event', async () => {
     const mockEventResponse = [{
@@ -87,57 +87,53 @@ describe('Api', () => {
       name: 'Elvis',
       date: 'today',
       time: '7 pm'
-    }]
+    }];
 
-    window.fetch = jest.fn(
-      () => Promise.resolve({
-        status: 200,
-        json: () => Promise.resolve(
-          mockEventResponse
-        )
-      })
-    )
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve(mockEventResponse)
+    }));
 
-    const mockCleanScheduleData = {"1": [
-      {"staff_events_id": 1, "staff_id": 3},
-      {"staff_events_id": 2, "staff_id": 4}
-    ]}
+    const mockCleanScheduleData = {
+      1: [
+        { staff_events_id: 1, staff_id: 3 },
+        { staff_events_id: 2, staff_id: 4 }
+      ]
+    };
 
-    api.getStaffNames = jest.fn()
+    api.getStaffNames = jest.fn();
 
     const expected = 'http://localhost:3000/api/v1/events/1';
     await api.combineStaffAndEvent(mockCleanScheduleData);
 
     expect(window.fetch).toHaveBeenCalledWith(expected);
     expect(api.getStaffNames).toHaveBeenCalled();
-  })
+  });
 
   it('should get the names of the staff', async () => {
-    const mockIds = [{"staff_events_id": 1, "staff_id": 3}]
+    const mockIds = [{ staff_events_id: 1, staff_id: 3 }];
     const mockEventResponse = [{
       id: 3,
       name: 'hotman'
-    }]
+    }];
     const expected = 'http://localhost:3000/api/v1/staff/3';
 
-    window.fetch = jest.fn(
-      () => Promise.resolve({
-        status: 200,
-        json: () => Promise.resolve([
-          { id: 3, name: 'hotman' }
-        ]
-      )})
-    )
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve([
+        { id: 3, name: 'hotman' }
+      ])
+    }));
 
     await api.getStaffNames(mockIds);
 
-    expect(await window.fetch).toHaveBeenCalledWith(expected)
+    expect(await window.fetch).toHaveBeenCalledWith(expected);
   });
 
   it('should post schedules to the database', () => {
     const mockScheduleData = [
       { id: 2, event_id: 1, staff_id: 4 }
-    ]
+    ];
 
     const expected = [
       'http://localhost:3000/api/v1/schedule',
@@ -150,8 +146,8 @@ describe('Api', () => {
       }
     ];
 
-    api.postSchedule(mockScheduleData)
+    api.postSchedule(mockScheduleData);
 
-    expect(window.fetch).toHaveBeenCalledWith(...expected)
-  })
-})
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
+  });
+});

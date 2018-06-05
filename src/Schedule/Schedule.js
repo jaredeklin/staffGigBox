@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './Schedule.css';
 import { EditStaffSelect } from '../EditStaffSelect/EditStaffSelect';
 import { Api } from '../Api/Api';
@@ -12,28 +12,28 @@ export class Schedule extends Component {
       event_id: '',
       staff_events_id: '',
       edit: false,
-      manualSchedule: false || this.props.manualSchedule,
-    }
+      manualSchedule: false || this.props.manualSchedule
+    };
   }
 
   updateEventStaff = async ({staff_id, event_id}) => {
-    console.log('staff:', staff_id, 'event', event_id)
+    console.log('staff:', staff_id, 'event', event_id);
     
     const response = await fetch(`http://localhost:3000/api/v1/schedule/${this.state.staff_events_id}`, {
       method: 'PUT',
       body: JSON.stringify({ staff_id, event_id }),
       headers: { 'Content-Type': 'application/json' }
-    })
+    });
 
-    console.log(await response.json())
+    console.log(await response.json());
 
-    if( this.state.manualSchedule ) {
-      this.props.updateSchedule(event_id)
+    if ( this.state.manualSchedule ) {
+      this.props.updateSchedule(event_id);
     } else {
-      this.props.editSchedule()
+      this.props.editSchedule();
     }
 
-    this.setState({ edit: false })
+    this.setState({ edit: false });
   }
 
   handleEditClick = (person) => {
@@ -41,12 +41,12 @@ export class Schedule extends Component {
     this.setState({ 
       edit: !this.state.edit,
       staff_events_id: person.staff_events_id 
-    })
+    });
   }
 
 
   displayBarManager = () => {
-    const { staff } = this.props.event
+    const { staff } = this.props.event;
 
     return staff.filter(staffMember => staffMember.role === 'Bar Manager')
       .map((person, index) => {
@@ -62,13 +62,13 @@ export class Schedule extends Component {
               onClick={ () => this.handleEditClick(person) }>
             </button>
           </li>
-        )
+        );
       }
-    )
+      );
   }
 
   displayAssBarMan = () => {
-    const { staff } = this.props.event
+    const { staff } = this.props.event;
 
     return staff.filter(staffMember => staffMember.role === 'Assistant Bar Manager')
       .map((person, index) => {
@@ -84,15 +84,15 @@ export class Schedule extends Component {
               onClick={ () => this.handleEditClick(person) }>
             </button>
           </li>
-        )
+        );
       }
-    )
+      );
   }
 
  
 
   displayBartenders = () => {
-    const { staff } = this.props.event
+    const { staff } = this.props.event;
 
     return staff.filter(staffMember => staffMember.role === 'Bartender')
       .map((person, index) => {
@@ -102,23 +102,23 @@ export class Schedule extends Component {
             { this.props.admin &&
               <div>
                 <button
-                className='delete'
-                onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+                  className='delete'
+                  onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
                 </button>
                 <button
-                className='edit'
-                onClick={ () => this.handleEditClick(person) }>
+                  className='edit'
+                  onClick={ () => this.handleEditClick(person) }>
                 </button>
               </div>
             }
           </li>
-        )
+        );
       }
-    )
+      );
   }
 
   displayBarbacks = () => {
-    const { staff } = this.props.event
+    const { staff } = this.props.event;
 
     return staff.filter(staffMember => staffMember.role === 'Barback')
       .map((person, index) => {
@@ -134,9 +134,9 @@ export class Schedule extends Component {
               onClick={ () => this.handleEditClick(person) }>
             </button>
           </li>
-        )
+        );
       }
-    )    
+      );    
   }
 
 
@@ -149,12 +149,12 @@ export class Schedule extends Component {
         event_id={ event_id }
         updateEventStaff={ this.updateEventStaff }
       />
-    ) 
+    ); 
   }
 
   render() {
 
-    const { venue, name, date, time, event_id, ass_bar_manager } = this.props.event
+    const { venue, name, date, time, event_id, ass_bar_manager } = this.props.event;
 
     return (
       <section className='schedule-card'>
@@ -181,16 +181,16 @@ export class Schedule extends Component {
               </ul>
             }
           </article>
-        <ul className='bartenders'>
-          <h4>Bartenders</h4>
-          { this.displayBartenders() }
-        </ul>
-        <ul className='barbacks'> 
-          <h4>Barbacks</h4> 
-          { this.displayBarbacks() }
-        </ul>
+          <ul className='bartenders'>
+            <h4>Bartenders</h4>
+            { this.displayBartenders() }
+          </ul>
+          <ul className='barbacks'> 
+            <h4>Barbacks</h4> 
+            { this.displayBarbacks() }
+          </ul>
         </section>
       </section>
-    )
+    );
   }
 }

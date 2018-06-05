@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './EventForm.css';
-import { Api } from '../Api/Api'
+import { Api } from '../Api/Api';
 
 
 export class EventForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       venue: 'Ogden Theatre',
       name: '',
@@ -17,21 +17,21 @@ export class EventForm extends Component {
       barbacks: '',
       beer_bucket: '',
       manualSchedule: ''
-    }
+    };
 
-    this.defaultState = this.state
-    this.api = new Api()
+    this.defaultState = this.state;
+    this.api = new Api();
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
 
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
   handleSubmit = async (event) => {
-    event.preventDefault()
-    const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket, manualSchedule } = this.state
+    event.preventDefault();
+    const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket, manualSchedule } = this.state;
     const eventObj = {
       venue,
       name,
@@ -42,70 +42,73 @@ export class EventForm extends Component {
       bartenders,
       barbacks,
       beer_bucket
-    }
+    };
 
     const response = await fetch('http://localhost:3000/api/v1/events', {
       method: 'POST',
       body: JSON.stringify(eventObj),
       headers: { 'Content-Type': 'application/json'}
-    })
+    });
 
     if (response.status === 201) {
       const eventData = await response.json();
-      const newEventStaffArray = this.buildScheduleWithRoles(eventData)
 
-      await this.api.postSchedule(newEventStaffArray)
-      const newEventSchedule = await this.api.getSchedule(eventData.id)  
+      if (this.state.manualSchedule) {
+        const newEventStaffArray = this.buildScheduleWithRoles(eventData);
 
-      this.props.checkManualSchedule(newEventSchedule, manualSchedule)
+        await this.api.postSchedule(newEventStaffArray);
+        const newEventSchedule = await this.api.getSchedule(eventData.id);  
+        this.props.checkManualSchedule(newEventSchedule, manualSchedule);
+      }
+
     }
   }
 
   buildScheduleWithRoles = (event) => {
-    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event
-    const newEventStaffArray = []
+    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event;
+    const newEventStaffArray = [];
 
-      if ( bar_manager ) {
-        bar_manager = false
-        newEventStaffArray.push({  
-          staff_id: null, 
-          event_id: event.id,
-          role: 'Bar Manager'
-        })
-      } 
+    if ( bar_manager ) {
+      bar_manager = false;
+      newEventStaffArray.push({  
+        staff_id: null, 
+        event_id: event.id,
+        role: 'Bar Manager'
+      });
+    } 
 
-      if ( ass_bar_manager ) {
-        ass_bar_manager = false
-        newEventStaffArray.push({  
-          staff_id: null, 
-          event_id: event.id,
-          role: 'Assistant Bar Manager'
-        })
-      }
+    if ( ass_bar_manager ) {
+      ass_bar_manager = false;
+      newEventStaffArray.push({  
+        staff_id: null, 
+        event_id: event.id,
+        role: 'Assistant Bar Manager'
+      });
+    }
 
-      for (let i = 0; i < bartenders; i++) {
-        newEventStaffArray.push({  
-          staff_id: null, 
-          event_id: event.id,
-          role: 'Bartender'
-        })
-      }
+    for (let i = 0; i < bartenders; i++) {
+      newEventStaffArray.push({  
+        staff_id: null, 
+        event_id: event.id,
+        role: 'Bartender'
+      });
+    }
 
-      for (let i = 0; i < barbacks; i++) {
-        newEventStaffArray.push({  
-          staff_id: null, 
-          event_id: event.id,
-          role: 'Barback'
-        })
-      }
+    for (let i = 0; i < barbacks; i++) {
+      newEventStaffArray.push({  
+        staff_id: null, 
+        event_id: event.id,
+        role: 'Barback'
+      });
+    }
 
-    return newEventStaffArray
+    return newEventStaffArray;
   }
 
 
   render() {
 
-    const { venue, name, date, time, bartenders, barbacks } = this.state
+    const { venue, name, date, time, bartenders, barbacks } = this.state;
 
     return (
       <div className='event-div'>
@@ -133,7 +136,7 @@ export class EventForm extends Component {
               onChange={ this.handleChange }
               onFocus={this.showCalendar}
               className='input_event-form'
-              />
+            />
             <input
               placeholder='Time'
               name='time'
@@ -141,94 +144,94 @@ export class EventForm extends Component {
               onChange={ this.handleChange }
               className='input_event-form'
             />
-        </div>
-        <div className='staff-info'>
-          <label className='form-label'>
+          </div>
+          <div className='staff-info'>
+            <label className='form-label'>
             Bar Manager needed?
-            <input type='radio'
-              id= 'yes'
-              value={ true }
-              name='bar_manager'
-              onChange={ this.handleChange }
-            />
-            <label htmlFor='yes'>Yes</label>
-            <input
-              type='radio'
-              id= 'no'
-              value={ false }
-              name='bar_manager'
-              onChange={ this.handleChange }
-            />
-            <label htmlFor='no'>No</label>
-          </label>
-          <label className='form-label'>
+              <input type='radio'
+                id= 'yes'
+                value={ true }
+                name='bar_manager'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='yes'>Yes</label>
+              <input
+                type='radio'
+                id= 'no'
+                value={ false }
+                name='bar_manager'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='no'>No</label>
+            </label>
+            <label className='form-label'>
             Assistant Bar Manager needed?
-            <input type='radio'
-              id= 'yes'
-              value={ true }
-              name='ass_bar_manager'
-              onChange={ this.handleChange }
-             />
-            <label htmlFor='yes'>Yes</label>
+              <input type='radio'
+                id= 'yes'
+                value={ true }
+                name='ass_bar_manager'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='yes'>Yes</label>
 
+              <input
+                type='radio'
+                id= 'no' value={ false }
+                name='ass_bar_manager'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='no'>No</label>
+
+            </label>
             <input
-              type='radio'
-              id= 'no' value={ false }
-              name='ass_bar_manager'
-              onChange={ this.handleChange }
-            />
-            <label htmlFor='no'>No</label>
-
-          </label>
-          <input
-            className='input_event-form'
-            placeholder='Number of bartenders needed'
-            name='bartenders'
-            value={ bartenders }
-            onChange={ this.handleChange } />
-          <input
-            className='input_event-form'
-            placeholder='Number of barbacks needed'
-            name='barbacks'
-            value={ barbacks }
-            onChange={ this.handleChange } />
-          <label className='form-label'>
+              className='input_event-form'
+              placeholder='Number of bartenders needed'
+              name='bartenders'
+              value={ bartenders }
+              onChange={ this.handleChange } />
+            <input
+              className='input_event-form'
+              placeholder='Number of barbacks needed'
+              name='barbacks'
+              value={ barbacks }
+              onChange={ this.handleChange } />
+            <label className='form-label'>
             Beer Bucket?
-            <input type='radio'
-              id= 'yes'
-              value={ true }
-              name='beer_bucket'
-              onChange={ this.handleChange }
-             />
-            <label htmlFor='yes'>Yes</label>
-            <input
-              type='radio'
-              id= 'no'
-              value={ false }
-              name='beer_bucket'
-              onChange={ this.handleChange }
-            />
-            <label htmlFor='no'>No</label>
-          </label>
-          <label className='form-label'>
+              <input type='radio'
+                id= 'yes'
+                value={ true }
+                name='beer_bucket'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='yes'>Yes</label>
+              <input
+                type='radio'
+                id= 'no'
+                value={ false }
+                name='beer_bucket'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='no'>No</label>
+            </label>
+            <label className='form-label'>
             Would like to assign staff to this event?
-            <input type='radio'
-              id= 'yes'
-              value={ true }
-              name='manualSchedule'
-              onChange={ this.handleChange }
-            />
-            <label htmlFor='yes'>Yes</label>
-            <input
-              type='radio'
-              id= 'no'
-              value={ false }
-              name='manualSchedule'
-              onChange={ this.handleChange }
-            />
-            <label htmlFor='no'>No</label>
-          </label>
-        </div>
+              <input type='radio'
+                id= 'yes'
+                value={ true }
+                name='manualSchedule'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='yes'>Yes</label>
+              <input
+                type='radio'
+                id= 'no'
+                value={ false }
+                name='manualSchedule'
+                onChange={ this.handleChange }
+              />
+              <label htmlFor='no'>No</label>
+            </label>
+          </div>
           <button className='add-event-btn'>Add Event</button>
         </form>
         <button
@@ -236,6 +239,6 @@ export class EventForm extends Component {
           onClick={ this.props.scheduleGenerator }
         >Generate schedule</button>
       </div>
-    )
+    );
   }
 }
