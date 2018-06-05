@@ -16,15 +16,15 @@ export class Api  {
   generateSchedule = async (staff, events) => {
     const response = await fetch('http://localhost:3000/api/v1/schedule');
     const currentScheduleData = await response.json();
-    const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null)
+    const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null);
     const schedule = unscheduledEvents.reduce((array, event) => {
 
-      event.staff_id = Math.floor(Math.random() * staff.length) + 1
+      event.staff_id = Math.floor(Math.random() * staff.length) + 1;
 
       return [...array, event];
     });
 
-    return schedule
+    return schedule;
   }
 
   getNumberOfStaff = (event) => {
@@ -140,17 +140,17 @@ export class Api  {
 
   modifySchedule = (schedule) => {
     const promise = schedule.map( async (event) => {
-      const { staff_events_id, staff_id, event_id, id } = event
+      const { staff_events_id, staff_id, event_id, id } = event;
       const response = await fetch(`http://localhost:3000/api/v1/schedule/${staff_events_id ? staff_events_id : id}`, {
         method: 'PUT',
         body: JSON.stringify({ staff_id, event_id }),
         headers: { 'Content-Type': 'application/json' }
       });
 
-      return await response.json()
-    })
+      return await response.json();
+    });
 
-    return Promise.all(promise)
+    return Promise.all(promise);
   }
 
   buildScheduleWithRoles = (event) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Tab = ({ isActive, tabName, handleTabClick }) => (
   <li
@@ -8,3 +9,9 @@ export const Tab = ({ isActive, tabName, handleTabClick }) => (
     { tabName }
   </li>
 );
+
+Tab.propTypes = {
+  isActive: PropTypes.bool,
+  tabName: PropTypes.sting,
+  handleTabClick: PropTypes.func
+};

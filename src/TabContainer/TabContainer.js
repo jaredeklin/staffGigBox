@@ -5,6 +5,7 @@ import { StaffForm } from '../StaffForm/StaffForm';
 import { Schedule } from '../Schedule/Schedule';
 import { Api } from '../Api/Api';
 import './TabContainer.css';
+import PropTypes from 'prop-types';
 
 export class TabContainer extends Component {
 
@@ -21,11 +22,11 @@ export class TabContainer extends Component {
   handleTabClick = (activeTabName) => this.setState({ activeTabName });
 
   checkManualSchedule = (eventData, manualSchedule) => {
-    this.setState({ 
+    this.setState({
       manualSchedule,
-      manualScheduleData: eventData 
+      manualScheduleData: eventData
     });
-    
+
     if ( !manualSchedule ) {
       this.props.scheduleGenerator();
     }
@@ -33,7 +34,7 @@ export class TabContainer extends Component {
 
   updateSchedule = async (event_id) => {
     const manualScheduleData = await this.api.getSchedule(event_id);
-    
+
     this.setState({ manualScheduleData });
   }
 
@@ -55,9 +56,9 @@ export class TabContainer extends Component {
   checkForManual = () => {
     if ( this.state.manualSchedule ) {
       return (
-        <Schedule 
+        <Schedule
           staffList={ this.props.staff }
-          editSchedule={ this.props.editSchedule } 
+          editSchedule={ this.props.editSchedule }
           event={ this.state.manualScheduleData }
           manualSchedule={ this.state.manualSchedule }
           updateSchedule={ this.updateSchedule }
@@ -65,9 +66,9 @@ export class TabContainer extends Component {
         />);
     } else {
       return (
-        <EventForm 
+        <EventForm
           scheduleGenerator={ this.props.scheduleGenerator }
-          checkManualSchedule={ this.checkManualSchedule } 
+          checkManualSchedule={ this.checkManualSchedule }
         />
       );
     }
@@ -75,12 +76,12 @@ export class TabContainer extends Component {
 
   activeContent = () => {
     switch (this.state.activeTabName) {
-      
+
     case 'Add Event': return this.checkForManual();
 
     case 'Add New Staff': return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
-    default: return this.props.schedule.map((event, index) => {
+    default: return this.props.schedule.map((event) => {
       return (
         <Schedule
           editSchedule={ this.props.editSchedule }
@@ -108,3 +109,15 @@ export class TabContainer extends Component {
     );
   }
 }
+
+TabContainer.propTypes = {
+  deleteFromSchedule: PropTypes.func,
+  tabs: PropTypes.array,
+  scheduleGenerator: PropTypes.func,
+  staff: PropTypes.array,
+  editSchedule: PropTypes.func,
+  admin: PropTypes.bool,
+  addStaff: PropTypes.func,
+  user: PropTypes.object,
+  schedule: PropTypes.array
+};
