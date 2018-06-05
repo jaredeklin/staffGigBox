@@ -19,11 +19,8 @@ export class Schedule extends Component {
 
   updateEventStaff = async ({staff_id, event_id}) => {
 
-    const response = await fetch(`http://localhost:3000/api/v1/schedule/${this.state.staff_events_id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ staff_id, event_id }),
-      headers: { 'Content-Type': 'application/json' }
-    });
+    const staff = { staff_events_id: this.state.staff_events_id, staff_id, event_id }
+    const response = await this.api.modifySchedule([staff])
 
     if ( this.state.manualSchedule ) {
       this.props.updateSchedule(event_id);

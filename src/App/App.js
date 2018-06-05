@@ -87,9 +87,9 @@ class App extends Component {
   scheduleGenerator = async () => {
     const { staff, events } = this.state;
     const generatedSchedule = await this.api.generateSchedule(staff, events);
-
-    await this.api.postSchedule(generatedSchedule);
-
+    console.log(generatedSchedule)
+    const response = await this.api.modifySchedule(generatedSchedule)
+    
     this.editSchedule();
   }
 
