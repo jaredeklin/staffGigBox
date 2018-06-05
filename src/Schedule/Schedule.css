@@ -2,7 +2,7 @@
 
 
 .schedule-card {
-  width: 90%;
+  width: 95%;
   border: 1px solid black;
   margin: 10px auto;
   padding: 5px 20px;
@@ -38,6 +38,12 @@ h4 {
 
 .active-content li {
   width: 200px;
+  padding-right: 20px;
+}
+
+.edit-container {
+  display: inline-block;
+  float: right;
 }
 
 .delete, .edit {
@@ -54,11 +60,15 @@ h4 {
 }
 
 .delete:hover {
-  /*background-image: url('../images/trash-hover.svg');*/
+  background-image: url('../images/trash-hover.svg');
 }
 
 .edit {
   background-image: url('../images/pencil.svg');
+}
+
+.edit:hover {
+  background-image: url('../images/pencil-hover.svg');
 }
 
 .active-content li:hover .delete,

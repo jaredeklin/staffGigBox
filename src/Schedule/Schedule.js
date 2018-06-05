@@ -49,7 +49,7 @@ export class Schedule extends Component {
           <li key={ person.staff_events_id }>
             {person.name}
             { this.props.admin &&
-              <div>
+              <div className='edit-container'>
                 <button
                   className='delete'
                   onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
