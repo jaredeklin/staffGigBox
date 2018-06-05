@@ -62,7 +62,7 @@ export class EventForm extends Component {
         const newEventSchedule = await this.api.getSchedule(eventData.id);
         
         this.props.checkManualSchedule(newEventSchedule, manualSchedule);
-        this.setState(this.defaultState)
+        this.setState(this.defaultState);
       }
     }
   }

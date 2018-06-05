@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 export class StaffForm extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ export class StaffForm extends Component {
         <input
           className='input-name'
           placeholder='Name'
-          name='name' 
+          name='name'
           value={ this.state.name }
           onChange={ this.handleChange }
         />
@@ -149,3 +150,8 @@ export class StaffForm extends Component {
     );
   }
 }
+
+StaffForm.propTypes = {
+  user: PropTypes.object,
+  addStaff: PropTypes.func
+};
