@@ -14,6 +14,7 @@ export class Header extends Component {
   login = async () => {
     const result = await auth.signInWithPopup(provider);
     const { user } = await result;
+    
     this.setState({ user });
     this.props.addUser(user);
   }

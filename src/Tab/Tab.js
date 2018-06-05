@@ -12,6 +12,6 @@ export const Tab = ({ isActive, tabName, handleTabClick }) => (
 
 Tab.propTypes = {
   isActive: PropTypes.bool,
-  tabName: PropTypes.sting,
+  tabName: PropTypes.string,
   handleTabClick: PropTypes.func
 };
