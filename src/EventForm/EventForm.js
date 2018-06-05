@@ -22,7 +22,7 @@ export class EventForm extends Component {
 
     this.defaultState = this.state;
     this.api = new Api();
-    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000';
   }
 
   handleChange = (event) => {

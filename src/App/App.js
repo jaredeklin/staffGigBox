@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.api = new Api();
-    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000';
     
     this.state = {
       user: null,

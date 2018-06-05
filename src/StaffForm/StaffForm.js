@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export class StaffForm extends Component {
   constructor(props) {
     super(props);
-    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000';
 
     this.state = {
       google_id: this.props.user.uid,
