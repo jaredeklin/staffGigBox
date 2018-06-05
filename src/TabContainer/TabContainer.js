@@ -20,11 +20,15 @@ export class TabContainer extends Component {
 
   handleTabClick = (activeTabName) => this.setState({ activeTabName });
 
-  checkManualSchedule = (eventData) => {
+  checkManualSchedule = (eventData, manualSchedule) => {
     this.setState({ 
-      manualSchedule: true,
+      manualSchedule,
       manualScheduleData: eventData 
     })
+    console.log(manualSchedule)
+    if ( !manualSchedule ) {
+      this.props.scheduleGenerator()
+    }
   }
 
   updateSchedule = async (event_id) => {

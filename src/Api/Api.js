@@ -25,10 +25,10 @@ export class Api  {
         x.push(event)
       }
 
-      return  [...x]
+      return [...x]
     }, [])
 
-
+    console.log(unscheduledEvents)
     const scheduleBefore = unscheduledEvents.map((event) => {
       let { bar_manager, ass_bar_manager, bartenders, barbacks } = event
       let bartenderCount = 0

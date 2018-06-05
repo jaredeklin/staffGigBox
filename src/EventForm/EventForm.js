@@ -31,7 +31,7 @@ export class EventForm extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket } = this.state
+    const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket, manualSchedule } = this.state
     const eventObj = {
       venue,
       name,
@@ -52,22 +52,56 @@ export class EventForm extends Component {
 
     if (response.status === 201) {
       const eventData = await response.json();
-      const staffNeeded = this.api.getNumberOfStaff(eventData)
-      const newEventStaffArray = []
-
-      for (let i = 0; i < staffNeeded; i++) {
-        newEventStaffArray.push({  
-          staff_id: null, 
-          event_id: eventData.id
-        })
-      }
+      const newEventStaffArray = this.buildScheduleWithRoles(eventData)
 
       await this.api.postSchedule(newEventStaffArray)
       const newEventSchedule = await this.api.getSchedule(eventData.id)  
 
-      this.props.checkManualSchedule(newEventSchedule)
+      this.props.checkManualSchedule(newEventSchedule, manualSchedule)
     }
   }
+
+  buildScheduleWithRoles = (event) => {
+    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event
+    const newEventStaffArray = []
+
+      if ( bar_manager ) {
+        bar_manager = false
+        newEventStaffArray.push({  
+          staff_id: null, 
+          event_id: event.id,
+          role: 'Bar Manager'
+        })
+      } 
+
+      if ( ass_bar_manager ) {
+        ass_bar_manager = false
+        newEventStaffArray.push({  
+          staff_id: null, 
+          event_id: event.id,
+          role: 'Assistant Bar Manager'
+        })
+      }
+
+      for (let i = 0; i < bartenders; i++) {
+        newEventStaffArray.push({  
+          staff_id: null, 
+          event_id: event.id,
+          role: 'Bartender'
+        })
+      }
+
+      for (let i = 0; i < barbacks; i++) {
+        newEventStaffArray.push({  
+          staff_id: null, 
+          event_id: event.id,
+          role: 'Barback'
+        })
+      }
+
+    return newEventStaffArray
+  }
+
 
   render() {
 
