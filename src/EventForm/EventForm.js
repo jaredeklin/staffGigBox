@@ -22,6 +22,7 @@ export class EventForm extends Component {
 
     this.defaultState = this.state;
     this.api = new Api();
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
   }
 
   handleChange = (event) => {
@@ -45,7 +46,7 @@ export class EventForm extends Component {
       beer_bucket
     };
 
-    const response = await fetch('http://localhost:3000/api/v1/events', {
+    const response = await fetch(a`${this.url}api/v1/events`, {
       method: 'POST',
       body: JSON.stringify(eventObj),
       headers: { 'Content-Type': 'application/json'}
