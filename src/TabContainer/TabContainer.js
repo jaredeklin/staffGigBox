@@ -4,6 +4,7 @@ import { EventForm } from '../EventForm/EventForm';
 import { StaffForm } from '../StaffForm/StaffForm';
 import { Schedule } from '../Schedule/Schedule';
 import { Api } from '../Api/Api';
+import { Availability } from '../Availability/Availability';
 import './TabContainer.css';
 import PropTypes from 'prop-types';
 
@@ -78,6 +79,8 @@ export class TabContainer extends Component {
     switch (this.state.activeTabName) {
 
     case 'Add Event': return this.checkForManual();
+
+    case 'Submit Availability': return <Availability />
 
     case 'Add New Staff': return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
 
