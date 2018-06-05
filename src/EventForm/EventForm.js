@@ -46,7 +46,7 @@ export class EventForm extends Component {
       beer_bucket
     };
 
-    const response = await fetch(a`${this.url}api/v1/events`, {
+    const response = await fetch(`${this.url}api/v1/events`, {
       method: 'POST',
       body: JSON.stringify(eventObj),
       headers: { 'Content-Type': 'application/json'}
