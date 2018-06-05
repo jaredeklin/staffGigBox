@@ -5,9 +5,9 @@ import { TabContainer } from './TabContainer';
 describe('TabContainer', () => {
 
   let wrapper;
-  let mockEditSchedule = jest.fn()
-  let mockTabs = ['schedule']
-  let mockSchedule = [{ event_id: 1 }]
+  let mockEditSchedule = jest.fn();
+  let mockTabs = ['schedule'];
+  let mockSchedule = [{ event_id: 1 }];
 
   beforeEach(() => {
     wrapper = shallow(
@@ -17,8 +17,8 @@ describe('TabContainer', () => {
         schedule={ mockSchedule }
       />);
 
-  })
+  });
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
-})
+  });
+});

@@ -13,18 +13,18 @@ export class Api  {
   }
 
   // ripe for refactor
-  generateSchedule = async (staff, events) => {
+  generateSchedule = async (staff) => {
     const response = await fetch('http://localhost:3000/api/v1/schedule');
     const currentScheduleData = await response.json();
-    const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null)
+    const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null);
     const schedule = unscheduledEvents.reduce((array, event) => {
 
-      event.staff_id = Math.floor(Math.random() * staff.length) + 1
+      event.staff_id = Math.floor(Math.random() * staff.length) + 1;
 
       return [...array, event];
     });
 
-    return schedule
+    return schedule;
   }
 
   getNumberOfStaff = (event) => {
@@ -63,15 +63,16 @@ export class Api  {
 
   cleanScheduleData = (schedule) => {
     
-    const scheduleObj = schedule.reduce((obj, event) => {
+    const scheduleObj = schedule.reduce((scheduleObj, event) => {
       const { staff_id, id, role } = event;
-      if (!obj[event.event_id]) {
-        obj[event.event_id] = [];
+      
+      if (!scheduleObj[event.event_id]) {
+        scheduleObj[event.event_id] = [];
       }
 
-      obj[event.event_id] = [...obj[event.event_id], { staff_id, staff_events_id: id, role}];
+      scheduleObj[event.event_id] = [...scheduleObj[event.event_id], { staff_id, staff_events_id: id, role}];
 
-      return obj;
+      return scheduleObj;
     }, {});
 
     return scheduleObj;
@@ -140,17 +141,17 @@ export class Api  {
 
   modifySchedule = (schedule) => {
     const promise = schedule.map( async (event) => {
-      const { staff_events_id, staff_id, event_id, id } = event
+      const { staff_events_id, staff_id, event_id, id } = event;
       const response = await fetch(`http://localhost:3000/api/v1/schedule/${staff_events_id ? staff_events_id : id}`, {
         method: 'PUT',
         body: JSON.stringify({ staff_id, event_id }),
         headers: { 'Content-Type': 'application/json' }
       });
 
-      return await response.json()
-    })
+      return await response.json();
+    });
 
-    return Promise.all(promise)
+    return Promise.all(promise);
   }
 
   buildScheduleWithRoles = (event) => {
@@ -175,7 +176,7 @@ export class Api  {
       });
     }
 
-    for (let i = 0; i < bartenders; i++) {
+    for (let index = 0; index < bartenders; index++) {
       newEventStaffArray.push({
         staff_id: null,
         event_id: event.id,
@@ -183,7 +184,7 @@ export class Api  {
       });
     }
 
-    for (let i = 0; i < barbacks; i++) {
+    for (let index = 0; index < barbacks; index++) {
       newEventStaffArray.push({
         staff_id: null,
         event_id: event.id,

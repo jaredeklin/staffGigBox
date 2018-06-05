@@ -19,8 +19,8 @@ export class Schedule extends Component {
 
   updateEventStaff = async ({staff_id, event_id}) => {
 
-    const staff = { staff_events_id: this.state.staff_events_id, staff_id, event_id }
-    const response = await this.api.modifySchedule([staff])
+    const staff = { staff_events_id: this.state.staff_events_id, staff_id, event_id };
+    await this.api.modifySchedule([staff]);
 
     if ( this.state.manualSchedule ) {
       this.props.updateSchedule(event_id);
@@ -43,7 +43,7 @@ export class Schedule extends Component {
     const { staff } = this.props.event;
 
     return staff.filter(staffMember => staffMember.role === role)
-      .map((person, index) => {
+      .map((person) => {
         return (
           <li key={ person.staff_events_id }>
             {person.name}
@@ -62,7 +62,7 @@ export class Schedule extends Component {
           </li>
         );
       }
-    );
+      );
   }
 
 
@@ -126,5 +126,8 @@ Schedule.propTypes = {
   manualSchedule: PropTypes.bool,
   updateSchedule: PropTypes.func,
   editSchedule: PropTypes.func,
-  event: PropTypes.object
+  event: PropTypes.object,
+  admin: PropTypes.bool,
+  staffList: PropTypes.array,
+  deleteFromSchedule: PropTypes.func
 };
