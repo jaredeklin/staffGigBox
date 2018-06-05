@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.api = new Api();
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
     
     this.state = {
       user: null,
@@ -64,7 +65,7 @@ class App extends Component {
 
   deleteFromSchedule = async (id) => {
 
-    await fetch(`http://localhost:3000/api/v1/schedule/${id}`, {
+    await fetch(`${this.url}api/v1/schedule/${id}`, {
       method: 'DELETE'
     });
 

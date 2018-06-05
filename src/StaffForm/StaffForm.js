@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 export class StaffForm extends Component {
   constructor(props) {
     super(props);
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000'
+
     this.state = {
       google_id: this.props.user.uid,
       name: '',
@@ -25,7 +27,7 @@ export class StaffForm extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch('http://localhost:3000/api/v1/staff', {
+    const response = await fetch(`${this.url}api/v1/staff`, {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: { 'Content-Type': 'application/json'}
