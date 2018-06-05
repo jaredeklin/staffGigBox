@@ -44,5 +44,7 @@ export class EditStaffSelect extends Component {
 }
 
 EditStaffSelect.propTypes = {
-  updateEventStaff: PropTypes.func
+  updateEventStaff: PropTypes.func,
+  event_id: PropTypes.number,
+  staff: PropTypes.array
 };
