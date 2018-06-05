@@ -1,16 +1,14 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { Api } from '../Api/Api';
+// import { Api } from '../Api/Api';
 
 
 describe('App', () => {
-  const api = new Api();
-
   let wrapper;
   let mockUser1;
   let mockUser2;
-  let mockState;
+  
   beforeEach(() => {
     wrapper = shallow(<App />, { disableLifecycleMethods: true });
     mockUser1 = {

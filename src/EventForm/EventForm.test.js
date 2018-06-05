@@ -1,15 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Api } from '../Api/Api';
 import { EventForm } from './EventForm';
 
 describe('EventForm', () => {
   let wrapper;
-  let api;
   const mockCheck = jest.fn();
 
   beforeEach(() => {
-    api = new Api();
     wrapper = shallow(<EventForm checkManualSchedule={mockCheck} />);
   });
 
@@ -31,9 +28,6 @@ describe('EventForm', () => {
   });
 
   it('should post event on handle Submit', async () => {
-    const api = new Api();
-
-    
 
     const mockEvent = {
       preventDefault: jest.fn()

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Header } from './Header';
-import { auth, provider } from '../firebase.js';
+import { auth } from '../firebase.js';
 
 describe('Header', () => {
   let wrapper;

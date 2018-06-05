@@ -111,10 +111,6 @@ describe('Api', () => {
 
   it('should get the names of the staff', async () => {
     const mockIds = [{ staff_events_id: 1, staff_id: 3 }];
-    const mockEventResponse = [{
-      id: 3,
-      name: 'hotman'
-    }];
     const expected = 'http://localhost:3000/api/v1/staff/3';
 
     window.fetch = jest.fn(() => Promise.resolve({

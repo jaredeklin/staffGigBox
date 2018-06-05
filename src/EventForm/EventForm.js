@@ -217,5 +217,7 @@ EventForm.propTypes = {
   bartenders: PropTypes.string,
   barbacks: PropTypes.string,
   beer_bucket: PropTypes.string,
-  manualSchedule: PropTypes.string
+  manualSchedule: PropTypes.string,
+  checkManualSchedule: PropTypes.func,
+  scheduleGenerator: PropTypes.func
 };
