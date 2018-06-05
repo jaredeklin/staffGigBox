@@ -25,7 +25,7 @@ export class TabContainer extends Component {
       manualSchedule,
       manualScheduleData: eventData 
     })
-    console.log(manualSchedule)
+    
     if ( !manualSchedule ) {
       this.props.scheduleGenerator()
     }
@@ -59,7 +59,7 @@ export class TabContainer extends Component {
           editSchedule={ this.props.editSchedule } 
           event={ this.state.manualScheduleData }
           manualSchedule={ true }
-          updateSchedule={ this.updateSchedule}
+          updateSchedule={ this.updateSchedule }
           admin={ this.props.admin }
         />)
     } else {

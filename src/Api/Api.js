@@ -28,7 +28,6 @@ export class Api  {
       return [...x]
     }, [])
 
-    console.log(unscheduledEvents)
     const scheduleBefore = unscheduledEvents.map((event) => {
       let { bar_manager, ass_bar_manager, bartenders, barbacks } = event
       let bartenderCount = 0
@@ -46,18 +45,14 @@ export class Api  {
               staff_id: person.id,
               role: "Bar Manager"
             })
-          }
-
-          if ( ass_bar_manager ) {
+          } else if ( ass_bar_manager ) {
             ass_bar_manager = false
             staffArray.push({
               event_id: event.id,
               staff_id: person.id,
               role: 'Assistant Bar Manager'
             })
-          }
-
-          if ( bartenderCount < bartenders ) {
+          } else if ( bartenderCount < bartenders ) {
             bartenderCount++
             staffArray.push({
               event_id: event.id,

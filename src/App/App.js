@@ -44,22 +44,22 @@ class App extends Component {
 
   checkAuthorization = (isAuthorized) => {
 
-      if( isAuthorized ) {
-        const isAdmin = isAuthorized.bar_manager
-        const adminTabs = ['Add Event', 'Add New Staff', 'Schedule', 'Submit Availability']
-        const staffTabs = ['Schedule', 'Submit Availability']
+    if( isAuthorized ) {
+      const isAdmin = isAuthorized.bar_manager
+      const adminTabs = ['Add Event', 'Add New Staff', 'Schedule', 'Submit Availability']
+      const staffTabs = ['Schedule', 'Submit Availability']
 
-        this.setState({ 
-          isCurrentStaff: true,
-          tabs: isAdmin ? adminTabs : staffTabs,
-          admin: isAdmin ? true : false
-        })
-      } else {
-        this.setState({ 
-          addNewStaff: true,
-          tabs: ['Add New Staff', 'Schedule']
-        })
-      }
+      this.setState({ 
+        isCurrentStaff: true,
+        tabs: isAdmin ? adminTabs : staffTabs,
+        admin: isAdmin ? true : false
+      })
+    } else {
+      this.setState({ 
+        addNewStaff: true,
+        tabs: ['Add New Staff', 'Schedule']
+      })
+    }
   }
 
   deleteFromSchedule = async (id) => {
@@ -112,15 +112,15 @@ class App extends Component {
 
     return (
       <div className='app'>
-        <Header addUser={ this.addUser }/>
+        <Header addUser={ this.addUser } />
         <TabContainer
-          editSchedule = { this.editSchedule }
+          editSchedule={ this.editSchedule }
           schedule={ schedule }
           scheduleGenerator={ this.scheduleGenerator }
           staff={ staff }
           addStaff={ this.addStaff }
           user={ user }
-          deleteFromSchedule= { this.deleteFromSchedule }
+          deleteFromSchedule={ this.deleteFromSchedule }
           tabs={ tabs }
           admin={ admin }
         />
