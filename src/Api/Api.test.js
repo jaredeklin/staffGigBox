@@ -48,11 +48,10 @@ describe('Api', () => {
 
   it('should get the schedules', async () => {
     const mockSchedule = { schedule: 'thebesten' };
-
     const expected = 'http://localhost:3000/api/v1/schedule';
+
     api.cleanScheduleData = jest.fn();
     api.combineStaffAndEvent = jest.fn().mockReturnValue(mockSchedule);
-
 
     await api.getSchedule();
     expect(window.fetch).toHaveBeenCalledWith(expected);

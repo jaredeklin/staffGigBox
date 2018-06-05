@@ -16,66 +16,15 @@ export class Api  {
   generateSchedule = async (staff, events) => {
     const response = await fetch('http://localhost:3000/api/v1/schedule');
     const currentScheduleData = await response.json();
-    const unscheduledEvents = events.reduce((array, event) => {
+    const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null)
+    const schedule = unscheduledEvents.reduce((array, event) => {
 
-      const match = currentScheduleData.find(schedule => event.id === schedule.event_id);
-      const x = [];  
+      event.staff_id = Math.floor(Math.random() * staff.length) + 1
 
-      if (!match) {
-        x.push(event);
-      }
-
-      return [...x];
-    }, []);
-
-    const scheduleBefore = unscheduledEvents.map((event) => {
-      let { bar_manager, ass_bar_manager, bartenders, barbacks } = event;
-      let bartenderCount = 0;
-      let barbackCount = 0;
-      const staffNeeded = this.getNumberOfStaff(event);
-      const staffArray = [];
-      
-      staff.forEach((person, index) => {
-        if ( index < staffNeeded ) {
-
-          if ( bar_manager ) {
-            bar_manager = false;
-            staffArray.push({
-              event_id: event.id,
-              staff_id: person.id,
-              role: "Bar Manager"
-            });
-          } else if ( ass_bar_manager ) {
-            ass_bar_manager = false;
-            staffArray.push({
-              event_id: event.id,
-              staff_id: person.id,
-              role: 'Assistant Bar Manager'
-            });
-          } else if ( bartenderCount < bartenders ) {
-            bartenderCount++;
-            staffArray.push({
-              event_id: event.id,
-              staff_id: person.id,
-              role: 'Bartender'
-            });
-          } else if ( barbackCount < barbacks ) {
-            barbackCount++;
-            staffArray.push({
-              event_id: event.id,
-              staff_id: person.id,
-              role: 'Barback'
-            });
-          }
-        }
-      });
-      return staffArray;
+      return [...array, event];
     });
 
-    return scheduleBefore.reduce((acc, eventStaff) => {
-      return [...acc, ...eventStaff];
-    }, []);
-
+    return schedule
   }
 
   getNumberOfStaff = (event) => {
@@ -187,5 +136,61 @@ export class Api  {
     });
 
     return Promise.all(promise);
+  }
+
+  modifySchedule = (schedule) => {
+    const promise = schedule.map( async (event) => {
+      const { staff_events_id, staff_id, event_id, id } = event
+      const response = await fetch(`http://localhost:3000/api/v1/schedule/${staff_events_id ? staff_events_id : id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ staff_id, event_id }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      return await response.json()
+    })
+
+    return Promise.all(promise)
+  }
+
+  buildScheduleWithRoles = (event) => {
+    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event;
+    const newEventStaffArray = [];
+
+    if ( bar_manager ) {
+      bar_manager = false;
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Bar Manager'
+      });
+    }
+
+    if ( ass_bar_manager ) {
+      ass_bar_manager = false;
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Assistant Bar Manager'
+      });
+    }
+
+    for (let i = 0; i < bartenders; i++) {
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Bartender'
+      });
+    }
+
+    for (let i = 0; i < barbacks; i++) {
+      newEventStaffArray.push({
+        staff_id: null,
+        event_id: event.id,
+        role: 'Barback'
+      });
+    }
+
+    return newEventStaffArray;
   }
 }
