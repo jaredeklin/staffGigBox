@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { auth, provider } from '../firebase.js';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 export class Header extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export class Header extends Component {
       if (user) {
         this.setState({ user });
       }
-    
+
       this.props.addUser(user);
     });
   }
@@ -50,3 +51,7 @@ export class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  addUser: PropTypes.func
+};

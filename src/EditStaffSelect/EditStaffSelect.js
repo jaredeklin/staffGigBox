@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class EditStaffSelect extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export class EditStaffSelect extends Component {
 
   displayStaff = () => {
     return this.props.staff.map(person => {
-      
+
       return (
         <option key={ person.id } value={ person.id }>
           { person.name }
@@ -41,3 +42,7 @@ export class EditStaffSelect extends Component {
     );
   }
 }
+
+EditStaffSelect.propTypes = {
+  updateEventStaff: PropTypes.func
+};
