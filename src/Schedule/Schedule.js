@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Schedule.css';
 import { EditStaffSelect } from '../EditStaffSelect/EditStaffSelect';
 import { Api } from '../Api/Api';
+import PropTypes from 'prop-types';
 
 export class Schedule extends Component {
   constructor(props) {
@@ -17,15 +18,12 @@ export class Schedule extends Component {
   }
 
   updateEventStaff = async ({staff_id, event_id}) => {
-    console.log('staff:', staff_id, 'event', event_id);
-    
+
     const response = await fetch(`http://localhost:3000/api/v1/schedule/${this.state.staff_events_id}`, {
       method: 'PUT',
       body: JSON.stringify({ staff_id, event_id }),
       headers: { 'Content-Type': 'application/json' }
     });
-
-    console.log(await response.json());
 
     if ( this.state.manualSchedule ) {
       this.props.updateSchedule(event_id);
@@ -38,9 +36,9 @@ export class Schedule extends Component {
 
   handleEditClick = (person) => {
 
-    this.setState({ 
+    this.setState({
       edit: !this.state.edit,
-      staff_events_id: person.staff_events_id 
+      staff_events_id: person.staff_events_id
     });
   }
 
@@ -89,7 +87,7 @@ export class Schedule extends Component {
       );
   }
 
- 
+
 
   displayBartenders = () => {
     const { staff } = this.props.event;
@@ -136,7 +134,7 @@ export class Schedule extends Component {
           </li>
         );
       }
-      );    
+      );
   }
 
 
@@ -149,7 +147,7 @@ export class Schedule extends Component {
         event_id={ event_id }
         updateEventStaff={ this.updateEventStaff }
       />
-    ); 
+    );
   }
 
   render() {
@@ -164,19 +162,19 @@ export class Schedule extends Component {
           <h4>{ time }</h4>
         </div>
         <h2>{ name }</h2>
-        { 
-          this.state.edit && 
-          this.handleEditDropdown( event_id ) 
+        {
+          this.state.edit &&
+          this.handleEditDropdown( event_id )
         }
         <section className='staff-container'>
           <article className='managers'>
             <ul className='bar-manager'>
-              <h4>Bar Manager</h4> 
+              <h4>Bar Manager</h4>
               { this.displayBarManager() }
             </ul>
             { ass_bar_manager &&
-              <ul className='ass-bar-manager'> 
-                <h4>Assistant Bar Manager</h4> 
+              <ul className='ass-bar-manager'>
+                <h4>Assistant Bar Manager</h4>
                 { this.displayAssBarMan() }
               </ul>
             }
@@ -185,8 +183,8 @@ export class Schedule extends Component {
             <h4>Bartenders</h4>
             { this.displayBartenders() }
           </ul>
-          <ul className='barbacks'> 
-            <h4>Barbacks</h4> 
+          <ul className='barbacks'>
+            <h4>Barbacks</h4>
             { this.displayBarbacks() }
           </ul>
         </section>
@@ -194,3 +192,11 @@ export class Schedule extends Component {
     );
   }
 }
+
+Schedule.propTypes = {
+  adming: PropTypes.bool,
+  manualSchedule: PropTypes.bool,
+  updateSchedule: PropTypes.func,
+  editSchedule: PropTypes.func,
+  event: PropTypes.object
+};

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './EventForm.css';
 import { Api } from '../Api/Api';
+import PropTypes from 'prop-types';
 
 
 export class EventForm extends Component {
@@ -57,7 +58,7 @@ export class EventForm extends Component {
         const newEventStaffArray = this.buildScheduleWithRoles(eventData);
 
         await this.api.postSchedule(newEventStaffArray);
-        const newEventSchedule = await this.api.getSchedule(eventData.id);  
+        const newEventSchedule = await this.api.getSchedule(eventData.id);
         this.props.checkManualSchedule(newEventSchedule, manualSchedule);
       }
 
@@ -70,33 +71,33 @@ export class EventForm extends Component {
 
     if ( bar_manager ) {
       bar_manager = false;
-      newEventStaffArray.push({  
-        staff_id: null, 
+      newEventStaffArray.push({
+        staff_id: null,
         event_id: event.id,
         role: 'Bar Manager'
       });
-    } 
+    }
 
     if ( ass_bar_manager ) {
       ass_bar_manager = false;
-      newEventStaffArray.push({  
-        staff_id: null, 
+      newEventStaffArray.push({
+        staff_id: null,
         event_id: event.id,
         role: 'Assistant Bar Manager'
       });
     }
 
     for (let i = 0; i < bartenders; i++) {
-      newEventStaffArray.push({  
-        staff_id: null, 
+      newEventStaffArray.push({
+        staff_id: null,
         event_id: event.id,
         role: 'Bartender'
       });
     }
 
     for (let i = 0; i < barbacks; i++) {
-      newEventStaffArray.push({  
-        staff_id: null, 
+      newEventStaffArray.push({
+        staff_id: null,
         event_id: event.id,
         role: 'Barback'
       });
@@ -242,3 +243,16 @@ export class EventForm extends Component {
     );
   }
 }
+
+EventForm.propTypes = {
+  venue: PropTypes.string,
+  name: PropTypes.string,
+  date: PropTypes.string,
+  time: PropTypes.string,
+  bar_manager: PropTypes.string,
+  ass_bar_manager: PropTypes.string,
+  bartenders: PropTypes.string,
+  barbacks: PropTypes.string,
+  beer_bucket: PropTypes.string,
+  manualSchedule: PropTypes.string
+};
