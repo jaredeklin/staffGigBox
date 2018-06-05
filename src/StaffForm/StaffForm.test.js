@@ -4,13 +4,13 @@ import { StaffForm } from './StaffForm';
 
 describe('StaffForm', () => {
   let wrapper;
-  let mockAddStaff = jest.fn();
-  let mockUser = {
+  const mockAddStaff = jest.fn();
+  const mockUser = {
     uid: 123456
-  }
+  };
 
   beforeEach(() => {
-    wrapper = shallow(<StaffForm addStaff={mockAddStaff} user={mockUser}/>)
+    wrapper = shallow(<StaffForm addStaff={mockAddStaff} user={mockUser} />);
   });
 
   it('should match the snapshot', () => {
@@ -23,17 +23,17 @@ describe('StaffForm', () => {
         name: 'name',
         value: 'Esteban'
       }
-    }
+    };
 
     wrapper.instance().handleChange(mockEvent);
 
-    expect(wrapper.state('name')).toEqual('Esteban')
+    expect(wrapper.state('name')).toEqual('Esteban');
   });
 
   it('should post staff on handle Submit', async () => {
     const mockEvent = {
       preventDefault: jest.fn()
-    }
+    };
 
     const mockState = {
       google_id: 123456,
@@ -43,7 +43,7 @@ describe('StaffForm', () => {
       bartender: false,
       barback: false,
       beer_bucket: false
-    }
+    };
 
     const expected = [
       'http://localhost:3000/api/v1/staff',
@@ -54,17 +54,15 @@ describe('StaffForm', () => {
           'Content-Type': 'application/json'
         }
       }
-    ]
+    ];
 
-    window.fetch = jest.fn(
-      () => Promise.resolve({
-        status: 201,
-        json: () => Promise.resolve({
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 201,
+      json: () => Promise.resolve({
 
-        })
       })
-    )
-    await wrapper.instance().handleSubmit(mockEvent)
+    }));
+    await wrapper.instance().handleSubmit(mockEvent);
     expect(window.fetch).toHaveBeenCalledWith(...expected);
     expect(mockAddStaff).toHaveBeenCalled();
   });

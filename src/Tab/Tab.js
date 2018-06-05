@@ -1,12 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export const Tab = ({ isActive, tabName, handleTabClick }) => {
-
-  return (
-    <li 
-      className={`tab ${ isActive ? 'active' : '' }`}
-      onClick={ () => handleTabClick(tabName) }>
-      { tabName }
-    </li>
-  );
-}
+export const Tab = ({ isActive, tabName, handleTabClick }) => (
+  <li
+    className={`tab ${isActive ? 'active' : ''}`}
+    onClick={() => handleTabClick(tabName)}
+  >
+    { tabName }
+  </li>
+);

@@ -4,23 +4,23 @@ import './styles.css';
 
 export class Header extends Component {
   constructor(props) {
-    super()
+    super();
     this.state = {
-      user: null,
-    }
+      user: null
+    };
   }
 
   login = async () => {
-    const result = await auth.signInWithPopup(provider)
-    const { user } = await result
-    this.setState({ user })
-    this.props.addUser(user)
+    const result = await auth.signInWithPopup(provider);
+    const { user } = await result;
+    this.setState({ user });
+    this.props.addUser(user);
   }
 
   logout = async () => {
-    await auth.signOut()
+    await auth.signOut();
     this.setState({ user: null });
-    this.props.addUser(null)
+    this.props.addUser(null);
   }
 
   componentDidMount = () => {
@@ -29,7 +29,7 @@ export class Header extends Component {
         this.setState({ user });
       }
     
-      this.props.addUser(user)
+      this.props.addUser(user);
     });
   }
 
@@ -47,6 +47,6 @@ export class Header extends Component {
           <button onClick={ this.login }>Log In</button>
         }
       </header>
-    )
+    );
   }
 }

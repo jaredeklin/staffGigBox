@@ -23,11 +23,13 @@ ShallowWrapper {
 />,
         <TabContainer
           addStaff={[Function]}
+          admin={false}
           deleteFromSchedule={[Function]}
           editSchedule={[Function]}
           schedule={Array []}
           scheduleGenerator={[Function]}
           staff={Array []}
+          tabs={Array []}
           user={null}
 />,
       ],
@@ -52,11 +54,13 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "addStaff": [Function],
+          "admin": false,
           "deleteFromSchedule": [Function],
           "editSchedule": [Function],
           "schedule": Array [],
           "scheduleGenerator": [Function],
           "staff": Array [],
+          "tabs": Array [],
           "user": null,
         },
         "ref": null,
@@ -78,11 +82,13 @@ ShallowWrapper {
 />,
           <TabContainer
             addStaff={[Function]}
+            admin={false}
             deleteFromSchedule={[Function]}
             editSchedule={[Function]}
             schedule={Array []}
             scheduleGenerator={[Function]}
             staff={Array []}
+            tabs={Array []}
             user={null}
 />,
         ],
@@ -107,11 +113,13 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "addStaff": [Function],
+            "admin": false,
             "deleteFromSchedule": [Function],
             "editSchedule": [Function],
             "schedule": Array [],
             "scheduleGenerator": [Function],
             "staff": Array [],
+            "tabs": Array [],
             "user": null,
           },
           "ref": null,
