@@ -19,7 +19,9 @@ export class Schedule extends Component {
 
   updateEventStaff = async ({staff_id, event_id}) => {
 
-    const staff = { staff_events_id: this.state.staff_events_id, staff_id, event_id };
+    const staff = { 
+      staff_events_id: this.state.staff_events_id, staff_id, event_id 
+    };
 
     await this.api.modifySchedule([staff]);
 
@@ -46,13 +48,13 @@ export class Schedule extends Component {
     return staff.filter(staffMember => staffMember.role === role)
       .map((person) => {
         return (
-          <li key={ person.staff_events_id }>
+          <li key={ person.staff_events_id + role }>
             {person.name}
             { this.props.admin &&
               <div className='edit-container'>
                 <button
                   className='delete'
-                  onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }>
+                  onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }> {/*eslint-disable-line*/}
                 </button>
                 <button
                   className='edit'
@@ -81,7 +83,14 @@ export class Schedule extends Component {
 
   render() {
 
-    const { venue, name, date, time, event_id, ass_bar_manager } = this.props.event;
+    const { 
+      venue, 
+      name, 
+      date, 
+      time, 
+      event_id, 
+      ass_bar_manager 
+    } = this.props.event;
 
     return (
       <section className='schedule-card'>
@@ -123,12 +132,11 @@ export class Schedule extends Component {
 }
 
 Schedule.propTypes = {
-  adming: PropTypes.bool,
+  admin: PropTypes.bool,
   manualSchedule: PropTypes.bool,
   updateSchedule: PropTypes.func,
   editSchedule: PropTypes.func,
   event: PropTypes.object,
-  admin: PropTypes.bool,
   staffList: PropTypes.array,
   deleteFromSchedule: PropTypes.func
 };

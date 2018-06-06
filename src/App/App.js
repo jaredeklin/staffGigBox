@@ -31,7 +31,9 @@ class App extends Component {
     await this.setState({ user, isCurrentStaff: false });
 
     if (user) {
-      const isAuthorized = staff.filter(person => person.google_id === user.uid);
+      const isAuthorized = staff.filter(person => { 
+        return person.google_id === user.uid;
+      });
 
       this.checkAuthorization(isAuthorized[0]);
 
@@ -47,7 +49,12 @@ class App extends Component {
 
     if ( isAuthorized ) {
       const isAdmin = isAuthorized.bar_manager;
-      const adminTabs = ['Add Event', 'Add New Staff', 'Schedule', 'Submit Availability'];
+      const adminTabs = [
+        'Add Event', 
+        'Add New Staff', 
+        'Schedule', 
+        'Submit Availability'
+      ];
       const staffTabs = ['Schedule', 'Submit Availability'];
 
       this.setState({ 

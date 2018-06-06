@@ -33,7 +33,18 @@ export class EventForm extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const { venue, name, date, time, bar_manager, ass_bar_manager, bartenders, barbacks, beer_bucket, manualSchedule } = this.state;
+    const { 
+      venue, 
+      name, 
+      date, 
+      time, 
+      bar_manager, 
+      ass_bar_manager, 
+      bartenders,
+      barbacks, 
+      beer_bucket, 
+      manualSchedule } = this.state;
+      
     const eventObj = {
       venue,
       name,
@@ -82,7 +93,12 @@ export class EventForm extends Component {
           <div className='venue-info'>
             <label className='form-label'>
               Venue
-              <select className='event-select' name='venue' value={ venue } onChange={ this.handleChange }>
+              <select 
+                className='event-select' 
+                name='venue' 
+                value={ venue } 
+                onChange={ this.handleChange }
+              >
                 <option value='Ogden Theatre'>Ogden Theatre</option>
                 <option value='Gothic Theatre'>Gothic Theatre</option>
                 <option value='Bluebird Theater'>Bluebird Theater</option>

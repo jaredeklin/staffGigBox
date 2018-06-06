@@ -80,9 +80,15 @@ export class TabContainer extends Component {
 
     case 'Add Event': return this.checkForManual();
 
-    case 'Submit Availability': return <Availability />
+    case 'Submit Availability': return <Availability />;
 
-    case 'Add New Staff': return <StaffForm addStaff={ this.props.addStaff } user={ this.props.user }/>;
+    case 'Add New Staff': 
+      return (
+        <StaffForm 
+          addStaff={ this.props.addStaff } 
+          user={ this.props.user }
+        />
+      );
 
     default: return this.props.schedule.map((event) => {
       return (

@@ -76,7 +76,8 @@ describe('Api', () => {
 
     api.cleanScheduleData(mockScheduleData);
 
-    expect(api.cleanScheduleData(mockScheduleData)).toEqual(mockCleanScheduleData);
+    expect(api.cleanScheduleData(mockScheduleData))
+      .toEqual(mockCleanScheduleData);
   });
 
   it('should combine staff and event', async () => {
