@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 html {
@@ -14,3 +15,13 @@ body {
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.7rem;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: black !important;
+  -webkit-box-shadow: 0 0 0 30px #FFF inset;
+}
+
+

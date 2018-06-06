@@ -11,7 +11,7 @@ export class EventForm extends Component {
       venue: 'Ogden Theatre',
       name: '',
       date: '',
-      time: '',
+      time: '18:00',
       bar_manager: '',
       ass_bar_manager: '',
       bartenders: '',
@@ -35,16 +35,18 @@ export class EventForm extends Component {
     event.preventDefault();
     const { 
       venue, 
-      name, 
-      date, 
-      time, 
+      name,  
       bar_manager, 
       ass_bar_manager, 
       bartenders,
       barbacks, 
       beer_bucket, 
-      manualSchedule } = this.state;
-      
+      manualSchedule 
+    } = this.state;
+
+    const dateTime = this.api.cleanDateTime(this.state.date, this.state.time);
+    const { date, time } = dateTime; 
+
     const eventObj = {
       venue,
       name,
@@ -79,9 +81,6 @@ export class EventForm extends Component {
     }
   }
 
-  
-
-
   render() {
 
     const { venue, name, date, time, bartenders, barbacks } = this.state;
@@ -105,7 +104,7 @@ export class EventForm extends Component {
               </select>
             </label>
             <input
-              placeholder='Name'
+              placeholder='Band name'
               name='name' value={ name }
               onChange={ this.handleChange }
               className='input_event-form'
@@ -113,13 +112,15 @@ export class EventForm extends Component {
             <input
               type='date'
               placeholder='Date'
-              name='date' value={ date }
+              name='date' 
+              value={ date }
               onChange={ this.handleChange }
               onFocus={this.showCalendar}
               className='input_event-form'
             />
             <input
               placeholder='Time'
+              type='time'
               name='time'
               value={ time }
               onChange={ this.handleChange }
@@ -166,12 +167,16 @@ export class EventForm extends Component {
             </label>
             <input
               className='input_event-form'
+              type='number'
+              min='0'
               placeholder='Number of bartenders needed'
               name='bartenders'
               value={ bartenders }
               onChange={ this.handleChange } />
             <input
               className='input_event-form'
+              type='number'
+              min='0'
               placeholder='Number of barbacks needed'
               name='barbacks'
               value={ barbacks }

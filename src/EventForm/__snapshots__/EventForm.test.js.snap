@@ -63,7 +63,7 @@ ShallowWrapper {
                               className="input_event-form"
                               name="name"
                               onChange={[Function]}
-                              placeholder="Name"
+                              placeholder="Band name"
                               value=""
                     />
                     <input
@@ -80,7 +80,8 @@ ShallowWrapper {
                               name="time"
                               onChange={[Function]}
                               placeholder="Time"
-                              value=""
+                              type="time"
+                              value="18:00"
                     />
           </div>
           <div
@@ -146,16 +147,20 @@ ShallowWrapper {
                     </label>
                     <input
                               className="input_event-form"
+                              min="0"
                               name="bartenders"
                               onChange={[Function]}
                               placeholder="Number of bartenders needed"
+                              type="number"
                               value=""
                     />
                     <input
                               className="input_event-form"
+                              min="0"
                               name="barbacks"
                               onChange={[Function]}
                               placeholder="Number of barbacks needed"
+                              type="number"
                               value=""
                     />
                     <label
@@ -286,7 +291,7 @@ ShallowWrapper {
                             className="input_event-form"
                             name="name"
                             onChange={[Function]}
-                            placeholder="Name"
+                            placeholder="Band name"
                             value=""
               />
               <input
@@ -303,7 +308,8 @@ ShallowWrapper {
                             name="time"
                             onChange={[Function]}
                             placeholder="Time"
-                            value=""
+                            type="time"
+                            value="18:00"
               />
 </div>,
             <div
@@ -369,16 +375,20 @@ ShallowWrapper {
               </label>
               <input
                             className="input_event-form"
+                            min="0"
                             name="bartenders"
                             onChange={[Function]}
                             placeholder="Number of bartenders needed"
+                            type="number"
                             value=""
               />
               <input
                             className="input_event-form"
+                            min="0"
                             name="barbacks"
                             onChange={[Function]}
                             placeholder="Number of barbacks needed"
+                            type="number"
                             value=""
               />
               <label
@@ -488,7 +498,7 @@ ShallowWrapper {
                   className="input_event-form"
                   name="name"
                   onChange={[Function]}
-                  placeholder="Name"
+                  placeholder="Band name"
                   value=""
 />,
                 <input
@@ -505,7 +515,8 @@ ShallowWrapper {
                   name="time"
                   onChange={[Function]}
                   placeholder="Time"
-                  value=""
+                  type="time"
+                  value="18:00"
 />,
               ],
               "className": "venue-info",
@@ -626,7 +637,7 @@ ShallowWrapper {
                   "className": "input_event-form",
                   "name": "name",
                   "onChange": [Function],
-                  "placeholder": "Name",
+                  "placeholder": "Band name",
                   "value": "",
                 },
                 "ref": null,
@@ -659,7 +670,8 @@ ShallowWrapper {
                   "name": "time",
                   "onChange": [Function],
                   "placeholder": "Time",
-                  "value": "",
+                  "type": "time",
+                  "value": "18:00",
                 },
                 "ref": null,
                 "rendered": null,
@@ -734,16 +746,20 @@ ShallowWrapper {
 </label>,
                 <input
                   className="input_event-form"
+                  min="0"
                   name="bartenders"
                   onChange={[Function]}
                   placeholder="Number of bartenders needed"
+                  type="number"
                   value=""
 />,
                 <input
                   className="input_event-form"
+                  min="0"
                   name="barbacks"
                   onChange={[Function]}
                   placeholder="Number of barbacks needed"
+                  type="number"
                   value=""
 />,
                 <label
@@ -1003,9 +1019,11 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "className": "input_event-form",
+                  "min": "0",
                   "name": "bartenders",
                   "onChange": [Function],
                   "placeholder": "Number of bartenders needed",
+                  "type": "number",
                   "value": "",
                 },
                 "ref": null,
@@ -1018,9 +1036,11 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "className": "input_event-form",
+                  "min": "0",
                   "name": "barbacks",
                   "onChange": [Function],
                   "placeholder": "Number of barbacks needed",
+                  "type": "number",
                   "value": "",
                 },
                 "ref": null,
@@ -1299,7 +1319,7 @@ ShallowWrapper {
                                     className="input_event-form"
                                     name="name"
                                     onChange={[Function]}
-                                    placeholder="Name"
+                                    placeholder="Band name"
                                     value=""
                         />
                         <input
@@ -1316,7 +1336,8 @@ ShallowWrapper {
                                     name="time"
                                     onChange={[Function]}
                                     placeholder="Time"
-                                    value=""
+                                    type="time"
+                                    value="18:00"
                         />
             </div>
             <div
@@ -1382,16 +1403,20 @@ ShallowWrapper {
                         </label>
                         <input
                                     className="input_event-form"
+                                    min="0"
                                     name="bartenders"
                                     onChange={[Function]}
                                     placeholder="Number of bartenders needed"
+                                    type="number"
                                     value=""
                         />
                         <input
                                     className="input_event-form"
+                                    min="0"
                                     name="barbacks"
                                     onChange={[Function]}
                                     placeholder="Number of barbacks needed"
+                                    type="number"
                                     value=""
                         />
                         <label
@@ -1522,7 +1547,7 @@ ShallowWrapper {
                                 className="input_event-form"
                                 name="name"
                                 onChange={[Function]}
-                                placeholder="Name"
+                                placeholder="Band name"
                                 value=""
                 />
                 <input
@@ -1539,7 +1564,8 @@ ShallowWrapper {
                                 name="time"
                                 onChange={[Function]}
                                 placeholder="Time"
-                                value=""
+                                type="time"
+                                value="18:00"
                 />
 </div>,
               <div
@@ -1605,16 +1631,20 @@ ShallowWrapper {
                 </label>
                 <input
                                 className="input_event-form"
+                                min="0"
                                 name="bartenders"
                                 onChange={[Function]}
                                 placeholder="Number of bartenders needed"
+                                type="number"
                                 value=""
                 />
                 <input
                                 className="input_event-form"
+                                min="0"
                                 name="barbacks"
                                 onChange={[Function]}
                                 placeholder="Number of barbacks needed"
+                                type="number"
                                 value=""
                 />
                 <label
@@ -1724,7 +1754,7 @@ ShallowWrapper {
                     className="input_event-form"
                     name="name"
                     onChange={[Function]}
-                    placeholder="Name"
+                    placeholder="Band name"
                     value=""
 />,
                   <input
@@ -1741,7 +1771,8 @@ ShallowWrapper {
                     name="time"
                     onChange={[Function]}
                     placeholder="Time"
-                    value=""
+                    type="time"
+                    value="18:00"
 />,
                 ],
                 "className": "venue-info",
@@ -1862,7 +1893,7 @@ ShallowWrapper {
                     "className": "input_event-form",
                     "name": "name",
                     "onChange": [Function],
-                    "placeholder": "Name",
+                    "placeholder": "Band name",
                     "value": "",
                   },
                   "ref": null,
@@ -1895,7 +1926,8 @@ ShallowWrapper {
                     "name": "time",
                     "onChange": [Function],
                     "placeholder": "Time",
-                    "value": "",
+                    "type": "time",
+                    "value": "18:00",
                   },
                   "ref": null,
                   "rendered": null,
@@ -1970,16 +2002,20 @@ ShallowWrapper {
 </label>,
                   <input
                     className="input_event-form"
+                    min="0"
                     name="bartenders"
                     onChange={[Function]}
                     placeholder="Number of bartenders needed"
+                    type="number"
                     value=""
 />,
                   <input
                     className="input_event-form"
+                    min="0"
                     name="barbacks"
                     onChange={[Function]}
                     placeholder="Number of barbacks needed"
+                    type="number"
                     value=""
 />,
                   <label
@@ -2239,9 +2275,11 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "className": "input_event-form",
+                    "min": "0",
                     "name": "bartenders",
                     "onChange": [Function],
                     "placeholder": "Number of bartenders needed",
+                    "type": "number",
                     "value": "",
                   },
                   "ref": null,
@@ -2254,9 +2292,11 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "className": "input_event-form",
+                    "min": "0",
                     "name": "barbacks",
                     "onChange": [Function],
                     "placeholder": "Number of barbacks needed",
+                    "type": "number",
                     "value": "",
                   },
                   "ref": null,

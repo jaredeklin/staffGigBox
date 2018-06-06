@@ -36,8 +36,8 @@ describe('EventForm', () => {
     const mockEventObj = {
       venue: 'Ogden Theatre',
       name: '',
-      date: '',
-      time: '',
+      date: 'Jun 6, 2018',
+      time: '6:00 pm',
       bar_manager: '',
       ass_bar_manager: '',
       bartenders: '',
@@ -49,7 +49,7 @@ describe('EventForm', () => {
       venue: 'Ogden Theatre',
       name: '',
       date: '',
-      time: '',
+      time: '18:00',
       bar_manager: '',
       ass_bar_manager: '',
       bartenders: '',
@@ -71,19 +71,21 @@ describe('EventForm', () => {
 
     window.fetch = jest.fn(() => Promise.resolve({
       status: 201,
-      json: () => Promise.resolve({
-
-      })
+      json: () => Promise.resolve({})
     }));
+
+    const date = { date: 'Jun 6, 2018', time: '6:00 pm' };
 
     wrapper.setState({ manualSchedule: true });
     wrapper.instance().api.postSchedule = jest.fn();
     wrapper.instance().api.buildScheduleWithRoles = jest.fn();
     wrapper.instance().api.getSchedule = jest.fn();
+    wrapper.instance().api.cleanDateTime = jest.fn().mockReturnValue(date);
 
     await wrapper.instance().handleSubmit(mockEvent);
     expect(window.fetch).toHaveBeenCalledWith(...expected);
 
+    expect(wrapper.instance().api.cleanDateTime).toHaveBeenCalled();
     expect(wrapper.instance().api.buildScheduleWithRoles).toHaveBeenCalled();
     expect(wrapper.instance().api.postSchedule).toHaveBeenCalled();
     expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();   

@@ -23,6 +23,7 @@ export class Api  {
     const unscheduledEvents = currentScheduleData.filter(schedule => { 
       return schedule.staff_id === null; 
     });
+
     const schedule = unscheduledEvents.reduce((array, event) => {
 
       event.staff_id = Math.floor(Math.random() * staff.length) + 1;
@@ -156,7 +157,7 @@ export class Api  {
       const { staff_events_id, staff_id, event_id, id } = event;
       const eventId = staff_events_id ? staff_events_id : id;
 
-      const response = await fetch(`${this.url}api/v1/schedule/${eventId}`, {
+      const response = await fetch(`${this.url}api/v1/schedule/${ eventId }`, {
         method: 'PUT',
         body: JSON.stringify({ staff_id, event_id }),
         headers: { 'Content-Type': 'application/json' }
@@ -169,14 +170,14 @@ export class Api  {
   }
 
   buildScheduleWithRoles = (event) => {
-    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event;
+    let { bar_manager, ass_bar_manager, bartenders, barbacks, id } = event;
     const newEventStaffArray = [];
 
     if ( bar_manager ) {
       bar_manager = false;
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Bar Manager'
       });
     }
@@ -185,7 +186,7 @@ export class Api  {
       ass_bar_manager = false;
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Assistant Bar Manager'
       });
     }
@@ -193,7 +194,7 @@ export class Api  {
     for (let index = 0; index < bartenders; index++) {
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Bartender'
       });
     }
@@ -201,11 +202,27 @@ export class Api  {
     for (let index = 0; index < barbacks; index++) {
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Barback'
       });
     }
 
     return newEventStaffArray;
+  }
+
+  cleanDateTime = (originalDate, orginalTime) => {
+    const date = new Date(originalDate).toLocaleDateString([], {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    });
+
+    const time = new Date(`${originalDate} ${orginalTime}`)
+      .toLocaleTimeString([], {
+        hour: '2-digit', 
+        minute: '2-digit'
+      });
+
+    return { date, time };
   }
 }
