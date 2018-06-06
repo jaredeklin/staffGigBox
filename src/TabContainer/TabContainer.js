@@ -61,7 +61,7 @@ export class TabContainer extends Component {
           staffList={ this.props.staff }
           editSchedule={ this.props.editSchedule }
           event={ this.state.manualScheduleData }
-          manualSchedule={ this.state.manualSchedule }
+          manualSchedule={ true }
           updateSchedule={ this.updateSchedule }
           admin={ this.props.admin }
         />);

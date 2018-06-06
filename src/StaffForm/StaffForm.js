@@ -53,7 +53,7 @@ export class StaffForm extends Component {
         />
         <label className='form-label form-header'>Select all that apply:</label>
         <label className='form-label'>
-            Are you a Bar Manager?
+          Are you a Bar Manager?
           <input type='radio'
             id= 'yes'
             value={ true }
@@ -72,7 +72,7 @@ export class StaffForm extends Component {
           <label htmlFor='no'>No</label>
         </label>
         <label className='form-label'>
-            Are you an Assistant Bar Manager?
+          Are you an Assistant Bar Manager?
           <input type='radio'
             id= 'yes'
             value={ true }
@@ -91,7 +91,7 @@ export class StaffForm extends Component {
           <label htmlFor='no'>No</label>
         </label>
         <label className='form-label'>
-            Are you Bartender?
+          Are you Bartender?
           <input type='radio'
             id= 'yes'
             value={ true }
@@ -110,7 +110,7 @@ export class StaffForm extends Component {
           <label htmlFor='no'>No</label>
         </label>
         <label className='form-label'>
-            Are you Barback?
+          Are you Barback?
           <input type='radio'
             id= 'yes'
             value={ true }
@@ -129,7 +129,7 @@ export class StaffForm extends Component {
           <label htmlFor='no'>No</label>
         </label>
         <label className='form-label'>
-            Do you work the Beer Bucket?
+          Do you work the Beer Bucket?
           <input type='radio'
             id= 'yes'
             value={ true }
