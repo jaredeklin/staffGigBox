@@ -23,6 +23,7 @@ export class Api  {
     const unscheduledEvents = currentScheduleData.filter(schedule => { 
       return schedule.staff_id === null; 
     });
+
     const schedule = unscheduledEvents.reduce((array, event) => {
 
       event.staff_id = Math.floor(Math.random() * staff.length) + 1;
@@ -207,5 +208,20 @@ export class Api  {
     }
 
     return newEventStaffArray;
+  }
+
+  cleanDateTime = (originalDate, orginalTime) => {
+    const date = new Date(originalDate).toLocaleDateString([], {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    });
+
+    const time = new Date(`${originalDate} ${orginalTime}`).toLocaleTimeString([], {
+      hour: '2-digit', 
+      minute: '2-digit'
+    });
+
+    return { date, time }
   }
 }

@@ -35,16 +35,20 @@ export class EventForm extends Component {
     event.preventDefault();
     const { 
       venue, 
-      name, 
-      date, 
-      time, 
+      name,  
       bar_manager, 
       ass_bar_manager, 
       bartenders,
       barbacks, 
       beer_bucket, 
-      manualSchedule } = this.state;
-      
+      manualSchedule 
+    } = this.state;
+
+    const dateTime = this.api.cleanDateTime(this.state.date, this.state.time)
+    const { date, time } = dateTime 
+    console.log(date)
+    console.log(time)
+    
     const eventObj = {
       venue,
       name,
@@ -78,9 +82,6 @@ export class EventForm extends Component {
       }
     }
   }
-
-  
-
 
   render() {
 
@@ -169,6 +170,7 @@ export class EventForm extends Component {
             <input
               className='input_event-form'
               type='number'
+              min='0'
               placeholder='Number of bartenders needed'
               name='bartenders'
               value={ bartenders }
@@ -176,6 +178,7 @@ export class EventForm extends Component {
             <input
               className='input_event-form'
               type='number'
+              min='0'
               placeholder='Number of barbacks needed'
               name='barbacks'
               value={ barbacks }
