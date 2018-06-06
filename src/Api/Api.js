@@ -157,7 +157,7 @@ export class Api  {
       const { staff_events_id, staff_id, event_id, id } = event;
       const eventId = staff_events_id ? staff_events_id : id;
 
-      const response = await fetch(`${this.url}api/v1/schedule/${eventId}`, {
+      const response = await fetch(`${this.url}api/v1/schedule/${ eventId }`, {
         method: 'PUT',
         body: JSON.stringify({ staff_id, event_id }),
         headers: { 'Content-Type': 'application/json' }
@@ -217,11 +217,12 @@ export class Api  {
       year: 'numeric'
     });
 
-    const time = new Date(`${originalDate} ${orginalTime}`).toLocaleTimeString([], {
-      hour: '2-digit', 
-      minute: '2-digit'
-    });
+    const time = new Date(`${originalDate} ${orginalTime}`)
+      .toLocaleTimeString([], {
+        hour: '2-digit', 
+        minute: '2-digit'
+      });
 
-    return { date, time }
+    return { date, time };
   }
 }

@@ -150,6 +150,22 @@ describe('Api', () => {
   it('cleanDateTime should reformat dates and times', () => {
 
     expect(api.cleanDateTime('"2018-06-06"', '18:00'))
-      .toEqual({"date": "2018 M06 6", "time": "18:00"})
-  })
+      .toEqual({"date": "2018 M06 6", "time": "18:00"});
+  });
+
+  it('modifySchedule should be called with the correct params', async () => {
+    const mockSchedule = [{ staff_events_id: 23, staff_id:2, event_id: 4 }];
+
+    const expected = [
+      'http://localhost:3000/api/v1/schedule/23', {
+        method: 'PUT',
+        body: JSON.stringify({ staff_id: 2, event_id: 4 }),
+        headers: { 'Content-Type': 'application/json' }
+      }
+    ];
+
+    await api.modifySchedule(mockSchedule);
+
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
+  });
 });

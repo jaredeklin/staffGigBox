@@ -74,7 +74,7 @@ describe('EventForm', () => {
       json: () => Promise.resolve({})
     }));
 
-    const date = { date: 'Jun 6, 2018', time: '6:00 pm' }
+    const date = { date: 'Jun 6, 2018', time: '6:00 pm' };
 
     wrapper.setState({ manualSchedule: true });
     wrapper.instance().api.postSchedule = jest.fn();
