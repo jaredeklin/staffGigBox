@@ -5,19 +5,29 @@
 ## Synopsis
 #### stafGigBox is an application that is focused on helping manage scheduling for shift work.
 
+#### View the app live at: http://gigstaff.surge.sh/
+
 ## Project Guidelines
 
 ## Installation
 
-#### This project was bootstrapped with create-react-app
+### Clone the back-end repository
 
-#### Clone down the repo
+#### ```git clone https://github.com/stevenleelawson/staffGigBoxBackEnd```
+
+#### ```npm install```
+
+#### ```npm start```
+
+### Clone the front-end repository
 
 #### ```git clone https://github.com/jaredeklin/staffGigBox```
 
 #### ```npm install```
 
 #### ```npm start```
+
+#### ```Run server on port 3001```
 
 ## Tests
 
