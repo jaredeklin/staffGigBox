@@ -168,4 +168,40 @@ describe('Api', () => {
 
     expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
+
+  it('should buildScheduleWithRoles', () => {
+
+    const mockEvent = {
+      bar_manager: true, 
+      ass_bar_manager: false, 
+      bartenders: 3, 
+      barbacks: 1,
+      id: 23
+    };
+
+    const expected = [
+      {
+        "event_id": 23, 
+        "role": "Bar Manager", 
+        "staff_id": null
+      }, {
+        "event_id": 23, 
+        "role": "Bartender", 
+        "staff_id": null
+      }, {
+        "event_id": 23, 
+        "role": "Bartender", 
+        "staff_id": null
+      }, {
+        "event_id": 23, 
+        "role": "Bartender", 
+        "staff_id": null
+      }, {
+        "event_id": 23, 
+        "role": "Barback", 
+        "staff_id": null
+      }];
+
+    expect(api.buildScheduleWithRoles(mockEvent)).toEqual(expected);
+  });
 });

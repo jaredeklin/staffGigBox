@@ -170,14 +170,14 @@ export class Api  {
   }
 
   buildScheduleWithRoles = (event) => {
-    let { bar_manager, ass_bar_manager, bartenders, barbacks } = event;
+    let { bar_manager, ass_bar_manager, bartenders, barbacks, id } = event;
     const newEventStaffArray = [];
 
     if ( bar_manager ) {
       bar_manager = false;
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Bar Manager'
       });
     }
@@ -186,7 +186,7 @@ export class Api  {
       ass_bar_manager = false;
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Assistant Bar Manager'
       });
     }
@@ -194,7 +194,7 @@ export class Api  {
     for (let index = 0; index < bartenders; index++) {
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Bartender'
       });
     }
@@ -202,7 +202,7 @@ export class Api  {
     for (let index = 0; index < barbacks; index++) {
       newEventStaffArray.push({
         staff_id: null,
-        event_id: event.id,
+        event_id: id,
         role: 'Barback'
       });
     }
