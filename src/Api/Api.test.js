@@ -173,7 +173,7 @@ describe('Api', () => {
 
     const mockEvent = {
       bar_manager: true, 
-      ass_bar_manager: false, 
+      ass_bar_manager: true, 
       bartenders: 3, 
       barbacks: 1,
       id: 23
@@ -183,6 +183,10 @@ describe('Api', () => {
       {
         "event_id": 23, 
         "role": "Bar Manager", 
+        "staff_id": null
+      }, {
+        "event_id": 23, 
+        "role": "Assis tant Bar Manager", 
         "staff_id": null
       }, {
         "event_id": 23, 
