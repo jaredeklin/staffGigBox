@@ -53,9 +53,9 @@ describe('Api', () => {
   it('should get getNumberOfStaff', () => {
     const mockEvent = {
       bartenders: 4,
-      barbacks: 3,
+      barbacks: 2,
       bar_manager: true,
-      ass_bar_manager: false
+      ass_bar_manager: true
     };
 
     expect(api.getNumberOfStaff(mockEvent)).toEqual(8);
