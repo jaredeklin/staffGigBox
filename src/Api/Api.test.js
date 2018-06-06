@@ -76,6 +76,20 @@ describe('Api', () => {
     expect(await api.getSchedule()).toEqual(mockSchedule);
   });
 
+  it('should get a specific schedule', async () => {
+    const mockSchedule = { schedule: 'thebesten' };
+    const expected = 'http://localhost:3000/api/v1/schedule?event_id=23';
+
+    api.cleanScheduleData = jest.fn();
+    api.combineStaffAndEvent = jest.fn().mockReturnValue(mockSchedule);
+
+    await api.getSchedule(23);
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+    expect(api.cleanScheduleData).toHaveBeenCalled();
+    expect(api.combineStaffAndEvent).toHaveBeenCalled();
+    expect(await api.getSchedule()).toEqual(mockSchedule);
+  });
+
 
   it('should clean the schedule data', () => {
     const mockScheduleData = [
