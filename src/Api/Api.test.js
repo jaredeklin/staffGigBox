@@ -180,7 +180,7 @@ describe('Api', () => {
   it('cleanDateTime should reformat dates and times', () => {
 
     expect(api.cleanDateTime('"2018-06-06"', '18:00'))
-      .toEqual({"date": "2018 M06 6", "time": "18:00"});
+      .toEqual({"date": "Jun 6, 2018", "time": "6:00 PM"});
   });
 
   it('modifySchedule should be called with the correct params', async () => {
