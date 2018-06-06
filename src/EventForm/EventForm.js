@@ -46,9 +46,7 @@ export class EventForm extends Component {
 
     const dateTime = this.api.cleanDateTime(this.state.date, this.state.time)
     const { date, time } = dateTime 
-    console.log(date)
-    console.log(time)
-    
+
     const eventObj = {
       venue,
       name,
