@@ -34,6 +34,22 @@ describe('Api', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
+  it('generateSchedule should be called with the correct params', async () => {
+    const expected = 'http://localhost:3000/api/v1/schedule';
+    const mockStaff = [{}];
+    const mockSchedule = [{ staff_id: null }];
+    const expectedReturn = { staff_id: null };
+
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve(mockSchedule)
+    }));
+
+    await api.generateSchedule(mockStaff);
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+    expect(await api.generateSchedule(mockStaff)).toEqual(expectedReturn);
+  });
+
   it('should get getNumberOfStaff', () => {
     const mockEvent = {
       bartenders: 4,
@@ -186,7 +202,7 @@ describe('Api', () => {
         "staff_id": null
       }, {
         "event_id": 23, 
-        "role": "Assis tant Bar Manager", 
+        "role": "Assistant Bar Manager", 
         "staff_id": null
       }, {
         "event_id": 23, 
