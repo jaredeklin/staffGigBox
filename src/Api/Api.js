@@ -20,7 +20,9 @@ export class Api  {
   generateSchedule = async (staff) => {
     const response = await fetch(`${this.url}api/v1/schedule`);
     const currentScheduleData = await response.json();
-    const unscheduledEvents = currentScheduleData.filter(schedule => schedule.staff_id === null);
+    const unscheduledEvents = currentScheduleData.filter(schedule => { 
+      return schedule.staff_id === null; 
+    });
     const schedule = unscheduledEvents.reduce((array, event) => {
 
       event.staff_id = Math.floor(Math.random() * staff.length) + 1;
@@ -74,7 +76,11 @@ export class Api  {
         scheduleObj[event.event_id] = [];
       }
 
-      scheduleObj[event.event_id] = [...scheduleObj[event.event_id], { staff_id, staff_events_id: id, role}];
+      scheduleObj[event.event_id] = [...scheduleObj[event.event_id], { 
+        staff_id, 
+        staff_events_id: id, 
+        role
+      }];
 
       return scheduleObj;
     }, {});
@@ -115,7 +121,9 @@ export class Api  {
       };
 
       if ( person.staff_id !== null ){
-        const staffResponse = await fetch(`${this.url}api/v1/staff/${person.staff_id}`);
+        const staffResponse = 
+          await fetch(`${this.url}api/v1/staff/${person.staff_id}`);
+
         const staffData = await staffResponse.json();
 
         staff.name = staffData[0].name;
@@ -146,7 +154,9 @@ export class Api  {
   modifySchedule = (schedule) => {
     const promise = schedule.map( async (event) => {
       const { staff_events_id, staff_id, event_id, id } = event;
-      const response = await fetch(`${this.url}api/v1/schedule/${staff_events_id ? staff_events_id : id}`, {
+      const eventId = staff_events_id ? staff_events_id : id;
+
+      const response = await fetch(`${this.url}api/v1/schedule/${eventId}`, {
         method: 'PUT',
         body: JSON.stringify({ staff_id, event_id }),
         headers: { 'Content-Type': 'application/json' }

@@ -256,7 +256,7 @@ ShallowWrapper {
                   },
                   Object {
                     "instance": null,
-                    "key": undefined,
+                    "key": "undefinedBar Manager",
                     "nodeType": "host",
                     "props": Object {
                       "children": Array [
@@ -310,7 +310,7 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "undefinedBartender",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
@@ -360,7 +360,7 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "undefinedBarback",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
@@ -604,7 +604,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "undefinedBar Manager",
                       "nodeType": "host",
                       "props": Object {
                         "children": Array [
@@ -658,7 +658,7 @@ ShallowWrapper {
                 },
                 Object {
                   "instance": null,
-                  "key": undefined,
+                  "key": "undefinedBartender",
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
@@ -708,7 +708,7 @@ ShallowWrapper {
                 },
                 Object {
                   "instance": null,
-                  "key": undefined,
+                  "key": "undefinedBarback",
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
@@ -814,7 +814,9 @@ ShallowWrapper {
                                                   <button
                                                             className="delete"
                                                             onClick={[Function]}
-                                                  />
+                                                  >
+                                                             
+                                                  </button>
                                                   <button
                                                             className="edit"
                                                             onClick={[Function]}
@@ -836,7 +838,9 @@ ShallowWrapper {
                                         <button
                                                   className="delete"
                                                   onClick={[Function]}
-                                        />
+                                        >
+                                                   
+                                        </button>
                                         <button
                                                   className="edit"
                                                   onClick={[Function]}
@@ -857,7 +861,9 @@ ShallowWrapper {
                                         <button
                                                   className="delete"
                                                   onClick={[Function]}
-                                        />
+                                        >
+                                                   
+                                        </button>
                                         <button
                                                   className="edit"
                                                   onClick={[Function]}
@@ -955,7 +961,9 @@ ShallowWrapper {
                                                         <button
                                                                       className="delete"
                                                                       onClick={[Function]}
-                                                        />
+                                                        >
+                                                                       
+                                                        </button>
                                                         <button
                                                                       className="edit"
                                                                       onClick={[Function]}
@@ -977,7 +985,9 @@ ShallowWrapper {
                                           <button
                                                         className="delete"
                                                         onClick={[Function]}
-                                          />
+                                          >
+                                                         
+                                          </button>
                                           <button
                                                         className="edit"
                                                         onClick={[Function]}
@@ -998,7 +1008,9 @@ ShallowWrapper {
                                           <button
                                                         className="delete"
                                                         onClick={[Function]}
-                                          />
+                                          >
+                                                         
+                                          </button>
                                           <button
                                                         className="edit"
                                                         onClick={[Function]}
@@ -1030,7 +1042,9 @@ ShallowWrapper {
                                                       <button
                                                                         className="delete"
                                                                         onClick={[Function]}
-                                                      />
+                                                      >
+                                                                         
+                                                      </button>
                                                       <button
                                                                         className="edit"
                                                                         onClick={[Function]}
@@ -1061,7 +1075,9 @@ ShallowWrapper {
                                                 <button
                                                                         className="delete"
                                                                         onClick={[Function]}
-                                                />
+                                                >
+                                                                         
+                                                </button>
                                                 <button
                                                                         className="edit"
                                                                         onClick={[Function]}
@@ -1087,7 +1103,7 @@ ShallowWrapper {
                   },
                   Object {
                     "instance": null,
-                    "key": undefined,
+                    "key": "undefinedBar Manager",
                     "nodeType": "host",
                     "props": Object {
                       "children": Array [
@@ -1098,7 +1114,9 @@ ShallowWrapper {
                           <button
                                                     className="delete"
                                                     onClick={[Function]}
-                          />
+                          >
+                                                     
+                          </button>
                           <button
                                                     className="edit"
                                                     onClick={[Function]}
@@ -1118,7 +1136,9 @@ ShallowWrapper {
                             <button
                               className="delete"
                               onClick={[Function]}
-/>,
+>
+                               
+</button>,
                             <button
                               className="edit"
                               onClick={[Function]}
@@ -1133,11 +1153,12 @@ ShallowWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
+                              "children": " ",
                               "className": "delete",
                               "onClick": [Function],
                             },
                             "ref": null,
-                            "rendered": null,
+                            "rendered": " ",
                             "type": "button",
                           },
                           Object {
@@ -1182,7 +1203,9 @@ ShallowWrapper {
                                         <button
                                                             className="delete"
                                                             onClick={[Function]}
-                                        />
+                                        >
+                                                             
+                                        </button>
                                         <button
                                                             className="edit"
                                                             onClick={[Function]}
@@ -1208,7 +1231,7 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "undefinedBartender",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
@@ -1219,7 +1242,9 @@ ShallowWrapper {
                       <button
                                             className="delete"
                                             onClick={[Function]}
-                      />
+                      >
+                                             
+                      </button>
                       <button
                                             className="edit"
                                             onClick={[Function]}
@@ -1239,7 +1264,9 @@ ShallowWrapper {
                         <button
                           className="delete"
                           onClick={[Function]}
-/>,
+>
+                           
+</button>,
                         <button
                           className="edit"
                           onClick={[Function]}
@@ -1254,11 +1281,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
+                          "children": " ",
                           "className": "delete",
                           "onClick": [Function],
                         },
                         "ref": null,
-                        "rendered": null,
+                        "rendered": " ",
                         "type": "button",
                       },
                       Object {
@@ -1299,7 +1327,9 @@ ShallowWrapper {
                                         <button
                                                             className="delete"
                                                             onClick={[Function]}
-                                        />
+                                        >
+                                                             
+                                        </button>
                                         <button
                                                             className="edit"
                                                             onClick={[Function]}
@@ -1325,7 +1355,7 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": undefined,
+                "key": "undefinedBarback",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
@@ -1336,7 +1366,9 @@ ShallowWrapper {
                       <button
                                             className="delete"
                                             onClick={[Function]}
-                      />
+                      >
+                                             
+                      </button>
                       <button
                                             className="edit"
                                             onClick={[Function]}
@@ -1356,7 +1388,9 @@ ShallowWrapper {
                         <button
                           className="delete"
                           onClick={[Function]}
-/>,
+>
+                           
+</button>,
                         <button
                           className="edit"
                           onClick={[Function]}
@@ -1371,11 +1405,12 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
+                          "children": " ",
                           "className": "delete",
                           "onClick": [Function],
                         },
                         "ref": null,
-                        "rendered": null,
+                        "rendered": " ",
                         "type": "button",
                       },
                       Object {
@@ -1440,7 +1475,9 @@ ShallowWrapper {
                                                             <button
                                                                         className="delete"
                                                                         onClick={[Function]}
-                                                            />
+                                                            >
+                                                                         
+                                                            </button>
                                                             <button
                                                                         className="edit"
                                                                         onClick={[Function]}
@@ -1462,7 +1499,9 @@ ShallowWrapper {
                                                 <button
                                                             className="delete"
                                                             onClick={[Function]}
-                                                />
+                                                >
+                                                             
+                                                </button>
                                                 <button
                                                             className="edit"
                                                             onClick={[Function]}
@@ -1483,7 +1522,9 @@ ShallowWrapper {
                                                 <button
                                                             className="delete"
                                                             onClick={[Function]}
-                                                />
+                                                >
+                                                             
+                                                </button>
                                                 <button
                                                             className="edit"
                                                             onClick={[Function]}
@@ -1581,7 +1622,9 @@ ShallowWrapper {
                                                                 <button
                                                                                 className="delete"
                                                                                 onClick={[Function]}
-                                                                />
+                                                                >
+                                                                                 
+                                                                </button>
                                                                 <button
                                                                                 className="edit"
                                                                                 onClick={[Function]}
@@ -1603,7 +1646,9 @@ ShallowWrapper {
                                                 <button
                                                                 className="delete"
                                                                 onClick={[Function]}
-                                                />
+                                                >
+                                                                 
+                                                </button>
                                                 <button
                                                                 className="edit"
                                                                 onClick={[Function]}
@@ -1624,7 +1669,9 @@ ShallowWrapper {
                                                 <button
                                                                 className="delete"
                                                                 onClick={[Function]}
-                                                />
+                                                >
+                                                                 
+                                                </button>
                                                 <button
                                                                 className="edit"
                                                                 onClick={[Function]}
@@ -1656,7 +1703,9 @@ ShallowWrapper {
                                                             <button
                                                                                 className="delete"
                                                                                 onClick={[Function]}
-                                                            />
+                                                            >
+                                                                                 
+                                                            </button>
                                                             <button
                                                                                 className="edit"
                                                                                 onClick={[Function]}
@@ -1687,7 +1736,9 @@ ShallowWrapper {
                                                     <button
                                                                               className="delete"
                                                                               onClick={[Function]}
-                                                    />
+                                                    >
+                                                                               
+                                                    </button>
                                                     <button
                                                                               className="edit"
                                                                               onClick={[Function]}
@@ -1713,7 +1764,7 @@ ShallowWrapper {
                     },
                     Object {
                       "instance": null,
-                      "key": undefined,
+                      "key": "undefinedBar Manager",
                       "nodeType": "host",
                       "props": Object {
                         "children": Array [
@@ -1724,7 +1775,9 @@ ShallowWrapper {
                             <button
                                                         className="delete"
                                                         onClick={[Function]}
-                            />
+                            >
+                                                         
+                            </button>
                             <button
                                                         className="edit"
                                                         onClick={[Function]}
@@ -1744,7 +1797,9 @@ ShallowWrapper {
                               <button
                                 className="delete"
                                 onClick={[Function]}
-/>,
+>
+                                 
+</button>,
                               <button
                                 className="edit"
                                 onClick={[Function]}
@@ -1759,11 +1814,12 @@ ShallowWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
+                                "children": " ",
                                 "className": "delete",
                                 "onClick": [Function],
                               },
                               "ref": null,
-                              "rendered": null,
+                              "rendered": " ",
                               "type": "button",
                             },
                             Object {
@@ -1808,7 +1864,9 @@ ShallowWrapper {
                                             <button
                                                                   className="delete"
                                                                   onClick={[Function]}
-                                            />
+                                            >
+                                                                   
+                                            </button>
                                             <button
                                                                   className="edit"
                                                                   onClick={[Function]}
@@ -1834,7 +1892,7 @@ ShallowWrapper {
                 },
                 Object {
                   "instance": null,
-                  "key": undefined,
+                  "key": "undefinedBartender",
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
@@ -1845,7 +1903,9 @@ ShallowWrapper {
                         <button
                                                 className="delete"
                                                 onClick={[Function]}
-                        />
+                        >
+                                                 
+                        </button>
                         <button
                                                 className="edit"
                                                 onClick={[Function]}
@@ -1865,7 +1925,9 @@ ShallowWrapper {
                           <button
                             className="delete"
                             onClick={[Function]}
-/>,
+>
+                             
+</button>,
                           <button
                             className="edit"
                             onClick={[Function]}
@@ -1880,11 +1942,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
+                            "children": " ",
                             "className": "delete",
                             "onClick": [Function],
                           },
                           "ref": null,
-                          "rendered": null,
+                          "rendered": " ",
                           "type": "button",
                         },
                         Object {
@@ -1925,7 +1988,9 @@ ShallowWrapper {
                                             <button
                                                                   className="delete"
                                                                   onClick={[Function]}
-                                            />
+                                            >
+                                                                   
+                                            </button>
                                             <button
                                                                   className="edit"
                                                                   onClick={[Function]}
@@ -1951,7 +2016,7 @@ ShallowWrapper {
                 },
                 Object {
                   "instance": null,
-                  "key": undefined,
+                  "key": "undefinedBarback",
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
@@ -1962,7 +2027,9 @@ ShallowWrapper {
                         <button
                                                 className="delete"
                                                 onClick={[Function]}
-                        />
+                        >
+                                                 
+                        </button>
                         <button
                                                 className="edit"
                                                 onClick={[Function]}
@@ -1982,7 +2049,9 @@ ShallowWrapper {
                           <button
                             className="delete"
                             onClick={[Function]}
-/>,
+>
+                             
+</button>,
                           <button
                             className="edit"
                             onClick={[Function]}
@@ -1997,11 +2066,12 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
+                            "children": " ",
                             "className": "delete",
                             "onClick": [Function],
                           },
                           "ref": null,
-                          "rendered": null,
+                          "rendered": " ",
                           "type": "button",
                         },
                         Object {

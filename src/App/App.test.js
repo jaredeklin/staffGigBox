@@ -1,8 +1,6 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-// import { Api } from '../Api/Api';
-
 
 describe('App', () => {
   let wrapper;
@@ -73,7 +71,9 @@ describe('App', () => {
         mockUser1
       })
     }));
-    const expected = ['http://localhost:3000/api/v1/schedule/1', { method: 'DELETE' }];
+    const expected = ['http://localhost:3000/api/v1/schedule/1', { 
+      method: 'DELETE' 
+    }];
 
     wrapper.instance().api.getSchedule = jest.fn();
 
@@ -103,7 +103,8 @@ describe('App', () => {
       name: 'Sparklehorse'
     };
 
-    wrapper.instance().api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
+    wrapper.instance()
+      .api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
 
     await wrapper.instance().editSchedule();
 
@@ -130,7 +131,8 @@ describe('App', () => {
 
     wrapper.instance().api.getStaff = jest.fn().mockReturnValue(mockStaff);
     wrapper.instance().api.getEvents = jest.fn().mockReturnValue(mockEvent);
-    wrapper.instance().api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
+    wrapper.instance()
+      .api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
 
     await wrapper.instance().updateStateFromHelpers();
 
@@ -139,7 +141,14 @@ describe('App', () => {
     expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();
 
     expect(wrapper.state()).toEqual({
-      addNewStaff: false, admin: false, tabs: [], events: { event: 'idone' }, isCurrentStaff: false, schedule: { schedule: 'thebesten' }, staff: { name: 'taco' }, user: null
+      addNewStaff: false, 
+      admin: false, 
+      tabs: [], 
+      events: { event: 'idone' }, 
+      isCurrentStaff: false, 
+      schedule: { schedule: 'thebesten' },
+      staff: { name: 'taco' }, 
+      user: null
     });
   });
 
