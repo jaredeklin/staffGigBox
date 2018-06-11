@@ -1,5 +1,3 @@
-
-
 export class Api  {
   constructor() {
     this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
@@ -24,14 +22,36 @@ export class Api  {
       return schedule.staff_id === null; 
     });
 
-    const schedule = unscheduledEvents.reduce((array, event) => {
+    // const updatedStaff = [...staff]
+    const barManager = []
+    const assBarManager = []
+    const barbacks = []
+    const bartenders = []
 
+    // console.log(updatedStaff)
+    const roles = staff.forEach((person, index) => {
+      if (person.bar_manager) {
+        barManager.push(person)
+      } else if (person.ass_bar_manager) {
+        assBarManager.push(assBarManager)
+      } else if (person.barback) {
+        barbacks.push(person) 
+      } else {
+        bartenders.push(person)
+      }
+
+    })
+
+    // console.log(barManager, assBarManager, barbacks, bartenders)
+    // console.log(updatedStaff)
+    const schedule = unscheduledEvents.reduce((array, event) => {
+      console.log(event)
       event.staff_id = Math.floor(Math.random() * staff.length) + 1;
 
       return [...array, event];
     });
 
-    return schedule;
+    // return schedule;
   }
 
   getNumberOfStaff = (event) => {
