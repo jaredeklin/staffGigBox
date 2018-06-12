@@ -77,21 +77,17 @@ export class Api  {
   }
 
   getRoles = (events) => {
-    // console.log(events)
-    const promise = events.reduce( async (obj, event) => {
-      const eventy = await this.getSpecificEvent(event.event_id)
-      console.log(eventy)
-      console.log(obj)
+    let obj = {}
+    
+    return events.reduce( async (array, event) => {
+
       if (!obj[event.event_id]) {
-        obj[event.event_id] = await eventy
+        obj[event.event_id] = await this.getSpecificEvent(event.event_id)
       }
-      // console.log(obj)
 
-      return obj
+      return [{...obj}]
 
-    }, {})
-
-    return promise
+    }, [])
   }
 
   getNumberOfStaff = (event) => {
