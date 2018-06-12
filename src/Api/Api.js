@@ -15,6 +15,13 @@ export class Api  {
     return await response.json();
   }
 
+  getSpecificEvent = async (id) => {
+    console.log('hit')
+    const response = await fetch(`${this.url}api/v1/events/${id}`);
+
+    return await response.json()
+  }
+
   generateSchedule = async (staff) => {
     const response = await fetch(`${this.url}api/v1/schedule`);
     const currentScheduleData = await response.json();
@@ -22,14 +29,12 @@ export class Api  {
       return schedule.staff_id === null; 
     });
 
-    // const updatedStaff = [...staff]
     const barManager = []
     const assBarManager = []
     const barbacks = []
     const bartenders = []
 
-    // console.log(updatedStaff)
-    const roles = staff.forEach((person, index) => {
+    staff.forEach((person, index) => {
       if (person.bar_manager) {
         barManager.push(person)
       } else if (person.ass_bar_manager) {
@@ -42,16 +47,51 @@ export class Api  {
 
     })
 
+    const x = await this.getRoles(unscheduledEvents)
+
+    console.log(x)
+
+    // const updatedRoles = Object.keys(roles).map(event => {
+    //   // console.log(event)
+    //   const response = this.getSpecificEvent(event)
+    //   const promise = Promise.resolve(response)
+    //   console.log(promise)
+    // })
+
+    // const x = Promise.all(roles)
+
+    // console.log(roles)
+      // const events = await getSpecificEvent(event.id)
+
     // console.log(barManager, assBarManager, barbacks, bartenders)
     // console.log(updatedStaff)
-    const schedule = unscheduledEvents.reduce((array, event) => {
-      console.log(event)
-      event.staff_id = Math.floor(Math.random() * staff.length) + 1;
+    // const schedule = unscheduledEvents.reduce( async (array, event) => {
+    //   // console.log(event)
 
-      return [...array, event];
-    });
+    //   event.staff_id = Math.floor(Math.random() * staff.length) + 1;
+
+    //   return [...array, event];
+    // });
 
     // return schedule;
+  }
+
+  getRoles = (events) => {
+    // console.log(events)
+    const promise = events.reduce( async (obj, event) => {
+      const eventy = await this.getSpecificEvent(event.event_id)
+      console.log(eventy)
+      console.log(obj)
+      if (!obj[event.event_id]) {
+        obj[event.event_id] = await eventy
+      }
+      // console.log(obj)
+
+      return obj
+
+    }, {})
+
+    return promise
   }
 
   getNumberOfStaff = (event) => {
