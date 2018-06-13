@@ -25,7 +25,7 @@ export class Api  {
   generateSchedule = async (staff) => {
     const response = await fetch(`${this.url}api/v1/schedule`);
     const currentScheduleData = await response.json();
-    const unscheduledEvents = currentScheduleData.filter(schedule => { 
+    const unscheduledEvents = await currentScheduleData.filter(schedule => { 
       return schedule.staff_id === null; 
     });
 
@@ -47,38 +47,49 @@ export class Api  {
 
     })
 
-    const x = await this.getRoles(unscheduledEvents)
+    // console.log(unscheduledEvents)
+    const eventData = await this.getEventData(unscheduledEvents)
+    console.log(eventData)
 
-    console.log(x)
+    const schedule = unscheduledEvents.reduce((array, event) => {
+      console.log(event)
 
-    // const updatedRoles = Object.keys(roles).map(event => {
-    //   // console.log(event)
-    //   const response = this.getSpecificEvent(event)
-    //   const promise = Promise.resolve(response)
-    //   console.log(promise)
-    // })
+      if (event.role === 'Bar Manager') {
+        const managerIndex = Math.floor(Math.random() * barManager.length)
 
-    // const x = Promise.all(roles)
+        event.staff_id = barManager[managerIndex].id
+        barManager.splice(managerIndex, 1)
+      }
+      // needs to be changed when ass man array is filled with unused managers
+      if (event.role === 'Assistant Bar Manager') {
+        const managerIndex = Math.floor(Math.random() * barManager.length)
 
-    // console.log(roles)
-      // const events = await getSpecificEvent(event.id)
+        event.staff_id = barManager[managerIndex].id
+      }
 
-    // console.log(barManager, assBarManager, barbacks, bartenders)
-    // console.log(updatedStaff)
-    // const schedule = unscheduledEvents.reduce( async (array, event) => {
-    //   // console.log(event)
+      if (event.role === 'Bartender') {
+        const bartenderIndex = Math.floor(Math.random() * bartenders.length)
 
-    //   event.staff_id = Math.floor(Math.random() * staff.length) + 1;
+        event.staff_id = bartenders[bartenderIndex].id
+        bartenders.splice(bartenderIndex, 1)
+      }
 
-    //   return [...array, event];
-    // });
+      if (event.role === 'Barback') {
+        const barbackIndex = Math.floor(Math.random() * barbacks.length)
 
+        event.staff_id = barbacks[barbackIndex].id
+      }
+
+      return [...array, event];
+    }, []);
+
+    console.log(schedule)
     // return schedule;
   }
 
-  getRoles = (events) => {
+  getEventData = (events) => {
     let obj = {}
-    
+
     return events.reduce( async (array, event) => {
 
       if (!obj[event.event_id]) {
@@ -265,6 +276,7 @@ export class Api  {
 
     return newEventStaffArray;
   }
+
 
   cleanDateTime = (originalDate, orginalTime) => {
     const date = new Date(originalDate).toLocaleDateString([], {
