@@ -51,7 +51,8 @@ export class Api  {
     // console.log(eventData)
 
     const result = Object.keys(eventData[0]).map(eventInfo => {
-      // console.log(eventData[0][eventInfo][0])
+      console.log(eventData[0][eventInfo][0].id)
+      const singleEvent = unscheduledEvents.filter(concert => eventData[0][eventInfo][0].id === concert.event_id)
       const needAssMan = eventData[0][eventInfo][0].ass_bar_manager
 
       const barManagers = []
@@ -61,9 +62,9 @@ export class Api  {
 
       staff.forEach((person, index) => {
         if (person.bar_manager) {
-          barManager.push(person)
+          barManagers.push(person)
         } else if (person.ass_bar_manager) {
-          assBarManager.push(assBarManager)
+          assBarManagers.push(person)
         } else if (person.barback) {
           barbacks.push(person) 
         } else {
@@ -72,8 +73,8 @@ export class Api  {
       })
 
 
-      const schedule = unscheduledEvents.reduce((array, event) => {
-        // console.log(event)
+        console.log(singleEvent)
+      const schedule = singleEvent.reduce((array, event) => {
 
         if (event.role === 'Bar Manager') {
           const managerIndex = Math.floor(Math.random() * barManagers.length)
@@ -94,7 +95,7 @@ export class Api  {
           event.staff_id = assBarManagers[assManagerIndex].id
           assBarManagers.splice(assManagerIndex, 1)
 
-          
+          bartenders.push(assBarManagers)
         }
 
         if (event.role === 'Bartender') {
@@ -113,7 +114,10 @@ export class Api  {
 
         return [...array, event];
       }, []);
+
+      return schedule
     })
+
     console.log(result)
 
 
