@@ -50,8 +50,8 @@ export class Api  {
     const eventData = await this.getEventData(unscheduledEvents)
     // console.log(eventData)
 
-    const result = Object.keys(eventData[0]).map(eventInfo => {
-      console.log(eventData[0][eventInfo][0].id)
+    const result = Object.keys(eventData[0]).reduce((scheduleArray, eventInfo) => {
+      // console.log(eventData[0][eventInfo][0].id)
       const singleEvent = unscheduledEvents.filter(concert => eventData[0][eventInfo][0].id === concert.event_id)
       const needAssMan = eventData[0][eventInfo][0].ass_bar_manager
 
@@ -73,7 +73,8 @@ export class Api  {
       })
 
 
-        console.log(singleEvent)
+      console.log(singleEvent)
+
       const schedule = singleEvent.reduce((array, event) => {
 
         if (event.role === 'Bar Manager') {
@@ -115,7 +116,7 @@ export class Api  {
         return [...array, event];
       }, []);
 
-      return schedule
+      return [scheduleArray, ...schedule]
     })
 
     console.log(result)
