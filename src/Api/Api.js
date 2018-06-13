@@ -29,36 +29,20 @@ export class Api  {
       return schedule.staff_id === null; 
     });
 
-    // const barManager = []
-    // const assBarManager = []
-    // const barbacks = []
-    // const bartenders = []
-
-    // staff.forEach((person, index) => {
-    //   if (person.bar_manager) {
-    //     barManager.push(person)
-    //   } else if (person.ass_bar_manager) {
-    //     assBarManager.push(assBarManager)
-    //   } else if (person.barback) {
-    //     barbacks.push(person) 
-    //   } else {
-    //     bartenders.push(person)
-    //   }
-    // })
-
     // console.log(unscheduledEvents)
+
     const eventData = await this.getEventData(unscheduledEvents)
-    // console.log(eventData)
-
+    console.log(eventData[0])
+    
     const result = Object.keys(eventData[0]).reduce((scheduleArray, eventInfo) => {
-      // console.log(eventData[0][eventInfo][0].id)
-      const singleEvent = unscheduledEvents.filter(concert => eventData[0][eventInfo][0].id === concert.event_id)
+      const eventId = eventData[0][eventInfo][0].id;
+      const singleEvent = unscheduledEvents.filter(concert => eventId === concert.event_id)
       const needAssMan = eventData[0][eventInfo][0].ass_bar_manager
-
-      const barManagers = []
-      const assBarManagers = []
-      const barbacks = []
-      const bartenders = []
+      console.log(eventInfo)
+      let barManagers = []
+      let assBarManagers = []
+      let barbacks = []
+      let bartenders = []
 
       staff.forEach((person, index) => {
         if (person.bar_manager) {
@@ -72,7 +56,6 @@ export class Api  {
         }
       })
 
-
       console.log(singleEvent)
 
       const schedule = singleEvent.reduce((array, event) => {
@@ -84,9 +67,9 @@ export class Api  {
           barManagers.splice(managerIndex, 1)
 
           if ( needAssMan ) {
-            assBarManagers.push(barManagers)
+            assBarManagers = [ assBarManagers, ...barManagers]
           } else {
-            bartenders.push(barManagers)
+            bartenders = [ ...bartenders, ...barManagers]
           }
         }
 
@@ -96,7 +79,7 @@ export class Api  {
           event.staff_id = assBarManagers[assManagerIndex].id
           assBarManagers.splice(assManagerIndex, 1)
 
-          bartenders.push(assBarManagers)
+          bartenders = [ ...bartenders, ...assBarManagers ]
         }
 
         if (event.role === 'Bartender') {
@@ -115,15 +98,13 @@ export class Api  {
 
         return [...array, event];
       }, []);
-
+      console.log(barManagers, assBarManagers, bartenders, barbacks)
       return [scheduleArray, ...schedule]
     })
 
     console.log(result)
 
-
-    // console.log(schedule)
-    // return schedule;
+    return result;
   }
 
   getEventData = (events) => {
