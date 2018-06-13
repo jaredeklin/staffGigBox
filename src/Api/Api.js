@@ -29,61 +29,95 @@ export class Api  {
       return schedule.staff_id === null; 
     });
 
-    const barManager = []
-    const assBarManager = []
-    const barbacks = []
-    const bartenders = []
+    // const barManager = []
+    // const assBarManager = []
+    // const barbacks = []
+    // const bartenders = []
 
-    staff.forEach((person, index) => {
-      if (person.bar_manager) {
-        barManager.push(person)
-      } else if (person.ass_bar_manager) {
-        assBarManager.push(assBarManager)
-      } else if (person.barback) {
-        barbacks.push(person) 
-      } else {
-        bartenders.push(person)
-      }
-
-    })
+    // staff.forEach((person, index) => {
+    //   if (person.bar_manager) {
+    //     barManager.push(person)
+    //   } else if (person.ass_bar_manager) {
+    //     assBarManager.push(assBarManager)
+    //   } else if (person.barback) {
+    //     barbacks.push(person) 
+    //   } else {
+    //     bartenders.push(person)
+    //   }
+    // })
 
     // console.log(unscheduledEvents)
     const eventData = await this.getEventData(unscheduledEvents)
-    console.log(eventData)
+    // console.log(eventData)
 
-    const schedule = unscheduledEvents.reduce((array, event) => {
-      console.log(event)
+    const result = Object.keys(eventData[0]).map(eventInfo => {
+      // console.log(eventData[0][eventInfo][0])
+      const needAssMan = eventData[0][eventInfo][0].ass_bar_manager
 
-      if (event.role === 'Bar Manager') {
-        const managerIndex = Math.floor(Math.random() * barManager.length)
+      const barManagers = []
+      const assBarManagers = []
+      const barbacks = []
+      const bartenders = []
 
-        event.staff_id = barManager[managerIndex].id
-        barManager.splice(managerIndex, 1)
-      }
-      // needs to be changed when ass man array is filled with unused managers
-      if (event.role === 'Assistant Bar Manager') {
-        const managerIndex = Math.floor(Math.random() * barManager.length)
+      staff.forEach((person, index) => {
+        if (person.bar_manager) {
+          barManager.push(person)
+        } else if (person.ass_bar_manager) {
+          assBarManager.push(assBarManager)
+        } else if (person.barback) {
+          barbacks.push(person) 
+        } else {
+          bartenders.push(person)
+        }
+      })
 
-        event.staff_id = barManager[managerIndex].id
-      }
 
-      if (event.role === 'Bartender') {
-        const bartenderIndex = Math.floor(Math.random() * bartenders.length)
+      const schedule = unscheduledEvents.reduce((array, event) => {
+        // console.log(event)
 
-        event.staff_id = bartenders[bartenderIndex].id
-        bartenders.splice(bartenderIndex, 1)
-      }
+        if (event.role === 'Bar Manager') {
+          const managerIndex = Math.floor(Math.random() * barManagers.length)
 
-      if (event.role === 'Barback') {
-        const barbackIndex = Math.floor(Math.random() * barbacks.length)
+          event.staff_id = barManagers[managerIndex].id
+          barManagers.splice(managerIndex, 1)
 
-        event.staff_id = barbacks[barbackIndex].id
-      }
+          if ( needAssMan ) {
+            assBarManagers.push(barManagers)
+          } else {
+            bartenders.push(barManagers)
+          }
+        }
 
-      return [...array, event];
-    }, []);
+        if (event.role === 'Assistant Bar Manager') {
+          const assManagerIndex = Math.floor(Math.random() * assBarManagers.length)
 
-    console.log(schedule)
+          event.staff_id = assBarManagers[assManagerIndex].id
+          assBarManagers.splice(assManagerIndex, 1)
+
+          
+        }
+
+        if (event.role === 'Bartender') {
+          const bartenderIndex = Math.floor(Math.random() * bartenders.length)
+
+          event.staff_id = bartenders[bartenderIndex].id
+          bartenders.splice(bartenderIndex, 1)
+        }
+
+        if (event.role === 'Barback') {
+          const barbackIndex = Math.floor(Math.random() * barbacks.length)
+
+          event.staff_id = barbacks[barbackIndex].id
+          barbacks.splice(barbackIndex, 1)
+        }
+
+        return [...array, event];
+      }, []);
+    })
+    console.log(result)
+
+
+    // console.log(schedule)
     // return schedule;
   }
 
