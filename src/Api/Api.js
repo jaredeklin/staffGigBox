@@ -31,18 +31,12 @@ export class Api  {
     if ( unscheduledEvents.length ) {
     
       const eventData = await this.getEventData(unscheduledEvents)
-      // console.log(eventData[0])
-      // const values = Object.values(eventData[0])
-      // console.log(values[0])
-      const result = Object.keys(eventData[0]).map(eventInfo => {
-        // console.log(unscheduledEvents)
+      const result = Object.keys(eventData[0]).map(eventInfo => {       
         const eventId = eventData[0][eventInfo][0].id;
-        console.log(eventId)
 
         // single event should really be a single day to avoid duplicates
         const singleEvent = unscheduledEvents.filter(concert => eventId === concert.event_id)
         const needAssMan = eventData[0][eventInfo][0].ass_bar_manager
-        // console.log(singleEvent)
 
 
         let barManagers = []
@@ -50,6 +44,7 @@ export class Api  {
         let barbacks = []
         let bartenders = []
 
+        // staff should just be the available staff for the day
         staff.forEach((person, index) => {
           if (person.bar_manager) {
             barManagers.push(person)
@@ -119,7 +114,7 @@ export class Api  {
   cleanResults = (result) => {
     // refactor oppo
     const cleanResultArray = []
-    
+
       result.forEach(item => {
         item.forEach(schedule => cleanArray.push(schedule))
       })
