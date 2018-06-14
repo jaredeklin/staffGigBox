@@ -77,6 +77,9 @@ export class EventForm extends Component {
         
         this.props.checkManualSchedule(newEventSchedule, manualSchedule);
         this.setState(this.defaultState);
+      } else {
+        console.log('hello world')
+        // this.props.
       }
     }
   }
