@@ -67,8 +67,9 @@ export class EventForm extends Component {
 
     if (response.status === 201) {
       const eventData = await response.json();
-
-      if ( manualSchedule ) {
+      // console.log(manualSchedule)
+      if ( manualSchedule === true ) {
+        console.log('in')
         const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
 
         await this.api.postSchedule(newEventStaffArray);
@@ -77,9 +78,17 @@ export class EventForm extends Component {
         
         this.props.checkManualSchedule(newEventSchedule, manualSchedule);
         this.setState(this.defaultState);
+
       } else {
         console.log('hello world')
-        // this.props.
+        
+        const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
+
+        await this.api.postSchedule(newEventStaffArray);
+
+        await this.props.scheduleGenerator()
+
+        this.setState(this.defaultState)
       }
     }
   }
@@ -108,7 +117,8 @@ export class EventForm extends Component {
             </label>
             <input
               placeholder='Band name'
-              name='name' value={ name }
+              name='name' 
+              value={ name }
               onChange={ this.handleChange }
               className='input_event-form'
             />
@@ -118,7 +128,7 @@ export class EventForm extends Component {
               name='date' 
               value={ date }
               onChange={ this.handleChange }
-              onFocus={this.showCalendar}
+              // onFocus={ this.showCalendar }
               className='input_event-form'
             />
             <input

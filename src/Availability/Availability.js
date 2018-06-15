@@ -6,7 +6,7 @@ import { Api } from '../Api/Api'
 export class Availability extends Component {
   constructor(props) {
     super(props);
-    this.api = new Api;
+    this.api = new Api();
     this.state = {
       selectedDays: [],
     };
