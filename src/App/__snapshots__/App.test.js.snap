@@ -24,6 +24,7 @@ ShallowWrapper {
         <TabContainer
           addStaff={[Function]}
           admin={false}
+          currentUserId={null}
           deleteFromSchedule={[Function]}
           editSchedule={[Function]}
           schedule={Array []}
@@ -55,6 +56,7 @@ ShallowWrapper {
         "props": Object {
           "addStaff": [Function],
           "admin": false,
+          "currentUserId": null,
           "deleteFromSchedule": [Function],
           "editSchedule": [Function],
           "schedule": Array [],
@@ -83,6 +85,7 @@ ShallowWrapper {
           <TabContainer
             addStaff={[Function]}
             admin={false}
+            currentUserId={null}
             deleteFromSchedule={[Function]}
             editSchedule={[Function]}
             schedule={Array []}
@@ -114,6 +117,7 @@ ShallowWrapper {
           "props": Object {
             "addStaff": [Function],
             "admin": false,
+            "currentUserId": null,
             "deleteFromSchedule": [Function],
             "editSchedule": [Function],
             "schedule": Array [],

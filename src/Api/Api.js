@@ -314,11 +314,12 @@ export class Api  {
 
 
   cleanDateTime = (originalDate, orginalTime) => {
-    const date = new Date(originalDate).toLocaleDateString([], {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric'
-    });
+    const date = this.cleanDate(originalDate)
+    // const date = new Date(originalDate).toLocaleDateString([], {
+    //   month: 'short',
+    //   day: 'numeric',
+    //   year: 'numeric'
+    // });
 
     const time = new Date(`${originalDate} ${orginalTime}`)
       .toLocaleTimeString([], {
@@ -328,4 +329,14 @@ export class Api  {
 
     return { date, time };
   }
+
+  cleanDate = (date) => {
+    return new Date(date).toLocaleDateString([], {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    });
+  }
 }
+
+
