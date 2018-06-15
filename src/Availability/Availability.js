@@ -9,7 +9,7 @@ export class Availability extends Component {
       selectedDays: [],
     };
   }
-  
+
   handleDayClick = (day, { selected }) => {
     const { selectedDays } = this.state;
     if (selected) {
@@ -23,6 +23,9 @@ export class Availability extends Component {
     this.setState({ selectedDays });
   }
 
+  handleSubmit = () => {
+
+  }
   
   render() {
     return (
