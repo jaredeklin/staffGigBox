@@ -116,7 +116,7 @@ export class Api  {
     const cleanResultArray = []
 
       result.forEach(item => {
-        item.forEach(schedule => cleanResultsArray.push(schedule))
+        item.forEach(schedule => cleanResultArray.push(schedule))
       })
 
     return cleanResultArray
