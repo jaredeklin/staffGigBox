@@ -38,7 +38,7 @@ describe('Api', () => {
     const expected = 'http://localhost:3000/api/v1/schedule';
     const mockStaff = [{}];
     const mockSchedule = [{ staff_id: null }];
-    const expectedReturn = { staff_id: null };
+    const expectedReturn = [{ staff_id: null }];
 
     window.fetch = jest.fn(() => Promise.resolve({
       status: 200,

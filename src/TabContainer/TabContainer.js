@@ -80,7 +80,7 @@ export class TabContainer extends Component {
 
     case 'Add Event': return this.checkForManual();
 
-    case 'Submit Availability': return <Availability />;
+    case 'Submit Availability': return <Availability currentUserId={ this.props.currentUserId } />;
 
     case 'Add New Staff': 
       return (

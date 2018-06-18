@@ -1,5 +1,3 @@
-
-
 export class Api  {
   constructor() {
     this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
@@ -17,21 +15,125 @@ export class Api  {
     return await response.json();
   }
 
+  getSpecificEvent = async (id) => {
+    const response = await fetch(`${this.url}api/v1/events/${id}`);
+
+    return await response.json()
+  }
+
   generateSchedule = async (staff) => {
     const response = await fetch(`${this.url}api/v1/schedule`);
     const currentScheduleData = await response.json();
-    const unscheduledEvents = currentScheduleData.filter(schedule => { 
+    const unscheduledEvents = await currentScheduleData.filter(schedule => { 
       return schedule.staff_id === null; 
     });
 
-    const schedule = unscheduledEvents.reduce((array, event) => {
+    if ( unscheduledEvents.length ) {
+    
+      const eventData = await this.getEventData(unscheduledEvents)
+      const result = Object.keys(eventData[0]).map(eventInfo => {       
+        const eventId = eventData[0][eventInfo][0].id;
 
-      event.staff_id = Math.floor(Math.random() * staff.length) + 1;
+        // single event should really be a single day to avoid duplicates
+        const singleEvent = unscheduledEvents.filter(concert => eventId === concert.event_id)
+        const needAssMan = eventData[0][eventInfo][0].ass_bar_manager
 
-      return [...array, event];
-    });
 
-    return schedule;
+        let barManagers = []
+        let assBarManagers = []
+        let barbacks = []
+        let bartenders = []
+
+        // staff should just be the available staff for the day
+        staff.forEach((person, index) => {
+          if (person.bar_manager) {
+            barManagers.push(person)
+          } else if (person.ass_bar_manager) {
+            assBarManagers.push(person)
+          } else if (person.barback) {
+            barbacks.push(person) 
+          } else {
+            bartenders.push(person)
+          }
+        })
+
+
+        const schedule = singleEvent.reduce((array, event) => {
+
+          if (event.role === 'Bar Manager') {
+            const managerIndex = Math.floor(Math.random() * barManagers.length)
+
+            event.staff_id = barManagers[managerIndex].id
+            barManagers.splice(managerIndex, 1)
+
+            if ( needAssMan ) {
+              assBarManagers = [ ...assBarManagers, ...barManagers]
+            } else {
+              bartenders = [ ...bartenders, ...barManagers]
+            }
+          } 
+
+          if (event.role === 'Assistant Bar Manager') {
+            const assManagerIndex = Math.floor(Math.random() * assBarManagers.length)
+
+            event.staff_id = assBarManagers[assManagerIndex].id
+            assBarManagers.splice(assManagerIndex, 1)
+
+            bartenders = [ ...bartenders, ...assBarManagers ]
+          } 
+
+          if (event.role === 'Bartender') {
+            const bartenderIndex = Math.floor(Math.random() * bartenders.length)
+            
+            event.staff_id = bartenders[bartenderIndex].id
+            bartenders.splice(bartenderIndex, 1)
+          } 
+
+          if (event.role === 'Barback') {
+            const barbackIndex = Math.floor(Math.random() * barbacks.length)
+
+            event.staff_id = barbacks[barbackIndex].id
+            barbacks.splice(barbackIndex, 1)
+          }
+
+          return [...array, event];
+        }, []);
+        
+        return schedule
+      })
+
+      const cleanResult = this.cleanResults(result)
+      
+      return cleanResult
+
+    } else {
+      return console.log('All events currently scheduled')
+    }
+  }
+
+  cleanResults = (result) => {
+    // refactor oppo
+    const cleanResultArray = []
+
+      result.forEach(item => {
+        item.forEach(schedule => cleanResultArray.push(schedule))
+      })
+
+    return cleanResultArray
+  }
+
+  getEventData = (events) => {
+    let obj = {}
+
+    return events.reduce( async (array, event) => {
+
+      if (!obj[event.event_id]) {
+        obj[event.event_id] = await this.getSpecificEvent(event.event_id)
+      }
+
+      return [{...obj}]
+
+    }, [])
   }
 
   getNumberOfStaff = (event) => {
@@ -210,12 +312,10 @@ export class Api  {
     return newEventStaffArray;
   }
 
+
   cleanDateTime = (originalDate, orginalTime) => {
-    const date = new Date(originalDate).toLocaleDateString([], {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric'
-    });
+
+    const date = this.cleanDate(originalDate)
 
     const time = new Date(`${originalDate} ${orginalTime}`)
       .toLocaleTimeString([], {
@@ -225,4 +325,15 @@ export class Api  {
 
     return { date, time };
   }
+
+  cleanDate = (date) => {
+    return new Date(date).toLocaleDateString([], {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    });
+  }
+
 }
+
+

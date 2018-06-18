@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const Tab = ({ isActive, tabName, handleTabClick }) => (
   <li
-    className={`tab ${isActive ? 'active' : ''}`}
+    className={`tab ${ isActive ? 'active' : ''}`}
     onClick={() => handleTabClick(tabName)}
   >
     { tabName }

@@ -148,7 +148,8 @@ describe('App', () => {
       isCurrentStaff: false, 
       schedule: { schedule: 'thebesten' },
       staff: { name: 'taco' }, 
-      user: null
+      user: null,
+      currentUserId: null
     });
   });
 

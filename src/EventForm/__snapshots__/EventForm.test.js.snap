@@ -70,7 +70,6 @@ ShallowWrapper {
                               className="input_event-form"
                               name="date"
                               onChange={[Function]}
-                              onFocus={undefined}
                               placeholder="Date"
                               type="date"
                               value=""
@@ -298,7 +297,6 @@ ShallowWrapper {
                             className="input_event-form"
                             name="date"
                             onChange={[Function]}
-                            onFocus={undefined}
                             placeholder="Date"
                             type="date"
                             value=""
@@ -505,7 +503,6 @@ ShallowWrapper {
                   className="input_event-form"
                   name="date"
                   onChange={[Function]}
-                  onFocus={undefined}
                   placeholder="Date"
                   type="date"
                   value=""
@@ -652,7 +649,6 @@ ShallowWrapper {
                   "className": "input_event-form",
                   "name": "date",
                   "onChange": [Function],
-                  "onFocus": undefined,
                   "placeholder": "Date",
                   "type": "date",
                   "value": "",
@@ -1326,7 +1322,6 @@ ShallowWrapper {
                                     className="input_event-form"
                                     name="date"
                                     onChange={[Function]}
-                                    onFocus={undefined}
                                     placeholder="Date"
                                     type="date"
                                     value=""
@@ -1554,7 +1549,6 @@ ShallowWrapper {
                                 className="input_event-form"
                                 name="date"
                                 onChange={[Function]}
-                                onFocus={undefined}
                                 placeholder="Date"
                                 type="date"
                                 value=""
@@ -1761,7 +1755,6 @@ ShallowWrapper {
                     className="input_event-form"
                     name="date"
                     onChange={[Function]}
-                    onFocus={undefined}
                     placeholder="Date"
                     type="date"
                     value=""
@@ -1908,7 +1901,6 @@ ShallowWrapper {
                     "className": "input_event-form",
                     "name": "date",
                     "onChange": [Function],
-                    "onFocus": undefined,
                     "placeholder": "Date",
                     "type": "date",
                     "value": "",

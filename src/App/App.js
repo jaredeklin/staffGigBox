@@ -20,7 +20,8 @@ class App extends Component {
       isCurrentStaff: false,
       addNewStaff: false,
       tabs: [],
-      admin: false
+      admin: false,
+      currentUserId: null
     };
 
   }
@@ -46,7 +47,7 @@ class App extends Component {
   }
 
   checkAuthorization = (isAuthorized) => {
-
+    
     if ( isAuthorized ) {
       const isAdmin = isAuthorized.bar_manager;
       const adminTabs = [
@@ -60,7 +61,8 @@ class App extends Component {
       this.setState({ 
         isCurrentStaff: true,
         tabs: isAdmin ? adminTabs : staffTabs,
-        admin: isAdmin ? true : false
+        admin: isAdmin ? true : false,
+        currentUserId: isAuthorized.id
       });
     } else {
       this.setState({ 
@@ -96,8 +98,7 @@ class App extends Component {
     const { staff } = this.state;
     const generatedSchedule = await this.api.generateSchedule(staff);
 
-    await this.api.modifySchedule(generatedSchedule);
-    
+    await this.api.modifySchedule(generatedSchedule);     
     this.editSchedule();
   }
 
@@ -116,7 +117,7 @@ class App extends Component {
 
   render() {
 
-    const { schedule, staff, user, tabs, admin } = this.state;
+    const { schedule, staff, user, tabs, admin, currentUserId } = this.state;
 
     return (
       <div className='app'>
@@ -131,6 +132,7 @@ class App extends Component {
           deleteFromSchedule={ this.deleteFromSchedule }
           tabs={ tabs }
           admin={ admin }
+          currentUserId={ currentUserId }
         />
       </div>
     );
