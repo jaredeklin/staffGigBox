@@ -14,6 +14,7 @@ export class Availability extends Component {
 
   handleDayClick = (day, { selected }) => {
     const { selectedDays } = this.state;
+
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
         DateUtils.isSameDay(selectedDay, day)
@@ -28,8 +29,11 @@ export class Availability extends Component {
   handleSubmit = () => {
 
     const dates = this.state.selectedDays.map(day => this.api.cleanDate(day))
-
-    console.log(dates)
+    const daysOff = {
+      staff_id: this.props.currentUserId,
+      days_requested_off: dates
+    }
+    console.log(daysOff)
   }
 
   render() {

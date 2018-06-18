@@ -67,9 +67,9 @@ export class EventForm extends Component {
 
     if (response.status === 201) {
       const eventData = await response.json();
-      // console.log(manualSchedule)
+      
       if ( manualSchedule === true ) {
-        console.log('in')
+        
         const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
 
         await this.api.postSchedule(newEventStaffArray);
@@ -80,7 +80,6 @@ export class EventForm extends Component {
         this.setState(this.defaultState);
 
       } else {
-        console.log('hello world')
         
         const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
 

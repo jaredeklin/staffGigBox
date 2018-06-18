@@ -93,7 +93,7 @@ ShallowWrapper {
           }
           enableOutsideDaysClick={true}
           fixedWeeks={false}
-          initialMonth={2018-06-15T14:19:58.449Z}
+          initialMonth={2018-06-18T17:24:26.412Z}
           labels={
                     Object {
                               "nextMonth": "Next Month",
@@ -172,7 +172,9 @@ ShallowWrapper {
           tabIndex={0}
           weekdayElement={<Weekday />}
 />,
-        <button>
+        <button
+          onClick={[Function]}
+>
           Submit Availability
 </button>,
       ],
@@ -262,7 +264,7 @@ ShallowWrapper {
           },
           "enableOutsideDaysClick": true,
           "fixedWeeks": false,
-          "initialMonth": 2018-06-15T14:19:58.449Z,
+          "initialMonth": 2018-06-18T17:24:26.412Z,
           "labels": Object {
             "nextMonth": "Next Month",
             "previousMonth": "Previous Month",
@@ -345,6 +347,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Submit Availability",
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": "Submit Availability",
@@ -435,7 +438,7 @@ ShallowWrapper {
             }
             enableOutsideDaysClick={true}
             fixedWeeks={false}
-            initialMonth={2018-06-15T14:19:58.449Z}
+            initialMonth={2018-06-18T17:24:26.412Z}
             labels={
                         Object {
                                     "nextMonth": "Next Month",
@@ -514,7 +517,9 @@ ShallowWrapper {
             tabIndex={0}
             weekdayElement={<Weekday />}
 />,
-          <button>
+          <button
+            onClick={[Function]}
+>
             Submit Availability
 </button>,
         ],
@@ -604,7 +609,7 @@ ShallowWrapper {
             },
             "enableOutsideDaysClick": true,
             "fixedWeeks": false,
-            "initialMonth": 2018-06-15T14:19:58.449Z,
+            "initialMonth": 2018-06-18T17:24:26.412Z,
             "labels": Object {
               "nextMonth": "Next Month",
               "previousMonth": "Previous Month",
@@ -687,6 +692,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Submit Availability",
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": "Submit Availability",

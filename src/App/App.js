@@ -98,11 +98,7 @@ class App extends Component {
     const { staff } = this.state;
     const generatedSchedule = await this.api.generateSchedule(staff);
 
-    // probably unnecessary if, used to prevent crash when working on generate schedule
-    if( generatedSchedule ) {
-      await this.api.modifySchedule(generatedSchedule);     
-    }
-    
+    await this.api.modifySchedule(generatedSchedule);     
     this.editSchedule();
   }
 
