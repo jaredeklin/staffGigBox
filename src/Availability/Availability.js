@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
-import { Api } from '../Api/Api'
+import { Api } from '../Api/Api';
+import PropTypes from 'prop-types';
 
 export class Availability extends Component {
   constructor(props) {
     super(props);
     this.api = new Api();
     this.state = {
-      selectedDays: [],
+      selectedDays: []
     };
   }
 
@@ -27,16 +28,11 @@ export class Availability extends Component {
   }
 
   handleSubmit = async () => {
-  	const id = this.props.currentUserId
-    const dates = this.state.selectedDays.map(day => this.api.cleanDate(day))
-    // const daysOff = {
-    //   staff_id: this.props.currentUserId,
-    //   days_requested_off: dates
-    // }
-    // console.log(daysOff)
+  	const id = this.props.currentUserId;
+    const dates = this.state.selectedDays.map(day => this.api.cleanDate(day));
 
-    const x = await this.api.postAvailability(id, dates)
-    console.log(x)
+    const response = await this.api.postAvailability(id, dates);
+    console.log(response);
   }
 
 
@@ -54,3 +50,8 @@ export class Availability extends Component {
     );
   }
 }
+
+Availability.propTypes = {
+  currentUserId: PropTypes.number 
+};
+

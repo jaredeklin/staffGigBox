@@ -134,5 +134,6 @@ TabContainer.propTypes = {
   schedule: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object
-  ])
+  ]),
+  currentUserId: PropTypes.number
 };
