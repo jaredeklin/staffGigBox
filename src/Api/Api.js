@@ -334,6 +334,22 @@ export class Api  {
     });
   }
 
+  postAvailability = (id, dates) => {
+    const promise = dates.map( async (day) => {
+      const response = await fetch(`${this.url}api/v1/availability`, {
+        method: 'POST',
+        body: JSON.stringify({ 
+          staff_id: id,
+          date_unavailable: day 
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      return await response.json()
+    })
+
+    return Promise.all(promise)
+  }
+
 
 }
 
