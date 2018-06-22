@@ -38,23 +38,22 @@ export class Availability extends Component {
 
   handleSubmit = async () => {
   	const id = this.props.currentUserId;
-    const dates = this.state.selectedDays.map(day => this.api.cleanDate(day));
+    const notInDb = []
+    const dates = await this.state.selectedDays.reduce(async (dateArray, day) => {
+    	const cleanDay = this.api.cleanDate(day)
+    	const isInDatabase = await this.api.getAvailability(id, cleanDay)
 
-    const filteredDates = dates.filter(async date => {
-    	console.log(date)
-    	const isInDatabase = await this.api.getAvailability(id, date)
-    	return !isInDatabase
-    })
-    // const isInDatabase = await this.api.getAvailability(id, cleanRemovedDate)
-    console.log(filteredDates)
-    // if (isInDatabase) {
-    // }
-	    const response = await this.api.postAvailability(id, dates);
-	    console.log(response);
+    	if(!isInDatabase) {
+ 				notInDb.push(cleanDay)
+    	}
+    	
+    	return [...dateArray, ...notInDb]
+    }, []);
+
+    if (dates.length) {
+	    await this.api.postAvailability(id, dates);
+    }
   }
-
-
-
 
 
   componentDidMount = async () => {
@@ -65,9 +64,7 @@ export class Availability extends Component {
 
   		this.setState({ selectedDays: daysSelected})
   	}
-
   }
-
 
 
   render() {

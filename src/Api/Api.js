@@ -352,7 +352,7 @@ export class Api  {
 
   getAvailability = async (id, date) => {
     let response;
-
+    
     if ( id && date ) {
       response = await fetch(`${this.url}api/v1/availability?staff_id=${id}&date_unavailable=${date}`)
     } else {
