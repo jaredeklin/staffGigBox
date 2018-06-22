@@ -45,7 +45,7 @@ export class Api  {
         let bartenders = [];
 
         // staff should just be the available staff for the day
-        staff.forEach((person, index) => {
+        staff.forEach(person => {
           if (person.bar_manager) {
             barManagers.push(person);
           } else if (person.ass_bar_manager) {
@@ -107,7 +107,7 @@ export class Api  {
       return cleanResult;
 
     } else {
-      return console.log('All events currently scheduled');
+      return console.log('All events currently scheduled'); // eslint-disable-line
     }
   }
 
@@ -123,15 +123,15 @@ export class Api  {
   }
 
   getEventData = (events) => {
-    let obj = {};
+    let eventObj = {};
 
     return events.reduce( async (array, event) => {
 
-      if (!obj[event.event_id]) {
-        obj[event.event_id] = await this.getSpecificEvent(event.event_id);
+      if (!eventObj[event.event_id]) {
+        eventObj[event.event_id] = await this.getSpecificEvent(event.event_id);
       }
 
-      return [{...obj}];
+      return [{...eventObj}];
 
     }, []);
   }
@@ -354,20 +354,23 @@ export class Api  {
     let response;
     
     if ( id && date ) {
-      response = await fetch(`${this.url}api/v1/availability?staff_id=${id}&date_unavailable=${date}`)
+      const query = `staff_id=${id}&date_unavailable=${date}`;
+
+      response = await fetch(`${this.url}api/v1/availability?${query}`);
     } else {
       response = await fetch(`${this.url}api/v1/availability?staff_id=${id}`);
     }
     
-    return await response.json()
+    return await response.json();
   }
 
   deleteAvailability = async (id, date) => {
-    const response = await fetch(`${this.url}api/v1/availability?staff_id=${id}&date_unavailable=${date}`, {
+    const query = `staff_id=${id}&date_unavailable=${date}`;
+    const response = await fetch(`${this.url}api/v1/availability?${query}`, {
       method: 'DELETE'
-    })
+    });
     
-    return await response.json()
+    return await response.json();
   }
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
@@ -17,37 +18,37 @@ export class Availability extends Component {
     const { selectedDays } = this.state;
     const id = this.props.currentUserId;
 
-    if (selected) {
+    if ( selected ) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
         DateUtils.isSameDay(selectedDay, day)
       );
       const removedDay = selectedDays.splice(selectedIndex, 1);
-      const cleanRemovedDate = this.api.cleanDate(removedDay[0])
-      const isInDatabase = await this.api.getAvailability(id, cleanRemovedDate)
+      const cleanRemovedDate = this.api.cleanDate(removedDay[0]);
+      const isInDatabase = await this.api.getAvailability(id, cleanRemovedDate);
       
-      if (isInDatabase) {
-	      await this.api.deleteAvailability(id, cleanRemovedDate) 	
+      if ( isInDatabase ) {
+	    	await this.api.deleteAvailability(id, cleanRemovedDate); 	
       }
 
     } else {
-      selectedDays.push(day);
+    	selectedDays.push(day);
     }
     
-    this.setState({ selectedDays });
+  	this.setState({ selectedDays });
   }
 
   handleSubmit = async () => {
   	const id = this.props.currentUserId;
-    const notInDb = []
+    const notInDb = [];
     const dates = await this.state.selectedDays.reduce(async (dateArray, day) => {
-    	const cleanDay = this.api.cleanDate(day)
-    	const isInDatabase = await this.api.getAvailability(id, cleanDay)
+    	const cleanDay = this.api.cleanDate(day);
+    	const isInDatabase = await this.api.getAvailability(id, cleanDay);
 
-    	if(!isInDatabase) {
- 				notInDb.push(cleanDay)
+    	if (!isInDatabase) {
+ 				notInDb.push(cleanDay);
     	}
     	
-    	return [...dateArray, ...notInDb]
+    	return [...dateArray, ...notInDb];
     }, []);
 
     if (dates.length) {
@@ -57,12 +58,12 @@ export class Availability extends Component {
 
 
   componentDidMount = async () => {
-  	const daysOff = await this.api.getAvailability(this.props.currentUserId)
+  	const daysOff = await this.api.getAvailability(this.props.currentUserId);
   	
   	if ( daysOff ) {
-  		const daysSelected = daysOff.map(day => new Date(day.date_unavailable))
+  		const daysSelected = daysOff.map(day => new Date(day.date_unavailable));
 
-  		this.setState({ selectedDays: daysSelected})
+  		this.setState({ selectedDays: daysSelected});
   	}
   }
 
