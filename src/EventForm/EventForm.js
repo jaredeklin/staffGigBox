@@ -85,9 +85,9 @@ export class EventForm extends Component {
 
         await this.api.postSchedule(newEventStaffArray);
 
-        await this.props.scheduleGenerator()
+        await this.props.scheduleGenerator();
 
-        this.setState(this.defaultState)
+        this.setState(this.defaultState);
       }
     }
   }

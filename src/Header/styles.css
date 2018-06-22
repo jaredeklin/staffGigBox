@@ -11,8 +11,8 @@ header {
   justify-content: space-between;
   height: 130px;
   padding: 20px;
-  background-color: navy;
-  /*background-image: url('../concert-background.jpg');*/
+  /*background-color: navy;*/
+  background-image: url('../images/concert-background.jpg');
   color: #FFF;
 
 }
