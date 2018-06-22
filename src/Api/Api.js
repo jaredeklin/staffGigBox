@@ -355,6 +355,14 @@ export class Api  {
     
     return await response.json()
   }
+
+  deleteAvailability = async (id, date) => {
+    const response = await fetch(`${this.url}api/v1/availability?staff_id=${id}&date_unavailable=${date}`, {
+      method: 'DELETE'
+    })
+    
+    return await response.json()
+  }
 }
 
 

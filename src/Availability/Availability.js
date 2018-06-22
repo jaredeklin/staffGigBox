@@ -13,37 +13,45 @@ export class Availability extends Component {
     };
   }
 
-  handleDayClick = (day, { selected }) => {
-  	console.log(day, selected)
+  handleDayClick = async (day, { selected }) => {
     const { selectedDays } = this.state;
 
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
         DateUtils.isSameDay(selectedDay, day)
       );
-      selectedDays.splice(selectedIndex, 1);
+      const removedDay = selectedDays.splice(selectedIndex, 1);
+      const cleanRemovedDate = this.api.cleanDate(removedDay[0])
+      const deletedDay = await this.api.deleteAvailability(this.props.currentUserId, cleanRemovedDate)
+      console.log(deletedDay)
+
     } else {
       selectedDays.push(day);
     }
-    console.log(selectedDays)
+    
     this.setState({ selectedDays });
   }
 
   handleSubmit = async () => {
   	const id = this.props.currentUserId;
     const dates = this.state.selectedDays.map(day => this.api.cleanDate(day));
-    // console.log(this.state.selectedDays)
     const response = await this.api.postAvailability(id, dates);
-    console.log(response);
+    // console.log(response);
   }
+
+
 
 
 
   componentDidMount = async () => {
   	const daysOff = await this.api.getAvailability(this.props.currentUserId)
-  	const daysSelected = daysOff.map(day => new Date(day.date_unavailable))
+  	
+  	if ( daysOff ) {
+  		const daysSelected = daysOff.map(day => new Date(day.date_unavailable))
 
-  	this.setState({ selectedDays: daysSelected})
+  		this.setState({ selectedDays: daysSelected})
+  	}
+
   }
 
 
