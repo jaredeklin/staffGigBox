@@ -350,7 +350,11 @@ export class Api  {
     return Promise.all(promise);
   }
 
-
+  getAvailability = async (id) => {
+    const response = await fetch(`${this.url}api/v1/availability?staff_id=${id}`);
+    
+    return await response.json()
+  }
 }
 
 
