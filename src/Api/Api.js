@@ -350,8 +350,14 @@ export class Api  {
     return Promise.all(promise);
   }
 
-  getAvailability = async (id) => {
-    const response = await fetch(`${this.url}api/v1/availability?staff_id=${id}`);
+  getAvailability = async (id, date) => {
+    let response;
+
+    if ( id && date ) {
+      response = await fetch(`${this.url}api/v1/availability?staff_id=${id}&date_unavailable=${date}`)
+    } else {
+      response = await fetch(`${this.url}api/v1/availability?staff_id=${id}`);
+    }
     
     return await response.json()
   }

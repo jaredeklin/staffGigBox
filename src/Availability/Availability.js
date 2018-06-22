@@ -15,6 +15,7 @@ export class Availability extends Component {
 
   handleDayClick = async (day, { selected }) => {
     const { selectedDays } = this.state;
+    const id = this.props.currentUserId;
 
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
@@ -22,8 +23,11 @@ export class Availability extends Component {
       );
       const removedDay = selectedDays.splice(selectedIndex, 1);
       const cleanRemovedDate = this.api.cleanDate(removedDay[0])
-      const deletedDay = await this.api.deleteAvailability(this.props.currentUserId, cleanRemovedDate)
-      console.log(deletedDay)
+      const isInDatabase = await this.api.getAvailability(id, cleanRemovedDate)
+      
+      if (isInDatabase) {
+	      await this.api.deleteAvailability(id, cleanRemovedDate) 	
+      }
 
     } else {
       selectedDays.push(day);
@@ -35,8 +39,18 @@ export class Availability extends Component {
   handleSubmit = async () => {
   	const id = this.props.currentUserId;
     const dates = this.state.selectedDays.map(day => this.api.cleanDate(day));
-    const response = await this.api.postAvailability(id, dates);
-    // console.log(response);
+
+    const filteredDates = dates.filter(async date => {
+    	console.log(date)
+    	const isInDatabase = await this.api.getAvailability(id, date)
+    	return !isInDatabase
+    })
+    // const isInDatabase = await this.api.getAvailability(id, cleanRemovedDate)
+    console.log(filteredDates)
+    // if (isInDatabase) {
+    // }
+	    const response = await this.api.postAvailability(id, dates);
+	    console.log(response);
   }
 
 
