@@ -5,7 +5,7 @@
 ## Synopsis
 #### stafGigBox is an application that is focused on helping manage scheduling for shift work.
 
-#### View the app live at: http://gigstaff.surge.sh/
+#### View the app live at: coming soon
 
 ## Project Guidelines
 
