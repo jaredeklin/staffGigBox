@@ -1,13 +1,15 @@
 
 .tab-container {
-  margin: 65px auto;
+  margin: 20px auto;
   width: 90%;
   border: 1px solid black;
+  background-color: white;
 }
 
-.tab-container ul {
+.tab-container-list {
   margin: 0px;
   padding: 0px;
+  background-color: navy;
 }
 
 .tab {
