@@ -7,17 +7,18 @@
   overflow-y: scroll;
 }
 
-ul {
+.tab-container ul {
   margin: 0px;
   padding: 0px;
-  width: 15%;
+  /*width: 15%;*/
 }
 
 .tab {
   background: navy;
   color: white;
   height: 75px;
-  display: block;
+  width: 25%;
+  display: inline-block;
   text-align: center;
   cursor: pointer;
   border-bottom: 1px solid white;
