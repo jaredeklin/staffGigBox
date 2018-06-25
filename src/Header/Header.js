@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { auth, provider } from '../firebase.js';
-import './styles.css';
+import './Header.css';
 import PropTypes from 'prop-types';
 
 export class Header extends Component {
