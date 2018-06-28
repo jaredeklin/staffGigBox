@@ -51,10 +51,10 @@ class App extends Component {
     if ( isAuthorized ) {
       const isAdmin = isAuthorized.bar_manager;
       const adminTabs = [
-        'Add Event', 
-        'Add New Staff', 
         'Schedule', 
-        'Submit Availability'
+        'Submit Availability',
+        'Add Event', 
+        'Add New Staff' 
       ];
       const staffTabs = ['Schedule', 'Submit Availability'];
 
@@ -67,7 +67,7 @@ class App extends Component {
     } else {
       this.setState({ 
         addNewStaff: true,
-        tabs: ['Add New Staff', 'Schedule']
+        tabs: ['Schedule', 'Add New Staff']
       });
     }
   }

@@ -16,7 +16,7 @@ export class TabContainer extends Component {
     this.state = {
       manualSchedule: false,
       manualScheduleData: {},
-      activeTabName: this.props.tabs[0]
+      activeTabName: 'Schedule'
     };
   }
 
@@ -108,7 +108,7 @@ export class TabContainer extends Component {
   render() {
     return (
       <section className="tab-container">
-        <ul>
+        <ul className="tab-container-list">
           { this.displayTabs() }
         </ul>
         <article className="active-content">

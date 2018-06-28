@@ -1,28 +1,28 @@
 
 .tab-container {
-  margin: 65px auto;
-  display: flex;
-  width: 80%;
-  height: 500px;
-  overflow-y: scroll;
+  margin: 20px auto;
+  width: 90%;
+  border: 1px solid black;
+  background-color: white;
 }
 
-ul {
+.tab-container-list {
   margin: 0px;
   padding: 0px;
-  width: 15%;
+  background-color: navy;
+  height: 75px;
 }
 
 .tab {
   background: navy;
   color: white;
   height: 75px;
-  display: block;
+  width: 25%;
+  display: inline-block;
   text-align: center;
   cursor: pointer;
-  border-bottom: 1px solid white;
+  /*border: 1px solid white;*/
   padding-top: 30px;
-  box-sizing: border-box;
 }
 
 .tab.active {
@@ -30,9 +30,8 @@ ul {
 }
 
 .active-content {
-  width: 85%;
   padding: 20px;
-  border: 1px solid black;
+  border-top: none;
   overflow-y: scroll;
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles.css';
+import './StaffForm.css';
 import PropTypes from 'prop-types';
 
 export class StaffForm extends Component {

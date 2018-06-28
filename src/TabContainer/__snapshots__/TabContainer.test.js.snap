@@ -33,7 +33,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <ul>
+        <ul
+          className="tab-container-list"
+>
           <Unknown
                     handleTabClick={[Function]}
                     isActive={true}
@@ -72,6 +74,7 @@ ShallowWrapper {
               tabName="Schedule"
 />,
           ],
+          "className": "tab-container-list",
         },
         "ref": null,
         "rendered": Array [
@@ -143,7 +146,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <ul>
+          <ul
+            className="tab-container-list"
+>
             <Unknown
                         handleTabClick={[Function]}
                         isActive={true}
@@ -182,6 +187,7 @@ ShallowWrapper {
                 tabName="Schedule"
 />,
             ],
+            "className": "tab-container-list",
           },
           "ref": null,
           "rendered": Array [
@@ -292,10 +298,12 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <ul>
+        <ul
+          className="tab-container-list"
+>
           <Unknown
                     handleTabClick={[Function]}
-                    isActive={true}
+                    isActive={false}
                     tabName="Add Event"
           />
           <Unknown
@@ -305,7 +313,7 @@ ShallowWrapper {
           />
           <Unknown
                     handleTabClick={[Function]}
-                    isActive={false}
+                    isActive={true}
                     tabName="Schedule"
           />
           <Unknown
@@ -317,9 +325,16 @@ ShallowWrapper {
         <article
           className="active-content"
 >
-          <EventForm
-                    checkManualSchedule={[Function]}
-                    scheduleGenerator={undefined}
+          <Schedule
+                    admin={undefined}
+                    deleteFromSchedule={undefined}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "event_id": 1,
+                                      }
+                    }
+                    staffList={undefined}
           />
 </article>,
       ],
@@ -335,7 +350,7 @@ ShallowWrapper {
           "children": Array [
             <Unknown
               handleTabClick={[Function]}
-              isActive={true}
+              isActive={false}
               tabName="Add Event"
 />,
             <Unknown
@@ -345,7 +360,7 @@ ShallowWrapper {
 />,
             <Unknown
               handleTabClick={[Function]}
-              isActive={false}
+              isActive={true}
               tabName="Schedule"
 />,
             <Unknown
@@ -354,6 +369,7 @@ ShallowWrapper {
               tabName="Submit Availability"
 />,
           ],
+          "className": "tab-container-list",
         },
         "ref": null,
         "rendered": Array [
@@ -363,7 +379,7 @@ ShallowWrapper {
             "nodeType": "function",
             "props": Object {
               "handleTabClick": [Function],
-              "isActive": true,
+              "isActive": false,
               "tabName": "Add Event",
             },
             "ref": null,
@@ -389,7 +405,7 @@ ShallowWrapper {
             "nodeType": "function",
             "props": Object {
               "handleTabClick": [Function],
-              "isActive": false,
+              "isActive": true,
               "tabName": "Schedule",
             },
             "ref": null,
@@ -417,25 +433,41 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <EventForm
-            checkManualSchedule={[Function]}
-            scheduleGenerator={undefined}
+          "children": Array [
+            <Schedule
+              admin={undefined}
+              deleteFromSchedule={undefined}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "event_id": 1,
+                                        }
+              }
+              staffList={undefined}
 />,
+          ],
           "className": "active-content",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "checkManualSchedule": [Function],
-            "scheduleGenerator": undefined,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "class",
+            "props": Object {
+              "admin": undefined,
+              "deleteFromSchedule": undefined,
+              "editSchedule": [Function],
+              "event": Object {
+                "event_id": 1,
+              },
+              "staffList": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        ],
         "type": "article",
       },
     ],
@@ -448,10 +480,12 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <ul>
+          <ul
+            className="tab-container-list"
+>
             <Unknown
                         handleTabClick={[Function]}
-                        isActive={true}
+                        isActive={false}
                         tabName="Add Event"
             />
             <Unknown
@@ -461,7 +495,7 @@ ShallowWrapper {
             />
             <Unknown
                         handleTabClick={[Function]}
-                        isActive={false}
+                        isActive={true}
                         tabName="Schedule"
             />
             <Unknown
@@ -473,9 +507,16 @@ ShallowWrapper {
           <article
             className="active-content"
 >
-            <EventForm
-                        checkManualSchedule={[Function]}
-                        scheduleGenerator={undefined}
+            <Schedule
+                        admin={undefined}
+                        deleteFromSchedule={undefined}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "event_id": 1,
+                                              }
+                        }
+                        staffList={undefined}
             />
 </article>,
         ],
@@ -491,7 +532,7 @@ ShallowWrapper {
             "children": Array [
               <Unknown
                 handleTabClick={[Function]}
-                isActive={true}
+                isActive={false}
                 tabName="Add Event"
 />,
               <Unknown
@@ -501,7 +542,7 @@ ShallowWrapper {
 />,
               <Unknown
                 handleTabClick={[Function]}
-                isActive={false}
+                isActive={true}
                 tabName="Schedule"
 />,
               <Unknown
@@ -510,6 +551,7 @@ ShallowWrapper {
                 tabName="Submit Availability"
 />,
             ],
+            "className": "tab-container-list",
           },
           "ref": null,
           "rendered": Array [
@@ -519,7 +561,7 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "handleTabClick": [Function],
-                "isActive": true,
+                "isActive": false,
                 "tabName": "Add Event",
               },
               "ref": null,
@@ -545,7 +587,7 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "handleTabClick": [Function],
-                "isActive": false,
+                "isActive": true,
                 "tabName": "Schedule",
               },
               "ref": null,
@@ -573,25 +615,41 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <EventForm
-              checkManualSchedule={[Function]}
-              scheduleGenerator={undefined}
+            "children": Array [
+              <Schedule
+                admin={undefined}
+                deleteFromSchedule={undefined}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "event_id": 1,
+                                              }
+                }
+                staffList={undefined}
 />,
+            ],
             "className": "active-content",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "checkManualSchedule": [Function],
-              "scheduleGenerator": undefined,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "class",
+              "props": Object {
+                "admin": undefined,
+                "deleteFromSchedule": undefined,
+                "editSchedule": [Function],
+                "event": Object {
+                  "event_id": 1,
+                },
+                "staffList": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          ],
           "type": "article",
         },
       ],
