@@ -61,9 +61,9 @@ export class Availability extends Component {
   	const daysOff = await this.api.getAvailability(this.props.currentUserId);
   	
   	if ( daysOff ) {
-  		const daysSelected = daysOff.map(day => new Date(day.date_unavailable));
+  		const selectedDays = daysOff.map(day => new Date(day.date_unavailable));
 
-  		this.setState({ selectedDays: daysSelected});
+  		this.setState({ selectedDays });
   	}
   }
 
