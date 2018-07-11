@@ -5,7 +5,7 @@ import { Availability } from './Availability';
 
 describe('Availability', () => {
   let wrapper;
-  let mockCurrentUserId = 1;
+  let mockCurrentUserId = 2;
 
   beforeEach( () => {
     wrapper = shallow(<Availability currentUserId={ mockCurrentUserId } />, 
@@ -26,24 +26,28 @@ describe('Availability', () => {
   	
   		wrapper.instance().handleSubmit();
 
-  		expect(wrapper.instance().api.cleanDate).toHaveBeenCalled();
-  		expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(1, "June 30, 2018");
+  		expect(wrapper.instance().api.cleanDate).toHaveBeenCalledWith(new Date('June 30, 2018'));
+  		expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(2, "June 30, 2018");
   		// expect(wrapper.instance().api.postAvailability).toHaveBeenCalled();
   	});
   });
 
   describe('componentDidMount', () => {
 
-  	it('should call getAvailability', () => {
-  		const mockDate = [{ date_unavailable: 'June 30, 2018'}]
-  		wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(mockDate);
-  		wrapper.instance().Date = jest.fn().mockReturnValue('June 30, 2018')
+  	const mockDate = [{ date_unavailable: 'June 30, 2018'}]
 
+  	it('should call getAvailability', () => {
+  		wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(mockDate);
   		wrapper.instance().componentDidMount();
 
-  		expect(wrapper.instance().api.getAvailability).toHaveBeenCalled()
-  		expect(wrapper.instance().Date).toHaveBeenCalled()
-  		expect(wrapper.state()).toEqual()
+  		expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(mockCurrentUserId)
+   	})
+
+  	it('should setState with selectedDays', () => {
+  		wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(mockDate);
+  		wrapper.instance().componentDidMount();
+
+  		expect(wrapper.state('selectedDays')).toEqual([ new Date('June 30, 2018') ])
   	})
   })
 });
