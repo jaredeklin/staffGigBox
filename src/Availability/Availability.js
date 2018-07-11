@@ -43,7 +43,7 @@ export class Availability extends Component {
     const dates = await this.state.selectedDays.reduce(async (dateArray, day) => {
     	const cleanDay = this.api.cleanDate(day);
     	const isInDatabase = await this.api.getAvailability(id, cleanDay);
-      
+
       if (!isInDatabase) {
         notInDb.push(cleanDay);
       }
@@ -53,14 +53,13 @@ export class Availability extends Component {
 
     if (dates.length) {
       await this.api.postAvailability(id, dates);
-      console.log(id, dates)
     }
   }
 
 
   componentDidMount = async () => {
   	const daysOff = await this.api.getAvailability(this.props.currentUserId);
-  	
+  	console.log(daysOff)
   	if ( daysOff ) {
   		const selectedDays = daysOff.map(day => new Date(day.date_unavailable));
 

@@ -30,6 +30,20 @@ describe('Availability', () => {
   		expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(1, "June 30, 2018");
   		// expect(wrapper.instance().api.postAvailability).toHaveBeenCalled();
   	});
-
   });
+
+  describe('componentDidMount', () => {
+
+  	it('should call getAvailability', () => {
+  		const mockDate = [{ date_unavailable: 'June 30, 2018'}]
+  		wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(mockDate);
+  		wrapper.instance().Date = jest.fn().mockReturnValue('June 30, 2018')
+
+  		wrapper.instance().componentDidMount();
+
+  		expect(wrapper.instance().api.getAvailability).toHaveBeenCalled()
+  		expect(wrapper.instance().Date).toHaveBeenCalled()
+  		expect(wrapper.state()).toEqual()
+  	})
+  })
 });
