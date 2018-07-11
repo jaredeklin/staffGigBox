@@ -23,14 +23,12 @@ describe('Availability', () => {
   		wrapper.instance().api.cleanDate = jest.fn().mockReturnValue('June 30, 2018');
   		wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(false);
   		wrapper.instance().api.postAvailability = jest.fn();
-
   	
   		wrapper.instance().handleSubmit();
 
   		expect(wrapper.instance().api.cleanDate).toHaveBeenCalled();
   		expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(1, "June 30, 2018");
   		// expect(wrapper.instance().api.postAvailability).toHaveBeenCalled();
-
   	});
 
   });
