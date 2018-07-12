@@ -51,6 +51,7 @@ export class Availability extends Component {
       return [...dateArray, ...notInDb];
     }, []);
 
+
     if (dates.length) {
       await this.api.postAvailability(id, dates);
     }
@@ -59,7 +60,7 @@ export class Availability extends Component {
 
   componentDidMount = async () => {
   	const daysOff = await this.api.getAvailability(this.props.currentUserId);
-  	console.log(daysOff)
+  	
   	if ( daysOff ) {
   		const selectedDays = daysOff.map(day => new Date(day.date_unavailable));
 
