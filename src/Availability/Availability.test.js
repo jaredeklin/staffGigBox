@@ -51,12 +51,12 @@ describe('Availability', () => {
   	})
   })
 
-  // describe('handleDayClick', () => {
+  describe('handleDayClick', () => {
 
-  // 	it('should setState for selectedDays', () => {
+  	it('should setState for selectedDays', () => {
 
-  // 		wrapper.instance().handleDayClick()
-  // 		expect(wrapper.state()).toEqual()
-  // 	})
-  // })
+  		// wrapper.instance().handleDayClick()
+  		expect(wrapper.state()).toEqual({"selectedDays": [ new Date('June 30, 2018') ]})
+  	})
+  })
 });
