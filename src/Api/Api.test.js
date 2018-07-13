@@ -238,4 +238,9 @@ describe('Api', () => {
 
     expect(api.buildScheduleWithRoles(mockEvent)).toEqual(expected);
   });
+
+
+  it('should post availability to the database', () => {
+
+  })
 });
