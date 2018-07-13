@@ -43,7 +43,7 @@ export class Availability extends Component {
     const dates = await this.state.selectedDays.reduce(async (dateArray, day) => {
     	const cleanDay = this.api.cleanDate(day);
     	const isInDatabase = await this.api.getAvailability(id, cleanDay);
-      
+
       if (!isInDatabase) {
         notInDb.push(cleanDay);
       }
@@ -51,9 +51,9 @@ export class Availability extends Component {
       return [...dateArray, ...notInDb];
     }, []);
 
+
     if (dates.length) {
       await this.api.postAvailability(id, dates);
-      console.log(id, dates)
     }
   }
 

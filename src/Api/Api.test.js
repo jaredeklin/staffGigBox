@@ -179,7 +179,7 @@ describe('Api', () => {
 
   it('cleanDateTime should reformat dates and times', () => {
 
-    expect(api.cleanDateTime('"2018-06-06"', '18:00'))
+    expect(api.cleanDateTime('2018-06-06', '18:00'))
       .toEqual({"date": "Jun 6, 2018", "time": "6:00 PM"});
   });
 
@@ -237,5 +237,10 @@ describe('Api', () => {
       }];
 
     expect(api.buildScheduleWithRoles(mockEvent)).toEqual(expected);
+  });
+
+
+  it('should post availability to the database', () => {
+
   });
 });
