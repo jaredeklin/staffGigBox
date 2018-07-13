@@ -242,5 +242,5 @@ describe('Api', () => {
 
   it('should post availability to the database', () => {
 
-  })
+  });
 });
