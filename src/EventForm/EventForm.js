@@ -70,7 +70,7 @@ export class EventForm extends Component {
       
       // if ( manualSchedule === true ) {
         
-        // const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
+      // const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
 
       //   await this.api.postSchedule(newEventStaffArray);
 

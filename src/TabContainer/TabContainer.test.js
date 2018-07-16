@@ -43,14 +43,14 @@ describe('TabContainer', () => {
   });
 
   it('should match the snapshot when submit Availability is the active tab', () => { //eslint-disable-line
-    wrapper.setState({ activeTabName: 'Submit Availability'})
-    expect(wrapper).toMatchSnapshot()
-  })
+    wrapper.setState({ activeTabName: 'Submit Availability'});
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('should match the snapshot when Add New Staff is the active tab', () => {
-    wrapper.setState({ activeTabName: 'Add New Staff' })
-    expect(wrapper).toMatchSnapshot()
-  })
+    wrapper.setState({ activeTabName: 'Add New Staff' });
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('should set state when handleTabClick is called', () => {
     wrapper.instance().handleTabClick('Add Event');

@@ -96,7 +96,7 @@ describe('EventForm', () => {
     expect(mockCheck).toHaveBeenCalled();
     expect(wrapper.state()).toEqual(mockDefaultState);
 
-    await wrapper.instance().handleSubmit(mockEvent)
-    expect(mockScheduleGenerator).toHaveBeenCalled()
+    await wrapper.instance().handleSubmit(mockEvent);
+    expect(mockScheduleGenerator).toHaveBeenCalled();
   });
 });
