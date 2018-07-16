@@ -245,11 +245,19 @@ describe('Api', () => {
     const expected = [
       'http://localhost:3000/api/v1/availability?staff_id=2&date_unavailable=June 30, 2018', {
         method: 'DELETE' 
-      }]
+      }];
 
-    api.deleteAvailability(2, 'June 30, 2018')
+    api.deleteAvailability(2, 'June 30, 2018');
     
-    expect(window.fetch).toHaveBeenCalledWith(...expected)
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
+  });
+
+  it('getAvailability should be called with correct params when both id and date are provided', () => {
+    const expected = ['http://localhost:3000/api/v1/availability?staff_id=2&date_unavailable=June 30, 2018'];
+
+    api.getAvailability(2, 'June 30, 2018');
+    
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
   })
 
 
