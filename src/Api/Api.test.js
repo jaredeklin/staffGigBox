@@ -258,7 +258,15 @@ describe('Api', () => {
     api.getAvailability(2, 'June 30, 2018');
     
     expect(window.fetch).toHaveBeenCalledWith(...expected);
-  })
+  });
+
+  it('getAvailability should be called with correct params when only the id is provided', () => {
+    const expected = ['http://localhost:3000/api/v1/availability?staff_id=2'];
+
+    api.getAvailability(2);
+    
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
+  });
 
 
   // it('should post availability to the database', () => {
