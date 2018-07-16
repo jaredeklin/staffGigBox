@@ -240,7 +240,20 @@ describe('Api', () => {
   });
 
 
-  it('should post availability to the database', () => {
+  it('deleteAvailability should be called with the correct params', () => {
 
-  });
+    const expected = [
+      'http://localhost:3000/api/v1/availability?staff_id=2&date_unavailable=June 30, 2018', {
+        method: 'DELETE' 
+      }]
+
+    api.deleteAvailability(2, 'June 30, 2018')
+    
+    expect(window.fetch).toHaveBeenCalledWith(...expected)
+  })
+
+
+  // it('should post availability to the database', () => {
+
+  // });
 });
