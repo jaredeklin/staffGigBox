@@ -5,9 +5,13 @@ import { EventForm } from './EventForm';
 describe('EventForm', () => {
   let wrapper;
   const mockCheck = jest.fn();
+  const mockScheduleGenerator = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<EventForm checkManualSchedule={mockCheck} />);
+    wrapper = shallow(
+      <EventForm 
+        checkManualSchedule={mockCheck}
+        scheduleGenerator={mockScheduleGenerator} />);
   });
 
   it('should match the snapshot', () => {
@@ -91,5 +95,8 @@ describe('EventForm', () => {
     expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();   
     expect(mockCheck).toHaveBeenCalled();
     expect(wrapper.state()).toEqual(mockDefaultState);
+
+    await wrapper.instance().handleSubmit(mockEvent);
+    expect(mockScheduleGenerator).toHaveBeenCalled();
   });
 });

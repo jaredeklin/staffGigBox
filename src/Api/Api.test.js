@@ -4,6 +4,7 @@ import { Api } from './Api';
 describe('Api', () => {
   let mockStaff;
   let api;
+  const url = 'http://localhost:3000/api/v1/';
 
   beforeEach(() => {
     api = new Api();
@@ -240,7 +241,55 @@ describe('Api', () => {
   });
 
 
-  it('should post availability to the database', () => {
+  it('deleteAvailability should be called with the correct params', () => {
 
+    const expected = [
+      `${url}availability?staff_id=2&date_unavailable=June 30, 2018`, {
+        method: 'DELETE' 
+      }
+    ];
+
+    api.deleteAvailability(2, 'June 30, 2018');
+    
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
+  });
+
+  it('getAvailability should be called with correct params when both id and date are provided', () => { // eslint-disable-line
+    const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`; // eslint-disable-line
+
+    api.getAvailability(2, 'June 30, 2018');
+    
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+  });
+
+  it('getAvailability should be called with correct params when only the id is provided', () => { // eslint-disable-line
+    const expected = 'http://localhost:3000/api/v1/availability?staff_id=2';
+
+    api.getAvailability(2);
+    
+    expect(window.fetch).toHaveBeenCalledWith(expected);
+  });
+
+
+  it('postAvailability should be called with correct params', () => {
+    const mockDate = 'June 30, 2018';
+    const mockId = 2;
+    const expected = [
+      'http://localhost:3000/api/v1/availability',
+      {
+        method: 'POST',
+        body: JSON.stringify({ 
+          staff_id: mockId,
+          date_unavailable: mockDate
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    ];
+
+    api.postAvailability(mockId, [mockDate]);
+
+    expect(window.fetch).toHaveBeenCalledWith(...expected); 
   });
 });

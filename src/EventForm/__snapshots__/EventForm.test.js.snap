@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <EventForm
     checkManualSchedule={[Function]}
+    scheduleGenerator={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -229,7 +230,7 @@ ShallowWrapper {
 </form>,
         <button
           className="generate-schedule-btn"
-          onClick={undefined}
+          onClick={[Function]}
 >
           Generate schedule
 </button>,
@@ -1256,7 +1257,7 @@ ShallowWrapper {
         "props": Object {
           "children": "Generate schedule",
           "className": "generate-schedule-btn",
-          "onClick": undefined,
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": "Generate schedule",
@@ -1481,7 +1482,7 @@ ShallowWrapper {
 </form>,
           <button
             className="generate-schedule-btn"
-            onClick={undefined}
+            onClick={[Function]}
 >
             Generate schedule
 </button>,
@@ -2508,7 +2509,7 @@ ShallowWrapper {
           "props": Object {
             "children": "Generate schedule",
             "className": "generate-schedule-btn",
-            "onClick": undefined,
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": "Generate schedule",
