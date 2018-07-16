@@ -4,7 +4,7 @@ import { Api } from './Api';
 describe('Api', () => {
   let mockStaff;
   let api;
-  const url = 'http://localhost:3000/api/v1/'
+  const url = 'http://localhost:3000/api/v1/';
 
   beforeEach(() => {
     api = new Api();
@@ -254,15 +254,15 @@ describe('Api', () => {
     expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
-  it('getAvailability should be called with correct params when both id and date are provided', () => {
-    const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`;
+  it('getAvailability should be called with correct params when both id and date are provided', () => { // eslint-disable-line
+    const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`; // eslint-disable-line
 
     api.getAvailability(2, 'June 30, 2018');
     
     expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
-  it('getAvailability should be called with correct params when only the id is provided', () => {
+  it('getAvailability should be called with correct params when only the id is provided', () => { // eslint-disable-line
     const expected = 'http://localhost:3000/api/v1/availability?staff_id=2';
 
     api.getAvailability(2);

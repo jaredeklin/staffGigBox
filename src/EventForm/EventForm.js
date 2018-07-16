@@ -68,27 +68,41 @@ export class EventForm extends Component {
     if (response.status === 201) {
       const eventData = await response.json();
       
-      if ( manualSchedule === true ) {
+      // if ( manualSchedule === true ) {
         
-        const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
+      //   const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
 
-        await this.api.postSchedule(newEventStaffArray);
+      //   await this.api.postSchedule(newEventStaffArray);
 
+      //   const newEventSchedule = await this.api.getSchedule(eventData.id);
+        
+      //   this.props.checkManualSchedule(newEventSchedule, manualSchedule);
+      //   this.setState(this.defaultState);
+
+      // } else {
+        
+      //   const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
+
+      //   await this.api.postSchedule(newEventStaffArray);
+
+      //   await this.props.scheduleGenerator();
+
+      //   this.setState(this.defaultState);
+      // }
+      const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
+
+      await this.api.postSchedule(newEventStaffArray);
+
+      if ( manualSchedule === true ) {
         const newEventSchedule = await this.api.getSchedule(eventData.id);
         
         this.props.checkManualSchedule(newEventSchedule, manualSchedule);
-        this.setState(this.defaultState);
 
       } else {
-        
-        const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
-
-        await this.api.postSchedule(newEventStaffArray);
-
         await this.props.scheduleGenerator();
-
-        this.setState(this.defaultState);
       }
+
+      this.setState(this.defaultState);
     }
   }
 
