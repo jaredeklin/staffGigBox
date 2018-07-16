@@ -4,6 +4,7 @@ import { Api } from './Api';
 describe('Api', () => {
   let mockStaff;
   let api;
+  const url = 'http://localhost:3000/api/v1/'
 
   beforeEach(() => {
     api = new Api();
@@ -243,9 +244,10 @@ describe('Api', () => {
   it('deleteAvailability should be called with the correct params', () => {
 
     const expected = [
-      'http://localhost:3000/api/v1/availability?staff_id=2&date_unavailable=June 30, 2018', {
+      `${url}availability?staff_id=2&date_unavailable=June 30, 2018`, {
         method: 'DELETE' 
-      }];
+      }
+    ];
 
     api.deleteAvailability(2, 'June 30, 2018');
     
@@ -253,19 +255,19 @@ describe('Api', () => {
   });
 
   it('getAvailability should be called with correct params when both id and date are provided', () => {
-    const expected = ['http://localhost:3000/api/v1/availability?staff_id=2&date_unavailable=June 30, 2018'];
+    const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`;
 
     api.getAvailability(2, 'June 30, 2018');
     
-    expect(window.fetch).toHaveBeenCalledWith(...expected);
+    expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
   it('getAvailability should be called with correct params when only the id is provided', () => {
-    const expected = ['http://localhost:3000/api/v1/availability?staff_id=2'];
+    const expected = 'http://localhost:3000/api/v1/availability?staff_id=2';
 
     api.getAvailability(2);
     
-    expect(window.fetch).toHaveBeenCalledWith(...expected);
+    expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
 
@@ -286,7 +288,7 @@ describe('Api', () => {
       }
     ];
 
-    api.postAvailability(mockId, [ mockDate ]);
+    api.postAvailability(mockId, [mockDate]);
 
     expect(window.fetch).toHaveBeenCalledWith(...expected); 
   });
