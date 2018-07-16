@@ -269,7 +269,25 @@ describe('Api', () => {
   });
 
 
-  // it('should post availability to the database', () => {
+  it('postAvailability should be called with correct params', () => {
+    const mockDate = 'June 30, 2018';
+    const mockId = 2;
+    const expected = [
+      'http://localhost:3000/api/v1/availability',
+      {
+        method: 'POST',
+        body: JSON.stringify({ 
+          staff_id: mockId,
+          date_unavailable: mockDate
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    ];
 
-  // });
+    api.postAvailability(mockId, [ mockDate ]);
+
+    expect(window.fetch).toHaveBeenCalledWith(...expected); 
+  });
 });
