@@ -98,8 +98,10 @@ class App extends Component {
     const { staff } = this.state;
     const generatedSchedule = await this.api.generateSchedule(staff);
 
-    await this.api.modifySchedule(generatedSchedule);     
-    this.editSchedule();
+    if (generatedSchedule) {
+      await this.api.modifySchedule(generatedSchedule);     
+      this.editSchedule();
+    }
   }
 
 

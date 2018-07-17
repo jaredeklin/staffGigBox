@@ -240,7 +240,8 @@ export class Api  {
 
   postSchedule = (schedule) => {
     const promise = schedule.map( async (staffEvent) => {
-      var response = await fetch(`${this.url}api/v1/schedule`, {
+  
+      const response = await fetch(`${this.url}api/v1/schedule`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
