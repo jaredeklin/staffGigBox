@@ -9,8 +9,14 @@ export class Api  {
     return await response.json();
   }
 
-  getEvents = async () => {
-    const response = await fetch(`${this.url}api/v1/events`);
+  getEvents = async (date) => {
+    let response;
+
+    if (date) {
+      response = await fetch(`${this.url}api/v1/events?${date}`);
+    } else {
+      response = await fetch(`${this.url}api/v1/events`);
+    }
 
     return await response.json();
   }
@@ -31,9 +37,14 @@ export class Api  {
     if ( unscheduledEvents.length ) {
     
       const eventData = await this.getEventData(unscheduledEvents);
-      const result = Object.keys(eventData[0]).map(eventInfo => {       
+      // console.log(unscheduledEvents)
+      // console.log(eventData)
+      const result = Object.keys(eventData[0]).map( eventInfo => {       
         const eventId = eventData[0][eventInfo][0].id;
+        // const eventDate = eventData[0][eventInfo][0].date;
 
+        // const x = this.getUnscheduledStaff(eventDate)
+        // console.log(x)
         // single event should really be a single day to avoid duplicates
         const singleEvent = unscheduledEvents.filter(concert => eventId === concert.event_id);
         const needAssMan = eventData[0][eventInfo][0].ass_bar_manager;
@@ -102,6 +113,8 @@ export class Api  {
         return schedule;
       });
 
+     
+      // console.log(result)
       const cleanResult = this.cleanResults(result);
       
       return cleanResult;
@@ -110,6 +123,11 @@ export class Api  {
       return console.log('All events currently scheduled'); // eslint-disable-line
     }
   }
+
+  // getUnscheduledStaff = async (date) => {
+  //   const events = await this.getEvents(date);
+  //   console.log(events);
+  // }
 
   cleanResults = (result) => {
     // refactor oppo
@@ -123,17 +141,39 @@ export class Api  {
   }
 
   getEventData = (events) => {
-    let eventObj = {};
 
-    return events.reduce( async (array, event) => {
+    // console.log( events )
+    // let eventObj = {};
 
-      if (!eventObj[event.event_id]) {
-        eventObj[event.event_id] = await this.getSpecificEvent(event.event_id);
+    // return events.reduce( async (array, event) => {
+    //   // refactor oppo
+    //   if (!eventObj[event.event_id]) {
+    //     eventObj[event.event_id] = await this.getSpecificEvent(event.event_id);
+    //   }
+
+    //   return [{...eventObj}];
+
+    // }, []);
+    
+    const eventArray = [];
+
+    events.forEach(event => {
+      const found = eventArray.find(concert => concert.event_id === event.event_id);
+
+      if (!found) {
+        eventArray.push(event);
       }
+    });
 
-      return [{...eventObj}];
 
-    }, []);
+    const eventDetailsArray = eventArray.map(async details => {
+      const eventDetails = await this.getSpecificEvent(details.event_id);
+     
+      return eventDetails[0];
+    });
+
+    return Promise.all(eventDetailsArray);
+
   }
 
   getNumberOfStaff = (event) => {
