@@ -13,7 +13,7 @@ export class Api  {
     let response;
 
     if (date) {
-      response = await fetch(`${this.url}api/v1/events?${date}`);
+      response = await fetch(`${this.url}api/v1/events?date=${date}`);
     } else {
       response = await fetch(`${this.url}api/v1/events`);
     }
@@ -39,15 +39,14 @@ export class Api  {
       const eventData = await this.getEventData(unscheduledEvents);
       // console.log(unscheduledEvents)
       // console.log(eventData)
-      const result = Object.keys(eventData[0]).map( eventInfo => {       
-        const eventId = eventData[0][eventInfo][0].id;
-        // const eventDate = eventData[0][eventInfo][0].date;
+      const result = eventData.map( eventInfo => {       
+       
 
-        // const x = this.getUnscheduledStaff(eventDate)
-        // console.log(x)
+        // const unscheduledStaff = this.getUnscheduledStaff(staff, eventInfo.date);
+        // console.log(unscheduledStaff)
         // single event should really be a single day to avoid duplicates
-        const singleEvent = unscheduledEvents.filter(concert => eventId === concert.event_id);
-        const needAssMan = eventData[0][eventInfo][0].ass_bar_manager;
+        const singleEvent = unscheduledEvents.filter(concert => eventInfo.id === concert.event_id);
+        // console.log(singleEvent)
 
 
         let barManagers = [];
@@ -77,7 +76,7 @@ export class Api  {
             event.staff_id = barManagers[managerIndex].id;
             barManagers.splice(managerIndex, 1);
 
-            if ( needAssMan ) {
+            if ( eventInfo.ass_bar_manager ) {
               assBarManagers = [...assBarManagers, ...barManagers];
             } else {
               bartenders = [...bartenders, ...barManagers];
@@ -124,10 +123,26 @@ export class Api  {
     }
   }
 
-  // getUnscheduledStaff = async (date) => {
-  //   const events = await this.getEvents(date);
-  //   console.log(events);
-  // }
+  getUnscheduledStaff = async (staff, date) => {
+    const events = await this.getEvents(date);
+
+    let availableStaff = [...staff];
+
+    await events.reduce(async (array, event) => {
+      const scheduledStaff = await this.getSchedule(event.id);
+
+      availableStaff = availableStaff.filter(member => {
+        return !scheduledStaff.staff.some(person => { 
+          return member.id === person.staff_id;
+        });
+      });
+
+      return array;
+    }, []);
+
+    // console.log(availableStaff)
+    return availableStaff;
+  }
 
   cleanResults = (result) => {
     // refactor oppo
@@ -256,9 +271,10 @@ export class Api  {
   getStaffNames = (ids) => {
     
     const promise = ids.map(async person => {
-      const { staff_events_id, role } = person;
+      const { staff_events_id, staff_id, role } = person;
       let staff = {
         name: 'Staff Needed',
+        staff_id,
         staff_events_id,
         role
       };
