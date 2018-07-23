@@ -37,11 +37,10 @@ export class Api  {
     if ( unscheduledEvents.length ) {
     
       const eventData = await this.getEventData(unscheduledEvents);
-      
-      const result = eventData.map(async eventInfo => {       
-       
-        const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
 
+      const result = eventData.map(async eventInfo => {       
+    
+        const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
         const schedule = this.fillScheduleRoles(unscheduledEvents, unscheduledStaff, eventInfo);
 
         return schedule;
@@ -144,6 +143,7 @@ export class Api  {
   cleanResults = (result) => {
     // refactor oppo
     const cleanResultArray = [];
+    
     result.forEach(item => {
       item.forEach(schedule => cleanResultArray.push(schedule));
     });
