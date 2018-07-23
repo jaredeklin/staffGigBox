@@ -138,19 +138,6 @@ export class Api  {
       });
     }
 
-    // await events.reduce(async (promise, event) => {
-    //   await promise;
-
-    //   const scheduledStaff = await this.getSchedule(event.id);
-
-    //   availableStaff = availableStaff.filter(member => {
-    //     return !scheduledStaff.staff.some(person => { 
-    //       return member.id === person.staff_id;
-    //     });
-    //   });
-    // }, Promise.resolve())
-
-    // console.log(availableStaff)
     return Promise.all(availableStaff);
   }
 
