@@ -112,7 +112,7 @@ describe('App', () => {
   });
 
   it('should generate a schedule', async () => {
-    wrapper.instance().api.generateSchedule = jest.fn();
+    wrapper.instance().api.generateSchedule = jest.fn().mockReturnValue(true);
     wrapper.instance().api.modifySchedule = jest.fn();
     wrapper.instance().editSchedule = jest.fn();
 

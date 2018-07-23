@@ -35,7 +35,7 @@ describe('Api', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
-  it('generateSchedule should be called with the correct params', async () => {
+  it.skip('generateSchedule should be called with the correct params', async () => {
     const expected = 'http://localhost:3000/api/v1/schedule';
     const mockStaff = [{}];
     const mockSchedule = [{ staff_id: null }];
