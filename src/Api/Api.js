@@ -37,24 +37,23 @@ export class Api  {
     if ( unscheduledEvents.length ) {
     
       const eventData = await this.getEventData(unscheduledEvents);
+      let eventArray = [];
 
-      const result = eventData.map(async eventInfo => {       
-    
+      for (const eventInfo of eventData) {
+
         const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
         const schedule = this.fillScheduleRoles(unscheduledEvents, unscheduledStaff, eventInfo);
+       
+        eventArray = [...eventArray, ...schedule];
+      }
 
-        return schedule;
-      });
-
-      const resolvedResult = await Promise.all(result);
-      const cleanResult = this.cleanResults(resolvedResult);
-
-      return cleanResult;
-
+      return eventArray;
     } else {
       return console.log('All events currently scheduled'); // eslint-disable-line
     }
   }
+
+
 
   fillScheduleRoles = (unscheduledEvents, unscheduledStaff, eventInfo) => {
     const singleEvent = unscheduledEvents.filter(concert => eventInfo.id === concert.event_id);
