@@ -37,17 +37,17 @@ export class Api  {
     if ( unscheduledEvents.length ) {
     
       const eventData = await this.getEventData(unscheduledEvents);
-      let eventArray = []
+      let eventArray = [];
 
       for (const eventInfo of eventData) {
 
         const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
         const schedule = this.fillScheduleRoles(unscheduledEvents, unscheduledStaff, eventInfo);
        
-        eventArray = [...eventArray, ...schedule]
+        eventArray = [...eventArray, ...schedule];
       }
 
-      return eventArray
+      return eventArray;
     } else {
       return console.log('All events currently scheduled'); // eslint-disable-line
     }
