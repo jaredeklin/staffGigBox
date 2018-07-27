@@ -172,9 +172,8 @@ export class Api  {
   }
 
   getNumberOfStaff = (event) => {
-
-    if ( event ) {
-
+    
+    if (event) {
       let staffNeeded = event.bartenders + event.barbacks;
 
       if (event.bar_manager) {
@@ -205,8 +204,7 @@ export class Api  {
     return id ? cleanEvents[0] : cleanEvents;
   }
 
-  cleanScheduleData = (schedule) => {
-    
+  cleanScheduleData = (schedule) => { 
     const scheduleObj = schedule.reduce((scheduleObj, event) => {
       const { staff_id, id, role } = event;
       
