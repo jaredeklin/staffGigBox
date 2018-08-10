@@ -141,7 +141,7 @@ export class Api  {
 
   getEventData = async (events) => {
     const eventArray = [];
-
+    
     for (const event of events) {
       const found = eventArray.find(concert => concert.id === event.event_id);
 
@@ -151,7 +151,7 @@ export class Api  {
         eventArray.push(eventDetails[0]);
       }
     }
-
+    
     return eventArray;
   }
 
