@@ -122,7 +122,6 @@ export class Api  {
 
   getUnscheduledStaff = async (staff, date) => {
     const events = await this.getEvents(date);
-
     let availableStaff = [...staff];
 
     for (const event of events) {
