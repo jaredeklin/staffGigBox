@@ -292,4 +292,28 @@ describe('Api', () => {
 
     expect(window.fetch).toHaveBeenCalledWith(...expected); 
   });
+
+  it('getEventData should return correct event information', async () => {
+    const url = "http://localhost:3000/api/v1/events/3";
+    const mockEvents = [{
+      event_id: 3,
+      name: 'Jared'
+    }, {
+      event_id: 3,
+      name: 'TK'
+    }];
+
+    const mockEventData = [{
+      id: 3,
+      name: 'Lupe Fiasco'
+    }];
+
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve(mockEventData)
+    }));
+
+    expect(await api.getEventData(mockEvents)).toEqual([{ id: 3, name: 'Lupe Fiasco' }]);
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
 });

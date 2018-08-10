@@ -122,7 +122,6 @@ export class Api  {
 
   getUnscheduledStaff = async (staff, date) => {
     const events = await this.getEvents(date);
-
     let availableStaff = [...staff];
 
     for (const event of events) {
@@ -139,36 +138,20 @@ export class Api  {
     return Promise.all(availableStaff);
   }
 
-  cleanResults = (result) => {
-    // refactor oppo
-    const cleanResultArray = [];
-    
-    result.forEach(item => {
-      item.forEach(schedule => cleanResultArray.push(schedule));
-    });
-
-    return cleanResultArray;
-  }
-
   getEventData = async (events) => {
-    // refactor oppo: combine into one async loop
     const eventArray = [];
-
-    events.forEach(event => {
-      const found = eventArray.find(concert => concert.event_id === event.event_id);
+    
+    for (const event of events) {
+      const found = eventArray.find(concert => concert.id === event.event_id);
 
       if (!found) {
-        eventArray.push(event);
+        const eventDetails = await this.getSpecificEvent(event.event_id);
+        
+        eventArray.push(eventDetails[0]);
       }
-    });
-
-    const eventDetailsArray = eventArray.map(async details => {
-      const eventDetails = await this.getSpecificEvent(details.event_id);
-     
-      return eventDetails[0];
-    });
-
-    return Promise.all(eventDetailsArray);
+    }
+    
+    return eventArray;
   }
 
   getNumberOfStaff = (event) => {
