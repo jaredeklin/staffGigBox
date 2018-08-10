@@ -295,5 +295,5 @@ describe('Api', () => {
 
   it('getEventData should return correct event information', () => {
     
-  })
+  });
 });

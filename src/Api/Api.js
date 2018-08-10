@@ -139,17 +139,6 @@ export class Api  {
     return Promise.all(availableStaff);
   }
 
-  cleanResults = (result) => {
-    // refactor oppo
-    const cleanResultArray = [];
-    
-    result.forEach(item => {
-      item.forEach(schedule => cleanResultArray.push(schedule));
-    });
-
-    return cleanResultArray;
-  }
-
   getEventData = async (events) => {
     const eventArray = [];
 
@@ -163,7 +152,7 @@ export class Api  {
       }
     }
 
-    return eventArray
+    return eventArray;
   }
 
   getNumberOfStaff = (event) => {
