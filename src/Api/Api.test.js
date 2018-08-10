@@ -292,4 +292,8 @@ describe('Api', () => {
 
     expect(window.fetch).toHaveBeenCalledWith(...expected); 
   });
+
+  it('getEventData should return correct event information', () => {
+    
+  })
 });
