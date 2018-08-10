@@ -9,8 +9,9 @@ describe('Api', () => {
   beforeEach(() => {
     api = new Api();
     mockStaff = [
-      { name: 'taco' },
-      { name: 'hipster pant' }
+      { name: 'Jared', id: 3 },
+      { name: 'Steven', id: 4 },
+      { name: 'TK', id: 5 }
     ];
 
     window.fetch = jest.fn(() => Promise.resolve({
@@ -316,4 +317,30 @@ describe('Api', () => {
     expect(await api.getEventData(mockEvents)).toEqual([{ id: 3, name: 'Lupe Fiasco' }]);
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
+
+  it('getUnscheduledStaff should return the correct staff', async () => {
+    const mockEvents = [{
+      id: 3,
+      name: 'Lupe Fiasco',
+      date: 'Jul 20, 2018',
+      venue: 'Ogden Theatre'
+    },{
+      id: 4,
+      name: 'Sage Francis',
+      date: 'Jul 20, 2018',
+      venue: 'Gothic Theatre'
+    }]
+
+    const mockSchedule = {
+      event_id: 3,
+      staff: [{ staff_id: 3 }, { staff_id: 4 }]
+    }
+
+    const expected = [ { name: 'TK', id: 5 } ]
+
+    api.getEvents = jest.fn().mockReturnValue(mockEvents)
+    api.getSchedule = jest.fn().mockReturnValue(mockSchedule)
+
+    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018')).toEqual(expected)
+  })
 });

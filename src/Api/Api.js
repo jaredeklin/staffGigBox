@@ -125,16 +125,15 @@ export class Api  {
     let availableStaff = [...staff];
 
     for (const event of events) {
-
       const scheduledStaff = await this.getSchedule(event.id);
-
+      
       availableStaff = availableStaff.filter(member => {
         return !scheduledStaff.staff.some(person => { 
           return member.id === person.staff_id;
         });
       });
     }
-
+    
     return Promise.all(availableStaff);
   }
 
