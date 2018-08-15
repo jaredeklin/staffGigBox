@@ -28,7 +28,13 @@ export class EventForm extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
 
-    this.setState({ [name]: value });
+    if (name === 'date') {
+      const cleanDate = `${value} 12:00:00 GMT-0600`;
+      this.setState({ date: cleanDate });
+    } else {
+      this.setState({ [name]: value });   
+    }
+
   }
 
   handleSubmit = async (event) => {
@@ -120,7 +126,6 @@ export class EventForm extends Component {
               name='date' 
               value={ date }
               onChange={ this.handleChange }
-              // onFocus={ this.showCalendar }
               className='input_event-form'
             />
             <input

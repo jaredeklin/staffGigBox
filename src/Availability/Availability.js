@@ -53,7 +53,7 @@ export class Availability extends Component {
 
 
     if (dates.length) {
-      await this.api.postAvailability(id, dates);
+      // await this.api.postAvailability(id, dates);
     }
   }
 

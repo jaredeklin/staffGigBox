@@ -325,12 +325,9 @@ export class Api  {
     return newEventStaffArray;
   }
 
-
   cleanDateTime = (originalDate, orginalTime) => {
-
     const date = this.cleanDate(originalDate);
-
-    const time = new Date(`${originalDate} ${orginalTime}`)
+    const time = new Date(`${date} ${orginalTime}`)
       .toLocaleTimeString([], {
         hour: '2-digit', 
         minute: '2-digit'

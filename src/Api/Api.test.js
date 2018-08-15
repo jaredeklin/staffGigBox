@@ -175,8 +175,10 @@ describe('Api', () => {
   });
 
   it('cleanDateTime should reformat dates and times', () => {
+    // const mockDate = 'Wed Jun 6 2018 12:00:00 GMT-0600 (Mountain Daylight Time)'
+    const mockDate = '2018-06-06 12:00:00 GMT-0600';
 
-    expect(api.cleanDateTime('2018-06-07', '18:00'))
+    expect(api.cleanDateTime(mockDate, '18:00'))
       .toEqual({"date": "Jun 6, 2018", "time": "6:00 PM"});
   });
 
