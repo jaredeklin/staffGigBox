@@ -52,9 +52,8 @@ export class Api  {
 
 
   fillScheduleRoles = (unscheduledEvents, unscheduledStaff, eventInfo) => {
-    // console.log(unscheduledEvents, unscheduledStaff, eventInfo)
+    
     const singleEvent = unscheduledEvents.filter(concert => eventInfo.id === concert.event_id);
-    // console.log(singleEvent)
     let barManagers = [];
     let assBarManagers = [];
     let barbacks = [];
@@ -74,7 +73,7 @@ export class Api  {
     });
 
     const schedule = singleEvent.reduce((array, event) => {
-
+      
       if (event.role === 'Bar Manager') {
         const managerIndex = Math.floor(Math.random() * barManagers.length);
 
@@ -113,7 +112,7 @@ export class Api  {
 
       return [...array, event];
     }, []);
-
+    
     return schedule;
   }
 

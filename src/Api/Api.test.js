@@ -1,5 +1,5 @@
 import { Api } from './Api';
-import { mockStaff, expectedStaff } from '../mockData'
+import { mockStaff, expectedStaff, expectedStaffRoles} from '../mockData';
 
 describe('Api', () => {
   
@@ -331,21 +331,21 @@ describe('Api', () => {
       staff: [{ staff_id: 3 }, { staff_id: 4 }, { staff_id: 2 }]
     };
 
-    // const expected = [{ name: 'TK', id: 5 }];
 
     api.getEvents = jest.fn().mockReturnValue(mockEvents);
     api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
 
-    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018')).toEqual(expectedStaff);
+    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018'))
+      .toEqual(expectedStaff);
   });
 
   it('fillScheduleRoles should return the correct values', async () => {
     const mockEvent = [
-      { event_id: 3, staff_id: null },
-      { event_id: 3, staff_id: null },
-      { event_id: 3, staff_id: null },
-      { event_id: 3, staff_id: null },
-    ]
+      { event_id: 3, staff_id: null, role: 'Bar Manager' },
+      { event_id: 3, staff_id: null, role: 'Assistant Bar Manager' },
+      { event_id: 3, staff_id: null, role: 'Bartender' },
+      { event_id: 3, staff_id: null, role: 'Barback' }
+    ];
 
     const mockEventInfo = {
       ass_bar_manager: true,
@@ -355,7 +355,9 @@ describe('Api', () => {
       date: "Jul 20, 2018",
       id: 3,
       name: "Billy Prince Billy"
-    }
-    // expect(await api.fillScheduleRoles(mockEvent, mockStaff, mockInfo)).toEqual()
-  })
+    };
+    
+    expect(await api.fillScheduleRoles(mockEvent, mockStaff, mockEventInfo))
+      .toEqual(expectedStaffRoles);
+  });
 });
