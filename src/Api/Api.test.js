@@ -1,5 +1,5 @@
 import { Api } from './Api';
-import { mockStaff } from '../mockData'
+import { mockStaff, expectedStaff } from '../mockData'
 
 describe('Api', () => {
   
@@ -8,12 +8,6 @@ describe('Api', () => {
 
   beforeEach(() => {
     api = new Api();
-    // mockStaff = [
-    //   { name: 'Jared', id: 3, bar_manager: false, ass_bar_manager: true, },
-    //   { name: 'Steven', id: 4 },
-    //   { name: 'TK', id: 5 },
-    //   { name: 'Ross', id: 6 }
-    // ];
 
     window.fetch = jest.fn(() => Promise.resolve({
       status: 200,
@@ -334,15 +328,15 @@ describe('Api', () => {
 
     const mockSchedule = {
       event_id: 3,
-      staff: [{ staff_id: 3 }, { staff_id: 4 }]
+      staff: [{ staff_id: 3 }, { staff_id: 4 }, { staff_id: 2 }]
     };
 
-    const expected = [{ name: 'TK', id: 5 }];
+    // const expected = [{ name: 'TK', id: 5 }];
 
     api.getEvents = jest.fn().mockReturnValue(mockEvents);
     api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
 
-    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018')).toEqual(expected);
+    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018')).toEqual(expectedStaff);
   });
 
   it('fillScheduleRoles should return the correct values', async () => {

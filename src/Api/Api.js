@@ -52,9 +52,9 @@ export class Api  {
 
 
   fillScheduleRoles = (unscheduledEvents, unscheduledStaff, eventInfo) => {
-    console.log(unscheduledEvents, unscheduledStaff, eventInfo)
+    // console.log(unscheduledEvents, unscheduledStaff, eventInfo)
     const singleEvent = unscheduledEvents.filter(concert => eventInfo.id === concert.event_id);
-    console.log(singleEvent)
+    // console.log(singleEvent)
     let barManagers = [];
     let assBarManagers = [];
     let barbacks = [];
