@@ -1,18 +1,19 @@
 import { Api } from './Api';
-
+import { mockStaff } from '../mockData'
 
 describe('Api', () => {
-  let mockStaff;
+  
   let api;
   const url = 'http://localhost:3000/api/v1/';
 
   beforeEach(() => {
     api = new Api();
-    mockStaff = [
-      { name: 'Jared', id: 3 },
-      { name: 'Steven', id: 4 },
-      { name: 'TK', id: 5 }
-    ];
+    // mockStaff = [
+    //   { name: 'Jared', id: 3, bar_manager: false, ass_bar_manager: true, },
+    //   { name: 'Steven', id: 4 },
+    //   { name: 'TK', id: 5 },
+    //   { name: 'Ross', id: 6 }
+    // ];
 
     window.fetch = jest.fn(() => Promise.resolve({
       status: 200,
@@ -324,23 +325,43 @@ describe('Api', () => {
       name: 'Lupe Fiasco',
       date: 'Jul 20, 2018',
       venue: 'Ogden Theatre'
-    },{
+    }, {
       id: 4,
       name: 'Sage Francis',
       date: 'Jul 20, 2018',
       venue: 'Gothic Theatre'
-    }]
+    }];
 
     const mockSchedule = {
       event_id: 3,
       staff: [{ staff_id: 3 }, { staff_id: 4 }]
+    };
+
+    const expected = [{ name: 'TK', id: 5 }];
+
+    api.getEvents = jest.fn().mockReturnValue(mockEvents);
+    api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
+
+    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018')).toEqual(expected);
+  });
+
+  it('fillScheduleRoles should return the correct values', async () => {
+    const mockEvent = [
+      { event_id: 3, staff_id: null },
+      { event_id: 3, staff_id: null },
+      { event_id: 3, staff_id: null },
+      { event_id: 3, staff_id: null },
+    ]
+
+    const mockEventInfo = {
+      ass_bar_manager: true,
+      bar_manager:true,
+      barbacks: 1,
+      bartenders: 1,
+      date: "Jul 20, 2018",
+      id: 3,
+      name: "Billy Prince Billy"
     }
-
-    const expected = [ { name: 'TK', id: 5 } ]
-
-    api.getEvents = jest.fn().mockReturnValue(mockEvents)
-    api.getSchedule = jest.fn().mockReturnValue(mockSchedule)
-
-    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018')).toEqual(expected)
+    // expect(await api.fillScheduleRoles(mockEvent, mockStaff, mockInfo)).toEqual()
   })
 });

@@ -29,18 +29,14 @@ export class Api  {
 
   generateSchedule = async (staff) => {
     const response = await fetch(`${this.url}api/v1/schedule`);
-    const currentScheduleData = await response.json();
-    const unscheduledEvents = await currentScheduleData.filter(schedule => { 
-      return schedule.staff_id === null; 
-    });
-
-    if ( unscheduledEvents.length ) {
+    const scheduleData = await response.json();
+    const unscheduledEvents = scheduleData.filter(schedule => schedule.staff_id === null);
     
+    if ( unscheduledEvents.length ) {
       const eventData = await this.getEventData(unscheduledEvents);
       let eventArray = [];
 
       for (const eventInfo of eventData) {
-
         const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
         const schedule = this.fillScheduleRoles(unscheduledEvents, unscheduledStaff, eventInfo);
        
@@ -56,8 +52,9 @@ export class Api  {
 
 
   fillScheduleRoles = (unscheduledEvents, unscheduledStaff, eventInfo) => {
+    console.log(unscheduledEvents, unscheduledStaff, eventInfo)
     const singleEvent = unscheduledEvents.filter(concert => eventInfo.id === concert.event_id);
-
+    console.log(singleEvent)
     let barManagers = [];
     let assBarManagers = [];
     let barbacks = [];
