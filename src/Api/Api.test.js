@@ -1,17 +1,13 @@
 import { Api } from './Api';
-
+import { mockStaff, expectedStaff, expectedStaffRoles} from '../mockData';
 
 describe('Api', () => {
-  let mockStaff;
+  
   let api;
   const url = 'http://localhost:3000/api/v1/';
 
   beforeEach(() => {
     api = new Api();
-    mockStaff = [
-      { name: 'taco' },
-      { name: 'hipster pant' }
-    ];
 
     window.fetch = jest.fn(() => Promise.resolve({
       status: 200,
@@ -179,8 +175,10 @@ describe('Api', () => {
   });
 
   it('cleanDateTime should reformat dates and times', () => {
+    // const mockDate = 'Wed Jun 6 2018 12:00:00 GMT-0600 (Mountain Daylight Time)'
+    const mockDate = '2018-06-06 12:00:00 GMT-0600';
 
-    expect(api.cleanDateTime('2018-06-06', '18:00'))
+    expect(api.cleanDateTime(mockDate, '18:00'))
       .toEqual({"date": "Jun 6, 2018", "time": "6:00 PM"});
   });
 
@@ -315,5 +313,53 @@ describe('Api', () => {
 
     expect(await api.getEventData(mockEvents)).toEqual([{ id: 3, name: 'Lupe Fiasco' }]);
     expect(window.fetch).toHaveBeenCalledWith(url);
+  });
+
+  it('getUnscheduledStaff should return the correct staff', async () => {
+    const mockEvents = [{
+      id: 3,
+      name: 'Lupe Fiasco',
+      date: 'Jul 20, 2018',
+      venue: 'Ogden Theatre'
+    }, {
+      id: 4,
+      name: 'Sage Francis',
+      date: 'Jul 20, 2018',
+      venue: 'Gothic Theatre'
+    }];
+
+    const mockSchedule = {
+      event_id: 3,
+      staff: [{ staff_id: 3 }, { staff_id: 4 }, { staff_id: 2 }]
+    };
+
+
+    api.getEvents = jest.fn().mockReturnValue(mockEvents);
+    api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
+
+    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018'))
+      .toEqual(expectedStaff);
+  });
+
+  it('fillScheduleRoles should return the correct values', async () => {
+    const mockEvent = [
+      { event_id: 3, staff_id: null, role: 'Bar Manager' },
+      { event_id: 3, staff_id: null, role: 'Assistant Bar Manager' },
+      { event_id: 3, staff_id: null, role: 'Bartender' },
+      { event_id: 3, staff_id: null, role: 'Barback' }
+    ];
+
+    const mockEventInfo = {
+      ass_bar_manager: true,
+      bar_manager:true,
+      barbacks: 1,
+      bartenders: 1,
+      date: "Jul 20, 2018",
+      id: 3,
+      name: "Billy Prince Billy"
+    };
+    
+    expect(await api.fillScheduleRoles(mockEvent, mockStaff, mockEventInfo))
+      .toEqual(expectedStaffRoles);
   });
 });

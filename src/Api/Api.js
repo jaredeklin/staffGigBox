@@ -29,18 +29,14 @@ export class Api  {
 
   generateSchedule = async (staff) => {
     const response = await fetch(`${this.url}api/v1/schedule`);
-    const currentScheduleData = await response.json();
-    const unscheduledEvents = await currentScheduleData.filter(schedule => { 
-      return schedule.staff_id === null; 
-    });
-
-    if ( unscheduledEvents.length ) {
+    const scheduleData = await response.json();
+    const unscheduledEvents = scheduleData.filter(schedule => schedule.staff_id === null);
     
+    if ( unscheduledEvents.length ) {
       const eventData = await this.getEventData(unscheduledEvents);
       let eventArray = [];
 
       for (const eventInfo of eventData) {
-
         const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
         const schedule = this.fillScheduleRoles(unscheduledEvents, unscheduledStaff, eventInfo);
        
@@ -56,8 +52,8 @@ export class Api  {
 
 
   fillScheduleRoles = (unscheduledEvents, unscheduledStaff, eventInfo) => {
+    
     const singleEvent = unscheduledEvents.filter(concert => eventInfo.id === concert.event_id);
-
     let barManagers = [];
     let assBarManagers = [];
     let barbacks = [];
@@ -77,7 +73,7 @@ export class Api  {
     });
 
     const schedule = singleEvent.reduce((array, event) => {
-
+      
       if (event.role === 'Bar Manager') {
         const managerIndex = Math.floor(Math.random() * barManagers.length);
 
@@ -116,7 +112,7 @@ export class Api  {
 
       return [...array, event];
     }, []);
-
+    
     return schedule;
   }
 
@@ -125,16 +121,15 @@ export class Api  {
     let availableStaff = [...staff];
 
     for (const event of events) {
-
       const scheduledStaff = await this.getSchedule(event.id);
-
+      
       availableStaff = availableStaff.filter(member => {
         return !scheduledStaff.staff.some(person => { 
           return member.id === person.staff_id;
         });
       });
     }
-
+    
     return Promise.all(availableStaff);
   }
 
@@ -330,12 +325,9 @@ export class Api  {
     return newEventStaffArray;
   }
 
-
   cleanDateTime = (originalDate, orginalTime) => {
-
     const date = this.cleanDate(originalDate);
-
-    const time = new Date(`${originalDate} ${orginalTime}`)
+    const time = new Date(`${date} ${orginalTime}`)
       .toLocaleTimeString([], {
         hour: '2-digit', 
         minute: '2-digit'
