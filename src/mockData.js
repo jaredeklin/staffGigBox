@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const mockStaff = [{
   id: 5,
   name: 'TK',
