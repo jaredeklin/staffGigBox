@@ -56,4 +56,14 @@ export const expectedStaffRoles = [
   {event_id: 3, role: "Barback", staff_id: 4}
 ];
 
+export const mockEventInfo = {
+  ass_bar_manager: true,
+  bar_manager:true,
+  barbacks: 1,
+  bartenders: 1,
+  date: "Jul 20, 2018",
+  id: 3,
+  name: "Billy Prince Billy"
+};
+
 

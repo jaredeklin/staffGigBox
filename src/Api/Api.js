@@ -31,11 +31,11 @@ export class Api  {
     const response = await fetch(`${this.url}api/v1/schedule`);
     const scheduleData = await response.json();
     const unscheduledEvents = scheduleData.filter(schedule => schedule.staff_id === null);
-    
+
     if ( unscheduledEvents.length ) {
       const eventData = await this.getEventData(unscheduledEvents);
       let eventArray = [];
-
+      
       for (const eventInfo of eventData) {
         const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
         const schedule = this.fillScheduleRoles(unscheduledEvents, unscheduledStaff, eventInfo);
