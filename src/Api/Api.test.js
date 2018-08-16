@@ -1,5 +1,10 @@
 import { Api } from './Api';
-import { mockStaff, expectedStaff, expectedStaffRoles} from '../mockData';
+import { 
+  mockStaff, 
+  expectedStaff, 
+  expectedStaffRoles, 
+  mockEventInfo
+} from '../mockData';
 
 describe('Api', () => {
   
@@ -25,17 +30,28 @@ describe('Api', () => {
   });
 
   it('should get events', async () => {
+    const mockDate = 'Jun 20, 2018';
     const expected = 'http://localhost:3000/api/v1/events';
-    await api.getEvents();
+    const expected1 = `http://localhost:3000/api/v1/events?date=${mockDate}`;
 
+    await api.getEvents();
     expect(window.fetch).toHaveBeenCalledWith(expected);
+
+    await api.getEvents(mockDate);
+    expect(window.fetch).toHaveBeenCalledWith(expected1);
   });
 
-  it.skip('generateSchedule should be called with the correct params', async () => {
+  it('generateSchedule should return correct schedule', async () => {
     const expected = 'http://localhost:3000/api/v1/schedule';
-    const mockStaff = [{}];
-    const mockSchedule = [{ staff_id: null }];
-    const expectedReturn = [{ staff_id: null }];
+    const mockSchedule = [
+      { staff_id: null, event_id: 3, role: 'Bar Manager' }, 
+      {staff_id:1, event_id: 1}
+    ];
+    const expectedReturn = [{event_id: 3, role: "Bar Manager", staff_id: 5}];
+
+    api.getEventData = jest.fn().mockReturnValue([mockEventInfo]);
+    api.getUnscheduledStaff = jest.fn();
+    api.fillScheduleRoles = jest.fn().mockReturnValue(expectedReturn);
 
     window.fetch = jest.fn(() => Promise.resolve({
       status: 200,
@@ -44,20 +60,27 @@ describe('Api', () => {
 
     await api.generateSchedule(mockStaff);
     expect(window.fetch).toHaveBeenCalledWith(expected);
+    expect(api.getEventData).toHaveBeenCalled();
+    expect(api.getUnscheduledStaff).toHaveBeenCalled();
+    expect(api.fillScheduleRoles).toHaveBeenCalled();
     expect(await api.generateSchedule(mockStaff)).toEqual(expectedReturn);
   });
 
-  it('should get getNumberOfStaff', () => {
-    const mockEvent = {
-      bartenders: 4,
-      barbacks: 2,
-      bar_manager: true,
-      ass_bar_manager: true
-    };
+  it('generateSchedule should return message if all events scheduled', async () => {
+    const mockSchedule = [{ staff_id:1, event_id: 1 }];
+    const expectedReturn = console.log('All events currently scheduled'); // eslint-disable-line
 
-    expect(api.getNumberOfStaff(mockEvent)).toEqual(8);
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve(mockSchedule)
+    }));
+
+    expect(await api.generateSchedule(mockStaff)).toEqual(expectedReturn);
   });
 
+  it('getNumberOfStaff should return correct value', () => {
+    expect(api.getNumberOfStaff(mockEventInfo)).toEqual(4);
+  });
 
   it('should get the schedules', async () => {
     const mockSchedule = { schedule: 'thebesten' };
@@ -66,11 +89,10 @@ describe('Api', () => {
     api.cleanScheduleData = jest.fn();
     api.combineStaffAndEvent = jest.fn().mockReturnValue(mockSchedule);
 
-    await api.getSchedule();
+    expect(await api.getSchedule()).toEqual(mockSchedule);
     expect(window.fetch).toHaveBeenCalledWith(expected);
     expect(api.cleanScheduleData).toHaveBeenCalled();
     expect(api.combineStaffAndEvent).toHaveBeenCalled();
-    expect(await api.getSchedule()).toEqual(mockSchedule);
   });
 
   it('should get a specific schedule', async () => {
@@ -175,10 +197,13 @@ describe('Api', () => {
   });
 
   it('cleanDateTime should reformat dates and times', () => {
-    // const mockDate = 'Wed Jun 6 2018 12:00:00 GMT-0600 (Mountain Daylight Time)'
     const mockDate = '2018-06-06 12:00:00 GMT-0600';
+    const mockDate1 = 'Wed Jun 6 2018 12:00:00 GMT-0600 (Mountain Daylight Time)';
 
     expect(api.cleanDateTime(mockDate, '18:00'))
+      .toEqual({"date": "Jun 6, 2018", "time": "6:00 PM"});
+
+    expect(api.cleanDateTime(mockDate1, '18:00'))
       .toEqual({"date": "Jun 6, 2018", "time": "6:00 PM"});
   });
 
@@ -348,16 +373,6 @@ describe('Api', () => {
       { event_id: 3, staff_id: null, role: 'Bartender' },
       { event_id: 3, staff_id: null, role: 'Barback' }
     ];
-
-    const mockEventInfo = {
-      ass_bar_manager: true,
-      bar_manager:true,
-      barbacks: 1,
-      bartenders: 1,
-      date: "Jul 20, 2018",
-      id: 3,
-      name: "Billy Prince Billy"
-    };
     
     expect(await api.fillScheduleRoles(mockEvent, mockStaff, mockEventInfo))
       .toEqual(expectedStaffRoles);

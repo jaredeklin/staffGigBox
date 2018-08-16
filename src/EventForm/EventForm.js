@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 export class EventForm extends Component {
   constructor(props) {
     super(props);
+    this.api = new Api();
+    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
     this.state = {
       venue: 'Ogden Theatre',
       name: '',
@@ -21,8 +23,6 @@ export class EventForm extends Component {
     };
 
     this.defaultState = this.state;
-    this.api = new Api();
-    this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
   }
 
   handleChange = (event) => {
@@ -34,7 +34,6 @@ export class EventForm extends Component {
     } else {
       this.setState({ [name]: value });   
     }
-
   }
 
   handleSubmit = async (event) => {

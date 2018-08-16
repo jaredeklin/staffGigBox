@@ -31,7 +31,7 @@ export class Api  {
     const response = await fetch(`${this.url}api/v1/schedule`);
     const scheduleData = await response.json();
     const unscheduledEvents = scheduleData.filter(schedule => schedule.staff_id === null);
-    
+
     if ( unscheduledEvents.length ) {
       const eventData = await this.getEventData(unscheduledEvents);
       let eventArray = [];
@@ -218,6 +218,7 @@ export class Api  {
         bar_manager: eventData[0].bar_manager,
         beer_bucket: eventData[0].beer_bucket
       };
+
       return event;
     });
 
