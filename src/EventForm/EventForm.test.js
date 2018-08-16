@@ -11,7 +11,9 @@ describe('EventForm', () => {
     wrapper = shallow(
       <EventForm 
         checkManualSchedule={mockCheck}
-        scheduleGenerator={mockScheduleGenerator} />);
+        scheduleGenerator={mockScheduleGenerator} 
+      />
+    );
   });
 
   it('should match the snapshot', () => {
@@ -19,16 +21,15 @@ describe('EventForm', () => {
   });
 
   it('should update state on handleChange', () => {
-    const mockEvent = {
-      target: {
-        name: 'time',
-        value: '7 pm'
-      }
-    };
+    const mockEvent = { target: { name: 'time', value: '7 pm'} };
+    const mockEvent2 = { target: { name: 'date', value: '2018-06-06'} };
+
 
     wrapper.instance().handleChange(mockEvent);
-
     expect(wrapper.state('time')).toEqual('7 pm');
+
+    wrapper.instance().handleChange(mockEvent2);
+    expect(wrapper.state('date')).toEqual('2018-06-06 12:00:00 GMT-0600');
   });
 
   it('should post event on handle Submit', async () => {

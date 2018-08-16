@@ -35,7 +35,7 @@ export class Api  {
     if ( unscheduledEvents.length ) {
       const eventData = await this.getEventData(unscheduledEvents);
       let eventArray = [];
-      
+
       for (const eventInfo of eventData) {
         const unscheduledStaff = await this.getUnscheduledStaff(staff, eventInfo.date);
         const schedule = this.fillScheduleRoles(unscheduledEvents, unscheduledStaff, eventInfo);
@@ -218,6 +218,7 @@ export class Api  {
         bar_manager: eventData[0].bar_manager,
         beer_bucket: eventData[0].beer_bucket
       };
+
       return event;
     });
 
