@@ -30,10 +30,15 @@ describe('Api', () => {
   });
 
   it('should get events', async () => {
+    const mockDate = 'Jun 20, 2018';
     const expected = 'http://localhost:3000/api/v1/events';
-    await api.getEvents();
+    const expected1 = `http://localhost:3000/api/v1/events?date=${mockDate}`;
 
+    await api.getEvents();
     expect(window.fetch).toHaveBeenCalledWith(expected);
+
+    await api.getEvents(mockDate);
+    expect(window.fetch).toHaveBeenCalledWith(expected1);
   });
 
   it('generateSchedule should return correct schedule', async () => {
@@ -58,6 +63,18 @@ describe('Api', () => {
     expect(api.getEventData).toHaveBeenCalled();
     expect(api.getUnscheduledStaff).toHaveBeenCalled();
     expect(api.fillScheduleRoles).toHaveBeenCalled();
+    expect(await api.generateSchedule(mockStaff)).toEqual(expectedReturn);
+  });
+
+  it('generateSchedule should return message if all events scheduled', async () => {
+    const mockSchedule = [{ staff_id:1, event_id: 1 }];
+    const expectedReturn = console.log('All events currently scheduled'); // eslint-disable-line
+
+    window.fetch = jest.fn(() => Promise.resolve({
+      status: 200,
+      json: () => Promise.resolve(mockSchedule)
+    }));
+
     expect(await api.generateSchedule(mockStaff)).toEqual(expectedReturn);
   });
 
