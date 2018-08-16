@@ -78,17 +78,9 @@ describe('Api', () => {
     expect(await api.generateSchedule(mockStaff)).toEqual(expectedReturn);
   });
 
-  it('should get getNumberOfStaff', () => {
-    const mockEvent = {
-      bartenders: 4,
-      barbacks: 2,
-      bar_manager: true,
-      ass_bar_manager: true
-    };
-
-    expect(api.getNumberOfStaff(mockEvent)).toEqual(8);
+  it('getNumberOfStaff should return correct value', () => {
+    expect(api.getNumberOfStaff(mockEventInfo)).toEqual(4);
   });
-
 
   it('should get the schedules', async () => {
     const mockSchedule = { schedule: 'thebesten' };
@@ -97,11 +89,10 @@ describe('Api', () => {
     api.cleanScheduleData = jest.fn();
     api.combineStaffAndEvent = jest.fn().mockReturnValue(mockSchedule);
 
-    await api.getSchedule();
+    expect(await api.getSchedule()).toEqual(mockSchedule);
     expect(window.fetch).toHaveBeenCalledWith(expected);
     expect(api.cleanScheduleData).toHaveBeenCalled();
     expect(api.combineStaffAndEvent).toHaveBeenCalled();
-    expect(await api.getSchedule()).toEqual(mockSchedule);
   });
 
   it('should get a specific schedule', async () => {
