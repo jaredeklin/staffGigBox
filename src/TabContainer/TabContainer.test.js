@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { TabContainer } from './TabContainer';
 
 describe('TabContainer', () => {
-
   let wrapper;
   let mockEditSchedule = jest.fn();
   let mockTabs = ['Schedule'];
@@ -12,13 +11,13 @@ describe('TabContainer', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <TabContainer 
-        editSchedule={ mockEditSchedule } 
-        tabs={ mockTabs }
-        schedule={ mockSchedule }
-        scheduleGenerator={ mockScheduleGenerator }
-      />);
-
+      <TabContainer
+        editSchedule={mockEditSchedule}
+        tabs={mockTabs}
+        schedule={mockSchedule}
+        scheduleGenerator={mockScheduleGenerator}
+      />
+    );
   });
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
@@ -26,24 +25,25 @@ describe('TabContainer', () => {
 
   it('should match the snapshot with admin tabs', () => {
     const mockAdminTabs = [
-      'Add Event', 
-      'Add New Staff', 
-      'Schedule', 
+      'Add Event',
+      'Add New Staff',
+      'Schedule',
       'Submit Availability'
     ];
 
     wrapper = shallow(
-      <TabContainer 
-        editSchedule={ mockEditSchedule } 
-        tabs={ mockAdminTabs }
-        schedule={ mockSchedule }
-      />);
+      <TabContainer
+        editSchedule={mockEditSchedule}
+        tabs={mockAdminTabs}
+        schedule={mockSchedule}
+      />
+    );
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should match the snapshot when submit Availability is the active tab', () => { //eslint-disable-line
-    wrapper.setState({ activeTabName: 'Submit Availability'});
+    wrapper.setState({ activeTabName: 'Submit Availability' });
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -61,20 +61,20 @@ describe('TabContainer', () => {
     const mockManualSchedule = false;
     const mockEventData = { event_id: 2 };
 
-    wrapper.instance().checkManualSchedule( mockEventData, mockManualSchedule );
+    wrapper.instance().checkManualSchedule(mockEventData, mockManualSchedule);
 
     expect(wrapper.state('manualSchedule')).toEqual(false);
     expect(mockScheduleGenerator).toHaveBeenCalled();
   });
 
   it('updateSchedule should call getSchedule and update state', async () => {
-    wrapper.instance()
-      .api.getSchedule = jest.fn().mockReturnValue({ event_id: 2 });
+    wrapper.instance().api.getSchedule = jest
+      .fn()
+      .mockReturnValue({ event_id: 2 });
 
     await wrapper.instance().updateSchedule(1);
 
     expect(wrapper.instance().api.getSchedule).toHaveBeenCalledWith(1);
     expect(wrapper.state('manualScheduleData')).toEqual({ event_id: 2 });
   });
-
 });

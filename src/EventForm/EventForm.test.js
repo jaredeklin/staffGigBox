@@ -9,9 +9,9 @@ describe('EventForm', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <EventForm 
+      <EventForm
         checkManualSchedule={mockCheck}
-        scheduleGenerator={mockScheduleGenerator} 
+        scheduleGenerator={mockScheduleGenerator}
       />
     );
   });
@@ -21,9 +21,8 @@ describe('EventForm', () => {
   });
 
   it('should update state on handleChange', () => {
-    const mockEvent = { target: { name: 'time', value: '7 pm'} };
-    const mockEvent2 = { target: { name: 'date', value: '2018-06-06'} };
-
+    const mockEvent = { target: { name: 'time', value: '7 pm' } };
+    const mockEvent2 = { target: { name: 'date', value: '2018-06-06' } };
 
     wrapper.instance().handleChange(mockEvent);
     expect(wrapper.state('time')).toEqual('7 pm');
@@ -33,7 +32,6 @@ describe('EventForm', () => {
   });
 
   it('should post event on handle Submit', async () => {
-
     const mockEvent = {
       preventDefault: jest.fn()
     };
@@ -74,10 +72,12 @@ describe('EventForm', () => {
       }
     ];
 
-    window.fetch = jest.fn(() => Promise.resolve({
-      status: 201,
-      json: () => Promise.resolve({})
-    }));
+    window.fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 201,
+        json: () => Promise.resolve({})
+      })
+    );
 
     const date = { date: 'Jun 6, 2018', time: '6:00 pm' };
 
@@ -93,7 +93,7 @@ describe('EventForm', () => {
     expect(wrapper.instance().api.cleanDateTime).toHaveBeenCalled();
     expect(wrapper.instance().api.buildScheduleWithRoles).toHaveBeenCalled();
     expect(wrapper.instance().api.postSchedule).toHaveBeenCalled();
-    expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();   
+    expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();
     expect(mockCheck).toHaveBeenCalled();
     expect(wrapper.state()).toEqual(mockDefaultState);
 

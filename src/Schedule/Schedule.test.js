@@ -3,15 +3,14 @@ import { shallow } from 'enzyme';
 import { Schedule } from './Schedule';
 
 describe('Schedule', () => {
-
   let wrapper;
   let mockEditSchedule = jest.fn();
   let mockStaffList = [];
-  let mockEvent = { 
+  let mockEvent = {
     staff: [
-      { role: 'Bartender' }, 
-      { role: 'Barback' }, 
-      { role: 'Bar Manager' }, 
+      { role: 'Bartender' },
+      { role: 'Barback' },
+      { role: 'Bar Manager' },
       { role: 'Assistant Bar Manager' }
     ]
   };
@@ -22,15 +21,16 @@ describe('Schedule', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <Schedule 
-        editSchedule={ mockEditSchedule }
-        staffList={ mockStaffList }
-        event={ mockEvent }
-        deleteFromSchedule={ mockDeleteFromSchedule }
-        admin={ mockAdmin }
-        updateSchedule={ mockUpdateSchedule } 
-        manualSchedule={ mockManualSchedule }
-      />);
+      <Schedule
+        editSchedule={mockEditSchedule}
+        staffList={mockStaffList}
+        event={mockEvent}
+        deleteFromSchedule={mockDeleteFromSchedule}
+        admin={mockAdmin}
+        updateSchedule={mockUpdateSchedule}
+        manualSchedule={mockManualSchedule}
+      />
+    );
   });
 
   it('should match the snapshot', () => {
@@ -39,15 +39,16 @@ describe('Schedule', () => {
 
   it('should match the snapshot when admin is true', () => {
     wrapper = shallow(
-      <Schedule 
-        editSchedule={ mockEditSchedule }
-        staffList={ mockStaffList }
-        event={ mockEvent }
-        deleteFromSchedule={ mockDeleteFromSchedule }
-        admin={ true }
-        updateSchedule={ mockUpdateSchedule } 
-        manualSchedule={ mockManualSchedule }
-      />);
+      <Schedule
+        editSchedule={mockEditSchedule}
+        staffList={mockStaffList}
+        event={mockEvent}
+        deleteFromSchedule={mockDeleteFromSchedule}
+        admin={true}
+        updateSchedule={mockUpdateSchedule}
+        manualSchedule={mockManualSchedule}
+      />
+    );
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -62,7 +63,7 @@ describe('Schedule', () => {
     wrapper.setState({ staff_event_id: 12, edit: true });
 
     await wrapper.instance().updateEventStaff(mockObj);
-    
+
     expect(wrapper.instance().api.modifySchedule).toHaveBeenCalled();
     expect(mockEditSchedule).toHaveBeenCalled();
     expect(wrapper.state('edit')).toEqual(false);
@@ -79,12 +80,11 @@ describe('Schedule', () => {
     wrapper.setState({ staff_event_id: 12, edit: true, manualSchedule: true });
 
     await wrapper.instance().updateEventStaff(mockObj);
-    
+
     expect(wrapper.instance().api.modifySchedule).toHaveBeenCalled();
     expect(mockUpdateSchedule).toHaveBeenCalled();
     expect(wrapper.state('edit')).toEqual(false);
   });
-
 
   it('handleEditClick should update state', () => {
     const mockPerson = { staff_events_id: 12 };

@@ -3,7 +3,6 @@ import './EventForm.css';
 import { Api } from '../Api/Api';
 import PropTypes from 'prop-types';
 
-
 export class EventForm extends Component {
   constructor(props) {
     super(props);
@@ -25,33 +24,33 @@ export class EventForm extends Component {
     this.defaultState = this.state;
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
 
     if (name === 'date') {
       const cleanDate = `${value} 12:00:00 GMT-0600`;
       this.setState({ date: cleanDate });
     } else {
-      this.setState({ [name]: value });   
+      this.setState({ [name]: value });
     }
-  }
+  };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
-    const { 
-      venue, 
-      name,  
-      bar_manager, 
-      ass_bar_manager, 
+    const {
+      venue,
+      name,
+      bar_manager,
+      ass_bar_manager,
       bartenders,
-      barbacks, 
-      beer_bucket, 
-      manualSchedule 
+      barbacks,
+      beer_bucket,
+      manualSchedule
     } = this.state;
 
     const dateTime = this.api.cleanDateTime(this.state.date, this.state.time);
-    const { date, time } = dateTime; 
-    
+    const { date, time } = dateTime;
+
     const eventObj = {
       venue,
       name,
@@ -67,172 +66,177 @@ export class EventForm extends Component {
     const response = await fetch(`${this.url}api/v1/events`, {
       method: 'POST',
       body: JSON.stringify(eventObj),
-      headers: { 'Content-Type': 'application/json'}
+      headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.status === 201) {
       const eventData = await response.json();
- 
+
       const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
 
       await this.api.postSchedule(newEventStaffArray);
 
-      if ( manualSchedule === true ) {
+      if (manualSchedule === true) {
         const newEventSchedule = await this.api.getSchedule(eventData.id);
-        
-        this.props.checkManualSchedule(newEventSchedule, manualSchedule);
 
+        this.props.checkManualSchedule(newEventSchedule, manualSchedule);
       } else {
         await this.props.scheduleGenerator();
       }
 
       this.setState(this.defaultState);
     }
-  }
+  };
 
   render() {
-
     const { venue, name, date, time, bartenders, barbacks } = this.state;
 
     return (
-      <div className='event-div'>
-        <h4 className='event-header'>Add an event</h4>
-        <form className= 'event-form' onSubmit={this.handleSubmit}>
-          <div className='venue-info'>
-            <label className='form-label'>
+      <div className="event-div">
+        <h4 className="event-header">Add an event</h4>
+        <form className="event-form" onSubmit={this.handleSubmit}>
+          <div className="venue-info">
+            <label className="form-label">
               Venue
-              <select 
-                className='event-select' 
-                name='venue' 
-                value={ venue } 
-                onChange={ this.handleChange }
+              <select
+                className="event-select"
+                name="venue"
+                value={venue}
+                onChange={this.handleChange}
               >
-                <option value='Ogden Theatre'>Ogden Theatre</option>
-                <option value='Gothic Theatre'>Gothic Theatre</option>
-                <option value='Bluebird Theater'>Bluebird Theater</option>
+                <option value="Ogden Theatre">Ogden Theatre</option>
+                <option value="Gothic Theatre">Gothic Theatre</option>
+                <option value="Bluebird Theater">Bluebird Theater</option>
               </select>
             </label>
             <input
-              placeholder='Band name'
-              name='name' 
-              value={ name }
-              onChange={ this.handleChange }
-              className='input_event-form'
+              placeholder="Band name"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+              className="input_event-form"
             />
             <input
-              type='date'
-              placeholder='Date'
-              name='date' 
-              value={ date }
-              onChange={ this.handleChange }
-              className='input_event-form'
+              type="date"
+              placeholder="Date"
+              name="date"
+              value={date}
+              onChange={this.handleChange}
+              className="input_event-form"
             />
             <input
-              placeholder='Time'
-              type='time'
-              name='time'
-              value={ time }
-              onChange={ this.handleChange }
-              className='input_event-form'
+              placeholder="Time"
+              type="time"
+              name="time"
+              value={time}
+              onChange={this.handleChange}
+              className="input_event-form"
             />
           </div>
-          <div className='staff-info'>
-            <label className='form-label'>
-            Bar Manager needed?
-              <input type='radio'
-                id= 'yes'
-                value={ true }
-                name='bar_manager'
-                onChange={ this.handleChange }
-              />
-              <label htmlFor='yes'>Yes</label>
+          <div className="staff-info">
+            <label className="form-label">
+              Bar Manager needed?
               <input
-                type='radio'
-                id= 'no'
-                value={ false }
-                name='bar_manager'
-                onChange={ this.handleChange }
+                type="radio"
+                id="yes"
+                value={true}
+                name="bar_manager"
+                onChange={this.handleChange}
               />
-              <label htmlFor='no'>No</label>
+              <label htmlFor="yes">Yes</label>
+              <input
+                type="radio"
+                id="no"
+                value={false}
+                name="bar_manager"
+                onChange={this.handleChange}
+              />
+              <label htmlFor="no">No</label>
             </label>
-            <label className='form-label'>
-            Assistant Bar Manager needed?
-              <input type='radio'
-                id= 'yes'
-                value={ true }
-                name='ass_bar_manager'
-                onChange={ this.handleChange }
-              />
-              <label htmlFor='yes'>Yes</label>
-
+            <label className="form-label">
+              Assistant Bar Manager needed?
               <input
-                type='radio'
-                id= 'no' value={ false }
-                name='ass_bar_manager'
-                onChange={ this.handleChange }
+                type="radio"
+                id="yes"
+                value={true}
+                name="ass_bar_manager"
+                onChange={this.handleChange}
               />
-              <label htmlFor='no'>No</label>
-
+              <label htmlFor="yes">Yes</label>
+              <input
+                type="radio"
+                id="no"
+                value={false}
+                name="ass_bar_manager"
+                onChange={this.handleChange}
+              />
+              <label htmlFor="no">No</label>
             </label>
             <input
-              className='input_event-form'
-              type='number'
-              min='0'
-              placeholder='Number of bartenders needed'
-              name='bartenders'
-              value={ bartenders }
-              onChange={ this.handleChange } />
+              className="input_event-form"
+              type="number"
+              min="0"
+              placeholder="Number of bartenders needed"
+              name="bartenders"
+              value={bartenders}
+              onChange={this.handleChange}
+            />
             <input
-              className='input_event-form'
-              type='number'
-              min='0'
-              placeholder='Number of barbacks needed'
-              name='barbacks'
-              value={ barbacks }
-              onChange={ this.handleChange } />
-            <label className='form-label'>
-            Beer Bucket?
-              <input type='radio'
-                id= 'yes'
-                value={ true }
-                name='beer_bucket'
-                onChange={ this.handleChange }
-              />
-              <label htmlFor='yes'>Yes</label>
+              className="input_event-form"
+              type="number"
+              min="0"
+              placeholder="Number of barbacks needed"
+              name="barbacks"
+              value={barbacks}
+              onChange={this.handleChange}
+            />
+            <label className="form-label">
+              Beer Bucket?
               <input
-                type='radio'
-                id= 'no'
-                value={ false }
-                name='beer_bucket'
-                onChange={ this.handleChange }
+                type="radio"
+                id="yes"
+                value={true}
+                name="beer_bucket"
+                onChange={this.handleChange}
               />
-              <label htmlFor='no'>No</label>
+              <label htmlFor="yes">Yes</label>
+              <input
+                type="radio"
+                id="no"
+                value={false}
+                name="beer_bucket"
+                onChange={this.handleChange}
+              />
+              <label htmlFor="no">No</label>
             </label>
-            <label className='form-label'>
-            Would like to assign staff to this event?
-              <input type='radio'
-                id= 'yes'
-                value={ true }
-                name='manualSchedule'
-                onChange={ this.handleChange }
-              />
-              <label htmlFor='yes'>Yes</label>
+            <label className="form-label">
+              Would like to assign staff to this event?
               <input
-                type='radio'
-                id= 'no'
-                value={ false }
-                name='manualSchedule'
-                onChange={ this.handleChange }
+                type="radio"
+                id="yes"
+                value={true}
+                name="manualSchedule"
+                onChange={this.handleChange}
               />
-              <label htmlFor='no'>No</label>
+              <label htmlFor="yes">Yes</label>
+              <input
+                type="radio"
+                id="no"
+                value={false}
+                name="manualSchedule"
+                onChange={this.handleChange}
+              />
+              <label htmlFor="no">No</label>
             </label>
           </div>
-          <button className='add-event-btn'>Add Event</button>
+          <button className="add-event-btn">Add Event</button>
         </form>
         <button
-          className='generate-schedule-btn'
-          onClick={ this.props.scheduleGenerator }
-        >Generate schedule</button>
+          className="generate-schedule-btn"
+          onClick={this.props.scheduleGenerator}
+        >
+          Generate schedule
+        </button>
       </div>
     );
   }

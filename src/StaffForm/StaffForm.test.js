@@ -56,12 +56,12 @@ describe('StaffForm', () => {
       }
     ];
 
-    window.fetch = jest.fn(() => Promise.resolve({
-      status: 201,
-      json: () => Promise.resolve({
-
+    window.fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 201,
+        json: () => Promise.resolve({})
       })
-    }));
+    );
     await wrapper.instance().handleSubmit(mockEvent);
     expect(window.fetch).toHaveBeenCalledWith(...expected);
     expect(mockAddStaff).toHaveBeenCalled();
