@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Schedule.css';
-import { EditStaffSelect } from '../EditStaffSelect/EditStaffSelect';
+import { EditStaffDropdown } from '../EditStaffDropdown/EditStaffDropdown';
 import { Api } from '../Api/Api';
 import PropTypes from 'prop-types';
+import DisplayStaff from '../DisplayStaff/DisplayStaff';
 
 export class Schedule extends Component {
   constructor(props) {
@@ -42,44 +43,6 @@ export class Schedule extends Component {
     });
   };
 
-  displayStaff = role => {
-    const { staff } = this.props.event;
-
-    return staff
-      .filter(staffMember => staffMember.role === role)
-      .map(person => {
-        return (
-          <li key={person.staff_events_id + role}>
-            {person.name}
-            {this.props.admin && (
-              <div className="edit-container">
-                <button
-                  className="delete"
-                  onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }> {/*eslint-disable-line*/}
-                </button>
-                <button
-                  className="edit"
-                  onClick={() => this.handleEditClick(person)}
-                />
-              </div>
-            )}
-          </li>
-        );
-      });
-  };
-
-  handleEditDropdown = event_id => {
-    return (
-      <EditStaffSelect
-        staff={this.props.staffList}
-        createEventStaff={this.createEventStaff}
-        manualSchedule={this.state.manualSchedule}
-        event_id={event_id}
-        updateEventStaff={this.updateEventStaff}
-      />
-    );
-  };
-
   render() {
     const {
       venue,
@@ -98,28 +61,40 @@ export class Schedule extends Component {
           <h4>{time}</h4>
         </div>
         <h2>{name}</h2>
-        {this.state.edit && this.handleEditDropdown(event_id)}
+        {this.state.edit && (
+          <EditStaffDropdown
+            staff={this.props.staffList}
+            createEventStaff={this.createEventStaff}
+            manualSchedule={this.state.manualSchedule}
+            event_id={event_id}
+            updateEventStaff={this.updateEventStaff}
+          />
+        )}
         <section className="staff-container">
           <article className="managers">
-            <ul className="bar-manager">
-              <h4>Bar Manager</h4>
-              {this.displayStaff('Bar Manager')}
-            </ul>
+            <DisplayStaff
+              {...this.props}
+              staffRole="Bar Manager"
+              handleEditClick={this.handleEditClick}
+            />
             {ass_bar_manager && (
-              <ul className="ass-bar-manager">
-                <h4>Assistant Bar Manager</h4>
-                {this.displayStaff('Assistant Bar Manager')}
-              </ul>
+              <DisplayStaff
+                {...this.props}
+                staffRole="Assistant Bar Manager"
+                handleEditClick={this.handleEditClick}
+              />
             )}
           </article>
-          <ul className="bartenders">
-            <h4>Bartenders</h4>
-            {this.displayStaff('Bartender')}
-          </ul>
-          <ul className="barbacks">
-            <h4>Barbacks</h4>
-            {this.displayStaff('Barback')}
-          </ul>
+          <DisplayStaff
+            {...this.props}
+            staffRole="Bartender"
+            handleEditClick={this.handleEditClick}
+          />
+          <DisplayStaff
+            {...this.props}
+            staffRole="Barback"
+            handleEditClick={this.handleEditClick}
+          />
         </section>
       </section>
     );
