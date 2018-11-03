@@ -380,7 +380,7 @@ export class Api {
       case 'Bar Manager':
         return 'bar-manager';
 
-      case 'Assistand Bar Manager':
+      case 'Assistant Bar Manager':
         return 'ass-bar-manager';
 
       case 'Bartender':

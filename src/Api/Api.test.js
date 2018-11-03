@@ -391,4 +391,16 @@ describe('Api', () => {
       await api.fillScheduleRoles(mockEvent, mockStaff, mockEventInfo)
     ).toEqual(expectedStaffRoles);
   });
+
+  describe('getClassName', () => {
+    it('should return correct class names', () => {
+      expect(api.getClassName('Bar Manager')).toEqual('bar-manager');
+      expect(api.getClassName('Assistant Bar Manager')).toEqual(
+        'ass-bar-manager'
+      );
+      expect(api.getClassName('Bartender')).toEqual('bartenders');
+      expect(api.getClassName('Barback')).toEqual('barbacks');
+      expect(api.getClassName()).toEqual(undefined);
+    });
+  });
 });
