@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Api } from '../Api/Api';
 
 const DisplayStaff = ({
   event,
@@ -8,6 +9,8 @@ const DisplayStaff = ({
   handleEditClick,
   admin
 }) => {
+  const api = new Api();
+
   const mapStaff = staffRole => {
     const { staff } = event;
 
@@ -34,32 +37,13 @@ const DisplayStaff = ({
       });
   };
 
-  const getClassName = role => {
-    switch (role) {
-      case 'Bar Manager':
-        return 'bar-manager';
-
-      case 'Assistand Bar Manager':
-        return 'ass-bar-manager';
-
-      case 'Bartender':
-        return 'bartenders';
-
-      case 'Barback':
-        return 'barbacks';
-
-      default:
-        break;
-    }
-  };
-
   const role =
     staffRole === 'Bartender' || staffRole === 'Barback'
       ? staffRole + 's'
       : staffRole;
 
   return (
-    <ul className={getClassName(staffRole)}>
+    <ul className={api.getClassName(staffRole)}>
       <h4>{role}</h4>
       {mapStaff(staffRole)}
     </ul>
