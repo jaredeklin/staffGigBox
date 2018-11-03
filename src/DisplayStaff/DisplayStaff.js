@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DisplayStaff = ({
   event,
@@ -66,3 +67,11 @@ const DisplayStaff = ({
 };
 
 export default DisplayStaff;
+
+DisplayStaff.propTypes = {
+  event: PropTypes.object,
+  staffRole: PropTypes.string,
+  admin: PropTypes.bool,
+  deleteFromSchedule: PropTypes.func,
+  handleEditClick: PropTypes.func
+};
