@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { EditStaffSelect } from './EditStaffSelect';
+import { EditStaffDropdown } from './EditStaffDropdown';
 
-describe('EditStaffSelect', () => {
+describe('EditStaffDropdown', () => {
   let wrapper;
   let mockStaff = [{ id: 2, name: 'Jared' }];
   let mockEventID = 1;
@@ -10,7 +10,7 @@ describe('EditStaffSelect', () => {
 
   beforeEach(() => {
     wrapper = shallow(
-      <EditStaffSelect
+      <EditStaffDropdown
         staff={mockStaff}
         event_id={mockEventID}
         updateEventStaff={mockUpdateEventStaff}

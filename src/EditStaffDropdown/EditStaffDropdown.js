@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class EditStaffSelect extends Component {
+export class EditStaffDropdown extends Component {
   constructor(props) {
     super(props);
 
@@ -41,7 +41,7 @@ export class EditStaffSelect extends Component {
   }
 }
 
-EditStaffSelect.propTypes = {
+EditStaffDropdown.propTypes = {
   updateEventStaff: PropTypes.func,
   event_id: PropTypes.number,
   staff: PropTypes.array
