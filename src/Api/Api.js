@@ -374,4 +374,23 @@ export class Api {
 
     return await response.json();
   };
+
+  getClassName = role => {
+    switch (role) {
+      case 'Bar Manager':
+        return 'bar-manager';
+
+      case 'Assistand Bar Manager':
+        return 'ass-bar-manager';
+
+      case 'Bartender':
+        return 'bartenders';
+
+      case 'Barback':
+        return 'barbacks';
+
+      default:
+        break;
+    }
+  };
 }
