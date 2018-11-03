@@ -21,31 +21,19 @@ describe('EventForm', () => {
   });
 
   it('should update state on handleChange', () => {
-    const mockEvent = { target: { name: 'time', value: '7 pm' } };
+    const mockEvent = { target: { name: 'time', value: '19:00' } };
     const mockEvent2 = { target: { name: 'date', value: '2018-06-06' } };
 
     wrapper.instance().handleChange(mockEvent);
-    expect(wrapper.state('time')).toEqual('7 pm');
+    expect(wrapper.state('time')).toEqual('19:00');
 
     wrapper.instance().handleChange(mockEvent2);
-    expect(wrapper.state('date')).toEqual('2018-06-06 12:00:00 GMT-0600');
+    expect(wrapper.state('date')).toEqual('2018-06-06');
   });
 
   it('should post event on handle Submit', async () => {
     const mockEvent = {
       preventDefault: jest.fn()
-    };
-
-    const mockEventObj = {
-      venue: 'Ogden Theatre',
-      name: '',
-      date: 'Jun 6, 2018',
-      time: '6:00 pm',
-      bar_manager: '',
-      ass_bar_manager: '',
-      bartenders: '',
-      barbacks: '',
-      beer_bucket: ''
     };
 
     const mockDefaultState = {
@@ -60,6 +48,13 @@ describe('EventForm', () => {
       beer_bucket: '',
       manualSchedule: ''
     };
+
+    const mockEventObj = {
+      ...mockDefaultState,
+      date: 'Jun 6, 2018',
+      time: '6:00 pm'
+    };
+    delete mockEventObj.manualSchedule;
 
     const expected = [
       'http://localhost:3000/api/v1/events',
@@ -79,18 +74,18 @@ describe('EventForm', () => {
       })
     );
 
-    const date = { date: 'Jun 6, 2018', time: '6:00 pm' };
-
-    wrapper.setState({ manualSchedule: true });
+    wrapper.setState({
+      manualSchedule: true,
+      date: '2018-06-06',
+      time: '18:00'
+    });
     wrapper.instance().api.postSchedule = jest.fn();
     wrapper.instance().api.buildScheduleWithRoles = jest.fn();
     wrapper.instance().api.getSchedule = jest.fn();
-    wrapper.instance().api.cleanDateTime = jest.fn().mockReturnValue(date);
 
     await wrapper.instance().handleSubmit(mockEvent);
     expect(window.fetch).toHaveBeenCalledWith(...expected);
 
-    expect(wrapper.instance().api.cleanDateTime).toHaveBeenCalled();
     expect(wrapper.instance().api.buildScheduleWithRoles).toHaveBeenCalled();
     expect(wrapper.instance().api.postSchedule).toHaveBeenCalled();
     expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();

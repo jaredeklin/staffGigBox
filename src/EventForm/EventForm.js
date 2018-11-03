@@ -3,6 +3,8 @@ import './EventForm.css';
 import { Api } from '../Api/Api';
 import PropTypes from 'prop-types';
 
+const moment = require('moment');
+
 export class EventForm extends Component {
   constructor(props) {
     super(props);
@@ -27,41 +29,19 @@ export class EventForm extends Component {
   handleChange = event => {
     const { name, value } = event.target;
 
-    if (name === 'date') {
-      const cleanDate = `${value} 12:00:00 GMT-0600`;
-      this.setState({ date: cleanDate });
-    } else {
-      this.setState({ [name]: value });
-    }
+    this.setState({ [name]: value });
   };
 
   handleSubmit = async event => {
     event.preventDefault();
-    const {
-      venue,
-      name,
-      bar_manager,
-      ass_bar_manager,
-      bartenders,
-      barbacks,
-      beer_bucket,
-      manualSchedule
-    } = this.state;
-
-    const dateTime = this.api.cleanDateTime(this.state.date, this.state.time);
-    const { date, time } = dateTime;
-
+    const { date, time, manualSchedule } = this.state;
+    const dateWithTime = date + ' ' + time;
     const eventObj = {
-      venue,
-      name,
-      date,
-      time,
-      bar_manager,
-      ass_bar_manager,
-      bartenders,
-      barbacks,
-      beer_bucket
+      ...this.state,
+      date: moment(date).format('MMM D, YYYY'),
+      time: moment(dateWithTime, 'YYYY-MM-DD H:mm').format('h:mm a')
     };
+    delete eventObj.manualSchedule;
 
     const response = await fetch(`${this.url}api/v1/events`, {
       method: 'POST',
