@@ -336,24 +336,6 @@ export class Api {
     return newEventStaffArray;
   };
 
-  cleanDateTime = (originalDate, orginalTime) => {
-    const date = this.cleanDate(originalDate);
-    const time = new Date(`${date} ${orginalTime}`).toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-
-    return { date, time };
-  };
-
-  cleanDate = date => {
-    return new Date(date).toLocaleDateString([], {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric'
-    });
-  };
-
   postAvailability = (id, dates) => {
     const promise = dates.map(async day => {
       const response = await fetch(`${this.url}api/v1/availability`, {

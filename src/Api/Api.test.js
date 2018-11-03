@@ -204,22 +204,6 @@ describe('Api', () => {
     expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
-  it('cleanDateTime should reformat dates and times', () => {
-    const mockDate = '2018-06-06 12:00:00 GMT-0600';
-    const mockDate1 =
-      'Wed Jun 6 2018 12:00:00 GMT-0600 (Mountain Daylight Time)';
-
-    expect(api.cleanDateTime(mockDate, '18:00')).toEqual({
-      date: 'Jun 6, 2018',
-      time: '6:00 PM'
-    });
-
-    expect(api.cleanDateTime(mockDate1, '18:00')).toEqual({
-      date: 'Jun 6, 2018',
-      time: '6:00 PM'
-    });
-  });
-
   it('modifySchedule should be called with the correct params', async () => {
     const mockSchedule = [{ staff_events_id: 23, staff_id: 2, event_id: 4 }];
 
