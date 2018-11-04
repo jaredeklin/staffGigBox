@@ -38,9 +38,11 @@ export class Availability extends Component {
     this.setState({ selectedDays });
   };
 
-  cleanDate = date => {
-    const day = date.toString().substring(4, 15);
-    return moment(day, 'MMM DD YYYY').format('MMM D, YYYY');
+  cleanDate = dates => {
+    return dates.map(day => {
+      const date = day.toString().substring(4, 15);
+      return moment(date, 'MMM DD YYYY').format('MMM D, YYYY');
+    });
   };
 
   handleSubmit = async () => {
