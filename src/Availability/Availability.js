@@ -20,8 +20,8 @@ export class Availability extends Component {
     const days = [...this.state.selectedDays];
 
     if (selected) {
-      const selectedIndex = selectedDays.findIndex(
-        selectedDay => selectedDay.toString() === day.toString()
+      const selectedIndex = days.findIndex(
+        selectedDay => selectedDay.toDateString() === day.toDateString()
       );
       days.splice(selectedIndex, 1);
     } else {
@@ -50,7 +50,7 @@ export class Availability extends Component {
       const cleanDates = this.cleanDate(daysToAdd);
 
       await this.api.postAvailability(id, cleanDates);
-        }
+    }
 
     if (daysToRemove.length) {
       const cleanDates = this.cleanDate(daysToRemove);
