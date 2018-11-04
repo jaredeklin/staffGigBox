@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Schedule.css';
-import { EditStaffSelect } from '../EditStaffSelect/EditStaffSelect';
+import { EditStaffDropdown } from '../EditStaffDropdown/EditStaffDropdown';
 import { Api } from '../Api/Api';
 import PropTypes from 'prop-types';
+import DisplayStaff from '../DisplayStaff/DisplayStaff';
 
 export class Schedule extends Component {
   constructor(props) {
@@ -17,114 +18,83 @@ export class Schedule extends Component {
     };
   }
 
-  updateEventStaff = async ({staff_id, event_id}) => {
-
-    const staff = { 
-      staff_events_id: this.state.staff_events_id, staff_id, event_id 
+  updateEventStaff = async ({ staff_id, event_id }) => {
+    const staff = {
+      staff_events_id: this.state.staff_events_id,
+      staff_id,
+      event_id
     };
 
     await this.api.modifySchedule([staff]);
 
-    if ( this.state.manualSchedule ) {
+    if (this.state.manualSchedule) {
       this.props.updateSchedule(event_id);
     } else {
       this.props.editSchedule();
     }
 
     this.setState({ edit: false });
-  }
+  };
 
-  handleEditClick = (person) => {
-
+  handleEditClick = person => {
     this.setState({
       edit: !this.state.edit,
       staff_events_id: person.staff_events_id
     });
-  }
-
-  displayStaff = (role) => {
-    const { staff } = this.props.event;
-
-    return staff.filter(staffMember => staffMember.role === role)
-      .map((person) => {
-        return (
-          <li key={ person.staff_events_id + role }>
-            {person.name}
-            { this.props.admin &&
-              <div className='edit-container'>
-                <button
-                  className='delete'
-                  onClick={ () => this.props.deleteFromSchedule(person.staff_events_id) }> {/*eslint-disable-line*/}
-                </button>
-                <button
-                  className='edit'
-                  onClick={ () => this.handleEditClick(person) }>
-                </button>
-              </div>
-            }
-          </li>
-        );
-      }
-      );
-  }
-
-
-  handleEditDropdown = (event_id) => {
-    return (
-      <EditStaffSelect
-        staff={ this.props.staffList }
-        createEventStaff={ this.createEventStaff }
-        manualSchedule={ this.state.manualSchedule }
-        event_id={ event_id }
-        updateEventStaff={ this.updateEventStaff }
-      />
-    );
-  }
+  };
 
   render() {
-
-    const { 
-      venue, 
-      name, 
-      date, 
-      time, 
-      event_id, 
-      ass_bar_manager 
+    const {
+      venue,
+      name,
+      date,
+      time,
+      event_id,
+      ass_bar_manager
     } = this.props.event;
 
     return (
-      <section className='schedule-card'>
-        <div className='schedule-container'>
-          <h4>{ date }</h4>
-          <h4>{ venue }</h4>
-          <h4>{ time }</h4>
+      <section className="schedule-card">
+        <div className="schedule-container">
+          <h4>{date}</h4>
+          <h4>{venue}</h4>
+          <h4>{time}</h4>
         </div>
-        <h2>{ name }</h2>
-        {
-          this.state.edit &&
-          this.handleEditDropdown( event_id )
-        }
-        <section className='staff-container'>
-          <article className='managers'>
-            <ul className='bar-manager'>
-              <h4>Bar Manager</h4>
-              { this.displayStaff('Bar Manager') }
-            </ul>
-            { ass_bar_manager &&
-              <ul className='ass-bar-manager'>
-                <h4>Assistant Bar Manager</h4>
-                { this.displayStaff('Assistant Bar Manager') }
-              </ul>
-            }
+        <h2>{name}</h2>
+        {this.state.edit && (
+          <EditStaffDropdown
+            staff={this.props.staffList}
+            createEventStaff={this.createEventStaff}
+            manualSchedule={this.state.manualSchedule}
+            event_id={event_id}
+            updateEventStaff={this.updateEventStaff}
+          />
+        )}
+        <section className="staff-container">
+          <article className="managers">
+            <DisplayStaff
+              {...this.props}
+              staffRole="Bar Manager"
+              handleEditClick={this.handleEditClick}
+            />
+            {ass_bar_manager && (
+              <DisplayStaff
+                {...this.props}
+                staffRole="Assistant Bar Manager"
+                handleEditClick={this.handleEditClick}
+              />
+            )}
           </article>
-          <ul className='bartenders'>
-            <h4>Bartenders</h4>
-            { this.displayStaff('Bartender') }
-          </ul>
-          <ul className='barbacks'>
-            <h4>Barbacks</h4>
-            { this.displayStaff('Barback') }
-          </ul>
+          <DisplayStaff
+            {...this.props}
+            staffRole="Bartender"
+            handleEditClick={this.handleEditClick}
+          />
+          <DisplayStaff
+            {...this.props}
+            staffRole="Barback"
+            handleEditClick={this.handleEditClick}
+          />
         </section>
       </section>
     );

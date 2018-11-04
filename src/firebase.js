@@ -1,12 +1,12 @@
 import firebase from 'firebase';
 
 const config = {
-  apiKey: 'AIzaSyBtLEpO0AAJilQOc-qtUUqIRz5Zc7gayMM',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'staffgigbox.firebaseapp.com',
   databaseURL: 'https://staffgigbox.firebaseio.com',
-  projectId: 'staffgigbox',
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: '',
-  messagingSenderId: '259666695833'
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 };
 
 firebase.initializeApp(config);
@@ -14,4 +14,3 @@ firebase.initializeApp(config);
 export const provider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
 export default firebase;
-

@@ -1,9 +1,10 @@
-/* eslint-disable */
 import React, { Component } from 'react';
-import DayPicker, { DateUtils } from 'react-day-picker';
+import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { Api } from '../Api/Api';
 import PropTypes from 'prop-types';
+
+const moment = require('moment');
 
 export class Availability extends Component {
   constructor(props) {
@@ -18,69 +19,75 @@ export class Availability extends Component {
     const { selectedDays } = this.state;
     const id = this.props.currentUserId;
 
-    if ( selected ) {
-      const selectedIndex = selectedDays.findIndex(selectedDay =>
-        DateUtils.isSameDay(selectedDay, day)
+    if (selected) {
+      const selectedIndex = selectedDays.findIndex(
+        selectedDay => selectedDay.toString() === day.toString()
       );
       const removedDay = selectedDays.splice(selectedIndex, 1);
-      const cleanRemovedDate = this.api.cleanDate(removedDay[0]);
-      const isInDatabase = await this.api.getAvailability(id, cleanRemovedDate);
-      
-      if ( isInDatabase ) {
-	    	await this.api.deleteAvailability(id, cleanRemovedDate); 	
-      }
+      const removedDate = this.cleanDate(removedDay[0]);
+      const isInDatabase = await this.api.getAvailability(id, removedDate);
 
+      if (isInDatabase) {
+        await this.api.deleteAvailability(id, removedDate);
+      }
     } else {
-    	selectedDays.push(day);
+      selectedDays.push(day);
     }
-    
-  	this.setState({ selectedDays });
-  }
+
+    this.setState({ selectedDays });
+  };
+
+  cleanDate = date => {
+    const day = date.toString().substring(4, 15);
+    return moment(day, 'MMM DD YYYY').format('MMM D, YYYY');
+  };
 
   handleSubmit = async () => {
-  	const id = this.props.currentUserId;
+    const id = this.props.currentUserId;
     const notInDb = [];
-    const dates = await this.state.selectedDays.reduce(async (dateArray, day) => {
-    	const cleanDay = this.api.cleanDate(day);
-    	const isInDatabase = await this.api.getAvailability(id, cleanDay);
+    const dates = await this.state.selectedDays.reduce(
+      async (dateArray, day) => {
+        const cleanDay = this.cleanDate(day);
+        const isInDatabase = await this.api.getAvailability(id, cleanDay);
 
-      if (!isInDatabase) {
-        notInDb.push(cleanDay);
-      }
-      
-      return [...dateArray, ...notInDb];
-    }, []);
+        if (!isInDatabase) {
+          notInDb.push(cleanDay);
+        }
+
+        return [...dateArray, ...notInDb];
+      },
+      []
+    );
 
     if (dates.length) {
       await this.api.postAvailability(id, dates);
     }
-  }
+  };
 
   componentDidMount = async () => {
-  	const daysOff = await this.api.getAvailability(this.props.currentUserId);
-  	
-  	if ( daysOff ) {
-  		const selectedDays = daysOff.map(day => new Date(day.date_unavailable));
+    const daysOff = await this.api.getAvailability(this.props.currentUserId);
 
-  		this.setState({ selectedDays });
-  	}
-  }
+    if (daysOff) {
+      const selectedDays = daysOff.map(day => new Date(day.date_unavailable));
+
+      this.setState({ selectedDays });
+    }
+  };
 
   render() {
     return (
       <div>
         <h2>Select days you are unavailable</h2>
         <DayPicker
-          selectedDays={ this.state.selectedDays }
-          onDayClick={ this.handleDayClick }
+          selectedDays={this.state.selectedDays}
+          onDayClick={this.handleDayClick}
         />
-        <button onClick={ this.handleSubmit }>Submit Availability</button>
+        <button onClick={this.handleSubmit}>Submit Availability</button>
       </div>
     );
   }
 }
 
 Availability.propTypes = {
-  currentUserId: PropTypes.number 
+  currentUserId: PropTypes.number
 };
-

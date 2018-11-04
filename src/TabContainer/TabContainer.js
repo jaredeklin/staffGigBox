@@ -9,7 +9,6 @@ import './TabContainer.css';
 import PropTypes from 'prop-types';
 
 export class TabContainer extends Component {
-
   constructor(props) {
     super(props);
     this.api = new Api();
@@ -20,7 +19,7 @@ export class TabContainer extends Component {
     };
   }
 
-  handleTabClick = (activeTabName) => this.setState({ activeTabName });
+  handleTabClick = activeTabName => this.setState({ activeTabName });
 
   checkManualSchedule = (eventData, manualSchedule) => {
     this.setState({
@@ -28,16 +27,16 @@ export class TabContainer extends Component {
       manualScheduleData: eventData
     });
 
-    if ( !manualSchedule ) {
+    if (!manualSchedule) {
       this.props.scheduleGenerator();
     }
-  }
+  };
 
-  updateSchedule = async (event_id) => {
+  updateSchedule = async event_id => {
     const manualScheduleData = await this.api.getSchedule(event_id);
 
     this.setState({ manualScheduleData });
-  }
+  };
 
   displayTabs = () => {
     const { activeTabName } = this.state;
@@ -45,75 +44,71 @@ export class TabContainer extends Component {
     return this.props.tabs.map((tabName, index) => {
       return (
         <Tab
-          tabName={ tabName }
-          handleTabClick={ this.handleTabClick }
-          isActive={ tabName === activeTabName }
-          key={ tabName + index }
+          tabName={tabName}
+          handleTabClick={this.handleTabClick}
+          isActive={tabName === activeTabName}
+          key={tabName + index}
         />
       );
     });
   };
 
   checkForManual = () => {
-    if ( this.state.manualSchedule ) {
+    if (this.state.manualSchedule) {
       return (
         <Schedule
-          staffList={ this.props.staff }
-          editSchedule={ this.props.editSchedule }
-          event={ this.state.manualScheduleData }
-          manualSchedule={ true }
-          updateSchedule={ this.updateSchedule }
-          admin={ this.props.admin }
-        />);
+          staffList={this.props.staff}
+          editSchedule={this.props.editSchedule}
+          event={this.state.manualScheduleData}
+          manualSchedule={true}
+          updateSchedule={this.updateSchedule}
+          admin={this.props.admin}
+        />
+      );
     } else {
       return (
         <EventForm
-          scheduleGenerator={ this.props.scheduleGenerator }
-          checkManualSchedule={ this.checkManualSchedule }
+          scheduleGenerator={this.props.scheduleGenerator}
+          checkManualSchedule={this.checkManualSchedule}
         />
       );
     }
-  }
+  };
 
   activeContent = () => {
     switch (this.state.activeTabName) {
+      case 'Add Event':
+        return this.checkForManual();
 
-    case 'Add Event': return this.checkForManual();
+      case 'Submit Availability':
+        return <Availability currentUserId={this.props.currentUserId} />;
 
-    case 'Submit Availability': return <Availability currentUserId={ this.props.currentUserId } />;
+      case 'Add New Staff':
+        return (
+          <StaffForm addStaff={this.props.addStaff} user={this.props.user} />
+        );
 
-    case 'Add New Staff': 
-      return (
-        <StaffForm 
-          addStaff={ this.props.addStaff } 
-          user={ this.props.user }
-        />
-      );
-
-    default: return this.props.schedule.map((event) => {
-      return (
-        <Schedule
-          editSchedule={ this.props.editSchedule }
-          staffList= { this.props.staff }
-          event={ event }
-          key={ event.event_id }
-          deleteFromSchedule={ this.props.deleteFromSchedule }
-          admin={ this.props.admin }
-        />
-      );
-    });
+      default:
+        return this.props.schedule.map(event => {
+          return (
+            <Schedule
+              editSchedule={this.props.editSchedule}
+              staffList={this.props.staff}
+              event={event}
+              key={event.event_id}
+              deleteFromSchedule={this.props.deleteFromSchedule}
+              admin={this.props.admin}
+            />
+          );
+        });
     }
-  }
+  };
 
   render() {
     return (
       <section className="tab-container">
-        <ul className="tab-container-list">
-          { this.displayTabs() }
-        </ul>
-        <article className="active-content">
-          { this.activeContent() }
-        </article>
+        <ul className="tab-container-list">{this.displayTabs()}</ul>
+        <article className="active-content">{this.activeContent()}</article>
       </section>
     );
   }
@@ -123,17 +118,11 @@ TabContainer.propTypes = {
   deleteFromSchedule: PropTypes.func,
   tabs: PropTypes.array,
   scheduleGenerator: PropTypes.func,
-  staff: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object
-  ]),
+  staff: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   editSchedule: PropTypes.func,
   admin: PropTypes.bool,
   addStaff: PropTypes.func,
   user: PropTypes.object,
-  schedule: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object
-  ]),
+  schedule: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   currentUserId: PropTypes.number
 };

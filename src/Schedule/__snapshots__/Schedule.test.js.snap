@@ -58,37 +58,91 @@ ShallowWrapper {
           <article
                     className="managers"
           >
-                    <ul
-                              className="bar-manager"
-                    >
-                              <h4>
-                                        Bar Manager
-                              </h4>
-                              <li>
-                                        
-                              </li>
-                    </ul>
+                    <DisplayStaff
+                              admin={false}
+                              deleteFromSchedule={[Function]}
+                              editSchedule={[Function]}
+                              event={
+                                        Object {
+                                                  "staff": Array [
+                                                    Object {
+                                                      "role": "Bartender",
+                                                    },
+                                                    Object {
+                                                      "role": "Barback",
+                                                    },
+                                                    Object {
+                                                      "role": "Bar Manager",
+                                                    },
+                                                    Object {
+                                                      "role": "Assistant Bar Manager",
+                                                    },
+                                                  ],
+                                                }
+                              }
+                              handleEditClick={[Function]}
+                              manualSchedule={false}
+                              staffList={Array []}
+                              staffRole="Bar Manager"
+                              updateSchedule={[Function]}
+                    />
           </article>
-          <ul
-                    className="bartenders"
-          >
-                    <h4>
-                              Bartenders
-                    </h4>
-                    <li>
-                              
-                    </li>
-          </ul>
-          <ul
-                    className="barbacks"
-          >
-                    <h4>
-                              Barbacks
-                    </h4>
-                    <li>
-                              
-                    </li>
-          </ul>
+          <DisplayStaff
+                    admin={false}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "staff": Array [
+                                          Object {
+                                            "role": "Bartender",
+                                          },
+                                          Object {
+                                            "role": "Barback",
+                                          },
+                                          Object {
+                                            "role": "Bar Manager",
+                                          },
+                                          Object {
+                                            "role": "Assistant Bar Manager",
+                                          },
+                                        ],
+                                      }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Bartender"
+                    updateSchedule={[Function]}
+          />
+          <DisplayStaff
+                    admin={false}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "staff": Array [
+                                          Object {
+                                            "role": "Bartender",
+                                          },
+                                          Object {
+                                            "role": "Barback",
+                                          },
+                                          Object {
+                                            "role": "Bar Manager",
+                                          },
+                                          Object {
+                                            "role": "Assistant Bar Manager",
+                                          },
+                                        ],
+                                      }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Barback"
+                    updateSchedule={[Function]}
+          />
 </section>,
       ],
       "className": "schedule-card",
@@ -166,37 +220,91 @@ ShallowWrapper {
             <article
               className="managers"
 >
-              <ul
-                            className="bar-manager"
-              >
-                            <h4>
-                                          Bar Manager
-                            </h4>
-                            <li>
-                                          
-                            </li>
-              </ul>
+              <DisplayStaff
+                            admin={false}
+                            deleteFromSchedule={[Function]}
+                            editSchedule={[Function]}
+                            event={
+                                          Object {
+                                                        "staff": Array [
+                                                          Object {
+                                                            "role": "Bartender",
+                                                          },
+                                                          Object {
+                                                            "role": "Barback",
+                                                          },
+                                                          Object {
+                                                            "role": "Bar Manager",
+                                                          },
+                                                          Object {
+                                                            "role": "Assistant Bar Manager",
+                                                          },
+                                                        ],
+                                                      }
+                            }
+                            handleEditClick={[Function]}
+                            manualSchedule={false}
+                            staffList={Array []}
+                            staffRole="Bar Manager"
+                            updateSchedule={[Function]}
+              />
 </article>,
-            <ul
-              className="bartenders"
->
-              <h4>
-                            Bartenders
-              </h4>
-              <li>
-                            
-              </li>
-</ul>,
-            <ul
-              className="barbacks"
->
-              <h4>
-                            Barbacks
-              </h4>
-              <li>
-                            
-              </li>
-</ul>,
+            <DisplayStaff
+              admin={false}
+              deleteFromSchedule={[Function]}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "staff": Array [
+                                            Object {
+                                              "role": "Bartender",
+                                            },
+                                            Object {
+                                              "role": "Barback",
+                                            },
+                                            Object {
+                                              "role": "Bar Manager",
+                                            },
+                                            Object {
+                                              "role": "Assistant Bar Manager",
+                                            },
+                                          ],
+                                        }
+              }
+              handleEditClick={[Function]}
+              manualSchedule={false}
+              staffList={Array []}
+              staffRole="Bartender"
+              updateSchedule={[Function]}
+/>,
+            <DisplayStaff
+              admin={false}
+              deleteFromSchedule={[Function]}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "staff": Array [
+                                            Object {
+                                              "role": "Bartender",
+                                            },
+                                            Object {
+                                              "role": "Barback",
+                                            },
+                                            Object {
+                                              "role": "Bar Manager",
+                                            },
+                                            Object {
+                                              "role": "Assistant Bar Manager",
+                                            },
+                                          ],
+                                        }
+              }
+              handleEditClick={[Function]}
+              manualSchedule={false}
+              staffList={Array []}
+              staffRole="Barback"
+              updateSchedule={[Function]}
+/>,
           ],
           "className": "staff-container",
         },
@@ -208,16 +316,34 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <ul
-                  className="bar-manager"
->
-                  <h4>
-                                    Bar Manager
-                  </h4>
-                  <li>
-                                    
-                  </li>
-</ul>,
+                <DisplayStaff
+                  admin={false}
+                  deleteFromSchedule={[Function]}
+                  editSchedule={[Function]}
+                  event={
+                                    Object {
+                                                      "staff": Array [
+                                                        Object {
+                                                          "role": "Bartender",
+                                                        },
+                                                        Object {
+                                                          "role": "Barback",
+                                                        },
+                                                        Object {
+                                                          "role": "Bar Manager",
+                                                        },
+                                                        Object {
+                                                          "role": "Assistant Bar Manager",
+                                                        },
+                                                      ],
+                                                    }
+                  }
+                  handleEditClick={[Function]}
+                  manualSchedule={false}
+                  staffList={Array []}
+                  staffRole="Bar Manager"
+                  updateSchedule={[Function]}
+/>,
                 undefined,
               ],
               "className": "managers",
@@ -227,52 +353,36 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "function",
                 "props": Object {
-                  "children": Array [
-                    <h4>
-                      Bar Manager
-</h4>,
-                    Array [
-                      <li>
-                        
-</li>,
+                  "admin": false,
+                  "deleteFromSchedule": [Function],
+                  "editSchedule": [Function],
+                  "event": Object {
+                    "staff": Array [
+                      Object {
+                        "role": "Bartender",
+                      },
+                      Object {
+                        "role": "Barback",
+                      },
+                      Object {
+                        "role": "Bar Manager",
+                      },
+                      Object {
+                        "role": "Assistant Bar Manager",
+                      },
                     ],
-                  ],
-                  "className": "bar-manager",
+                  },
+                  "handleEditClick": [Function],
+                  "manualSchedule": false,
+                  "staffList": Array [],
+                  "staffRole": "Bar Manager",
+                  "updateSchedule": [Function],
                 },
                 "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Bar Manager",
-                    },
-                    "ref": null,
-                    "rendered": "Bar Manager",
-                    "type": "h4",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": "undefinedBar Manager",
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        undefined,
-                        false,
-                      ],
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      undefined,
-                      false,
-                    ],
-                    "type": "li",
-                  },
-                ],
-                "type": "ul",
+                "rendered": null,
+                "type": [Function],
               },
               undefined,
             ],
@@ -281,102 +391,70 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <h4>
-                  Bartenders
-</h4>,
-                Array [
-                  <li>
-                    
-</li>,
+              "admin": false,
+              "deleteFromSchedule": [Function],
+              "editSchedule": [Function],
+              "event": Object {
+                "staff": Array [
+                  Object {
+                    "role": "Bartender",
+                  },
+                  Object {
+                    "role": "Barback",
+                  },
+                  Object {
+                    "role": "Bar Manager",
+                  },
+                  Object {
+                    "role": "Assistant Bar Manager",
+                  },
                 ],
-              ],
-              "className": "bartenders",
+              },
+              "handleEditClick": [Function],
+              "manualSchedule": false,
+              "staffList": Array [],
+              "staffRole": "Bartender",
+              "updateSchedule": [Function],
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Bartenders",
-                },
-                "ref": null,
-                "rendered": "Bartenders",
-                "type": "h4",
-              },
-              Object {
-                "instance": null,
-                "key": "undefinedBartender",
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    undefined,
-                    false,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  undefined,
-                  false,
-                ],
-                "type": "li",
-              },
-            ],
-            "type": "ul",
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <h4>
-                  Barbacks
-</h4>,
-                Array [
-                  <li>
-                    
-</li>,
+              "admin": false,
+              "deleteFromSchedule": [Function],
+              "editSchedule": [Function],
+              "event": Object {
+                "staff": Array [
+                  Object {
+                    "role": "Bartender",
+                  },
+                  Object {
+                    "role": "Barback",
+                  },
+                  Object {
+                    "role": "Bar Manager",
+                  },
+                  Object {
+                    "role": "Assistant Bar Manager",
+                  },
                 ],
-              ],
-              "className": "barbacks",
+              },
+              "handleEditClick": [Function],
+              "manualSchedule": false,
+              "staffList": Array [],
+              "staffRole": "Barback",
+              "updateSchedule": [Function],
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Barbacks",
-                },
-                "ref": null,
-                "rendered": "Barbacks",
-                "type": "h4",
-              },
-              Object {
-                "instance": null,
-                "key": "undefinedBarback",
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    undefined,
-                    false,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  undefined,
-                  false,
-                ],
-                "type": "li",
-              },
-            ],
-            "type": "ul",
+            "rendered": null,
+            "type": [Function],
           },
         ],
         "type": "section",
@@ -406,37 +484,91 @@ ShallowWrapper {
             <article
                         className="managers"
             >
-                        <ul
-                                    className="bar-manager"
-                        >
-                                    <h4>
-                                                Bar Manager
-                                    </h4>
-                                    <li>
-                                                
-                                    </li>
-                        </ul>
+                        <DisplayStaff
+                                    admin={false}
+                                    deleteFromSchedule={[Function]}
+                                    editSchedule={[Function]}
+                                    event={
+                                                Object {
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                          }
+                                    }
+                                    handleEditClick={[Function]}
+                                    manualSchedule={false}
+                                    staffList={Array []}
+                                    staffRole="Bar Manager"
+                                    updateSchedule={[Function]}
+                        />
             </article>
-            <ul
-                        className="bartenders"
-            >
-                        <h4>
-                                    Bartenders
-                        </h4>
-                        <li>
-                                    
-                        </li>
-            </ul>
-            <ul
-                        className="barbacks"
-            >
-                        <h4>
-                                    Barbacks
-                        </h4>
-                        <li>
-                                    
-                        </li>
-            </ul>
+            <DisplayStaff
+                        admin={false}
+                        deleteFromSchedule={[Function]}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                        }
+                        handleEditClick={[Function]}
+                        manualSchedule={false}
+                        staffList={Array []}
+                        staffRole="Bartender"
+                        updateSchedule={[Function]}
+            />
+            <DisplayStaff
+                        admin={false}
+                        deleteFromSchedule={[Function]}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                        }
+                        handleEditClick={[Function]}
+                        manualSchedule={false}
+                        staffList={Array []}
+                        staffRole="Barback"
+                        updateSchedule={[Function]}
+            />
 </section>,
         ],
         "className": "schedule-card",
@@ -514,37 +646,91 @@ ShallowWrapper {
               <article
                 className="managers"
 >
-                <ul
-                                className="bar-manager"
-                >
-                                <h4>
-                                                Bar Manager
-                                </h4>
-                                <li>
-                                                
-                                </li>
-                </ul>
+                <DisplayStaff
+                                admin={false}
+                                deleteFromSchedule={[Function]}
+                                editSchedule={[Function]}
+                                event={
+                                                Object {
+                                                                "staff": Array [
+                                                                  Object {
+                                                                    "role": "Bartender",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Barback",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Bar Manager",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Assistant Bar Manager",
+                                                                  },
+                                                                ],
+                                                              }
+                                }
+                                handleEditClick={[Function]}
+                                manualSchedule={false}
+                                staffList={Array []}
+                                staffRole="Bar Manager"
+                                updateSchedule={[Function]}
+                />
 </article>,
-              <ul
-                className="bartenders"
->
-                <h4>
-                                Bartenders
-                </h4>
-                <li>
-                                
-                </li>
-</ul>,
-              <ul
-                className="barbacks"
->
-                <h4>
-                                Barbacks
-                </h4>
-                <li>
-                                
-                </li>
-</ul>,
+              <DisplayStaff
+                admin={false}
+                deleteFromSchedule={[Function]}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                }
+                handleEditClick={[Function]}
+                manualSchedule={false}
+                staffList={Array []}
+                staffRole="Bartender"
+                updateSchedule={[Function]}
+/>,
+              <DisplayStaff
+                admin={false}
+                deleteFromSchedule={[Function]}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                }
+                handleEditClick={[Function]}
+                manualSchedule={false}
+                staffList={Array []}
+                staffRole="Barback"
+                updateSchedule={[Function]}
+/>,
             ],
             "className": "staff-container",
           },
@@ -556,16 +742,34 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <ul
-                    className="bar-manager"
->
-                    <h4>
-                                        Bar Manager
-                    </h4>
-                    <li>
-                                        
-                    </li>
-</ul>,
+                  <DisplayStaff
+                    admin={false}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                                        Object {
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                          }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Bar Manager"
+                    updateSchedule={[Function]}
+/>,
                   undefined,
                 ],
                 "className": "managers",
@@ -575,52 +779,36 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "host",
+                  "nodeType": "function",
                   "props": Object {
-                    "children": Array [
-                      <h4>
-                        Bar Manager
-</h4>,
-                      Array [
-                        <li>
-                          
-</li>,
+                    "admin": false,
+                    "deleteFromSchedule": [Function],
+                    "editSchedule": [Function],
+                    "event": Object {
+                      "staff": Array [
+                        Object {
+                          "role": "Bartender",
+                        },
+                        Object {
+                          "role": "Barback",
+                        },
+                        Object {
+                          "role": "Bar Manager",
+                        },
+                        Object {
+                          "role": "Assistant Bar Manager",
+                        },
                       ],
-                    ],
-                    "className": "bar-manager",
+                    },
+                    "handleEditClick": [Function],
+                    "manualSchedule": false,
+                    "staffList": Array [],
+                    "staffRole": "Bar Manager",
+                    "updateSchedule": [Function],
                   },
                   "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "Bar Manager",
-                      },
-                      "ref": null,
-                      "rendered": "Bar Manager",
-                      "type": "h4",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": "undefinedBar Manager",
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          undefined,
-                          false,
-                        ],
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        undefined,
-                        false,
-                      ],
-                      "type": "li",
-                    },
-                  ],
-                  "type": "ul",
+                  "rendered": null,
+                  "type": [Function],
                 },
                 undefined,
               ],
@@ -629,102 +817,824 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": Array [
-                  <h4>
-                    Bartenders
-</h4>,
-                  Array [
-                    <li>
-                      
-</li>,
+                "admin": false,
+                "deleteFromSchedule": [Function],
+                "editSchedule": [Function],
+                "event": Object {
+                  "staff": Array [
+                    Object {
+                      "role": "Bartender",
+                    },
+                    Object {
+                      "role": "Barback",
+                    },
+                    Object {
+                      "role": "Bar Manager",
+                    },
+                    Object {
+                      "role": "Assistant Bar Manager",
+                    },
                   ],
-                ],
-                "className": "bartenders",
+                },
+                "handleEditClick": [Function],
+                "manualSchedule": false,
+                "staffList": Array [],
+                "staffRole": "Bartender",
+                "updateSchedule": [Function],
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Bartenders",
-                  },
-                  "ref": null,
-                  "rendered": "Bartenders",
-                  "type": "h4",
-                },
-                Object {
-                  "instance": null,
-                  "key": "undefinedBartender",
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      undefined,
-                      false,
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    undefined,
-                    false,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "admin": false,
+                "deleteFromSchedule": [Function],
+                "editSchedule": [Function],
+                "event": Object {
+                  "staff": Array [
+                    Object {
+                      "role": "Bartender",
+                    },
+                    Object {
+                      "role": "Barback",
+                    },
+                    Object {
+                      "role": "Bar Manager",
+                    },
+                    Object {
+                      "role": "Assistant Bar Manager",
+                    },
                   ],
-                  "type": "li",
                 },
+                "handleEditClick": [Function],
+                "manualSchedule": false,
+                "staffList": Array [],
+                "staffRole": "Barback",
+                "updateSchedule": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Schedule should match the snapshot when Ass man is needed 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Schedule
+    admin={true}
+    deleteFromSchedule={[Function]}
+    editSchedule={[Function]}
+    event={
+        Object {
+            "ass_bar_manager": true,
+          }
+    }
+    manualSchedule={false}
+    staffList={Array []}
+    updateSchedule={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="schedule-container"
+>
+          <h4 />
+          <h4 />
+          <h4 />
+</div>,
+        <h2 />,
+        false,
+        <section
+          className="staff-container"
+>
+          <article
+                    className="managers"
+          >
+                    <DisplayStaff
+                              admin={true}
+                              deleteFromSchedule={[Function]}
+                              editSchedule={[Function]}
+                              event={
+                                        Object {
+                                                  "ass_bar_manager": true,
+                                                }
+                              }
+                              handleEditClick={[Function]}
+                              manualSchedule={false}
+                              staffList={Array []}
+                              staffRole="Bar Manager"
+                              updateSchedule={[Function]}
+                    />
+                    <DisplayStaff
+                              admin={true}
+                              deleteFromSchedule={[Function]}
+                              editSchedule={[Function]}
+                              event={
+                                        Object {
+                                                  "ass_bar_manager": true,
+                                                }
+                              }
+                              handleEditClick={[Function]}
+                              manualSchedule={false}
+                              staffList={Array []}
+                              staffRole="Assistant Bar Manager"
+                              updateSchedule={[Function]}
+                    />
+          </article>
+          <DisplayStaff
+                    admin={true}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "ass_bar_manager": true,
+                                      }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Bartender"
+                    updateSchedule={[Function]}
+          />
+          <DisplayStaff
+                    admin={true}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "ass_bar_manager": true,
+                                      }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Barback"
+                    updateSchedule={[Function]}
+          />
+</section>,
+      ],
+      "className": "schedule-card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h4 />,
+            <h4 />,
+            <h4 />,
+          ],
+          "className": "schedule-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h4",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h2",
+      },
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <article
+              className="managers"
+>
+              <DisplayStaff
+                            admin={true}
+                            deleteFromSchedule={[Function]}
+                            editSchedule={[Function]}
+                            event={
+                                          Object {
+                                                        "ass_bar_manager": true,
+                                                      }
+                            }
+                            handleEditClick={[Function]}
+                            manualSchedule={false}
+                            staffList={Array []}
+                            staffRole="Bar Manager"
+                            updateSchedule={[Function]}
+              />
+              <DisplayStaff
+                            admin={true}
+                            deleteFromSchedule={[Function]}
+                            editSchedule={[Function]}
+                            event={
+                                          Object {
+                                                        "ass_bar_manager": true,
+                                                      }
+                            }
+                            handleEditClick={[Function]}
+                            manualSchedule={false}
+                            staffList={Array []}
+                            staffRole="Assistant Bar Manager"
+                            updateSchedule={[Function]}
+              />
+</article>,
+            <DisplayStaff
+              admin={true}
+              deleteFromSchedule={[Function]}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "ass_bar_manager": true,
+                                        }
+              }
+              handleEditClick={[Function]}
+              manualSchedule={false}
+              staffList={Array []}
+              staffRole="Bartender"
+              updateSchedule={[Function]}
+/>,
+            <DisplayStaff
+              admin={true}
+              deleteFromSchedule={[Function]}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "ass_bar_manager": true,
+                                        }
+              }
+              handleEditClick={[Function]}
+              manualSchedule={false}
+              staffList={Array []}
+              staffRole="Barback"
+              updateSchedule={[Function]}
+/>,
+          ],
+          "className": "staff-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <DisplayStaff
+                  admin={true}
+                  deleteFromSchedule={[Function]}
+                  editSchedule={[Function]}
+                  event={
+                                    Object {
+                                                      "ass_bar_manager": true,
+                                                    }
+                  }
+                  handleEditClick={[Function]}
+                  manualSchedule={false}
+                  staffList={Array []}
+                  staffRole="Bar Manager"
+                  updateSchedule={[Function]}
+/>,
+                <DisplayStaff
+                  admin={true}
+                  deleteFromSchedule={[Function]}
+                  editSchedule={[Function]}
+                  event={
+                                    Object {
+                                                      "ass_bar_manager": true,
+                                                    }
+                  }
+                  handleEditClick={[Function]}
+                  manualSchedule={false}
+                  staffList={Array []}
+                  staffRole="Assistant Bar Manager"
+                  updateSchedule={[Function]}
+/>,
               ],
-              "type": "ul",
+              "className": "managers",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "admin": true,
+                  "deleteFromSchedule": [Function],
+                  "editSchedule": [Function],
+                  "event": Object {
+                    "ass_bar_manager": true,
+                  },
+                  "handleEditClick": [Function],
+                  "manualSchedule": false,
+                  "staffList": Array [],
+                  "staffRole": "Bar Manager",
+                  "updateSchedule": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "admin": true,
+                  "deleteFromSchedule": [Function],
+                  "editSchedule": [Function],
+                  "event": Object {
+                    "ass_bar_manager": true,
+                  },
+                  "handleEditClick": [Function],
+                  "manualSchedule": false,
+                  "staffList": Array [],
+                  "staffRole": "Assistant Bar Manager",
+                  "updateSchedule": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "article",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "admin": true,
+              "deleteFromSchedule": [Function],
+              "editSchedule": [Function],
+              "event": Object {
+                "ass_bar_manager": true,
+              },
+              "handleEditClick": [Function],
+              "manualSchedule": false,
+              "staffList": Array [],
+              "staffRole": "Bartender",
+              "updateSchedule": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "admin": true,
+              "deleteFromSchedule": [Function],
+              "editSchedule": [Function],
+              "event": Object {
+                "ass_bar_manager": true,
+              },
+              "handleEditClick": [Function],
+              "manualSchedule": false,
+              "staffList": Array [],
+              "staffRole": "Barback",
+              "updateSchedule": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "section",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="schedule-container"
+>
+            <h4 />
+            <h4 />
+            <h4 />
+</div>,
+          <h2 />,
+          false,
+          <section
+            className="staff-container"
+>
+            <article
+                        className="managers"
+            >
+                        <DisplayStaff
+                                    admin={true}
+                                    deleteFromSchedule={[Function]}
+                                    editSchedule={[Function]}
+                                    event={
+                                                Object {
+                                                            "ass_bar_manager": true,
+                                                          }
+                                    }
+                                    handleEditClick={[Function]}
+                                    manualSchedule={false}
+                                    staffList={Array []}
+                                    staffRole="Bar Manager"
+                                    updateSchedule={[Function]}
+                        />
+                        <DisplayStaff
+                                    admin={true}
+                                    deleteFromSchedule={[Function]}
+                                    editSchedule={[Function]}
+                                    event={
+                                                Object {
+                                                            "ass_bar_manager": true,
+                                                          }
+                                    }
+                                    handleEditClick={[Function]}
+                                    manualSchedule={false}
+                                    staffList={Array []}
+                                    staffRole="Assistant Bar Manager"
+                                    updateSchedule={[Function]}
+                        />
+            </article>
+            <DisplayStaff
+                        admin={true}
+                        deleteFromSchedule={[Function]}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "ass_bar_manager": true,
+                                              }
+                        }
+                        handleEditClick={[Function]}
+                        manualSchedule={false}
+                        staffList={Array []}
+                        staffRole="Bartender"
+                        updateSchedule={[Function]}
+            />
+            <DisplayStaff
+                        admin={true}
+                        deleteFromSchedule={[Function]}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "ass_bar_manager": true,
+                                              }
+                        }
+                        handleEditClick={[Function]}
+                        manualSchedule={false}
+                        staffList={Array []}
+                        staffRole="Barback"
+                        updateSchedule={[Function]}
+            />
+</section>,
+        ],
+        "className": "schedule-card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h4 />,
+              <h4 />,
+              <h4 />,
+            ],
+            "className": "schedule-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
             },
             Object {
               "instance": null,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "h4",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h2",
+        },
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <article
+                className="managers"
+>
+                <DisplayStaff
+                                admin={true}
+                                deleteFromSchedule={[Function]}
+                                editSchedule={[Function]}
+                                event={
+                                                Object {
+                                                                "ass_bar_manager": true,
+                                                              }
+                                }
+                                handleEditClick={[Function]}
+                                manualSchedule={false}
+                                staffList={Array []}
+                                staffRole="Bar Manager"
+                                updateSchedule={[Function]}
+                />
+                <DisplayStaff
+                                admin={true}
+                                deleteFromSchedule={[Function]}
+                                editSchedule={[Function]}
+                                event={
+                                                Object {
+                                                                "ass_bar_manager": true,
+                                                              }
+                                }
+                                handleEditClick={[Function]}
+                                manualSchedule={false}
+                                staffList={Array []}
+                                staffRole="Assistant Bar Manager"
+                                updateSchedule={[Function]}
+                />
+</article>,
+              <DisplayStaff
+                admin={true}
+                deleteFromSchedule={[Function]}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "ass_bar_manager": true,
+                                              }
+                }
+                handleEditClick={[Function]}
+                manualSchedule={false}
+                staffList={Array []}
+                staffRole="Bartender"
+                updateSchedule={[Function]}
+/>,
+              <DisplayStaff
+                admin={true}
+                deleteFromSchedule={[Function]}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "ass_bar_manager": true,
+                                              }
+                }
+                handleEditClick={[Function]}
+                manualSchedule={false}
+                staffList={Array []}
+                staffRole="Barback"
+                updateSchedule={[Function]}
+/>,
+            ],
+            "className": "staff-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
                 "children": Array [
-                  <h4>
-                    Barbacks
-</h4>,
-                  Array [
-                    <li>
-                      
-</li>,
-                  ],
+                  <DisplayStaff
+                    admin={true}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                                        Object {
+                                                            "ass_bar_manager": true,
+                                                          }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Bar Manager"
+                    updateSchedule={[Function]}
+/>,
+                  <DisplayStaff
+                    admin={true}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                                        Object {
+                                                            "ass_bar_manager": true,
+                                                          }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Assistant Bar Manager"
+                    updateSchedule={[Function]}
+/>,
                 ],
-                "className": "barbacks",
+                "className": "managers",
               },
               "ref": null,
               "rendered": Array [
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "host",
+                  "nodeType": "function",
                   "props": Object {
-                    "children": "Barbacks",
+                    "admin": true,
+                    "deleteFromSchedule": [Function],
+                    "editSchedule": [Function],
+                    "event": Object {
+                      "ass_bar_manager": true,
+                    },
+                    "handleEditClick": [Function],
+                    "manualSchedule": false,
+                    "staffList": Array [],
+                    "staffRole": "Bar Manager",
+                    "updateSchedule": [Function],
                   },
                   "ref": null,
-                  "rendered": "Barbacks",
-                  "type": "h4",
+                  "rendered": null,
+                  "type": [Function],
                 },
                 Object {
                   "instance": null,
-                  "key": "undefinedBarback",
-                  "nodeType": "host",
+                  "key": undefined,
+                  "nodeType": "function",
                   "props": Object {
-                    "children": Array [
-                      undefined,
-                      false,
-                    ],
+                    "admin": true,
+                    "deleteFromSchedule": [Function],
+                    "editSchedule": [Function],
+                    "event": Object {
+                      "ass_bar_manager": true,
+                    },
+                    "handleEditClick": [Function],
+                    "manualSchedule": false,
+                    "staffList": Array [],
+                    "staffRole": "Assistant Bar Manager",
+                    "updateSchedule": [Function],
                   },
                   "ref": null,
-                  "rendered": Array [
-                    undefined,
-                    false,
-                  ],
-                  "type": "li",
+                  "rendered": null,
+                  "type": [Function],
                 },
               ],
-              "type": "ul",
+              "type": "article",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "admin": true,
+                "deleteFromSchedule": [Function],
+                "editSchedule": [Function],
+                "event": Object {
+                  "ass_bar_manager": true,
+                },
+                "handleEditClick": [Function],
+                "manualSchedule": false,
+                "staffList": Array [],
+                "staffRole": "Bartender",
+                "updateSchedule": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "admin": true,
+                "deleteFromSchedule": [Function],
+                "editSchedule": [Function],
+                "event": Object {
+                  "ass_bar_manager": true,
+                },
+                "handleEditClick": [Function],
+                "manualSchedule": false,
+                "staffList": Array [],
+                "staffRole": "Barback",
+                "updateSchedule": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
           ],
           "type": "section",
@@ -801,76 +1711,91 @@ ShallowWrapper {
           <article
                     className="managers"
           >
-                    <ul
-                              className="bar-manager"
-                    >
-                              <h4>
-                                        Bar Manager
-                              </h4>
-                              <li>
-                                        <div
-                                                  className="edit-container"
-                                        >
-                                                  <button
-                                                            className="delete"
-                                                            onClick={[Function]}
-                                                  >
-                                                             
-                                                  </button>
-                                                  <button
-                                                            className="edit"
-                                                            onClick={[Function]}
-                                                  />
-                                        </div>
-                              </li>
-                    </ul>
+                    <DisplayStaff
+                              admin={true}
+                              deleteFromSchedule={[Function]}
+                              editSchedule={[Function]}
+                              event={
+                                        Object {
+                                                  "staff": Array [
+                                                    Object {
+                                                      "role": "Bartender",
+                                                    },
+                                                    Object {
+                                                      "role": "Barback",
+                                                    },
+                                                    Object {
+                                                      "role": "Bar Manager",
+                                                    },
+                                                    Object {
+                                                      "role": "Assistant Bar Manager",
+                                                    },
+                                                  ],
+                                                }
+                              }
+                              handleEditClick={[Function]}
+                              manualSchedule={false}
+                              staffList={Array []}
+                              staffRole="Bar Manager"
+                              updateSchedule={[Function]}
+                    />
           </article>
-          <ul
-                    className="bartenders"
-          >
-                    <h4>
-                              Bartenders
-                    </h4>
-                    <li>
-                              <div
-                                        className="edit-container"
-                              >
-                                        <button
-                                                  className="delete"
-                                                  onClick={[Function]}
-                                        >
-                                                   
-                                        </button>
-                                        <button
-                                                  className="edit"
-                                                  onClick={[Function]}
-                                        />
-                              </div>
-                    </li>
-          </ul>
-          <ul
-                    className="barbacks"
-          >
-                    <h4>
-                              Barbacks
-                    </h4>
-                    <li>
-                              <div
-                                        className="edit-container"
-                              >
-                                        <button
-                                                  className="delete"
-                                                  onClick={[Function]}
-                                        >
-                                                   
-                                        </button>
-                                        <button
-                                                  className="edit"
-                                                  onClick={[Function]}
-                                        />
-                              </div>
-                    </li>
-          </ul>
+          <DisplayStaff
+                    admin={true}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "staff": Array [
+                                          Object {
+                                            "role": "Bartender",
+                                          },
+                                          Object {
+                                            "role": "Barback",
+                                          },
+                                          Object {
+                                            "role": "Bar Manager",
+                                          },
+                                          Object {
+                                            "role": "Assistant Bar Manager",
+                                          },
+                                        ],
+                                      }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Bartender"
+                    updateSchedule={[Function]}
+          />
+          <DisplayStaff
+                    admin={true}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "staff": Array [
+                                          Object {
+                                            "role": "Bartender",
+                                          },
+                                          Object {
+                                            "role": "Barback",
+                                          },
+                                          Object {
+                                            "role": "Bar Manager",
+                                          },
+                                          Object {
+                                            "role": "Assistant Bar Manager",
+                                          },
+                                        ],
+                                      }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Barback"
+                    updateSchedule={[Function]}
+          />
 </section>,
       ],
       "className": "schedule-card",
@@ -948,76 +1873,91 @@ ShallowWrapper {
             <article
               className="managers"
 >
-              <ul
-                            className="bar-manager"
-              >
-                            <h4>
-                                          Bar Manager
-                            </h4>
-                            <li>
-                                          <div
-                                                        className="edit-container"
-                                          >
-                                                        <button
-                                                                      className="delete"
-                                                                      onClick={[Function]}
-                                                        >
-                                                                       
-                                                        </button>
-                                                        <button
-                                                                      className="edit"
-                                                                      onClick={[Function]}
-                                                        />
-                                          </div>
-                            </li>
-              </ul>
+              <DisplayStaff
+                            admin={true}
+                            deleteFromSchedule={[Function]}
+                            editSchedule={[Function]}
+                            event={
+                                          Object {
+                                                        "staff": Array [
+                                                          Object {
+                                                            "role": "Bartender",
+                                                          },
+                                                          Object {
+                                                            "role": "Barback",
+                                                          },
+                                                          Object {
+                                                            "role": "Bar Manager",
+                                                          },
+                                                          Object {
+                                                            "role": "Assistant Bar Manager",
+                                                          },
+                                                        ],
+                                                      }
+                            }
+                            handleEditClick={[Function]}
+                            manualSchedule={false}
+                            staffList={Array []}
+                            staffRole="Bar Manager"
+                            updateSchedule={[Function]}
+              />
 </article>,
-            <ul
-              className="bartenders"
->
-              <h4>
-                            Bartenders
-              </h4>
-              <li>
-                            <div
-                                          className="edit-container"
-                            >
-                                          <button
-                                                        className="delete"
-                                                        onClick={[Function]}
-                                          >
-                                                         
-                                          </button>
-                                          <button
-                                                        className="edit"
-                                                        onClick={[Function]}
-                                          />
-                            </div>
-              </li>
-</ul>,
-            <ul
-              className="barbacks"
->
-              <h4>
-                            Barbacks
-              </h4>
-              <li>
-                            <div
-                                          className="edit-container"
-                            >
-                                          <button
-                                                        className="delete"
-                                                        onClick={[Function]}
-                                          >
-                                                         
-                                          </button>
-                                          <button
-                                                        className="edit"
-                                                        onClick={[Function]}
-                                          />
-                            </div>
-              </li>
-</ul>,
+            <DisplayStaff
+              admin={true}
+              deleteFromSchedule={[Function]}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "staff": Array [
+                                            Object {
+                                              "role": "Bartender",
+                                            },
+                                            Object {
+                                              "role": "Barback",
+                                            },
+                                            Object {
+                                              "role": "Bar Manager",
+                                            },
+                                            Object {
+                                              "role": "Assistant Bar Manager",
+                                            },
+                                          ],
+                                        }
+              }
+              handleEditClick={[Function]}
+              manualSchedule={false}
+              staffList={Array []}
+              staffRole="Bartender"
+              updateSchedule={[Function]}
+/>,
+            <DisplayStaff
+              admin={true}
+              deleteFromSchedule={[Function]}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "staff": Array [
+                                            Object {
+                                              "role": "Bartender",
+                                            },
+                                            Object {
+                                              "role": "Barback",
+                                            },
+                                            Object {
+                                              "role": "Bar Manager",
+                                            },
+                                            Object {
+                                              "role": "Assistant Bar Manager",
+                                            },
+                                          ],
+                                        }
+              }
+              handleEditClick={[Function]}
+              manualSchedule={false}
+              staffList={Array []}
+              staffRole="Barback"
+              updateSchedule={[Function]}
+/>,
           ],
           "className": "staff-container",
         },
@@ -1029,29 +1969,34 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <ul
-                  className="bar-manager"
->
-                  <h4>
-                                    Bar Manager
-                  </h4>
-                  <li>
-                                    <div
-                                                      className="edit-container"
-                                    >
-                                                      <button
-                                                                        className="delete"
-                                                                        onClick={[Function]}
-                                                      >
-                                                                         
-                                                      </button>
-                                                      <button
-                                                                        className="edit"
-                                                                        onClick={[Function]}
-                                                      />
-                                    </div>
-                  </li>
-</ul>,
+                <DisplayStaff
+                  admin={true}
+                  deleteFromSchedule={[Function]}
+                  editSchedule={[Function]}
+                  event={
+                                    Object {
+                                                      "staff": Array [
+                                                        Object {
+                                                          "role": "Bartender",
+                                                        },
+                                                        Object {
+                                                          "role": "Barback",
+                                                        },
+                                                        Object {
+                                                          "role": "Bar Manager",
+                                                        },
+                                                        Object {
+                                                          "role": "Assistant Bar Manager",
+                                                        },
+                                                      ],
+                                                    }
+                  }
+                  handleEditClick={[Function]}
+                  manualSchedule={false}
+                  staffList={Array []}
+                  staffRole="Bar Manager"
+                  updateSchedule={[Function]}
+/>,
                 undefined,
               ],
               "className": "managers",
@@ -1061,126 +2006,36 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "function",
                 "props": Object {
-                  "children": Array [
-                    <h4>
-                      Bar Manager
-</h4>,
-                    Array [
-                      <li>
-                        <div
-                                                className="edit-container"
-                        >
-                                                <button
-                                                                        className="delete"
-                                                                        onClick={[Function]}
-                                                >
-                                                                         
-                                                </button>
-                                                <button
-                                                                        className="edit"
-                                                                        onClick={[Function]}
-                                                />
-                        </div>
-</li>,
-                    ],
-                  ],
-                  "className": "bar-manager",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Bar Manager",
-                    },
-                    "ref": null,
-                    "rendered": "Bar Manager",
-                    "type": "h4",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": "undefinedBar Manager",
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        undefined,
-                        <div
-                          className="edit-container"
->
-                          <button
-                                                    className="delete"
-                                                    onClick={[Function]}
-                          >
-                                                     
-                          </button>
-                          <button
-                                                    className="edit"
-                                                    onClick={[Function]}
-                          />
-</div>,
-                      ],
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      undefined,
+                  "admin": true,
+                  "deleteFromSchedule": [Function],
+                  "editSchedule": [Function],
+                  "event": Object {
+                    "staff": Array [
                       Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "children": Array [
-                            <button
-                              className="delete"
-                              onClick={[Function]}
->
-                               
-</button>,
-                            <button
-                              className="edit"
-                              onClick={[Function]}
-/>,
-                          ],
-                          "className": "edit-container",
-                        },
-                        "ref": null,
-                        "rendered": Array [
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "host",
-                            "props": Object {
-                              "children": " ",
-                              "className": "delete",
-                              "onClick": [Function],
-                            },
-                            "ref": null,
-                            "rendered": " ",
-                            "type": "button",
-                          },
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "host",
-                            "props": Object {
-                              "className": "edit",
-                              "onClick": [Function],
-                            },
-                            "ref": null,
-                            "rendered": null,
-                            "type": "button",
-                          },
-                        ],
-                        "type": "div",
+                        "role": "Bartender",
+                      },
+                      Object {
+                        "role": "Barback",
+                      },
+                      Object {
+                        "role": "Bar Manager",
+                      },
+                      Object {
+                        "role": "Assistant Bar Manager",
                       },
                     ],
-                    "type": "li",
                   },
-                ],
-                "type": "ul",
+                  "handleEditClick": [Function],
+                  "manualSchedule": false,
+                  "staffList": Array [],
+                  "staffRole": "Bar Manager",
+                  "updateSchedule": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
               },
               undefined,
             ],
@@ -1189,250 +2044,70 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <h4>
-                  Bartenders
-</h4>,
-                Array [
-                  <li>
-                    <div
-                                        className="edit-container"
-                    >
-                                        <button
-                                                            className="delete"
-                                                            onClick={[Function]}
-                                        >
-                                                             
-                                        </button>
-                                        <button
-                                                            className="edit"
-                                                            onClick={[Function]}
-                                        />
-                    </div>
-</li>,
-                ],
-              ],
-              "className": "bartenders",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Bartenders",
-                },
-                "ref": null,
-                "rendered": "Bartenders",
-                "type": "h4",
-              },
-              Object {
-                "instance": null,
-                "key": "undefinedBartender",
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    undefined,
-                    <div
-                      className="edit-container"
->
-                      <button
-                                            className="delete"
-                                            onClick={[Function]}
-                      >
-                                             
-                      </button>
-                      <button
-                                            className="edit"
-                                            onClick={[Function]}
-                      />
-</div>,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  undefined,
+              "admin": true,
+              "deleteFromSchedule": [Function],
+              "editSchedule": [Function],
+              "event": Object {
+                "staff": Array [
                   Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        <button
-                          className="delete"
-                          onClick={[Function]}
->
-                           
-</button>,
-                        <button
-                          className="edit"
-                          onClick={[Function]}
-/>,
-                      ],
-                      "className": "edit-container",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "children": " ",
-                          "className": "delete",
-                          "onClick": [Function],
-                        },
-                        "ref": null,
-                        "rendered": " ",
-                        "type": "button",
-                      },
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "className": "edit",
-                          "onClick": [Function],
-                        },
-                        "ref": null,
-                        "rendered": null,
-                        "type": "button",
-                      },
-                    ],
-                    "type": "div",
+                    "role": "Bartender",
+                  },
+                  Object {
+                    "role": "Barback",
+                  },
+                  Object {
+                    "role": "Bar Manager",
+                  },
+                  Object {
+                    "role": "Assistant Bar Manager",
                   },
                 ],
-                "type": "li",
               },
-            ],
-            "type": "ul",
+              "handleEditClick": [Function],
+              "manualSchedule": false,
+              "staffList": Array [],
+              "staffRole": "Bartender",
+              "updateSchedule": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <h4>
-                  Barbacks
-</h4>,
-                Array [
-                  <li>
-                    <div
-                                        className="edit-container"
-                    >
-                                        <button
-                                                            className="delete"
-                                                            onClick={[Function]}
-                                        >
-                                                             
-                                        </button>
-                                        <button
-                                                            className="edit"
-                                                            onClick={[Function]}
-                                        />
-                    </div>
-</li>,
-                ],
-              ],
-              "className": "barbacks",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Barbacks",
-                },
-                "ref": null,
-                "rendered": "Barbacks",
-                "type": "h4",
-              },
-              Object {
-                "instance": null,
-                "key": "undefinedBarback",
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    undefined,
-                    <div
-                      className="edit-container"
->
-                      <button
-                                            className="delete"
-                                            onClick={[Function]}
-                      >
-                                             
-                      </button>
-                      <button
-                                            className="edit"
-                                            onClick={[Function]}
-                      />
-</div>,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  undefined,
+              "admin": true,
+              "deleteFromSchedule": [Function],
+              "editSchedule": [Function],
+              "event": Object {
+                "staff": Array [
                   Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        <button
-                          className="delete"
-                          onClick={[Function]}
->
-                           
-</button>,
-                        <button
-                          className="edit"
-                          onClick={[Function]}
-/>,
-                      ],
-                      "className": "edit-container",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "children": " ",
-                          "className": "delete",
-                          "onClick": [Function],
-                        },
-                        "ref": null,
-                        "rendered": " ",
-                        "type": "button",
-                      },
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "className": "edit",
-                          "onClick": [Function],
-                        },
-                        "ref": null,
-                        "rendered": null,
-                        "type": "button",
-                      },
-                    ],
-                    "type": "div",
+                    "role": "Bartender",
+                  },
+                  Object {
+                    "role": "Barback",
+                  },
+                  Object {
+                    "role": "Bar Manager",
+                  },
+                  Object {
+                    "role": "Assistant Bar Manager",
                   },
                 ],
-                "type": "li",
               },
-            ],
-            "type": "ul",
+              "handleEditClick": [Function],
+              "manualSchedule": false,
+              "staffList": Array [],
+              "staffRole": "Barback",
+              "updateSchedule": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
         ],
         "type": "section",
@@ -1462,76 +2137,91 @@ ShallowWrapper {
             <article
                         className="managers"
             >
-                        <ul
-                                    className="bar-manager"
-                        >
-                                    <h4>
-                                                Bar Manager
-                                    </h4>
-                                    <li>
-                                                <div
-                                                            className="edit-container"
-                                                >
-                                                            <button
-                                                                        className="delete"
-                                                                        onClick={[Function]}
-                                                            >
-                                                                         
-                                                            </button>
-                                                            <button
-                                                                        className="edit"
-                                                                        onClick={[Function]}
-                                                            />
-                                                </div>
-                                    </li>
-                        </ul>
+                        <DisplayStaff
+                                    admin={true}
+                                    deleteFromSchedule={[Function]}
+                                    editSchedule={[Function]}
+                                    event={
+                                                Object {
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                          }
+                                    }
+                                    handleEditClick={[Function]}
+                                    manualSchedule={false}
+                                    staffList={Array []}
+                                    staffRole="Bar Manager"
+                                    updateSchedule={[Function]}
+                        />
             </article>
-            <ul
-                        className="bartenders"
-            >
-                        <h4>
-                                    Bartenders
-                        </h4>
-                        <li>
-                                    <div
-                                                className="edit-container"
-                                    >
-                                                <button
-                                                            className="delete"
-                                                            onClick={[Function]}
-                                                >
-                                                             
-                                                </button>
-                                                <button
-                                                            className="edit"
-                                                            onClick={[Function]}
-                                                />
-                                    </div>
-                        </li>
-            </ul>
-            <ul
-                        className="barbacks"
-            >
-                        <h4>
-                                    Barbacks
-                        </h4>
-                        <li>
-                                    <div
-                                                className="edit-container"
-                                    >
-                                                <button
-                                                            className="delete"
-                                                            onClick={[Function]}
-                                                >
-                                                             
-                                                </button>
-                                                <button
-                                                            className="edit"
-                                                            onClick={[Function]}
-                                                />
-                                    </div>
-                        </li>
-            </ul>
+            <DisplayStaff
+                        admin={true}
+                        deleteFromSchedule={[Function]}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                        }
+                        handleEditClick={[Function]}
+                        manualSchedule={false}
+                        staffList={Array []}
+                        staffRole="Bartender"
+                        updateSchedule={[Function]}
+            />
+            <DisplayStaff
+                        admin={true}
+                        deleteFromSchedule={[Function]}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                        }
+                        handleEditClick={[Function]}
+                        manualSchedule={false}
+                        staffList={Array []}
+                        staffRole="Barback"
+                        updateSchedule={[Function]}
+            />
 </section>,
         ],
         "className": "schedule-card",
@@ -1609,76 +2299,91 @@ ShallowWrapper {
               <article
                 className="managers"
 >
-                <ul
-                                className="bar-manager"
-                >
-                                <h4>
-                                                Bar Manager
-                                </h4>
-                                <li>
-                                                <div
-                                                                className="edit-container"
-                                                >
-                                                                <button
-                                                                                className="delete"
-                                                                                onClick={[Function]}
-                                                                >
-                                                                                 
-                                                                </button>
-                                                                <button
-                                                                                className="edit"
-                                                                                onClick={[Function]}
-                                                                />
-                                                </div>
-                                </li>
-                </ul>
+                <DisplayStaff
+                                admin={true}
+                                deleteFromSchedule={[Function]}
+                                editSchedule={[Function]}
+                                event={
+                                                Object {
+                                                                "staff": Array [
+                                                                  Object {
+                                                                    "role": "Bartender",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Barback",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Bar Manager",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Assistant Bar Manager",
+                                                                  },
+                                                                ],
+                                                              }
+                                }
+                                handleEditClick={[Function]}
+                                manualSchedule={false}
+                                staffList={Array []}
+                                staffRole="Bar Manager"
+                                updateSchedule={[Function]}
+                />
 </article>,
-              <ul
-                className="bartenders"
->
-                <h4>
-                                Bartenders
-                </h4>
-                <li>
-                                <div
-                                                className="edit-container"
-                                >
-                                                <button
-                                                                className="delete"
-                                                                onClick={[Function]}
-                                                >
-                                                                 
-                                                </button>
-                                                <button
-                                                                className="edit"
-                                                                onClick={[Function]}
-                                                />
-                                </div>
-                </li>
-</ul>,
-              <ul
-                className="barbacks"
->
-                <h4>
-                                Barbacks
-                </h4>
-                <li>
-                                <div
-                                                className="edit-container"
-                                >
-                                                <button
-                                                                className="delete"
-                                                                onClick={[Function]}
-                                                >
-                                                                 
-                                                </button>
-                                                <button
-                                                                className="edit"
-                                                                onClick={[Function]}
-                                                />
-                                </div>
-                </li>
-</ul>,
+              <DisplayStaff
+                admin={true}
+                deleteFromSchedule={[Function]}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                }
+                handleEditClick={[Function]}
+                manualSchedule={false}
+                staffList={Array []}
+                staffRole="Bartender"
+                updateSchedule={[Function]}
+/>,
+              <DisplayStaff
+                admin={true}
+                deleteFromSchedule={[Function]}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                              }
+                }
+                handleEditClick={[Function]}
+                manualSchedule={false}
+                staffList={Array []}
+                staffRole="Barback"
+                updateSchedule={[Function]}
+/>,
             ],
             "className": "staff-container",
           },
@@ -1690,29 +2395,34 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <ul
-                    className="bar-manager"
->
-                    <h4>
-                                        Bar Manager
-                    </h4>
-                    <li>
-                                        <div
-                                                            className="edit-container"
-                                        >
-                                                            <button
-                                                                                className="delete"
-                                                                                onClick={[Function]}
-                                                            >
-                                                                                 
-                                                            </button>
-                                                            <button
-                                                                                className="edit"
-                                                                                onClick={[Function]}
-                                                            />
-                                        </div>
-                    </li>
-</ul>,
+                  <DisplayStaff
+                    admin={true}
+                    deleteFromSchedule={[Function]}
+                    editSchedule={[Function]}
+                    event={
+                                        Object {
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                          }
+                    }
+                    handleEditClick={[Function]}
+                    manualSchedule={false}
+                    staffList={Array []}
+                    staffRole="Bar Manager"
+                    updateSchedule={[Function]}
+/>,
                   undefined,
                 ],
                 "className": "managers",
@@ -1722,126 +2432,36 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "host",
+                  "nodeType": "function",
                   "props": Object {
-                    "children": Array [
-                      <h4>
-                        Bar Manager
-</h4>,
-                      Array [
-                        <li>
-                          <div
-                                                    className="edit-container"
-                          >
-                                                    <button
-                                                                              className="delete"
-                                                                              onClick={[Function]}
-                                                    >
-                                                                               
-                                                    </button>
-                                                    <button
-                                                                              className="edit"
-                                                                              onClick={[Function]}
-                                                    />
-                          </div>
-</li>,
-                      ],
-                    ],
-                    "className": "bar-manager",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "Bar Manager",
-                      },
-                      "ref": null,
-                      "rendered": "Bar Manager",
-                      "type": "h4",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": "undefinedBar Manager",
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          undefined,
-                          <div
-                            className="edit-container"
->
-                            <button
-                                                        className="delete"
-                                                        onClick={[Function]}
-                            >
-                                                         
-                            </button>
-                            <button
-                                                        className="edit"
-                                                        onClick={[Function]}
-                            />
-</div>,
-                        ],
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        undefined,
+                    "admin": true,
+                    "deleteFromSchedule": [Function],
+                    "editSchedule": [Function],
+                    "event": Object {
+                      "staff": Array [
                         Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "host",
-                          "props": Object {
-                            "children": Array [
-                              <button
-                                className="delete"
-                                onClick={[Function]}
->
-                                 
-</button>,
-                              <button
-                                className="edit"
-                                onClick={[Function]}
-/>,
-                            ],
-                            "className": "edit-container",
-                          },
-                          "ref": null,
-                          "rendered": Array [
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "children": " ",
-                                "className": "delete",
-                                "onClick": [Function],
-                              },
-                              "ref": null,
-                              "rendered": " ",
-                              "type": "button",
-                            },
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "className": "edit",
-                                "onClick": [Function],
-                              },
-                              "ref": null,
-                              "rendered": null,
-                              "type": "button",
-                            },
-                          ],
-                          "type": "div",
+                          "role": "Bartender",
+                        },
+                        Object {
+                          "role": "Barback",
+                        },
+                        Object {
+                          "role": "Bar Manager",
+                        },
+                        Object {
+                          "role": "Assistant Bar Manager",
                         },
                       ],
-                      "type": "li",
                     },
-                  ],
-                  "type": "ul",
+                    "handleEditClick": [Function],
+                    "manualSchedule": false,
+                    "staffList": Array [],
+                    "staffRole": "Bar Manager",
+                    "updateSchedule": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
                 },
                 undefined,
               ],
@@ -1850,250 +2470,70 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": Array [
-                  <h4>
-                    Bartenders
-</h4>,
-                  Array [
-                    <li>
-                      <div
-                                            className="edit-container"
-                      >
-                                            <button
-                                                                  className="delete"
-                                                                  onClick={[Function]}
-                                            >
-                                                                   
-                                            </button>
-                                            <button
-                                                                  className="edit"
-                                                                  onClick={[Function]}
-                                            />
-                      </div>
-</li>,
-                  ],
-                ],
-                "className": "bartenders",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Bartenders",
-                  },
-                  "ref": null,
-                  "rendered": "Bartenders",
-                  "type": "h4",
-                },
-                Object {
-                  "instance": null,
-                  "key": "undefinedBartender",
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      undefined,
-                      <div
-                        className="edit-container"
->
-                        <button
-                                                className="delete"
-                                                onClick={[Function]}
-                        >
-                                                 
-                        </button>
-                        <button
-                                                className="edit"
-                                                onClick={[Function]}
-                        />
-</div>,
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    undefined,
+                "admin": true,
+                "deleteFromSchedule": [Function],
+                "editSchedule": [Function],
+                "event": Object {
+                  "staff": Array [
                     Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          <button
-                            className="delete"
-                            onClick={[Function]}
->
-                             
-</button>,
-                          <button
-                            className="edit"
-                            onClick={[Function]}
-/>,
-                        ],
-                        "className": "edit-container",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "host",
-                          "props": Object {
-                            "children": " ",
-                            "className": "delete",
-                            "onClick": [Function],
-                          },
-                          "ref": null,
-                          "rendered": " ",
-                          "type": "button",
-                        },
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "host",
-                          "props": Object {
-                            "className": "edit",
-                            "onClick": [Function],
-                          },
-                          "ref": null,
-                          "rendered": null,
-                          "type": "button",
-                        },
-                      ],
-                      "type": "div",
+                      "role": "Bartender",
+                    },
+                    Object {
+                      "role": "Barback",
+                    },
+                    Object {
+                      "role": "Bar Manager",
+                    },
+                    Object {
+                      "role": "Assistant Bar Manager",
                     },
                   ],
-                  "type": "li",
                 },
-              ],
-              "type": "ul",
+                "handleEditClick": [Function],
+                "manualSchedule": false,
+                "staffList": Array [],
+                "staffRole": "Bartender",
+                "updateSchedule": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": Array [
-                  <h4>
-                    Barbacks
-</h4>,
-                  Array [
-                    <li>
-                      <div
-                                            className="edit-container"
-                      >
-                                            <button
-                                                                  className="delete"
-                                                                  onClick={[Function]}
-                                            >
-                                                                   
-                                            </button>
-                                            <button
-                                                                  className="edit"
-                                                                  onClick={[Function]}
-                                            />
-                      </div>
-</li>,
-                  ],
-                ],
-                "className": "barbacks",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Barbacks",
-                  },
-                  "ref": null,
-                  "rendered": "Barbacks",
-                  "type": "h4",
-                },
-                Object {
-                  "instance": null,
-                  "key": "undefinedBarback",
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      undefined,
-                      <div
-                        className="edit-container"
->
-                        <button
-                                                className="delete"
-                                                onClick={[Function]}
-                        >
-                                                 
-                        </button>
-                        <button
-                                                className="edit"
-                                                onClick={[Function]}
-                        />
-</div>,
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    undefined,
+                "admin": true,
+                "deleteFromSchedule": [Function],
+                "editSchedule": [Function],
+                "event": Object {
+                  "staff": Array [
                     Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          <button
-                            className="delete"
-                            onClick={[Function]}
->
-                             
-</button>,
-                          <button
-                            className="edit"
-                            onClick={[Function]}
-/>,
-                        ],
-                        "className": "edit-container",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "host",
-                          "props": Object {
-                            "children": " ",
-                            "className": "delete",
-                            "onClick": [Function],
-                          },
-                          "ref": null,
-                          "rendered": " ",
-                          "type": "button",
-                        },
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "host",
-                          "props": Object {
-                            "className": "edit",
-                            "onClick": [Function],
-                          },
-                          "ref": null,
-                          "rendered": null,
-                          "type": "button",
-                        },
-                      ],
-                      "type": "div",
+                      "role": "Bartender",
+                    },
+                    Object {
+                      "role": "Barback",
+                    },
+                    Object {
+                      "role": "Bar Manager",
+                    },
+                    Object {
+                      "role": "Assistant Bar Manager",
                     },
                   ],
-                  "type": "li",
                 },
-              ],
-              "type": "ul",
+                "handleEditClick": [Function],
+                "manualSchedule": false,
+                "staffList": Array [],
+                "staffRole": "Barback",
+                "updateSchedule": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
           ],
           "type": "section",
