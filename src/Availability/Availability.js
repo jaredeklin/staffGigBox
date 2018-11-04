@@ -75,6 +75,7 @@ export class Availability extends Component {
         <h2>Select days you are unavailable</h2>
         <DayPicker
           selectedDays={this.state.selectedDays}
+          disabledDays={[{ before: new Date() }]}
           onDayClick={this.handleDayClick}
         />
         <button onClick={this.handleSubmit}>Submit Availability</button>
