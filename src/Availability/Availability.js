@@ -17,25 +17,18 @@ export class Availability extends Component {
   }
 
   handleDayClick = async (day, { selected }) => {
-    const { selectedDays } = this.state;
-    const id = this.props.currentUserId;
+    const days = [...this.state.selectedDays];
 
     if (selected) {
       const selectedIndex = selectedDays.findIndex(
         selectedDay => selectedDay.toString() === day.toString()
       );
-      const removedDay = selectedDays.splice(selectedIndex, 1);
-      const removedDate = this.cleanDate(removedDay[0]);
-      const isInDatabase = await this.api.getAvailability(id, removedDate);
-
-      if (isInDatabase) {
-        await this.api.deleteAvailability(id, removedDate);
-      }
+      days.splice(selectedIndex, 1);
     } else {
-      selectedDays.push(day);
+      days.push(day);
     }
 
-    this.setState({ selectedDays });
+    this.setState({ selectedDays: days });
   };
 
   cleanDate = dates => {
