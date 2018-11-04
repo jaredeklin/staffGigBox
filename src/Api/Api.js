@@ -366,13 +366,17 @@ export class Api {
     return await response.json();
   };
 
-  deleteAvailability = async (id, date) => {
-    const query = `staff_id=${id}&date_unavailable=${date}`;
-    const response = await fetch(`${this.url}api/v1/availability?${query}`, {
-      method: 'DELETE'
+  deleteAvailability = async (id, dates) => {
+    const promise = dates.map(async day => {
+      const query = `staff_id=${id}&date_unavailable=${day}`;
+      const response = await fetch(`${this.url}api/v1/availability?${query}`, {
+        method: 'DELETE'
+      });
+
+      return await response.json();
     });
 
-    return await response.json();
+    return Promise.all(promise);
   };
 
   getClassName = role => {
