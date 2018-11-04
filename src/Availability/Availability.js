@@ -11,7 +11,8 @@ export class Availability extends Component {
     super(props);
     this.api = new Api();
     this.state = {
-      selectedDays: []
+      selectedDays: [],
+      originalDays: []
     };
   }
 
@@ -70,7 +71,7 @@ export class Availability extends Component {
     if (daysOff) {
       const selectedDays = daysOff.map(day => new Date(day.date_unavailable));
 
-      this.setState({ selectedDays });
+      this.setState({ selectedDays, originalDays: selectedDays });
     }
   };
 
