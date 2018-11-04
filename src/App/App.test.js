@@ -5,16 +5,11 @@ import { shallow } from 'enzyme';
 describe('App', () => {
   let wrapper;
   let mockUser1;
-  let mockUser2;
 
   beforeEach(() => {
     wrapper = shallow(<App />, { disableLifecycleMethods: true });
     mockUser1 = {
       uid: 12345
-    };
-
-    mockUser2 = {
-      uid: 23456
     };
   });
 
@@ -22,46 +17,66 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should update a user to state', () => {
-    wrapper.setState({
-      staff: [
+  describe('addUser', () => {
+    it('should update state and call checkAuthorization when there is a user', async () => {
+      const mockStaff = [
         {
           google_id: 12345
         }
-      ]
-    });
-    wrapper.instance().addUser(mockUser1);
+      ];
 
-    expect(wrapper.state('user')).toEqual(mockUser1);
+      wrapper.instance().checkAuthorization = jest.fn();
+      wrapper.setState({ staff: mockStaff });
+      await wrapper.instance().addUser(mockUser1);
+
+      expect(wrapper.state('user')).toEqual(mockUser1);
+      expect(wrapper.state('isCurrentStaff')).toEqual(false);
+      expect(wrapper.instance().checkAuthorization).toHaveBeenCalledWith({
+        google_id: 12345
+      });
+    });
+
+    it('should set admin and tabs state if not a user ', async () => {
+      await wrapper.instance().addUser();
+
+      expect(wrapper.state('tabs')).toEqual(['Schedule']);
+      expect(wrapper.state('admin')).toEqual(false);
+    });
   });
 
-  it('should check if user is isCurrentStaff', async () => {
-    wrapper.setState({
-      staff: [
-        {
-          google_id: 12345
-        }
-      ]
+  describe('checkAuthorization', () => {
+    it('should set state with correct values when authorized', () => {
+      wrapper.instance().checkAuthorization({ google_id: 12345, id: 3 });
+
+      expect(wrapper.state('isCurrentStaff')).toEqual(true);
+      expect(wrapper.state('tabs')).toEqual([
+        'Schedule',
+        'Submit Availability'
+      ]);
+      expect(wrapper.state('admin')).toEqual(false);
+      expect(wrapper.state('currentUserId')).toEqual(3);
+
+      wrapper
+        .instance()
+        .checkAuthorization({ google_id: 12345, id: 3, bar_manager: true });
+
+      expect(wrapper.state('isCurrentStaff')).toEqual(true);
+      expect(wrapper.state('tabs')).toEqual([
+        'Schedule',
+        'Submit Availability',
+        'Add Event',
+        'Add New Staff'
+      ]);
+      expect(wrapper.state('admin')).toEqual(true);
+      expect(wrapper.state('currentUserId')).toEqual(3);
     });
 
-    await wrapper.instance().addUser(mockUser1);
+    it('should set state with correct values when not authorized', () => {
+      wrapper.instance().checkAuthorization();
 
-    expect(wrapper.state('isCurrentStaff')).toEqual(true);
-  });
-
-  it('should check if user is isCurrentStaff', async () => {
-    wrapper.setState({
-      staff: [
-        {
-          google_id: 12345
-        }
-      ]
+      expect(wrapper.state('addNewStaff')).toEqual(true);
+      expect(wrapper.state('tabs')).toEqual(['Schedule', 'Add New Staff']);
     });
-
-    await wrapper.instance().addUser(mockUser2);
-
-    expect(wrapper.state('isCurrentStaff')).toEqual(false);
-    expect(wrapper.state('addNewStaff')).toEqual(true);
   });
 
   it('should add Staff', () => {
