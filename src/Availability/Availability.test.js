@@ -21,30 +21,19 @@ describe('Availability', () => {
     it('should update state when selected is undefined', () => {
       const mockSelected = { selected: undefined };
       const expected = [mockSelectedDay, mockSelectedDay];
-      wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(false);
-
       wrapper.instance().handleDayClick(mockSelectedDay, mockSelected);
 
       expect(wrapper.state().selectedDays).toEqual(expected);
     });
 
-    it('should .... when selected is true', async () => {
+    it('should update state when selected is true', async () => {
       const mockSelected = { selected: true };
-      wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(true);
-      wrapper.instance().api.deleteAvailability = jest.fn();
-      wrapper.instance().cleanDate = jest.fn(() => 'Jun 30, 2018');
-      wrapper.instance().handleDayClick(mockSelectedDay, mockSelected);
+      wrapper.setState({ selectedDays: [new Date()] });
+      wrapper
+        .instance()
+        .handleDayClick(new Date(mockSelectedDay), mockSelected);
 
-      expect(wrapper.instance().cleanDate).toHaveBeenCalledWith(
-        mockSelectedDay
-      );
-      expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(
-        2,
-        'Jun 30, 2018'
-      );
-      expect(
-        await wrapper.instance().api.deleteAvailability
-      ).toHaveBeenCalledWith(2, 'Jun 30, 2018');
+      expect(wrapper.state('selectedDays')).toEqual([]);
     });
   });
 
