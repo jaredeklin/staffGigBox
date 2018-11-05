@@ -352,13 +352,15 @@ export class Api {
     return Promise.all(promise);
   };
 
-  getAvailability = async (id, date) => {
+  getAvailability = async (id, date, futureDates) => {
     let response;
 
-    if (id && date) {
-      const query = `staff_id=${id}&date_unavailable=${date}`;
-
-      response = await fetch(`${this.url}api/v1/availability?${query}`);
+    if (futureDates) {
+      const futureQuery = `staff_id=${id}&future=${futureDates}`;
+      response = await fetch(`${this.url}api/v1/availability?${futureQuery}`);
+    } else if (id && date && !futureDates) {
+      const dateQuery = `staff_id=${id}&date_unavailable=${date}`;
+      response = await fetch(`${this.url}api/v1/availability?${dateQuery}`);
     } else {
       response = await fetch(`${this.url}api/v1/availability?staff_id=${id}`);
     }
