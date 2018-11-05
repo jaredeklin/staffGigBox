@@ -34,7 +34,7 @@ export class Availability extends Component {
   cleanDate = dates => {
     return dates.map(day => {
       const date = day.toString().substring(4, 15);
-      return moment(date, 'MMM DD YYYY').format('MMM D, YYYY');
+      return moment(date, 'MMM DD YYYY').format('YYYY-MM-DD');
     });
   };
 
