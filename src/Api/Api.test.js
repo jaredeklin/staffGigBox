@@ -266,33 +266,43 @@ describe('Api', () => {
     expect(api.buildScheduleWithRoles(mockEvent)).toEqual(expected);
   });
 
-  it('deleteAvailability should be called with the correct params', () => {
-    const expected = [
-      `${url}availability?staff_id=2&date_unavailable=June 30, 2018`,
-      {
-        method: 'DELETE'
-      }
-    ];
+  describe('deleteAvailability', () => {
+    it('should be called with the correct params', () => {
+      const expected = [
+        `${url}availability?staff_id=2&date_unavailable=2018-06-30`,
+        { method: 'DELETE' }
+      ];
 
-    api.deleteAvailability(2, 'June 30, 2018');
+      api.deleteAvailability(2, ['2018-06-30']);
 
-    expect(window.fetch).toHaveBeenCalledWith(...expected);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
   });
 
-  it('getAvailability should be called with correct params when both id and date are provided', () => { // eslint-disable-line
-    const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`; // eslint-disable-line
+  describe('getAvailability', () => {
+    it('should be called with correct params when both id and date are provided', () => {
+      const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`;
 
-    api.getAvailability(2, 'June 30, 2018');
+      api.getAvailability(2, 'June 30, 2018');
 
-    expect(window.fetch).toHaveBeenCalledWith(expected);
-  });
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
 
-  it('getAvailability should be called with correct params when only the id is provided', () => { // eslint-disable-line
-    const expected = 'http://localhost:3000/api/v1/availability?staff_id=2';
+    it('should be called with correct params when only the id is provided', () => {
+      const expected = 'http://localhost:3000/api/v1/availability?staff_id=2';
 
-    api.getAvailability(2);
+      api.getAvailability(2);
 
-    expect(window.fetch).toHaveBeenCalledWith(expected);
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should be called with correct params when future is truthy', () => {
+      const expected = `${url}availability?staff_id=2&future=true`;
+
+      api.getAvailability(2, null, true);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
   });
 
   it('postAvailability should be called with correct params', () => {
