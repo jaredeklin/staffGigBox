@@ -68,8 +68,8 @@ describe('Availability', () => {
 
   describe('cleanDate', () => {
     it('should return a parsed date', () => {
-      const mockDay = 'Fri Jun 30 2018 12:00:00 GMT-0700';
-      const expected = 'Jun 30, 2018';
+      const mockDay = ['Fri Jun 30 2018 12:00:00 GMT-0700'];
+      const expected = ['2018-06-30'];
 
       expect(wrapper.instance().cleanDate(mockDay)).toEqual(expected);
     });
