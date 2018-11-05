@@ -48,25 +48,21 @@ export class Availability extends Component {
 
     if (daysToAdd.length) {
       const cleanDates = this.cleanDate(daysToAdd);
-
       await this.api.postAvailability(id, cleanDates);
     }
 
     if (daysToRemove.length) {
       const cleanDates = this.cleanDate(daysToRemove);
-
       await this.api.deleteAvailability(id, cleanDates);
     }
   };
 
   componentDidMount = async () => {
-    const daysOff = await this.api.getAvailability(this.props.currentUserId);
+    const { currentUserId } = this.props;
+    const days = await this.api.getAvailability(currentUserId, null, true);
+    const selectedDays = days.map(day => moment(day.date_unavailable)._d);
 
-    if (daysOff) {
-      const selectedDays = daysOff.map(day => new Date(day.date_unavailable));
-
-      this.setState({ selectedDays, originalDays: selectedDays });
-    }
+    this.setState({ selectedDays, originalDays: selectedDays });
   };
 
   render() {
