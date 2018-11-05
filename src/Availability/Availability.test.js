@@ -39,18 +39,29 @@ describe('Availability', () => {
 
   describe('handleSubmit', () => {
     it('should call getAvailability with correct params', () => {
-      wrapper.instance().api.getAvailability = jest.fn().mockReturnValue(false);
       wrapper.instance().api.postAvailability = jest.fn();
-      wrapper.instance().cleanDate = jest.fn(() => 'Jun 30, 2018');
+      wrapper.instance().api.deleteAvailability = jest.fn();
 
       wrapper.instance().handleSubmit();
 
-      expect(wrapper.instance().cleanDate).toHaveBeenCalledWith(
-        mockSelectedDay
-      );
-      expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(
+      expect(wrapper.instance().api.postAvailability).toHaveBeenCalledWith(2, [
+        '2018-06-30'
+      ]);
+    });
+
+    it('should call deleteAvailability with correct params', async () => {
+      wrapper.setState({
+        originalDays: ['Fri Jun 29 2018 12:00:00 GMT-0700'],
+        selectedDays: []
+      });
+
+      wrapper.instance().api.postAvailability = jest.fn();
+      wrapper.instance().api.deleteAvailability = jest.fn();
+
+      await wrapper.instance().handleSubmit();
+      expect(wrapper.instance().api.deleteAvailability).toHaveBeenCalledWith(
         2,
-        'Jun 30, 2018'
+        ['2018-06-29']
       );
     });
   });
