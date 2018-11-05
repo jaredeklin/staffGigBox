@@ -76,16 +76,18 @@ describe('Availability', () => {
   });
 
   describe('componentDidMount', () => {
-    const mockDate = [{ date_unavailable: 'June 30, 2018' }];
+    const mockDate = [{ date_unavailable: '2018-06-30' }];
 
-    it('should call getAvailability', () => {
+    it('should call getAvailability with correct params', () => {
       wrapper.instance().api.getAvailability = jest
         .fn()
         .mockReturnValue(mockDate);
       wrapper.instance().componentDidMount();
 
       expect(wrapper.instance().api.getAvailability).toHaveBeenCalledWith(
-        mockCurrentUserId
+        mockCurrentUserId,
+        null,
+        true
       );
     });
 
@@ -96,15 +98,6 @@ describe('Availability', () => {
       wrapper.instance().componentDidMount();
 
       expect(wrapper.state('selectedDays')).toEqual([mockSelectedDay]);
-    });
-  });
-
-  describe('handleDayClick', () => {
-    it('should setState for selectedDays', () => {
-      // wrapper.instance().handleDayClick()
-      expect(wrapper.state()).toEqual({
-        selectedDays: [mockSelectedDay]
-      });
     });
   });
 });
