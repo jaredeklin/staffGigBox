@@ -46,7 +46,7 @@ describe('App', () => {
 
   describe('checkAuthorization', () => {
     it('should set state with correct values when authorized', () => {
-      wrapper.instance().checkAuthorization({ google_id: 12345, id: 3 });
+      wrapper.instance().checkAuthorization({ google_id: 12345, staff_id: 3 });
 
       expect(wrapper.state('isCurrentStaff')).toEqual(true);
       expect(wrapper.state('tabs')).toEqual([
@@ -56,13 +56,16 @@ describe('App', () => {
       expect(wrapper.state('admin')).toEqual(false);
       expect(wrapper.state('currentUserId')).toEqual(3);
 
-      wrapper
-        .instance()
-        .checkAuthorization({ google_id: 12345, id: 3, bar_manager: true });
+      wrapper.instance().checkAuthorization({
+        google_id: 12345,
+        staff_id: 3,
+        bar_manager: true
+      });
 
       expect(wrapper.state('isCurrentStaff')).toEqual(true);
       expect(wrapper.state('tabs')).toEqual([
         'Schedule',
+        'Unscheduled Events',
         'Submit Availability',
         'Add Event',
         'Add New Staff'
