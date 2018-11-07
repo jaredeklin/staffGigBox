@@ -75,8 +75,57 @@ class App extends Component {
     this.editSchedule();
   };
 
-  editSchedule = async () => {
-    const schedule = await this.api.getSchedule();
+  getSchedule = async (staff, events) => {
+    const response = await fetch(`${this.url}api/v1/schedule`);
+    const rawSchedule = await response.json();
+
+    const schedule = events.reduce(
+      (schedAcc, event) => {
+        const { event_id } = event;
+        const staffId = rawSchedule.filter(
+          sched => sched.event_id === event_id
+        );
+
+        const eventStaff = staffId.map(person => {
+          const { role, schedule_id } = person;
+          const staffObj = staff.find(
+            member => person.staff_id === member.staff_id
+          );
+
+          if (!staffObj) {
+            return {
+              staff_id: null,
+              name: 'Staff Needed',
+              event_id,
+              role,
+              schedule_id
+            };
+          }
+
+          return { ...staffObj, event_id, role, schedule_id };
+        });
+
+        const findUnscheduled = eventStaff.find(staff => !staff.staff_id);
+
+        if (!findUnscheduled) {
+          schedAcc.schedule = [
+            ...schedAcc.schedule,
+            { ...event, staff: eventStaff }
+          ];
+        } else {
+          schedAcc.unscheduledEvents = [
+            ...schedAcc.unscheduledEvents,
+            { ...event, staff: eventStaff }
+          ];
+        }
+
+        return schedAcc;
+      },
+      { schedule: [], unscheduledEvents: [] }
+    );
+
+    return schedule;
+  };
 
     this.setState({ schedule });
   };
