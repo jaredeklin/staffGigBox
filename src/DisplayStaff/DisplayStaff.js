@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Api } from '../Api/Api';
 
-const DisplayStaff = ({
-  event,
-  staffRole,
-  deleteFromSchedule,
-  handleEditClick,
-  admin
-}) => {
+const DisplayStaff = props => {
+  const {
+    event,
+    staffRole,
+    deleteFromSchedule,
+    handleEditClick,
+    admin
+  } = props;
   const api = new Api();
 
   const mapStaff = staffRole => {
@@ -17,14 +18,16 @@ const DisplayStaff = ({
     return staff
       .filter(staffMember => staffMember.role === staffRole)
       .map(person => {
+        const { schedule_id, name } = person;
+
         return (
-          <li key={person.staff_events_id + staffRole}>
-            {person.name}
+          <li key={schedule_id}>
+            {name}
             {admin && (
               <div className="edit-container">
                 <button
                   className="delete"
-                  onClick={() => deleteFromSchedule(person.staff_events_id)}
+                  onClick={() => deleteFromSchedule(schedule_id)}
                 />
                 <button
                   className="edit"
