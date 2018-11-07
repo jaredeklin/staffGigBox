@@ -37,6 +37,19 @@ export class EditStaffDropdown extends Component {
     });
   };
 
+  findAvailableStaff = async () => {
+    const { date } = this.props.event;
+
+    const alreadyScheduled = await this.api.checkSchedule(date);
+    const notAvailable = await this.api.checkAvailability(date);
+    const unavailable = [...alreadyScheduled, ...notAvailable];
+
+    const availableStaff = this.props.staff.filter(staff => {
+      return !unavailable.some(person => staff.staff_id === person.staff_id);
+    });
+
+    this.setState({ availableStaff });
+  };
   render() {
     return (
       <form>
