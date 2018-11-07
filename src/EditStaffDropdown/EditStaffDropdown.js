@@ -50,6 +50,7 @@ export class EditStaffDropdown extends Component {
 
     this.setState({ availableStaff });
   };
+
   handleSave = () => {
     const eventDetails = {
       staff_id: this.state.staff_id,
@@ -58,17 +59,26 @@ export class EditStaffDropdown extends Component {
 
     this.props.updateEventStaff(eventDetails);
   };
+
   componentDidMount = () => {
     this.findAvailableStaff();
   };
+
   render() {
+    const { name, role } = this.props.currentPerson;
+
     return (
-      <form>
-        <select onChange={this.handleChange}>
-          <option>Select staff</option>
-          {this.displayStaff()}
-        </select>
-      </form>
+      <section className="modal-container">
+        <section className="modal-main">
+          Replace {name} in a role of {role} with
+          <select onChange={this.handleChange}>
+            <option>Select staff</option>
+            {this.displayStaff(role)}
+          </select>
+          <button onClick={this.handleSave}>Save</button>
+          <button onClick={this.props.closeModal}>Close</button>
+        </section>
+      </section>
     );
   }
 }
