@@ -22,6 +22,7 @@ ShallowWrapper {
           addUser={[Function]}
 />,
         <TabContainer
+          addEvent={[Function]}
           addStaff={[Function]}
           admin={false}
           currentUserId={null}
@@ -31,6 +32,7 @@ ShallowWrapper {
           scheduleGenerator={[Function]}
           staff={Array []}
           tabs={Array []}
+          unscheduledEvents={Array []}
           user={null}
 />,
       ],
@@ -54,6 +56,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "addEvent": [Function],
           "addStaff": [Function],
           "admin": false,
           "currentUserId": null,
@@ -63,6 +66,7 @@ ShallowWrapper {
           "scheduleGenerator": [Function],
           "staff": Array [],
           "tabs": Array [],
+          "unscheduledEvents": Array [],
           "user": null,
         },
         "ref": null,
@@ -83,6 +87,7 @@ ShallowWrapper {
             addUser={[Function]}
 />,
           <TabContainer
+            addEvent={[Function]}
             addStaff={[Function]}
             admin={false}
             currentUserId={null}
@@ -92,6 +97,7 @@ ShallowWrapper {
             scheduleGenerator={[Function]}
             staff={Array []}
             tabs={Array []}
+            unscheduledEvents={Array []}
             user={null}
 />,
         ],
@@ -115,6 +121,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "addEvent": [Function],
             "addStaff": [Function],
             "admin": false,
             "currentUserId": null,
@@ -124,6 +131,7 @@ ShallowWrapper {
             "scheduleGenerator": [Function],
             "staff": Array [],
             "tabs": Array [],
+            "unscheduledEvents": Array [],
             "user": null,
           },
           "ref": null,
