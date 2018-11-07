@@ -95,6 +95,7 @@ export class EventForm extends Component {
               value={name}
               onChange={this.handleChange}
               className="input_event-form"
+              required
             />
             <input
               type="date"
@@ -103,6 +104,7 @@ export class EventForm extends Component {
               value={date}
               onChange={this.handleChange}
               className="input_event-form"
+              required
             />
             <input
               placeholder="Time"
@@ -111,6 +113,7 @@ export class EventForm extends Component {
               value={time}
               onChange={this.handleChange}
               className="input_event-form"
+              required
             />
           </div>
           <div className="staff-info">
