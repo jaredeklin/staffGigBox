@@ -174,6 +174,13 @@ export class Api {
     }
   };
 
+  checkSchedule = async date => {
+    const response = await fetch(
+      `${this.url}api/v1/schedule?event_date=${date}`
+    );
+    return await response.json();
+  };
+
   getSchedule = async id => {
     let response;
 
