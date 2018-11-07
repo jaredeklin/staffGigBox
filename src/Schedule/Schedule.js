@@ -5,6 +5,8 @@ import { Api } from '../Api/Api';
 import PropTypes from 'prop-types';
 import DisplayStaff from '../DisplayStaff/DisplayStaff';
 
+const moment = require('moment');
+
 export class Schedule extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +61,7 @@ export class Schedule extends Component {
     return (
       <section className="schedule-card">
         <div className="schedule-container">
-          <h4>{date}</h4>
+          <h4>{moment(date).format('MMM D, YYYY')}</h4>
           <h4>{venue}</h4>
           <h4>{time}</h4>
         </div>
