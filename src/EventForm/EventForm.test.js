@@ -31,31 +31,23 @@ describe('EventForm', () => {
     expect(wrapper.state('date')).toEqual('2018-06-06');
   });
 
-  it('should post event on handle Submit', async () => {
-    const mockEvent = {
-      preventDefault: jest.fn()
-    };
-
-    const mockDefaultState = {
-      venue: 'Ogden Theatre',
-      name: '',
-      date: '',
-      time: '18:00',
-      bar_manager: '',
-      ass_bar_manager: '',
-      bartenders: '',
-      barbacks: '',
-      beer_bucket: '',
-      manualSchedule: ''
-    };
-
+  describe('postEvent', () => {
     const mockEventObj = {
-      ...mockDefaultState,
-      date: 'Jun 6, 2018',
+      venue: 'Gothic Theatre',
+      name: 'Ratatat',
+      date: '2018-06-06',
       time: '6:00 pm'
     };
-    delete mockEventObj.manualSchedule;
+    beforeEach(() => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          status: 201,
+          json: () => Promise.resolve(mockEventObj)
+        })
+      );
+    });
 
+    it('should call fetch with correct params', () => {
     const expected = [
       'http://localhost:3000/api/v1/events',
       {
@@ -66,6 +58,12 @@ describe('EventForm', () => {
         }
       }
     ];
+      wrapper.instance().postEvent(mockEventObj);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
+
+    xit('should return a correct value', async () => {});
+  });
 
     window.fetch = jest.fn(() =>
       Promise.resolve({
