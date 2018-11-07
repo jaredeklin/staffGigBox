@@ -14,9 +14,10 @@ export class Schedule extends Component {
     this.state = {
       staff_id: '',
       event_id: '',
-      staff_events_id: '',
+      schedule_id: '',
       edit: false,
-      manualSchedule: false || this.props.manualSchedule
+      manualSchedule: false || this.props.manualSchedule,
+      currentStaffPerson: {}
     };
   }
 
@@ -41,22 +42,17 @@ export class Schedule extends Component {
   closeModal = () => {
     this.setState({ edit: false });
   };
+
   handleEditClick = person => {
     this.setState({
       edit: !this.state.edit,
-      staff_events_id: person.staff_events_id
+      schedule_id: person.schedule_id,
+      currentStaffPerson: person
     });
   };
 
   render() {
-    const {
-      venue,
-      name,
-      date,
-      time,
-      event_id,
-      ass_bar_manager
-    } = this.props.event;
+    const { venue, name, date, time, ass_bar_manager } = this.props.event;
 
     return (
       <section className="schedule-card">
@@ -66,15 +62,6 @@ export class Schedule extends Component {
           <h4>{time}</h4>
         </div>
         <h2>{name}</h2>
-        {this.state.edit && (
-          <EditStaffDropdown
-            staff={this.props.staffList}
-            createEventStaff={this.createEventStaff}
-            manualSchedule={this.state.manualSchedule}
-            event_id={event_id}
-            updateEventStaff={this.updateEventStaff}
-          />
-        )}
         <section className="staff-container">
           <article className="managers">
             <DisplayStaff
