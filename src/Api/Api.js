@@ -352,6 +352,13 @@ export class Api {
     return Promise.all(promise);
   };
 
+  checkAvailability = async date => {
+    const dateQuery = `date_unavailable=${date}`;
+    const response = await fetch(`${this.url}api/v1/availability?${dateQuery}`);
+
+    return response.json();
+  };
+
   getAvailability = async (id, date, futureDates) => {
     let response;
 
