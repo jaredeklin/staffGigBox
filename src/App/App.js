@@ -127,6 +127,28 @@ class App extends Component {
     return schedule;
   };
 
+  editSchedule = updatedStaff => {
+    const { schedule_id, staff_id, event_id } = updatedStaff;
+    const staffObj = this.state.staff.find(
+      staff => staff.staff_id === staff_id
+    );
+
+    const schedule = [...this.state.schedule];
+    const event = schedule.find(event => event.event_id === event_id);
+    const { staff } = event;
+
+    for (let index = 0; index < staff.length; index++) {
+      if (staff[index].schedule_id === schedule_id) {
+        staff[index] = {
+          ...staffObj,
+          role: staff[index].role,
+          schedule_id,
+          event_id
+        };
+        break;
+      }
+    }
+
     this.setState({ schedule });
   };
 
