@@ -101,9 +101,10 @@ class App extends Component {
   updateStateFromHelpers = async () => {
     const staff = await this.api.getStaff();
     const events = await this.api.getEvents();
-    const schedule = await this.api.getSchedule();
+    const schedules = await this.getSchedule(staff, events);
+    const { schedule, unscheduledEvents } = schedules;
 
-    this.setState({ staff, events, schedule });
+    this.setState({ staff, events, schedule, unscheduledEvents });
   };
 
   componentDidMount = () => {
