@@ -288,44 +288,39 @@ export class Api {
   };
 
   buildScheduleWithRoles = event => {
-    let { bar_manager, ass_bar_manager, bartenders, barbacks, id } = event;
-    const newEventStaffArray = [];
+    let {
+      bar_manager,
+      ass_bar_manager,
+      bartenders,
+      barbacks,
+      event_id,
+      date
+    } = event;
+    const scheduleArray = [];
+    const info = { staff_id: null, event_id, event_date: date };
 
     if (bar_manager) {
-      bar_manager = false;
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
-        role: 'Bar Manager'
-      });
+      scheduleArray.push({ ...info, role: 'Bar Manager' });
     }
 
     if (ass_bar_manager) {
-      ass_bar_manager = false;
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
+      scheduleArray.push({
+        ...info,
         role: 'Assistant Bar Manager'
       });
     }
 
-    for (let index = 0; index < bartenders; index++) {
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
-        role: 'Bartender'
-      });
+    while (bartenders > 0) {
+      scheduleArray.push({ ...info, role: 'Bartender' });
+      bartenders--;
     }
 
-    for (let index = 0; index < barbacks; index++) {
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
-        role: 'Barback'
-      });
+    while (barbacks > 0) {
+      scheduleArray.push({ ...info, role: 'Barback' });
+      barbacks--;
     }
 
-    return newEventStaffArray;
+    return scheduleArray;
   };
 
   postAvailability = (id, dates) => {
