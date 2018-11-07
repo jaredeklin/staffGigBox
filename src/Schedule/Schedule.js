@@ -36,6 +36,9 @@ export class Schedule extends Component {
     this.setState({ edit: false });
   };
 
+  closeModal = () => {
+    this.setState({ edit: false });
+  };
   handleEditClick = person => {
     this.setState({
       edit: !this.state.edit,
@@ -96,6 +99,15 @@ export class Schedule extends Component {
             handleEditClick={this.handleEditClick}
           />
         </section>
+        {this.state.edit && (
+          <EditStaffDropdown
+            staff={this.props.staff}
+            event={this.props.event}
+            updateEventStaff={this.updateEventStaff}
+            closeModal={this.closeModal}
+            currentPerson={this.state.currentStaffPerson}
+          />
+        )}
       </section>
     );
   }
