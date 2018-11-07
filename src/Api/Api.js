@@ -220,24 +220,14 @@ export class Api {
     return scheduleObj;
   };
 
-  combineStaffAndEvent = eventObj => {
-    const eventWithStaff = Object.keys(eventObj).map(async events => {
-      const eventResponse = await fetch(`${this.url}api/v1/events/${events}`);
+  combineStaffAndEvent = async eventObj => {
+    const eventWithStaff = Object.keys(eventObj).map(async eventId => {
+      const eventResponse = await fetch(`${this.url}api/v1/events/${eventId}`);
       const eventData = await eventResponse.json();
-      const staffNames = await this.getStaffNames(eventObj[events]);
-      const event = {
-        event_id: eventData[0].id,
-        venue: eventData[0].venue,
-        name: eventData[0].name,
-        date: eventData[0].date,
-        time: eventData[0].time,
-        staff: staffNames,
-        ass_bar_manager: eventData[0].ass_bar_manager,
-        bar_manager: eventData[0].bar_manager,
-        beer_bucket: eventData[0].beer_bucket
-      };
 
-      return event;
+      const staffNames = await this.getStaffNames(eventObj[eventId]);
+
+      return { ...eventData, staff: staffNames };
     });
 
     return Promise.all(eventWithStaff);
