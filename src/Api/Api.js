@@ -235,13 +235,8 @@ export class Api {
 
   getStaffNames = ids => {
     const promise = ids.map(async person => {
-      const { staff_events_id, staff_id, role } = person;
-      let staff = {
-        name: 'Staff Needed',
-        staff_id,
-        staff_events_id,
-        role
-      };
+      const { schedule_id, staff_id, role } = person;
+      let staff = { name: 'Staff Needed', staff_id, schedule_id, role };
 
       if (person.staff_id !== null) {
         const staffResponse = await fetch(
