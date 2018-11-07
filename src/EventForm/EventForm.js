@@ -19,8 +19,8 @@ export class EventForm extends Component {
       ass_bar_manager: '',
       bartenders: '',
       barbacks: '',
-      beer_bucket: '',
-      manualSchedule: ''
+      beer_bucket: ''
+      // manualSchedule: ''
     };
 
     this.defaultState = this.state;
@@ -30,6 +30,24 @@ export class EventForm extends Component {
     const { name, value } = event.target;
 
     this.setState({ [name]: value });
+  };
+
+  postEvent = async event => {
+    try {
+      const response = await fetch(`${this.url}api/v1/events`, {
+        method: 'POST',
+        body: JSON.stringify(event),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.log(error); // eslint-disable-line
+    }
   };
 
   handleSubmit = async event => {
@@ -57,7 +75,7 @@ export class EventForm extends Component {
     //   await this.props.scheduleGenerator();
     // }
 
-      this.setState(this.defaultState);
+    this.setState(this.defaultState);
   };
 
   render() {
