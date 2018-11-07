@@ -184,25 +184,6 @@ export class EventForm extends Component {
               />
               <label htmlFor="no">No</label>
             </label>
-            <label className="form-label">
-              Would like to assign staff to this event?
-              <input
-                type="radio"
-                id="yes"
-                value={true}
-                name="manualSchedule"
-                onChange={this.handleChange}
-              />
-              <label htmlFor="yes">Yes</label>
-              <input
-                type="radio"
-                id="no"
-                value={false}
-                name="manualSchedule"
-                onChange={this.handleChange}
-              />
-              <label htmlFor="no">No</label>
-            </label>
           </div>
           <button className="add-event-btn">Add Event</button>
         </form>
