@@ -88,7 +88,8 @@ describe('App', () => {
     expect(wrapper.state('addNewStaff')).toEqual(false);
   });
 
-  it('should delete userId and event Id from schedule', async () => {
+  describe('deleteSchedule', () => {
+    it('should remove userId and event Id from schedule', async () => {
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
         status: 200,
@@ -105,11 +106,13 @@ describe('App', () => {
       }
     ];
 
-    wrapper.instance().api.getSchedule = jest.fn();
+      wrapper.instance().editSchedule = jest.fn();
 
     await wrapper.instance().deleteFromSchedule(1);
 
     expect(window.fetch).toHaveBeenCalledWith(...expected);
+      expect(wrapper.instance().editSchedule).toHaveBeenCalled();
+    });
   });
 
   it('should set the state with new schedule', async () => {
