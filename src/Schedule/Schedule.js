@@ -22,17 +22,17 @@ export class Schedule extends Component {
 
   updateEventStaff = async ({ staff_id, event_id }) => {
     const staff = {
-      staff_events_id: this.state.staff_events_id,
+      schedule_id: this.state.schedule_id,
       staff_id,
       event_id
     };
 
-    await this.api.modifySchedule([staff]);
+    const scheduleChange = await this.api.modifySchedule([staff]);
 
     if (this.state.manualSchedule) {
       this.props.updateSchedule(event_id);
     } else {
-      this.props.editSchedule();
+      this.props.editSchedule(scheduleChange[0]);
     }
 
     this.setState({ edit: false });
