@@ -19,8 +19,8 @@ export class EventForm extends Component {
       ass_bar_manager: '',
       bartenders: '',
       barbacks: '',
-      beer_bucket: '',
-      manualSchedule: ''
+      beer_bucket: ''
+      // manualSchedule: ''
     };
 
     this.defaultState = this.state;
@@ -32,40 +32,50 @@ export class EventForm extends Component {
     this.setState({ [name]: value });
   };
 
+  postEvent = async event => {
+    try {
+      const response = await fetch(`${this.url}api/v1/events`, {
+        method: 'POST',
+        body: JSON.stringify(event),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.log(error); // eslint-disable-line
+    }
+  };
+
   handleSubmit = async event => {
     event.preventDefault();
-    const { date, time, manualSchedule } = this.state;
+    const { date, time } = this.state;
     const dateWithTime = date + ' ' + time;
     const eventObj = {
       ...this.state,
-      date: moment(date).format('MMM D, YYYY'),
       time: moment(dateWithTime, 'YYYY-MM-DD H:mm').format('h:mm a')
     };
-    delete eventObj.manualSchedule;
 
-    const response = await fetch(`${this.url}api/v1/events`, {
-      method: 'POST',
-      body: JSON.stringify(eventObj),
-      headers: { 'Content-Type': 'application/json' }
+    const eventData = await this.postEvent(eventObj);
+    const emptyScheduleArray = this.api.buildScheduleWithRoles(eventData);
+    const emptyScheduleWithId = await this.api.postSchedule(emptyScheduleArray);
+
+    const scheduleWithName = emptyScheduleWithId.map(schedule => {
+      return { ...schedule, name: 'Staff Needed' };
     });
 
-    if (response.status === 201) {
-      const eventData = await response.json();
+    this.props.addEvent(eventData, scheduleWithName);
+    // if (manualSchedule === true) {
+    //   // const newEventSchedule = await this.api.getSchedule(eventData.event_id);
+    //   this.props.checkManualSchedule(newEventSchedule, manualSchedule);
+    // } else {
+    //   await this.props.scheduleGenerator();
+    // }
 
-      const newEventStaffArray = this.api.buildScheduleWithRoles(eventData);
-
-      await this.api.postSchedule(newEventStaffArray);
-
-      if (manualSchedule === true) {
-        const newEventSchedule = await this.api.getSchedule(eventData.id);
-
-        this.props.checkManualSchedule(newEventSchedule, manualSchedule);
-      } else {
-        await this.props.scheduleGenerator();
-      }
-
-      this.setState(this.defaultState);
-    }
+    this.setState(this.defaultState);
   };
 
   render() {
@@ -95,6 +105,7 @@ export class EventForm extends Component {
               value={name}
               onChange={this.handleChange}
               className="input_event-form"
+              required
             />
             <input
               type="date"
@@ -103,6 +114,7 @@ export class EventForm extends Component {
               value={date}
               onChange={this.handleChange}
               className="input_event-form"
+              required
             />
             <input
               placeholder="Time"
@@ -111,6 +123,7 @@ export class EventForm extends Component {
               value={time}
               onChange={this.handleChange}
               className="input_event-form"
+              required
             />
           </div>
           <div className="staff-info">
@@ -185,25 +198,6 @@ export class EventForm extends Component {
                 id="no"
                 value={false}
                 name="beer_bucket"
-                onChange={this.handleChange}
-              />
-              <label htmlFor="no">No</label>
-            </label>
-            <label className="form-label">
-              Would like to assign staff to this event?
-              <input
-                type="radio"
-                id="yes"
-                value={true}
-                name="manualSchedule"
-                onChange={this.handleChange}
-              />
-              <label htmlFor="yes">Yes</label>
-              <input
-                type="radio"
-                id="no"
-                value={false}
-                name="manualSchedule"
                 onChange={this.handleChange}
               />
               <label htmlFor="no">No</label>

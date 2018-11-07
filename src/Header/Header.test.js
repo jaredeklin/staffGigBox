@@ -16,16 +16,14 @@ describe('Header', () => {
   });
 
   it('should login a user', async () => {
-    const result = {
-      user: 'taco'
-    };
+    const result = { user: 'taco' };
     auth.signInWithPopup = jest.fn().mockReturnValue(result);
 
     await wrapper.instance().login();
 
     expect(auth.signInWithPopup).toHaveBeenCalled();
     expect(wrapper.state('user')).toEqual('taco');
-    expect(mockAddUser).toHaveBeenCalled();
+    expect(mockAddUser).toHaveBeenCalledWith('taco');
   });
 
   it('should logout a user', async () => {
@@ -34,6 +32,15 @@ describe('Header', () => {
     await wrapper.instance().logout();
 
     expect(wrapper.state('user')).toEqual(null);
-    expect(mockAddUser).toHaveBeenCalled();
+    expect(mockAddUser).toHaveBeenCalledWith(null);
+  });
+
+  describe('componentDidMount', () => {
+    it('should call auth.onAuthStateChanged', async () => {
+      auth.onAuthStateChanged = jest.fn();
+
+      await wrapper.instance().componentDidMount();
+      expect(auth.onAuthStateChanged).toHaveBeenCalled();
+    });
   });
 });

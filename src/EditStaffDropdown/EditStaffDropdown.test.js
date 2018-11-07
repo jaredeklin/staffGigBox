@@ -5,16 +5,21 @@ import { EditStaffDropdown } from './EditStaffDropdown';
 describe('EditStaffDropdown', () => {
   let wrapper;
   let mockStaff = [{ id: 2, name: 'Jared' }];
-  let mockEventID = 1;
+  let mockEvent = { event_id: 1, date: '2018-06-06' };
   let mockUpdateEventStaff = jest.fn();
+  const mockCurrentPerson = { name: 'Jared', role: 'Bartender' };
+  const mockCloseModal = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
       <EditStaffDropdown
         staff={mockStaff}
-        event_id={mockEventID}
+        event={mockEvent}
         updateEventStaff={mockUpdateEventStaff}
-      />
+        currentPerson={mockCurrentPerson}
+        closeModal={mockCloseModal}
+      />,
+      { disableLifecycleMethods: true }
     );
   });
 
@@ -22,12 +27,11 @@ describe('EditStaffDropdown', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('handleChange should update state and call updateEventStaff', async () => {
+  it('handleChange should update state and call updateEventStaff', () => {
     const mockEvent = { target: { value: 'oh yeah' } };
 
-    await wrapper.instance().handleChange(mockEvent);
+    wrapper.instance().handleChange(mockEvent);
 
     expect(wrapper.state('staff_id')).toEqual('oh yeah');
-    expect(mockUpdateEventStaff).toHaveBeenCalledWith(wrapper.state());
   });
 });

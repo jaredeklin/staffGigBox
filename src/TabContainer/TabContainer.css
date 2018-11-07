@@ -1,4 +1,3 @@
-
 .tab-container {
   margin: 20px auto;
   width: 90%;
@@ -17,7 +16,7 @@
   background: navy;
   color: white;
   height: 75px;
-  width: 25%;
+  width: 20%;
   display: inline-block;
   text-align: center;
   cursor: pointer;
@@ -34,6 +33,3 @@
   border-top: none;
   overflow-y: scroll;
 }
-
-
-

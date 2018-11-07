@@ -5,7 +5,19 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <EditStaffDropdown
-    event_id={1}
+    closeModal={[Function]}
+    currentPerson={
+        Object {
+            "name": "Jared",
+            "role": "Bartender",
+          }
+    }
+    event={
+        Object {
+            "date": "2018-06-06",
+            "event_id": 1,
+          }
+    }
     staff={
         Array [
             Object {
@@ -28,18 +40,33 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <select
-        onChange={[Function]}
+      "children": <section
+        className="modal-main"
 >
-        <option>
-                Select staff
-        </option>
-        <option
-                value={2}
+        Replace 
+        Jared
+         in a role of 
+        Bartender
+         with
+        <select
+                onChange={[Function]}
         >
-                Jared
-        </option>
-</select>,
+                <option>
+                        Select staff
+                </option>
+        </select>
+        <button
+                onClick={[Function]}
+        >
+                Save
+        </button>
+        <button
+                onClick={[Function]}
+        >
+                Close
+        </button>
+</section>,
+      "className": "modal-container",
     },
     "ref": null,
     "rendered": Object {
@@ -48,48 +75,95 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <option>
-            Select staff
-</option>,
-          Array [
-            <option
-              value={2}
+          "Replace ",
+          "Jared",
+          " in a role of ",
+          "Bartender",
+          " with",
+          <select
+            onChange={[Function]}
 >
-              Jared
-</option>,
-          ],
+            <option>
+                        Select staff
+            </option>
+</select>,
+          <button
+            onClick={[Function]}
+>
+            Save
+</button>,
+          <button
+            onClick={[Function]}
+>
+            Close
+</button>,
         ],
-        "onChange": [Function],
+        "className": "modal-main",
       },
       "ref": null,
       "rendered": Array [
+        "Replace ",
+        "Jared",
+        " in a role of ",
+        "Bartender",
+        " with",
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Select staff",
+            "children": Array [
+              <option>
+                Select staff
+</option>,
+              Array [],
+            ],
+            "onChange": [Function],
           },
           "ref": null,
-          "rendered": "Select staff",
-          "type": "option",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Select staff",
+              },
+              "ref": null,
+              "rendered": "Select staff",
+              "type": "option",
+            },
+          ],
+          "type": "select",
         },
         Object {
           "instance": null,
-          "key": "2",
+          "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Jared",
-            "value": 2,
+            "children": "Save",
+            "onClick": [Function],
           },
           "ref": null,
-          "rendered": "Jared",
-          "type": "option",
+          "rendered": "Save",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Close",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Close",
+          "type": "button",
         },
       ],
-      "type": "select",
+      "type": "section",
     },
-    "type": "form",
+    "type": "section",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -97,18 +171,33 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <select
-          onChange={[Function]}
+        "children": <section
+          className="modal-main"
 >
-          <option>
-                    Select staff
-          </option>
-          <option
-                    value={2}
+          Replace 
+          Jared
+           in a role of 
+          Bartender
+           with
+          <select
+                    onChange={[Function]}
           >
-                    Jared
-          </option>
-</select>,
+                    <option>
+                              Select staff
+                    </option>
+          </select>
+          <button
+                    onClick={[Function]}
+          >
+                    Save
+          </button>
+          <button
+                    onClick={[Function]}
+          >
+                    Close
+          </button>
+</section>,
+        "className": "modal-container",
       },
       "ref": null,
       "rendered": Object {
@@ -117,48 +206,95 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <option>
-              Select staff
-</option>,
-            Array [
-              <option
-                value={2}
+            "Replace ",
+            "Jared",
+            " in a role of ",
+            "Bartender",
+            " with",
+            <select
+              onChange={[Function]}
 >
-                Jared
-</option>,
-            ],
+              <option>
+                            Select staff
+              </option>
+</select>,
+            <button
+              onClick={[Function]}
+>
+              Save
+</button>,
+            <button
+              onClick={[Function]}
+>
+              Close
+</button>,
           ],
-          "onChange": [Function],
+          "className": "modal-main",
         },
         "ref": null,
         "rendered": Array [
+          "Replace ",
+          "Jared",
+          " in a role of ",
+          "Bartender",
+          " with",
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Select staff",
+              "children": Array [
+                <option>
+                  Select staff
+</option>,
+                Array [],
+              ],
+              "onChange": [Function],
             },
             "ref": null,
-            "rendered": "Select staff",
-            "type": "option",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Select staff",
+                },
+                "ref": null,
+                "rendered": "Select staff",
+                "type": "option",
+              },
+            ],
+            "type": "select",
           },
           Object {
             "instance": null,
-            "key": "2",
+            "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Jared",
-              "value": 2,
+              "children": "Save",
+              "onClick": [Function],
             },
             "ref": null,
-            "rendered": "Jared",
-            "type": "option",
+            "rendered": "Save",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Close",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Close",
+            "type": "button",
           },
         ],
-        "type": "select",
+        "type": "section",
       },
-      "type": "form",
+      "type": "section",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -167,6 +303,7 @@ ShallowWrapper {
         "enableComponentDidUpdateOnSetState": true,
       },
     },
+    "disableLifecycleMethods": true,
   },
 }
 `;

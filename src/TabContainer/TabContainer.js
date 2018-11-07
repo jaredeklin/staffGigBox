@@ -57,7 +57,7 @@ export class TabContainer extends Component {
     if (this.state.manualSchedule) {
       return (
         <Schedule
-          staffList={this.props.staff}
+          staff={this.props.staff}
           editSchedule={this.props.editSchedule}
           event={this.state.manualScheduleData}
           manualSchedule={true}
@@ -70,6 +70,7 @@ export class TabContainer extends Component {
         <EventForm
           scheduleGenerator={this.props.scheduleGenerator}
           checkManualSchedule={this.checkManualSchedule}
+          addEvent={this.props.addEvent}
         />
       );
     }
@@ -88,12 +89,25 @@ export class TabContainer extends Component {
           <StaffForm addStaff={this.props.addStaff} user={this.props.user} />
         );
 
+      case 'Unscheduled Events':
+        return this.props.unscheduledEvents.map(event => {
+          return (
+            <Schedule
+              editSchedule={this.props.editSchedule}
+              staff={this.props.staff}
+              event={event}
+              key={event.event_id}
+              deleteFromSchedule={this.props.deleteFromSchedule}
+              admin={this.props.admin}
+            />
+          );
+        });
       default:
         return this.props.schedule.map(event => {
           return (
             <Schedule
               editSchedule={this.props.editSchedule}
-              staffList={this.props.staff}
+              staff={this.props.staff}
               event={event}
               key={event.event_id}
               deleteFromSchedule={this.props.deleteFromSchedule}

@@ -19,7 +19,8 @@ class App extends Component {
       addNewStaff: false,
       tabs: [],
       admin: false,
-      currentUserId: null
+      currentUserId: null,
+      unscheduledEvents: []
     };
   }
 
@@ -29,11 +30,9 @@ class App extends Component {
     await this.setState({ user, isCurrentStaff: false });
 
     if (user) {
-      const isAuthorized = staff.filter(person => {
-        return person.google_id === user.uid;
-      });
+      const isAuthorized = staff.find(person => person.google_id === user.uid);
 
-      this.checkAuthorization(isAuthorized[0]);
+      this.checkAuthorization(isAuthorized);
     } else {
       this.setState({
         tabs: ['Schedule'],
@@ -47,6 +46,7 @@ class App extends Component {
       const isAdmin = isAuthorized.bar_manager;
       const adminTabs = [
         'Schedule',
+        'Unscheduled Events',
         'Submit Availability',
         'Add Event',
         'Add New Staff'
@@ -57,7 +57,7 @@ class App extends Component {
         isCurrentStaff: true,
         tabs: isAdmin ? adminTabs : staffTabs,
         admin: isAdmin ? true : false,
-        currentUserId: isAuthorized.id
+        currentUserId: isAuthorized.staff_id
       });
     } else {
       this.setState({
@@ -75,8 +75,79 @@ class App extends Component {
     this.editSchedule();
   };
 
-  editSchedule = async () => {
-    const schedule = await this.api.getSchedule();
+  getSchedule = async (staff, events) => {
+    const response = await fetch(`${this.url}api/v1/schedule`);
+    const rawSchedule = await response.json();
+
+    const schedule = events.reduce(
+      (schedAcc, event) => {
+        const { event_id } = event;
+        const staffId = rawSchedule.filter(
+          sched => sched.event_id === event_id
+        );
+
+        const eventStaff = staffId.map(person => {
+          const { role, schedule_id } = person;
+          const staffObj = staff.find(
+            member => person.staff_id === member.staff_id
+          );
+
+          if (!staffObj) {
+            return {
+              staff_id: null,
+              name: 'Staff Needed',
+              event_id,
+              role,
+              schedule_id
+            };
+          }
+
+          return { ...staffObj, event_id, role, schedule_id };
+        });
+
+        const findUnscheduled = eventStaff.find(staff => !staff.staff_id);
+
+        if (!findUnscheduled) {
+          schedAcc.schedule = [
+            ...schedAcc.schedule,
+            { ...event, staff: eventStaff }
+          ];
+        } else {
+          schedAcc.unscheduledEvents = [
+            ...schedAcc.unscheduledEvents,
+            { ...event, staff: eventStaff }
+          ];
+        }
+
+        return schedAcc;
+      },
+      { schedule: [], unscheduledEvents: [] }
+    );
+
+    return schedule;
+  };
+
+  editSchedule = updatedStaff => {
+    const { schedule_id, staff_id, event_id } = updatedStaff;
+    const staffObj = this.state.staff.find(
+      staff => staff.staff_id === staff_id
+    );
+
+    const schedule = [...this.state.schedule];
+    const event = schedule.find(event => event.event_id === event_id);
+    const { staff } = event;
+
+    for (let index = 0; index < staff.length; index++) {
+      if (staff[index].schedule_id === schedule_id) {
+        staff[index] = {
+          ...staffObj,
+          role: staff[index].role,
+          schedule_id,
+          event_id
+        };
+        break;
+      }
+    }
 
     this.setState({ schedule });
   };
@@ -86,6 +157,14 @@ class App extends Component {
       isCurrentStaff: true,
       addNewStaff: false
     });
+  };
+
+  addEvent = (event, emptySchedule) => {
+    const newScheduleObj = { ...event, staff: emptySchedule };
+    const events = [...this.state.events, event];
+    const unscheduledEvents = [...this.state.unscheduledEvents, newScheduleObj];
+
+    this.setState({ events, unscheduledEvents });
   };
 
   scheduleGenerator = async () => {
@@ -101,9 +180,10 @@ class App extends Component {
   updateStateFromHelpers = async () => {
     const staff = await this.api.getStaff();
     const events = await this.api.getEvents();
-    const schedule = await this.api.getSchedule();
+    const schedules = await this.getSchedule(staff, events);
+    const { schedule, unscheduledEvents } = schedules;
 
-    this.setState({ staff, events, schedule });
+    this.setState({ staff, events, schedule, unscheduledEvents });
   };
 
   componentDidMount = () => {
@@ -111,7 +191,15 @@ class App extends Component {
   };
 
   render() {
-    const { schedule, staff, user, tabs, admin, currentUserId } = this.state;
+    const {
+      schedule,
+      staff,
+      user,
+      tabs,
+      admin,
+      currentUserId,
+      unscheduledEvents
+    } = this.state;
 
     return (
       <div className="app">
@@ -119,9 +207,11 @@ class App extends Component {
         <TabContainer
           editSchedule={this.editSchedule}
           schedule={schedule}
+          unscheduledEvents={unscheduledEvents}
           scheduleGenerator={this.scheduleGenerator}
           staff={staff}
           addStaff={this.addStaff}
+          addEvent={this.addEvent}
           user={user}
           deleteFromSchedule={this.deleteFromSchedule}
           tabs={tabs}

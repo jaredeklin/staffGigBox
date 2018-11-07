@@ -54,7 +54,7 @@ ShallowWrapper {
                                         "event_id": 1,
                                       }
                     }
-                    staffList={undefined}
+                    staff={undefined}
           />
 </article>,
       ],
@@ -109,7 +109,7 @@ ShallowWrapper {
                                           "event_id": 1,
                                         }
               }
-              staffList={undefined}
+              staff={undefined}
 />,
           ],
           "className": "active-content",
@@ -127,7 +127,7 @@ ShallowWrapper {
               "event": Object {
                 "event_id": 1,
               },
-              "staffList": undefined,
+              "staff": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -167,7 +167,7 @@ ShallowWrapper {
                                                 "event_id": 1,
                                               }
                         }
-                        staffList={undefined}
+                        staff={undefined}
             />
 </article>,
         ],
@@ -222,7 +222,7 @@ ShallowWrapper {
                                                 "event_id": 1,
                                               }
                 }
-                staffList={undefined}
+                staff={undefined}
 />,
             ],
             "className": "active-content",
@@ -240,7 +240,7 @@ ShallowWrapper {
                 "event": Object {
                   "event_id": 1,
                 },
-                "staffList": undefined,
+                "staff": undefined,
               },
               "ref": null,
               "rendered": null,
@@ -317,7 +317,7 @@ ShallowWrapper {
                                         "event_id": 1,
                                       }
                     }
-                    staffList={undefined}
+                    staff={undefined}
           />
 </article>,
       ],
@@ -372,7 +372,7 @@ ShallowWrapper {
                                           "event_id": 1,
                                         }
               }
-              staffList={undefined}
+              staff={undefined}
 />,
           ],
           "className": "active-content",
@@ -390,7 +390,7 @@ ShallowWrapper {
               "event": Object {
                 "event_id": 1,
               },
-              "staffList": undefined,
+              "staff": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -430,7 +430,7 @@ ShallowWrapper {
                                                 "event_id": 1,
                                               }
                         }
-                        staffList={undefined}
+                        staff={undefined}
             />
 </article>,
         ],
@@ -485,7 +485,7 @@ ShallowWrapper {
                                                 "event_id": 1,
                                               }
                 }
-                staffList={undefined}
+                staff={undefined}
 />,
             ],
             "className": "active-content",
@@ -503,7 +503,7 @@ ShallowWrapper {
                 "event": Object {
                   "event_id": 1,
                 },
-                "staffList": undefined,
+                "staff": undefined,
               },
               "ref": null,
               "rendered": null,
@@ -1025,7 +1025,7 @@ ShallowWrapper {
                                         "event_id": 1,
                                       }
                     }
-                    staffList={undefined}
+                    staff={undefined}
           />
 </article>,
       ],
@@ -1134,7 +1134,7 @@ ShallowWrapper {
                                           "event_id": 1,
                                         }
               }
-              staffList={undefined}
+              staff={undefined}
 />,
           ],
           "className": "active-content",
@@ -1152,7 +1152,7 @@ ShallowWrapper {
               "event": Object {
                 "event_id": 1,
               },
-              "staffList": undefined,
+              "staff": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -1207,7 +1207,7 @@ ShallowWrapper {
                                                 "event_id": 1,
                                               }
                         }
-                        staffList={undefined}
+                        staff={undefined}
             />
 </article>,
         ],
@@ -1316,7 +1316,7 @@ ShallowWrapper {
                                                 "event_id": 1,
                                               }
                 }
-                staffList={undefined}
+                staff={undefined}
 />,
             ],
             "className": "active-content",
@@ -1334,7 +1334,7 @@ ShallowWrapper {
                 "event": Object {
                   "event_id": 1,
                 },
-                "staffList": undefined,
+                "staff": undefined,
               },
               "ref": null,
               "rendered": null,

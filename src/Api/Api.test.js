@@ -122,10 +122,7 @@ describe('Api', () => {
     ];
 
     const mockCleanScheduleData = {
-      1: [
-        { staff_events_id: 1, staff_id: 3 },
-        { staff_events_id: 2, staff_id: 4 }
-      ]
+      1: [{ schedule_id: 1, staff_id: 3 }, { schedule_id: 2, staff_id: 4 }]
     };
 
     api.cleanScheduleData(mockScheduleData);
@@ -135,7 +132,7 @@ describe('Api', () => {
     );
   });
 
-  it('should combine staff and event', async () => {
+  it.only('should combine staff and event', async () => {
     const mockEventResponse = [
       {
         event_id: 1,
@@ -154,10 +151,7 @@ describe('Api', () => {
     );
 
     const mockCleanScheduleData = {
-      1: [
-        { staff_events_id: 1, staff_id: 3 },
-        { staff_events_id: 2, staff_id: 4 }
-      ]
+      1: [{ schedule_id: 1, staff_id: 3 }, { schedule_id: 2, staff_id: 4 }]
     };
 
     api.getStaffNames = jest.fn();
@@ -170,7 +164,7 @@ describe('Api', () => {
   });
 
   it('should get the names of the staff', async () => {
-    const mockIds = [{ staff_events_id: 1, staff_id: 3 }];
+    const mockIds = [{ schedule_id: 1, staff_id: 3 }];
     const expected = 'http://localhost:3000/api/v1/staff/3';
 
     window.fetch = jest.fn(() =>
@@ -205,7 +199,7 @@ describe('Api', () => {
   });
 
   it('modifySchedule should be called with the correct params', async () => {
-    const mockSchedule = [{ staff_events_id: 23, staff_id: 2, event_id: 4 }];
+    const mockSchedule = [{ schedule_id: 23, staff_id: 2, event_id: 4 }];
 
     const expected = [
       'http://localhost:3000/api/v1/schedule/23',
@@ -221,78 +215,97 @@ describe('Api', () => {
     expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
-  it('should buildScheduleWithRoles', () => {
-    const mockEvent = {
-      bar_manager: true,
-      ass_bar_manager: true,
-      bartenders: 3,
-      barbacks: 1,
-      id: 23
-    };
+  describe('buildScheduleWithRoles', () => {
+    it('should build a schedule', () => {
+      const mockEvent = {
+        bar_manager: true,
+        ass_bar_manager: true,
+        bartenders: 3,
+        barbacks: 1,
+        id: 23,
+        date: '2018-07-04'
+      };
 
-    const expected = [
-      {
-        event_id: 23,
-        role: 'Bar Manager',
-        staff_id: null
-      },
-      {
-        event_id: 23,
-        role: 'Assistant Bar Manager',
-        staff_id: null
-      },
-      {
-        event_id: 23,
-        role: 'Bartender',
-        staff_id: null
-      },
-      {
-        event_id: 23,
-        role: 'Bartender',
-        staff_id: null
-      },
-      {
-        event_id: 23,
-        role: 'Bartender',
-        staff_id: null
-      },
-      {
-        event_id: 23,
-        role: 'Barback',
-        staff_id: null
-      }
-    ];
+      const expected = [
+        {
+          event_id: 23,
+          role: 'Bar Manager',
+          staff_id: null,
+          event_date: '2018-07-04'
+        },
+        {
+          event_id: 23,
+          role: 'Assistant Bar Manager',
+          staff_id: null,
+          event_date: '2018-07-04'
+        },
+        {
+          event_id: 23,
+          role: 'Bartender',
+          staff_id: null,
+          event_date: '2018-07-04'
+        },
+        {
+          event_id: 23,
+          role: 'Bartender',
+          staff_id: null,
+          event_date: '2018-07-04'
+        },
+        {
+          event_id: 23,
+          role: 'Bartender',
+          staff_id: null,
+          event_date: '2018-07-04'
+        },
+        {
+          event_id: 23,
+          role: 'Barback',
+          staff_id: null,
+          event_date: '2018-07-04'
+        }
+      ];
 
-    expect(api.buildScheduleWithRoles(mockEvent)).toEqual(expected);
+      expect(api.buildScheduleWithRoles(mockEvent)).toEqual(expected);
+    });
   });
 
-  it('deleteAvailability should be called with the correct params', () => {
-    const expected = [
-      `${url}availability?staff_id=2&date_unavailable=June 30, 2018`,
-      {
-        method: 'DELETE'
-      }
-    ];
+  describe('deleteAvailability', () => {
+    it('should be called with the correct params', () => {
+      const expected = [
+        `${url}availability?staff_id=2&date_unavailable=2018-06-30`,
+        { method: 'DELETE' }
+      ];
 
-    api.deleteAvailability(2, 'June 30, 2018');
+      api.deleteAvailability(2, ['2018-06-30']);
 
-    expect(window.fetch).toHaveBeenCalledWith(...expected);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
   });
 
-  it('getAvailability should be called with correct params when both id and date are provided', () => { // eslint-disable-line
-    const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`; // eslint-disable-line
+  describe('getAvailability', () => {
+    it('should be called with correct params when both id and date are provided', () => {
+      const expected = `${url}availability?staff_id=2&date_unavailable=June 30, 2018`;
 
-    api.getAvailability(2, 'June 30, 2018');
+      api.getAvailability(2, 'June 30, 2018');
 
-    expect(window.fetch).toHaveBeenCalledWith(expected);
-  });
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
 
-  it('getAvailability should be called with correct params when only the id is provided', () => { // eslint-disable-line
-    const expected = 'http://localhost:3000/api/v1/availability?staff_id=2';
+    it('should be called with correct params when only the id is provided', () => {
+      const expected = 'http://localhost:3000/api/v1/availability?staff_id=2';
 
-    api.getAvailability(2);
+      api.getAvailability(2);
 
-    expect(window.fetch).toHaveBeenCalledWith(expected);
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should be called with correct params when future is truthy', () => {
+      const expected = `${url}availability?staff_id=2&future=true`;
+
+      api.getAvailability(2, null, true);
+
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
   });
 
   it('postAvailability should be called with correct params', () => {

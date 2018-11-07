@@ -4,7 +4,7 @@ import DisplayStaff from './DisplayStaff';
 
 describe('DisplayStaff', () => {
   let wrapper;
-  const mockEvent = { staff: [{ role: 'Bar Manager', staff_events_id: 34 }] };
+  const mockEvent = { staff: [{ role: 'Bar Manager', schedule_id: 34 }] };
   const mockDeleteSchedule = jest.fn();
   const mockHandleEditClick = jest.fn();
 
@@ -31,7 +31,7 @@ describe('DisplayStaff', () => {
 
   describe('click events', () => {
     it('should call deleteFromSchedule with correct params when clicked', () => {
-      const expected = mockEvent.staff[0].staff_events_id;
+      const expected = mockEvent.staff[0].schedule_id;
 
       wrapper.find('.delete').simulate('click');
       expect(mockDeleteSchedule).toHaveBeenCalledWith(expected);

@@ -65,6 +65,7 @@ ShallowWrapper {
                               name="name"
                               onChange={[Function]}
                               placeholder="Band name"
+                              required={true}
                               value=""
                     />
                     <input
@@ -72,6 +73,7 @@ ShallowWrapper {
                               name="date"
                               onChange={[Function]}
                               placeholder="Date"
+                              required={true}
                               type="date"
                               value=""
                     />
@@ -80,6 +82,7 @@ ShallowWrapper {
                               name="time"
                               onChange={[Function]}
                               placeholder="Time"
+                              required={true}
                               type="time"
                               value="18:00"
                     />
@@ -192,35 +195,6 @@ ShallowWrapper {
                                         No
                               </label>
                     </label>
-                    <label
-                              className="form-label"
-                    >
-                              Would like to assign staff to this event?
-                              <input
-                                        id="yes"
-                                        name="manualSchedule"
-                                        onChange={[Function]}
-                                        type="radio"
-                                        value={true}
-                              />
-                              <label
-                                        htmlFor="yes"
-                              >
-                                        Yes
-                              </label>
-                              <input
-                                        id="no"
-                                        name="manualSchedule"
-                                        onChange={[Function]}
-                                        type="radio"
-                                        value={false}
-                              />
-                              <label
-                                        htmlFor="no"
-                              >
-                                        No
-                              </label>
-                    </label>
           </div>
           <button
                     className="add-event-btn"
@@ -292,6 +266,7 @@ ShallowWrapper {
                             name="name"
                             onChange={[Function]}
                             placeholder="Band name"
+                            required={true}
                             value=""
               />
               <input
@@ -299,6 +274,7 @@ ShallowWrapper {
                             name="date"
                             onChange={[Function]}
                             placeholder="Date"
+                            required={true}
                             type="date"
                             value=""
               />
@@ -307,6 +283,7 @@ ShallowWrapper {
                             name="time"
                             onChange={[Function]}
                             placeholder="Time"
+                            required={true}
                             type="time"
                             value="18:00"
               />
@@ -419,35 +396,6 @@ ShallowWrapper {
                                           No
                             </label>
               </label>
-              <label
-                            className="form-label"
-              >
-                            Would like to assign staff to this event?
-                            <input
-                                          id="yes"
-                                          name="manualSchedule"
-                                          onChange={[Function]}
-                                          type="radio"
-                                          value={true}
-                            />
-                            <label
-                                          htmlFor="yes"
-                            >
-                                          Yes
-                            </label>
-                            <input
-                                          id="no"
-                                          name="manualSchedule"
-                                          onChange={[Function]}
-                                          type="radio"
-                                          value={false}
-                            />
-                            <label
-                                          htmlFor="no"
-                            >
-                                          No
-                            </label>
-              </label>
 </div>,
             <button
               className="add-event-btn"
@@ -498,6 +446,7 @@ ShallowWrapper {
                   name="name"
                   onChange={[Function]}
                   placeholder="Band name"
+                  required={true}
                   value=""
 />,
                 <input
@@ -505,6 +454,7 @@ ShallowWrapper {
                   name="date"
                   onChange={[Function]}
                   placeholder="Date"
+                  required={true}
                   type="date"
                   value=""
 />,
@@ -513,6 +463,7 @@ ShallowWrapper {
                   name="time"
                   onChange={[Function]}
                   placeholder="Time"
+                  required={true}
                   type="time"
                   value="18:00"
 />,
@@ -636,6 +587,7 @@ ShallowWrapper {
                   "name": "name",
                   "onChange": [Function],
                   "placeholder": "Band name",
+                  "required": true,
                   "value": "",
                 },
                 "ref": null,
@@ -651,6 +603,7 @@ ShallowWrapper {
                   "name": "date",
                   "onChange": [Function],
                   "placeholder": "Date",
+                  "required": true,
                   "type": "date",
                   "value": "",
                 },
@@ -667,6 +620,7 @@ ShallowWrapper {
                   "name": "time",
                   "onChange": [Function],
                   "placeholder": "Time",
+                  "required": true,
                   "type": "time",
                   "value": "18:00",
                 },
@@ -778,35 +732,6 @@ ShallowWrapper {
                   <input
                                     id="no"
                                     name="beer_bucket"
-                                    onChange={[Function]}
-                                    type="radio"
-                                    value={false}
-                  />
-                  <label
-                                    htmlFor="no"
-                  >
-                                    No
-                  </label>
-</label>,
-                <label
-                  className="form-label"
->
-                  Would like to assign staff to this event?
-                  <input
-                                    id="yes"
-                                    name="manualSchedule"
-                                    onChange={[Function]}
-                                    type="radio"
-                                    value={true}
-                  />
-                  <label
-                                    htmlFor="yes"
-                  >
-                                    Yes
-                  </label>
-                  <input
-                                    id="no"
-                                    name="manualSchedule"
                                     onChange={[Function]}
                                     type="radio"
                                     value={false}
@@ -1138,100 +1063,6 @@ ShallowWrapper {
                 ],
                 "type": "label",
               },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    "Would like to assign staff to this event?",
-                    <input
-                      id="yes"
-                      name="manualSchedule"
-                      onChange={[Function]}
-                      type="radio"
-                      value={true}
-/>,
-                    <label
-                      htmlFor="yes"
->
-                      Yes
-</label>,
-                    <input
-                      id="no"
-                      name="manualSchedule"
-                      onChange={[Function]}
-                      type="radio"
-                      value={false}
-/>,
-                    <label
-                      htmlFor="no"
->
-                      No
-</label>,
-                  ],
-                  "className": "form-label",
-                },
-                "ref": null,
-                "rendered": Array [
-                  "Would like to assign staff to this event?",
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "id": "yes",
-                      "name": "manualSchedule",
-                      "onChange": [Function],
-                      "type": "radio",
-                      "value": true,
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": "input",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Yes",
-                      "htmlFor": "yes",
-                    },
-                    "ref": null,
-                    "rendered": "Yes",
-                    "type": "label",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "id": "no",
-                      "name": "manualSchedule",
-                      "onChange": [Function],
-                      "type": "radio",
-                      "value": false,
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": "input",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "No",
-                      "htmlFor": "no",
-                    },
-                    "ref": null,
-                    "rendered": "No",
-                    "type": "label",
-                  },
-                ],
-                "type": "label",
-              },
             ],
             "type": "div",
           },
@@ -1317,6 +1148,7 @@ ShallowWrapper {
                                     name="name"
                                     onChange={[Function]}
                                     placeholder="Band name"
+                                    required={true}
                                     value=""
                         />
                         <input
@@ -1324,6 +1156,7 @@ ShallowWrapper {
                                     name="date"
                                     onChange={[Function]}
                                     placeholder="Date"
+                                    required={true}
                                     type="date"
                                     value=""
                         />
@@ -1332,6 +1165,7 @@ ShallowWrapper {
                                     name="time"
                                     onChange={[Function]}
                                     placeholder="Time"
+                                    required={true}
                                     type="time"
                                     value="18:00"
                         />
@@ -1444,35 +1278,6 @@ ShallowWrapper {
                                                 No
                                     </label>
                         </label>
-                        <label
-                                    className="form-label"
-                        >
-                                    Would like to assign staff to this event?
-                                    <input
-                                                id="yes"
-                                                name="manualSchedule"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value={true}
-                                    />
-                                    <label
-                                                htmlFor="yes"
-                                    >
-                                                Yes
-                                    </label>
-                                    <input
-                                                id="no"
-                                                name="manualSchedule"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value={false}
-                                    />
-                                    <label
-                                                htmlFor="no"
-                                    >
-                                                No
-                                    </label>
-                        </label>
             </div>
             <button
                         className="add-event-btn"
@@ -1544,6 +1349,7 @@ ShallowWrapper {
                                 name="name"
                                 onChange={[Function]}
                                 placeholder="Band name"
+                                required={true}
                                 value=""
                 />
                 <input
@@ -1551,6 +1357,7 @@ ShallowWrapper {
                                 name="date"
                                 onChange={[Function]}
                                 placeholder="Date"
+                                required={true}
                                 type="date"
                                 value=""
                 />
@@ -1559,6 +1366,7 @@ ShallowWrapper {
                                 name="time"
                                 onChange={[Function]}
                                 placeholder="Time"
+                                required={true}
                                 type="time"
                                 value="18:00"
                 />
@@ -1671,35 +1479,6 @@ ShallowWrapper {
                                                 No
                                 </label>
                 </label>
-                <label
-                                className="form-label"
-                >
-                                Would like to assign staff to this event?
-                                <input
-                                                id="yes"
-                                                name="manualSchedule"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value={true}
-                                />
-                                <label
-                                                htmlFor="yes"
-                                >
-                                                Yes
-                                </label>
-                                <input
-                                                id="no"
-                                                name="manualSchedule"
-                                                onChange={[Function]}
-                                                type="radio"
-                                                value={false}
-                                />
-                                <label
-                                                htmlFor="no"
-                                >
-                                                No
-                                </label>
-                </label>
 </div>,
               <button
                 className="add-event-btn"
@@ -1750,6 +1529,7 @@ ShallowWrapper {
                     name="name"
                     onChange={[Function]}
                     placeholder="Band name"
+                    required={true}
                     value=""
 />,
                   <input
@@ -1757,6 +1537,7 @@ ShallowWrapper {
                     name="date"
                     onChange={[Function]}
                     placeholder="Date"
+                    required={true}
                     type="date"
                     value=""
 />,
@@ -1765,6 +1546,7 @@ ShallowWrapper {
                     name="time"
                     onChange={[Function]}
                     placeholder="Time"
+                    required={true}
                     type="time"
                     value="18:00"
 />,
@@ -1888,6 +1670,7 @@ ShallowWrapper {
                     "name": "name",
                     "onChange": [Function],
                     "placeholder": "Band name",
+                    "required": true,
                     "value": "",
                   },
                   "ref": null,
@@ -1903,6 +1686,7 @@ ShallowWrapper {
                     "name": "date",
                     "onChange": [Function],
                     "placeholder": "Date",
+                    "required": true,
                     "type": "date",
                     "value": "",
                   },
@@ -1919,6 +1703,7 @@ ShallowWrapper {
                     "name": "time",
                     "onChange": [Function],
                     "placeholder": "Time",
+                    "required": true,
                     "type": "time",
                     "value": "18:00",
                   },
@@ -2030,35 +1815,6 @@ ShallowWrapper {
                     <input
                                         id="no"
                                         name="beer_bucket"
-                                        onChange={[Function]}
-                                        type="radio"
-                                        value={false}
-                    />
-                    <label
-                                        htmlFor="no"
-                    >
-                                        No
-                    </label>
-</label>,
-                  <label
-                    className="form-label"
->
-                    Would like to assign staff to this event?
-                    <input
-                                        id="yes"
-                                        name="manualSchedule"
-                                        onChange={[Function]}
-                                        type="radio"
-                                        value={true}
-                    />
-                    <label
-                                        htmlFor="yes"
-                    >
-                                        Yes
-                    </label>
-                    <input
-                                        id="no"
-                                        name="manualSchedule"
                                         onChange={[Function]}
                                         type="radio"
                                         value={false}
@@ -2367,100 +2123,6 @@ ShallowWrapper {
                       "props": Object {
                         "id": "no",
                         "name": "beer_bucket",
-                        "onChange": [Function],
-                        "type": "radio",
-                        "value": false,
-                      },
-                      "ref": null,
-                      "rendered": null,
-                      "type": "input",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "No",
-                        "htmlFor": "no",
-                      },
-                      "ref": null,
-                      "rendered": "No",
-                      "type": "label",
-                    },
-                  ],
-                  "type": "label",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      "Would like to assign staff to this event?",
-                      <input
-                        id="yes"
-                        name="manualSchedule"
-                        onChange={[Function]}
-                        type="radio"
-                        value={true}
-/>,
-                      <label
-                        htmlFor="yes"
->
-                        Yes
-</label>,
-                      <input
-                        id="no"
-                        name="manualSchedule"
-                        onChange={[Function]}
-                        type="radio"
-                        value={false}
-/>,
-                      <label
-                        htmlFor="no"
->
-                        No
-</label>,
-                    ],
-                    "className": "form-label",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "Would like to assign staff to this event?",
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "id": "yes",
-                        "name": "manualSchedule",
-                        "onChange": [Function],
-                        "type": "radio",
-                        "value": true,
-                      },
-                      "ref": null,
-                      "rendered": null,
-                      "type": "input",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "Yes",
-                        "htmlFor": "yes",
-                      },
-                      "ref": null,
-                      "rendered": "Yes",
-                      "type": "label",
-                    },
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "id": "no",
-                        "name": "manualSchedule",
                         "onChange": [Function],
                         "type": "radio",
                         "value": false,

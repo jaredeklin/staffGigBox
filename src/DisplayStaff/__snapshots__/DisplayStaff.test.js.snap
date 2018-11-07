@@ -12,7 +12,7 @@ ShallowWrapper {
             "staff": Array [
               Object {
                 "role": "Bar Manager",
-                "staff_events_id": 34,
+                "schedule_id": 34,
               },
             ],
           }
@@ -70,7 +70,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "34Bar Manager",
+        "key": "34",
         "nodeType": "host",
         "props": Object {
           "children": Array [
@@ -188,7 +188,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "34Bar Manager",
+          "key": "34",
           "nodeType": "host",
           "props": Object {
             "children": Array [
@@ -283,7 +283,7 @@ ShallowWrapper {
             "staff": Array [
               Object {
                 "role": "Bar Manager",
-                "staff_events_id": 34,
+                "schedule_id": 34,
               },
             ],
           }

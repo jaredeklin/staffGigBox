@@ -54,7 +54,7 @@ export class Api {
 
       return eventArray;
     } else {
-      return console.log('All events currently scheduled'); // eslint-disable-line
+             return console.log('All events currently scheduled'); // eslint-disable-line
     }
   };
 
@@ -151,7 +151,7 @@ export class Api {
       if (!found) {
         const eventDetails = await this.getSpecificEvent(event.event_id);
 
-        eventArray.push(eventDetails[0]);
+        eventArray.push(eventDetails);
       }
     }
 
@@ -174,6 +174,13 @@ export class Api {
     }
   };
 
+  checkSchedule = async date => {
+    const response = await fetch(
+      `${this.url}api/v1/schedule?event_date=${date}`
+    );
+    return await response.json();
+  };
+
   getSchedule = async id => {
     let response;
 
@@ -192,7 +199,7 @@ export class Api {
 
   cleanScheduleData = schedule => {
     const scheduleObj = schedule.reduce((scheduleObj, event) => {
-      const { staff_id, id, role } = event;
+      const { staff_id, schedule_id, role } = event;
 
       if (!scheduleObj[event.event_id]) {
         scheduleObj[event.event_id] = [];
@@ -200,11 +207,7 @@ export class Api {
 
       scheduleObj[event.event_id] = [
         ...scheduleObj[event.event_id],
-        {
-          staff_id,
-          staff_events_id: id,
-          role
-        }
+        { staff_id, schedule_id, role }
       ];
 
       return scheduleObj;
@@ -213,24 +216,14 @@ export class Api {
     return scheduleObj;
   };
 
-  combineStaffAndEvent = eventObj => {
-    const eventWithStaff = Object.keys(eventObj).map(async events => {
-      const eventResponse = await fetch(`${this.url}api/v1/events/${events}`);
+  combineStaffAndEvent = async eventObj => {
+    const eventWithStaff = Object.keys(eventObj).map(async eventId => {
+      const eventResponse = await fetch(`${this.url}api/v1/events/${eventId}`);
       const eventData = await eventResponse.json();
-      const staffNames = await this.getStaffNames(eventObj[events]);
-      const event = {
-        event_id: eventData[0].id,
-        venue: eventData[0].venue,
-        name: eventData[0].name,
-        date: eventData[0].date,
-        time: eventData[0].time,
-        staff: staffNames,
-        ass_bar_manager: eventData[0].ass_bar_manager,
-        bar_manager: eventData[0].bar_manager,
-        beer_bucket: eventData[0].beer_bucket
-      };
 
-      return event;
+      const staffNames = await this.getStaffNames(eventObj[eventId]);
+
+      return { ...eventData, staff: staffNames };
     });
 
     return Promise.all(eventWithStaff);
@@ -238,13 +231,8 @@ export class Api {
 
   getStaffNames = ids => {
     const promise = ids.map(async person => {
-      const { staff_events_id, staff_id, role } = person;
-      let staff = {
-        name: 'Staff Needed',
-        staff_id,
-        staff_events_id,
-        role
-      };
+      const { schedule_id, staff_id, role } = person;
+      let staff = { name: 'Staff Needed', staff_id, schedule_id, role };
 
       if (person.staff_id !== null) {
         const staffResponse = await fetch(
@@ -280,8 +268,8 @@ export class Api {
 
   modifySchedule = schedule => {
     const promise = schedule.map(async event => {
-      const { staff_events_id, staff_id, event_id, id } = event;
-      const eventId = staff_events_id ? staff_events_id : id;
+      const { schedule_id, staff_id, event_id, id } = event;
+      const eventId = schedule_id ? schedule_id : id;
 
       const response = await fetch(`${this.url}api/v1/schedule/${eventId}`, {
         method: 'PUT',
@@ -296,44 +284,39 @@ export class Api {
   };
 
   buildScheduleWithRoles = event => {
-    let { bar_manager, ass_bar_manager, bartenders, barbacks, id } = event;
-    const newEventStaffArray = [];
+    let {
+      bar_manager,
+      ass_bar_manager,
+      bartenders,
+      barbacks,
+      event_id,
+      date
+    } = event;
+    const scheduleArray = [];
+    const info = { staff_id: null, event_id, event_date: date };
 
     if (bar_manager) {
-      bar_manager = false;
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
-        role: 'Bar Manager'
-      });
+      scheduleArray.push({ ...info, role: 'Bar Manager' });
     }
 
     if (ass_bar_manager) {
-      ass_bar_manager = false;
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
+      scheduleArray.push({
+        ...info,
         role: 'Assistant Bar Manager'
       });
     }
 
-    for (let index = 0; index < bartenders; index++) {
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
-        role: 'Bartender'
-      });
+    while (bartenders > 0) {
+      scheduleArray.push({ ...info, role: 'Bartender' });
+      bartenders--;
     }
 
-    for (let index = 0; index < barbacks; index++) {
-      newEventStaffArray.push({
-        staff_id: null,
-        event_id: id,
-        role: 'Barback'
-      });
+    while (barbacks > 0) {
+      scheduleArray.push({ ...info, role: 'Barback' });
+      barbacks--;
     }
 
-    return newEventStaffArray;
+    return scheduleArray;
   };
 
   postAvailability = (id, dates) => {
@@ -352,13 +335,22 @@ export class Api {
     return Promise.all(promise);
   };
 
-  getAvailability = async (id, date) => {
+  checkAvailability = async date => {
+    const dateQuery = `date_unavailable=${date}`;
+    const response = await fetch(`${this.url}api/v1/availability?${dateQuery}`);
+
+    return response.json();
+  };
+
+  getAvailability = async (id, date, futureDates) => {
     let response;
 
-    if (id && date) {
-      const query = `staff_id=${id}&date_unavailable=${date}`;
-
-      response = await fetch(`${this.url}api/v1/availability?${query}`);
+    if (futureDates) {
+      const futureQuery = `staff_id=${id}&future=${futureDates}`;
+      response = await fetch(`${this.url}api/v1/availability?${futureQuery}`);
+    } else if (id && date && !futureDates) {
+      const dateQuery = `staff_id=${id}&date_unavailable=${date}`;
+      response = await fetch(`${this.url}api/v1/availability?${dateQuery}`);
     } else {
       response = await fetch(`${this.url}api/v1/availability?staff_id=${id}`);
     }
@@ -366,13 +358,17 @@ export class Api {
     return await response.json();
   };
 
-  deleteAvailability = async (id, date) => {
-    const query = `staff_id=${id}&date_unavailable=${date}`;
-    const response = await fetch(`${this.url}api/v1/availability?${query}`, {
-      method: 'DELETE'
+  deleteAvailability = async (id, dates) => {
+    const promise = dates.map(async day => {
+      const query = `staff_id=${id}&date_unavailable=${day}`;
+      const response = await fetch(`${this.url}api/v1/availability?${query}`, {
+        method: 'DELETE'
+      });
+
+      return await response.json();
     });
 
-    return await response.json();
+    return Promise.all(promise);
   };
 
   getClassName = role => {
