@@ -159,6 +159,14 @@ class App extends Component {
     });
   };
 
+  addEvent = (event, emptySchedule) => {
+    const newScheduleObj = { ...event, staff: emptySchedule };
+    const events = [...this.state.events, event];
+    const unscheduledEvents = [...this.state.unscheduledEvents, newScheduleObj];
+
+    this.setState({ events, unscheduledEvents });
+  };
+
   scheduleGenerator = async () => {
     const { staff } = this.state;
     const generatedSchedule = await this.api.generateSchedule(staff);
