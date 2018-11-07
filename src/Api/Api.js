@@ -54,7 +54,7 @@ export class Api {
 
       return eventArray;
     } else {
-      return console.log('All events currently scheduled'); // eslint-disable-line
+             return console.log('All events currently scheduled'); // eslint-disable-line
     }
   };
 
@@ -151,7 +151,7 @@ export class Api {
       if (!found) {
         const eventDetails = await this.getSpecificEvent(event.event_id);
 
-        eventArray.push(eventDetails[0]);
+        eventArray.push(eventDetails);
       }
     }
 
@@ -199,7 +199,7 @@ export class Api {
 
   cleanScheduleData = schedule => {
     const scheduleObj = schedule.reduce((scheduleObj, event) => {
-      const { staff_id, id, role } = event;
+      const { staff_id, schedule_id, role } = event;
 
       if (!scheduleObj[event.event_id]) {
         scheduleObj[event.event_id] = [];
@@ -207,11 +207,7 @@ export class Api {
 
       scheduleObj[event.event_id] = [
         ...scheduleObj[event.event_id],
-        {
-          staff_id,
-          staff_events_id: id,
-          role
-        }
+        { staff_id, schedule_id, role }
       ];
 
       return scheduleObj;
@@ -272,8 +268,8 @@ export class Api {
 
   modifySchedule = schedule => {
     const promise = schedule.map(async event => {
-      const { staff_events_id, staff_id, event_id, id } = event;
-      const eventId = staff_events_id ? staff_events_id : id;
+      const { schedule_id, staff_id, event_id, id } = event;
+      const eventId = schedule_id ? schedule_id : id;
 
       const response = await fetch(`${this.url}api/v1/schedule/${eventId}`, {
         method: 'PUT',
