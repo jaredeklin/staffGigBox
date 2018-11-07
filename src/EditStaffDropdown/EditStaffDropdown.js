@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './EditStaffDropdown.css';
+import { Api } from '../Api/Api';
 
 export class EditStaffDropdown extends Component {
   constructor(props) {
@@ -17,13 +19,18 @@ export class EditStaffDropdown extends Component {
     });
   };
 
-    this.props.updateEventStaff(this.state);
-  };
+  displayStaff = role => {
+    const { availableStaff } = this.state;
+    const staffRole = role
+      .toLowerCase()
+      .replace(/ /gi, '_')
+      .replace(/assistant/gi, 'ass');
 
-  displayStaff = () => {
-    return this.props.staff.map(person => {
+    const available = availableStaff.filter(staff => staff[staffRole]);
+
+    return available.map(person => {
       return (
-        <option key={person.id} value={person.id}>
+        <option key={person.staff_id} value={person.staff_id}>
           {person.name}
         </option>
       );
