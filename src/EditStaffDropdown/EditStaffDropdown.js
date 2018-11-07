@@ -50,6 +50,14 @@ export class EditStaffDropdown extends Component {
 
     this.setState({ availableStaff });
   };
+  handleSave = () => {
+    const eventDetails = {
+      staff_id: this.state.staff_id,
+      event_id: this.props.event.event_id
+    };
+
+    this.props.updateEventStaff(eventDetails);
+  };
   componentDidMount = () => {
     this.findAvailableStaff();
   };
