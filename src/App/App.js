@@ -20,6 +20,7 @@ class App extends Component {
       tabs: [],
       admin: false,
       currentUserId: null,
+      unscheduledEvents: []
     };
   }
 
@@ -45,6 +46,7 @@ class App extends Component {
       const isAdmin = isAuthorized.bar_manager;
       const adminTabs = [
         'Schedule',
+        'Unscheduled Events',
         'Submit Availability',
         'Add Event',
         'Add New Staff'
@@ -189,7 +191,15 @@ class App extends Component {
   };
 
   render() {
-    const { schedule, staff, user, tabs, admin, currentUserId } = this.state;
+    const {
+      schedule,
+      staff,
+      user,
+      tabs,
+      admin,
+      currentUserId,
+      unscheduledEvents
+    } = this.state;
 
     return (
       <div className="app">
@@ -197,9 +207,11 @@ class App extends Component {
         <TabContainer
           editSchedule={this.editSchedule}
           schedule={schedule}
+          unscheduledEvents={unscheduledEvents}
           scheduleGenerator={this.scheduleGenerator}
           staff={staff}
           addStaff={this.addStaff}
+          addEvent={this.addEvent}
           user={user}
           deleteFromSchedule={this.deleteFromSchedule}
           tabs={tabs}
