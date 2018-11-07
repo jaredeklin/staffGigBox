@@ -50,6 +50,9 @@ export class EditStaffDropdown extends Component {
 
     this.setState({ availableStaff });
   };
+  componentDidMount = () => {
+    this.findAvailableStaff();
+  };
   render() {
     return (
       <form>
