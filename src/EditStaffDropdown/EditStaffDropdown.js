@@ -4,17 +4,18 @@ import PropTypes from 'prop-types';
 export class EditStaffDropdown extends Component {
   constructor(props) {
     super(props);
-
+    this.api = new Api();
     this.state = {
       staff_id: null,
-      event_id: this.props.event_id
+      availableStaff: []
     };
   }
 
   handleChange = async event => {
-    await this.setState({
+    this.setState({
       staff_id: event.target.value
     });
+  };
 
     this.props.updateEventStaff(this.state);
   };
