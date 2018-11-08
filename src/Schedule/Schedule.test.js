@@ -7,6 +7,10 @@ describe('Schedule', () => {
   let mockEditSchedule = jest.fn();
   let mockStaffList = [];
   let mockEvent = {
+    venue: 'Ogden',
+    name: 'Ratatat',
+    date: '2018-06-30',
+    time: '7 pm',
     staff: [
       { role: 'Bartender' },
       { role: 'Barback' },
@@ -50,13 +54,13 @@ describe('Schedule', () => {
   });
 
   it('should match the snapshot when Ass man is needed', () => {
-    let mockEvent = { ass_bar_manager: true };
+    let mockEvent1 = { ...mockEvent, ass_bar_manager: true };
 
     wrapper = shallow(
       <Schedule
         editSchedule={mockEditSchedule}
         staffList={mockStaffList}
-        event={mockEvent}
+        event={mockEvent1}
         deleteFromSchedule={mockDeleteFromSchedule}
         admin={true}
         updateSchedule={mockUpdateSchedule}
@@ -120,5 +124,4 @@ describe('Schedule', () => {
       expect(wrapper.state('edit')).toEqual(false);
     });
   });
-  describe('displayStaff', () => {});
 });
