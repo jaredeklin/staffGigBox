@@ -69,40 +69,27 @@ describe('Schedule', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  xdescribe('updateEventStaff', () => {
-    it('should update state, call modifySchedule and editSchedule', async () => {
+  describe('updateEventStaff', () => {
+    it('should call modifySchedule and editSchedule, update state', async () => {
       const mockObj = {
         staff_id: 3,
         event_id: 3
       };
 
-      wrapper.instance().api.modifySchedule = jest.fn();
-      wrapper.setState({ staff_event_id: 12, edit: true });
+      const mockCallObj = { ...mockObj, schedule_id: 12 };
+      const mockReturn = [{ ...mockCallObj, role: 'Bartender' }];
+
+      wrapper.instance().api.modifySchedule = jest
+        .fn()
+        .mockReturnValue(mockReturn);
+      wrapper.setState({ schedule_id: 12, edit: true });
 
       await wrapper.instance().updateEventStaff(mockObj);
 
-      expect(wrapper.instance().api.modifySchedule).toHaveBeenCalled();
+      expect(wrapper.instance().api.modifySchedule).toHaveBeenCalledWith([
+        mockCallObj
+      ]);
       expect(mockEditSchedule).toHaveBeenCalled();
-      expect(wrapper.state('edit')).toEqual(false);
-    });
-
-    it('should update state, call modifySchedule and updateSchedule when manualSchedule is true', async () => {
-      const mockObj = {
-        staff_id: 3,
-        event_id: 3
-      };
-
-      wrapper.instance().api.modifySchedule = jest.fn();
-      wrapper.setState({
-        staff_event_id: 12,
-        edit: true,
-        manualSchedule: true
-      });
-
-      await wrapper.instance().updateEventStaff(mockObj);
-
-      expect(wrapper.instance().api.modifySchedule).toHaveBeenCalled();
-      expect(mockUpdateSchedule).toHaveBeenCalled();
       expect(wrapper.state('edit')).toEqual(false);
     });
   });
