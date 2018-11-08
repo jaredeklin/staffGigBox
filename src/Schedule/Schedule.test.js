@@ -17,7 +17,6 @@ describe('Schedule', () => {
   let mockDeleteFromSchedule = jest.fn();
   let mockAdmin = false;
   let mockUpdateSchedule = jest.fn();
-  let mockManualSchedule = false;
 
   beforeEach(() => {
     wrapper = shallow(
@@ -28,7 +27,6 @@ describe('Schedule', () => {
         deleteFromSchedule={mockDeleteFromSchedule}
         admin={mockAdmin}
         updateSchedule={mockUpdateSchedule}
-        manualSchedule={mockManualSchedule}
       />
     );
   });
@@ -46,7 +44,6 @@ describe('Schedule', () => {
         deleteFromSchedule={mockDeleteFromSchedule}
         admin={true}
         updateSchedule={mockUpdateSchedule}
-        manualSchedule={mockManualSchedule}
       />
     );
     expect(wrapper).toMatchSnapshot();
@@ -63,7 +60,6 @@ describe('Schedule', () => {
         deleteFromSchedule={mockDeleteFromSchedule}
         admin={true}
         updateSchedule={mockUpdateSchedule}
-        manualSchedule={mockManualSchedule}
       />
     );
     expect(wrapper).toMatchSnapshot();
@@ -117,5 +113,12 @@ describe('Schedule', () => {
     });
   });
 
+  describe('closeModal', () => {
+    it('should set the edit state value to false', () => {
+      wrapper.setState({ edit: true });
+      wrapper.instance().closeModal();
+      expect(wrapper.state('edit')).toEqual(false);
+    });
+  });
   describe('displayStaff', () => {});
 });
