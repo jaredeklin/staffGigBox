@@ -16,7 +16,6 @@ export class Schedule extends Component {
       event_id: '',
       schedule_id: '',
       edit: false,
-      manualSchedule: false || this.props.manualSchedule,
       currentStaffPerson: {}
     };
   }
@@ -27,15 +26,9 @@ export class Schedule extends Component {
       staff_id,
       event_id
     };
-
     const scheduleChange = await this.api.modifySchedule([staff]);
 
-    if (this.state.manualSchedule) {
-      this.props.updateSchedule(event_id);
-    } else {
-      this.props.editSchedule(scheduleChange[0]);
-    }
-
+    this.props.editSchedule(scheduleChange[0]);
     this.setState({ edit: false });
   };
 
@@ -104,7 +97,6 @@ export class Schedule extends Component {
 
 Schedule.propTypes = {
   admin: PropTypes.bool,
-  manualSchedule: PropTypes.bool,
   updateSchedule: PropTypes.func,
   editSchedule: PropTypes.func,
   event: PropTypes.object,
