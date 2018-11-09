@@ -431,6 +431,43 @@ export class Api {
 
     return this.availableStaff;
   };
+  fillRoles = events => {
+    const fillStaffRoles = events.reduce((staffAcc, event) => {
+      const getStaff = (event, role) => {
+        const staffRole = this.rolesRegex(role);
+        const staffList = event.staff.filter(staff => staff.role === role);
+        const staffName = staffList.map(person => {
+          if (person.staff_id) {
+            return person;
+          }
+
+          const staff = this.availableStaff.find(staff => staff[staffRole]);
+          this.availableStaff = this.availableStaff.filter(
+            person => person !== staff
+          );
+
+          return { ...person, staff_id: staff.staff_id, name: staff.name };
+        });
+
+        return staffName;
+      };
+      const barManager = getStaff(event, 'Bar Manager');
+      const assManager = getStaff(event, 'Assistant Bar Manager');
+      const barbacks = getStaff(event, 'Barback');
+      const bartenders = getStaff(event, 'Bartender');
+
+      return [
+        ...staffAcc,
+        ...barManager,
+        ...assManager,
+        ...barbacks,
+        ...bartenders
+      ];
+    }, []);
+
+    return fillStaffRoles;
+  };
+
   shuffleStaffArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
