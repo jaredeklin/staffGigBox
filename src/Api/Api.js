@@ -28,6 +28,24 @@ export class Api {
     return await response.json();
   };
 
+  postEvent = async event => {
+    try {
+      const response = await fetch(`${this.url}api/v1/events`, {
+        method: 'POST',
+        body: JSON.stringify(event),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
+    } catch (error) {
+      return error;
+    }
+  };
+
   generateSchedule = async staff => {
     const response = await fetch(`${this.url}api/v1/schedule`);
     const scheduleData = await response.json();
