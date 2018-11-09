@@ -410,4 +410,12 @@ export class Api {
         break;
     }
   };
+
+  rolesRegex = role => {
+    return role
+      .toLowerCase()
+      .replace(/ /gi, '_')
+      .replace(/assistant/gi, 'ass');
+  };
+
 }
