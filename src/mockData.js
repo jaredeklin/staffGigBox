@@ -74,56 +74,48 @@ export const mockEventInfo = {
 export const mockBuildRolesReturn = [
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Bar Manager'
   },
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Assistant Bar Manager'
   },
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Bartender'
   },
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Bartender'
   },
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Bartender'
   },
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Bartender'
   },
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Barback'
   },
   {
     staff_id: null,
-    name: 'Staff Needed',
     event_id: 24,
     event_date: '2018-06-30',
     role: 'Barback'
