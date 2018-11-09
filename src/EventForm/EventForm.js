@@ -32,24 +32,6 @@ export class EventForm extends Component {
     this.setState({ [name]: value });
   };
 
-  postEvent = async event => {
-    try {
-      const response = await fetch(`${this.url}api/v1/events`, {
-        method: 'POST',
-        body: JSON.stringify(event),
-        headers: { 'Content-Type': 'application/json' }
-      });
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.log(error); // eslint-disable-line
-    }
-  };
-
   handleSubmit = async event => {
     event.preventDefault();
     const { date, time } = this.state;
