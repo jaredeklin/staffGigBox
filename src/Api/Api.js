@@ -1,6 +1,7 @@
 export class Api {
   constructor() {
     this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
+    this.availableStaff = [];
   }
 
   getStaff = async () => {
