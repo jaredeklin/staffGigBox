@@ -287,14 +287,16 @@ export class Api {
 
   modifySchedule = schedule => {
     const promise = schedule.map(async event => {
-      const { schedule_id, staff_id, event_id, id } = event;
-      const eventId = schedule_id ? schedule_id : id;
+      const { schedule_id, staff_id, event_id } = event;
 
-      const response = await fetch(`${this.url}api/v1/schedule/${eventId}`, {
+      const response = await fetch(
+        `${this.url}api/v1/schedule/${schedule_id}`,
+        {
         method: 'PUT',
         body: JSON.stringify({ staff_id, event_id }),
         headers: { 'Content-Type': 'application/json' }
-      });
+        }
+      );
 
       return await response.json();
     });
