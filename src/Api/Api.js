@@ -418,4 +418,17 @@ export class Api {
       .replace(/assistant/gi, 'ass');
   };
 
+  findAvailableStaff = async (date, staff) => {
+    const alreadyScheduled = await this.checkSchedule(date);
+    const notAvailable = await this.checkAvailability(date);
+    const unavailable = [...alreadyScheduled, ...notAvailable];
+
+    const availableStaff = staff.filter(staff => {
+      return !unavailable.some(person => staff.staff_id === person.staff_id);
+    });
+
+    this.availableStaff = this.shuffleStaffArray(availableStaff);
+
+    return this.availableStaff;
+  };
 }
