@@ -75,57 +75,57 @@ class App extends Component {
     this.editSchedule();
   };
 
-  getSchedule = async (staff, events) => {
-    const response = await fetch(`${this.url}api/v1/schedule`);
-    const rawSchedule = await response.json();
+  // getSchedule = async (staff, events) => {
+  //   const response = await fetch(`${this.url}api/v1/schedule`);
+  //   const rawSchedule = await response.json();
 
-    const schedule = events.reduce(
-      (schedAcc, event) => {
-        const { event_id } = event;
-        const staffId = rawSchedule.filter(
-          sched => sched.event_id === event_id
-        );
+  //   const schedule = events.reduce(
+  //     (schedAcc, event) => {
+  //       const { event_id } = event;
+  //       const staffId = rawSchedule.filter(
+  //         sched => sched.event_id === event_id
+  //       );
 
-        const eventStaff = staffId.map(person => {
-          const { role, schedule_id } = person;
-          const staffObj = staff.find(
-            member => person.staff_id === member.staff_id
-          );
+  //       const eventStaff = staffId.map(person => {
+  //         const { role, schedule_id } = person;
+  //         const staffObj = staff.find(
+  //           member => person.staff_id === member.staff_id
+  //         );
 
-          if (!staffObj) {
-            return {
-              staff_id: null,
-              name: 'Staff Needed',
-              event_id,
-              role,
-              schedule_id
-            };
-          }
+  //         if (!staffObj) {
+  //           return {
+  //             staff_id: null,
+  //             name: 'Staff Needed',
+  //             event_id,
+  //             role,
+  //             schedule_id
+  //           };
+  //         }
 
-          return { ...staffObj, event_id, role, schedule_id };
-        });
+  //         return { ...staffObj, event_id, role, schedule_id };
+  //       });
 
-        const findUnscheduled = eventStaff.find(staff => !staff.staff_id);
+  //       const findUnscheduled = eventStaff.find(staff => !staff.staff_id);
 
-        if (!findUnscheduled) {
-          schedAcc.schedule = [
-            ...schedAcc.schedule,
-            { ...event, staff: eventStaff }
-          ];
-        } else {
-          schedAcc.unscheduledEvents = [
-            ...schedAcc.unscheduledEvents,
-            { ...event, staff: eventStaff }
-          ];
-        }
+  //       if (!findUnscheduled) {
+  //         schedAcc.schedule = [
+  //           ...schedAcc.schedule,
+  //           { ...event, staff: eventStaff }
+  //         ];
+  //       } else {
+  //         schedAcc.unscheduledEvents = [
+  //           ...schedAcc.unscheduledEvents,
+  //           { ...event, staff: eventStaff }
+  //         ];
+  //       }
 
-        return schedAcc;
-      },
-      { schedule: [], unscheduledEvents: [] }
-    );
+  //       return schedAcc;
+  //     },
+  //     { schedule: [], unscheduledEvents: [] }
+  //   );
 
-    return schedule;
-  };
+  //   return schedule;
+  // };
 
   editSchedule = updatedStaff => {
     const { schedule_id, staff_id, event_id } = updatedStaff;
@@ -211,7 +211,7 @@ class App extends Component {
   updateStateFromHelpers = async () => {
     const staff = await this.api.getStaff();
     const events = await this.api.getEvents();
-    const schedules = await this.getSchedule(staff, events);
+    const schedules = await this.api.getSchedule(staff, events);
     const { schedule, unscheduledEvents } = schedules;
 
     this.setState({ staff, events, schedule, unscheduledEvents });

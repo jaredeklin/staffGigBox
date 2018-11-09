@@ -200,20 +200,56 @@ export class Api {
     return await response.json();
   };
 
-  getSchedule = async id => {
-    let response;
+  getSchedule = async (staff, events) => {
+    const response = await fetch(`${this.url}api/v1/schedule`);
+    const rawSchedule = await response.json();
 
-    if (id) {
-      response = await fetch(`${this.url}api/v1/schedule?event_id=${id}`);
+    const schedule = events.reduce(
+      (schedAcc, event) => {
+        const { event_id } = event;
+        const staffId = rawSchedule.filter(
+          sched => sched.event_id === event_id
+        );
+
+        const eventStaff = staffId.map(person => {
+          const { role, schedule_id } = person;
+          const staffObj = staff.find(
+            member => person.staff_id === member.staff_id
+          );
+
+          if (!staffObj) {
+            return {
+              staff_id: null,
+              name: 'Staff Needed',
+              event_id,
+              role,
+              schedule_id
+            };
+          }
+
+          return { ...staffObj, event_id, role, schedule_id };
+        });
+
+        const findUnscheduled = eventStaff.find(staff => !staff.staff_id);
+
+        if (!findUnscheduled) {
+          schedAcc.schedule = [
+            ...schedAcc.schedule,
+            { ...event, staff: eventStaff }
+          ];
     } else {
-      response = await fetch(`${this.url}api/v1/schedule`);
+          schedAcc.unscheduledEvents = [
+            ...schedAcc.unscheduledEvents,
+            { ...event, staff: eventStaff }
+          ];
     }
 
-    const scheduleData = await response.json();
-    const scheduleObj = await this.cleanScheduleData(scheduleData);
-    const cleanEvents = await this.combineStaffAndEvent(scheduleObj);
+        return schedAcc;
+      },
+      { schedule: [], unscheduledEvents: [] }
+    );
 
-    return id ? cleanEvents[0] : cleanEvents;
+    return schedule;
   };
 
   cleanScheduleData = schedule => {
