@@ -171,13 +171,41 @@ class App extends Component {
   };
 
   scheduleGenerator = async () => {
-    const { staff } = this.state;
-    const generatedSchedule = await this.api.generateSchedule(staff);
-    // console.log(generatedSchedule);
-    if (generatedSchedule) {
-      await this.api.modifySchedule(generatedSchedule);
-      this.editSchedule();
+    const { staff, unscheduledEvents } = this.state;
+
+    const combineDays = unscheduledEvents.reduce((acc, event) => {
+      const { date } = event;
+      if (!acc[date]) {
+        acc[date] = [event];
+      } else {
+        acc[date] = [...acc[date], event];
+      }
+      return acc;
+    }, {});
+
+    for (const date in combineDays) {
+      await this.api.findAvailableStaff(date, staff);
+      const allStaff = this.api.fillRoles(combineDays[date]);
+      await this.api.modifySchedule(allStaff);
+
+      for (let i = 0; i < combineDays[date].length; i++) {
+        const eventStaff = allStaff.filter(
+          staff => staff.event_id === combineDays[date][i].event_id
+        );
+        combineDays[date][i].staff = eventStaff;
+      }
     }
+
+    const newSchedule = Object.keys(combineDays).reduce(
+      (scheduleAcc, event) => {
+        return [...scheduleAcc, ...combineDays[event]];
+      },
+      []
+    );
+
+    const schedule = [...this.state.schedule, ...newSchedule];
+
+    this.setState({ schedule, unscheduledEvents: [] });
   };
 
   updateStateFromHelpers = async () => {
