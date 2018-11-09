@@ -160,7 +160,10 @@ class App extends Component {
   };
 
   addEvent = (event, emptySchedule) => {
-    const newScheduleObj = { ...event, staff: emptySchedule };
+    const schedule = emptySchedule.map(staff => {
+      return { ...staff, name: 'Staff Needed' };
+    });
+    const newScheduleObj = { ...event, staff: schedule };
     const events = [...this.state.events, event];
     const unscheduledEvents = [...this.state.unscheduledEvents, newScheduleObj];
 
