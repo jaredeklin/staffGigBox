@@ -31,16 +31,48 @@ describe('Api', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
-  it('should get events', async () => {
-    const mockDate = 'Jun 20, 2018';
-    const expected = 'http://localhost:3000/api/v1/events';
-    const expected1 = `http://localhost:3000/api/v1/events?date=${mockDate}`;
+  describe('postEvent', () => {
+    const mockEventObj = {
+      venue: 'Gothic Theatre',
+      name: 'Ratatat',
+      date: '2018-06-06',
+      time: '6:00 pm'
+    };
+    beforeEach(() => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockEventObj)
+        })
+      );
+    });
 
-    await api.getEvents();
-    expect(window.fetch).toHaveBeenCalledWith(expected);
+    it('should call fetch with correct params', () => {
+      const expected = [
+        'http://localhost:3000/api/v1/events',
+        {
+          method: 'POST',
+          body: JSON.stringify(mockEventObj),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      ];
+      api.postEvent(mockEventObj);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
 
-    await api.getEvents(mockDate);
-    expect(window.fetch).toHaveBeenCalledWith(expected1);
+    it('should return the correct value', async () => {
+      expect(await api.postEvent(mockEventObj)).toEqual(mockEventObj);
+  });
+
+    it('should throw an error if response is bad', async () => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({ ok: false, statusText: 'Not Found' })
+      );
+
+      expect(await api.postEvent()).toEqual(Error('Not Found'));
+    });
   });
 
   it('generateSchedule should return correct schedule', async () => {
