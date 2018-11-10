@@ -94,7 +94,7 @@ class App extends Component {
       staff => staff.staff_id === staff_id
     );
 
-    const schedule = [...this.state.schedule];
+    const schedule = [...this.state.schedule, ...this.state.unscheduledEvents];
     const event = schedule.find(event => event.event_id === event_id);
     const { staff } = event;
 
