@@ -73,6 +73,72 @@ export const mockUnscheduleStaff = [
   { event_id: 3, role: 'Barback', staff_id: null, name: 'Staff Needed' }
 ];
 
+export const mockEmptySchedule = [
+  {
+    event_id: 3,
+    role: 'Bar Manager',
+    staff_id: null,
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 1
+  },
+  {
+    event_id: 3,
+    role: 'Assistant Bar Manager',
+    staff_id: null,
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 2
+  },
+  {
+    event_id: 3,
+    role: 'Bartender',
+    staff_id: null,
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 3
+  },
+  {
+    event_id: 3,
+    role: 'Barback',
+    staff_id: null,
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 5
+  }
+];
+
+export const mockEmptyScheduleWName = [
+  {
+    event_id: 3,
+    role: 'Bar Manager',
+    staff_id: null,
+    name: 'Staff Needed',
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 1
+  },
+  {
+    event_id: 3,
+    role: 'Assistant Bar Manager',
+    staff_id: null,
+    name: 'Staff Needed',
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 2
+  },
+  {
+    event_id: 3,
+    role: 'Bartender',
+    staff_id: null,
+    name: 'Staff Needed',
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 3
+  },
+  {
+    event_id: 3,
+    role: 'Barback',
+    staff_id: null,
+    name: 'Staff Needed',
+    event_date: '2018-07-20T07:00:00.000Z',
+    schedule_id: 5
+  }
+];
+
 export const mockEventInfo = {
   ass_bar_manager: true,
   bar_manager: true,
@@ -93,7 +159,23 @@ export const mockEvent2Info = {
   name: 'Not Billy Prince Billy'
 };
 
-export const mockEventsInfo = [mockEventInfo, mockEvent2Info];
+export const mockUnscheduledEvent = {
+  ass_bar_manager: true,
+  bar_manager: true,
+  barbacks: 1,
+  bartenders: 1,
+  date: 'Jul 20, 2018',
+  event_id: 3,
+  name: 'Billy Prince Billy',
+  staff: mockEmptyScheduleWName
+};
+
+// export const mockEventsInfo = [mockEventInfo, mockEvent2Info];
+export const mockSchedule = [
+  { ...mockEventInfo, staff: mockEmptyScheduleWName }
+];
+
+// export const expectedEditScheduleReturn
 
 export const mockFillRolesReturn = [
   { event_id: 3, role: 'Bar Manager', staff_id: 5, name: 'TK' },
