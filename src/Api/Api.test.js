@@ -312,4 +312,19 @@ describe('Api', () => {
     });
   });
 
+  describe('checkSchedule', () => {
+    it('should call fetch with correct params', () => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve()
+        })
+      );
+
+      const url = 'http://localhost:3000/api/v1/schedule?event_date=2018-07-20';
+
+      api.checkSchedule('2018-07-20');
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+  });
 });
