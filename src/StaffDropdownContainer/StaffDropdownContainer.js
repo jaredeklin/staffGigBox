@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './EditStaffDropdown.css';
+import './StaffDropdownContainer.css';
 import { Api } from '../Api/Api';
+import DisplayStaffDropdown from '../DisplayStaffDropdown/DisplayStaffDropdown';
 
-export class EditStaffDropdown extends Component {
+export class StaffDropdownContainer extends Component {
   constructor(props) {
     super(props);
     this.api = new Api();
@@ -19,19 +20,19 @@ export class EditStaffDropdown extends Component {
     });
   };
 
-  displayStaff = role => {
-    const { availableStaff } = this.state;
-    const staffRole = this.api.rolesRegex(role);
-    const available = availableStaff.filter(staff => staff[staffRole]);
+  // displayStaff = role => {
+  //   const { availableStaff } = this.state;
+  //   const staffRole = this.api.rolesRegex(role);
+  //   const available = availableStaff.filter(staff => staff[staffRole]);
 
-    return available.map(person => {
-      return (
-        <option key={person.staff_id} value={person.staff_id}>
-          {person.name}
-        </option>
-      );
-    });
-  };
+  //   return available.map(person => {
+  //     return (
+  //       <option key={person.staff_id} value={person.staff_id}>
+  //         {person.name}
+  //       </option>
+  //     );
+  //   });
+  // };
 
   findAvailableStaff = async () => {
     const { date } = this.props.event;
@@ -67,10 +68,11 @@ export class EditStaffDropdown extends Component {
       <section className="modal-container">
         <section className="modal-main">
           Replace {name} in a role of {role} with
-          <select onChange={this.handleChange}>
-            <option>Select staff</option>
-            {this.displayStaff(role)}
-          </select>
+          <DisplayStaffDropdown
+            availableStaff={this.state.availableStaff}
+            staffRole={role}
+            handleChange={this.handleChange}
+          />
           <button onClick={this.handleSave}>Save</button>
           <button onClick={this.props.closeModal}>Close</button>
         </section>
@@ -79,7 +81,7 @@ export class EditStaffDropdown extends Component {
   }
 }
 
-EditStaffDropdown.propTypes = {
+StaffDropdownContainer.propTypes = {
   updateEventStaff: PropTypes.func,
   event_id: PropTypes.number,
   staff: PropTypes.array

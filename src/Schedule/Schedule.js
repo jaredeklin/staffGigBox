@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Schedule.css';
-import { EditStaffDropdown } from '../EditStaffDropdown/EditStaffDropdown';
+import { StaffDropdownContainer } from '../StaffDropdownContainer/StaffDropdownContainer';
 import { Api } from '../Api/Api';
 import PropTypes from 'prop-types';
 import DisplayStaff from '../DisplayStaff/DisplayStaff';
@@ -82,7 +82,7 @@ export class Schedule extends Component {
           />
         </section>
         {this.state.edit && (
-          <EditStaffDropdown
+          <StaffDropdownContainer
             staff={this.props.staff}
             event={this.props.event}
             updateEventStaff={this.updateEventStaff}
