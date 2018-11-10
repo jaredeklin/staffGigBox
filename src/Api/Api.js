@@ -40,23 +40,6 @@ export class Api {
     }
   };
 
-  getUnscheduledStaff = async (staff, date) => {
-    const events = await this.getEvents(date);
-    let availableStaff = [...staff];
-
-    for (const event of events) {
-      const scheduledStaff = await this.getSchedule(event.id);
-
-      availableStaff = availableStaff.filter(member => {
-        return !scheduledStaff.staff.some(person => {
-          return member.id === person.staff_id;
-        });
-      });
-    }
-
-    return Promise.all(availableStaff);
-  };
-
   checkSchedule = async date => {
     const response = await fetch(
       `${this.url}api/v1/schedule?event_date=${date}`

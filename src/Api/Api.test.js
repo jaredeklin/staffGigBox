@@ -1,7 +1,7 @@
 import { Api } from './Api';
 import {
   mockStaff,
-  expectedStaff,
+  // expectedStaff,
   // expectedStaffRoles,
   // mockEventInfo,
   mockBuildRolesReturn
@@ -228,35 +228,6 @@ describe('Api', () => {
     it('should return correct event information', async () => {
       expect(await api.getEvents()).toEqual(mockEventData);
     });
-  });
-
-  it('getUnscheduledStaff should return the correct staff', async () => {
-    const mockEvents = [
-      {
-        id: 3,
-        name: 'Lupe Fiasco',
-        date: 'Jul 20, 2018',
-        venue: 'Ogden Theatre'
-      },
-      {
-        id: 4,
-        name: 'Sage Francis',
-        date: 'Jul 20, 2018',
-        venue: 'Gothic Theatre'
-      }
-    ];
-
-    const mockSchedule = {
-      event_id: 3,
-      staff: [{ staff_id: 3 }, { staff_id: 4 }, { staff_id: 2 }]
-    };
-
-    api.getEvents = jest.fn().mockReturnValue(mockEvents);
-    api.getSchedule = jest.fn().mockReturnValue(mockSchedule);
-
-    expect(await api.getUnscheduledStaff(mockStaff, 'Jul 20, 2018')).toEqual(
-      expectedStaff
-    );
   });
 
   describe('getClassName', () => {
