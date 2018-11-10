@@ -95,12 +95,15 @@ describe('App', () => {
   });
 
   describe('deleteFromSchedule', () => {
-    it('fetch should be called with correct params', async () => {
+    beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
           status: 200
-            })
+        })
       );
+    });
+
+    it('fetch should be called with correct params', async () => {
       const expected = [
         'http://localhost:3000/api/v1/schedule/34',
         {
@@ -113,12 +116,7 @@ describe('App', () => {
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
 
-  it('should set the state with new schedule', async () => {
-    window.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-          status: 200
-          })
-    );
+    it('should set the state with new schedule', async () => {
       const mockSchedule = [
         { event_id: 2, staff: [{ schedule_id: 34 }] },
         { event_id: 1, staff: [{ schedule_id: 23 }] }
@@ -145,8 +143,8 @@ describe('App', () => {
     });
   });
   describe('scheduleGenerator', () => {
-  it('should generate a schedule', async () => {
-    wrapper.instance().api.modifySchedule = jest.fn();
+    it('should generate a schedule', async () => {
+      wrapper.instance().api.modifySchedule = jest.fn();
       wrapper.instance().api.findAvailableStaff = jest.fn(() => mockStaff);
       wrapper.instance().api.fillRoles = jest.fn(() => mockFillRolesReturn);
       wrapper.instance().api.availableStaff = mockStaff;
@@ -156,7 +154,7 @@ describe('App', () => {
         unscheduledEvents: mockUnscheduledEvents
       });
 
-    await wrapper.instance().scheduleGenerator();
+      await wrapper.instance().scheduleGenerator();
 
       expect(wrapper.instance().api.findAvailableStaff).toHaveBeenCalledWith(
         'Jul 20, 2018',
@@ -180,13 +178,15 @@ describe('App', () => {
 
       wrapper.instance().api.getStaff = jest.fn().mockReturnValue(mockStaff);
       wrapper.instance().api.getEvents = jest.fn().mockReturnValue(mockEvent);
-      wrapper.instance().getSchedule = jest.fn().mockReturnValue(mockSchedule);
+      wrapper.instance().api.getSchedule = jest
+        .fn()
+        .mockReturnValue(mockSchedule);
 
       await wrapper.instance().updateStateFromHelpers();
 
       expect(wrapper.instance().api.getStaff).toHaveBeenCalled();
       expect(wrapper.instance().api.getEvents).toHaveBeenCalled();
-      expect(wrapper.instance().getSchedule).toHaveBeenCalledWith(
+      expect(wrapper.instance().api.getSchedule).toHaveBeenCalledWith(
         mockStaff,
         mockEvent
       );
@@ -205,12 +205,13 @@ describe('App', () => {
       });
     });
   });
+  describe('componentDidMount', () => {
+    it('should call updateStateFromHelpers in componentDidMount', () => {
+      wrapper.instance().updateStateFromHelpers = jest.fn();
 
-  it('should call updateStateFromHelpers in componentDidMount', () => {
-    wrapper.instance().updateStateFromHelpers = jest.fn();
+      wrapper.instance().componentDidMount();
 
-    wrapper.instance().componentDidMount();
-
-    expect(wrapper.instance().updateStateFromHelpers).toHaveBeenCalled();
+      expect(wrapper.instance().updateStateFromHelpers).toHaveBeenCalled();
+    });
   });
 });

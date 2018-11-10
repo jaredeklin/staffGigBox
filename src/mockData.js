@@ -1,6 +1,6 @@
 export const mockStaff = [
   {
-    id: 5,
+    staff_id: 5,
     name: 'TK',
     bartender: true,
     barback: false,
@@ -10,7 +10,7 @@ export const mockStaff = [
     google_id: '1pLSNLEaSVT7hvRa5q4Vyy37IIN1'
   },
   {
-    id: 2,
+    staff_id: 2,
     name: 'Jared',
     bartender: true,
     barback: false,
@@ -20,7 +20,7 @@ export const mockStaff = [
     google_id: '1pLSNLEaSVT7hvRa5q4Vyy37IIN2'
   },
   {
-    id: 3,
+    staff_id: 3,
     name: 'Jesse',
     bartender: true,
     barback: false,
@@ -30,7 +30,7 @@ export const mockStaff = [
     google_id: '1pLSNLEaSVT7hvRa5q4Vyy37IIN1'
   },
   {
-    id: 4,
+    staff_id: 4,
     name: 'Ross',
     bartender: false,
     barback: true,
@@ -61,15 +61,61 @@ export const expectedStaffRoles = [
   { event_id: 3, role: 'Barback', staff_id: 4 }
 ];
 
+export const mockUnscheduleStaff = [
+  { event_id: 3, role: 'Bar Manager', staff_id: null, name: 'Staff Needed' },
+  {
+    event_id: 3,
+    role: 'Assistant Bar Manager',
+    staff_id: null,
+    name: 'Staff Needed'
+  },
+  { event_id: 3, role: 'Bartender', staff_id: null, name: 'Staff Needed' },
+  { event_id: 3, role: 'Barback', staff_id: null, name: 'Staff Needed' }
+];
+
 export const mockEventInfo = {
   ass_bar_manager: true,
   bar_manager: true,
   barbacks: 1,
   bartenders: 1,
   date: 'Jul 20, 2018',
-  id: 3,
+  event_id: 3,
   name: 'Billy Prince Billy'
 };
+
+export const mockEvent2Info = {
+  ass_bar_manager: true,
+  bar_manager: true,
+  barbacks: 1,
+  bartenders: 1,
+  date: 'Jul 20, 2018',
+  event_id: 4,
+  name: 'Not Billy Prince Billy'
+};
+
+export const mockEventsInfo = [mockEventInfo, mockEvent2Info];
+
+export const mockFillRolesReturn = [
+  { event_id: 3, role: 'Bar Manager', staff_id: 5, name: 'TK' },
+  {
+    event_id: 3,
+    role: 'Assistant Bar Manager',
+    staff_id: 2,
+    name: 'Jared'
+  },
+  { event_id: 3, role: 'Barback', staff_id: 4, name: 'Ross' },
+  { event_id: 3, role: 'Bartender', staff_id: 3, name: 'Jesse' }
+];
+////////////////
+export const mockUnscheduledEvents = [
+  { ...mockEventInfo, staff: mockUnscheduleStaff },
+  { ...mockEvent2Info, staff: mockUnscheduleStaff }
+];
+
+export const mockNewSchedule = [
+  { ...mockEventInfo, staff: mockFillRolesReturn },
+  { ...mockEvent2Info, staff: [] }
+];
 
 export const mockBuildRolesReturn = [
   {

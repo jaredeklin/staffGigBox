@@ -27,7 +27,7 @@ const DisplayStaff = props => {
               <div className="edit-container">
                 <button
                   className="delete"
-                  onClick={() => deleteFromSchedule(schedule_id)}
+                  onClick={() => deleteFromSchedule(person)}
                 />
                 <button
                   className="edit"
