@@ -304,4 +304,12 @@ describe('Api', () => {
       expect(expReturn).toEqual('ass_bar_manager');
     });
   });
+
+  describe('fillRoles', () => {
+    it('should return correct roles with staff', () => {
+      api.availableStaff = mockStaff;
+      expect(api.fillRoles(mockEventToFillRoles)).toEqual(mockFillRolesReturn);
+    });
+  });
+
 });
