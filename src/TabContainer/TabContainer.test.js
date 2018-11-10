@@ -16,6 +16,7 @@ describe('TabContainer', () => {
         tabs={mockTabs}
         schedule={mockSchedule}
         scheduleGenerator={mockScheduleGenerator}
+        unscheduledEvents={mockSchedule}
       />
     );
   });
@@ -28,7 +29,8 @@ describe('TabContainer', () => {
       'Add Event',
       'Add New Staff',
       'Schedule',
-      'Submit Availability'
+      'Submit Availability',
+      'Unscheduled Events'
     ];
 
     wrapper = shallow(
@@ -36,6 +38,7 @@ describe('TabContainer', () => {
         editSchedule={mockEditSchedule}
         tabs={mockAdminTabs}
         schedule={mockSchedule}
+        unscheduledEvents={mockSchedule}
       />
     );
 
@@ -49,6 +52,11 @@ describe('TabContainer', () => {
 
   it('should match the snapshot when Add New Staff is the active tab', () => {
     wrapper.setState({ activeTabName: 'Add New Staff' });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match the snapshot when Unscheduled Events is the active tab', () => {
+    wrapper.setState({ activeTabName: 'Unscheduled Events' });
     expect(wrapper).toMatchSnapshot();
   });
 

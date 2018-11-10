@@ -19,6 +19,13 @@ ShallowWrapper {
             "Schedule",
           ]
     }
+    unscheduledEvents={
+        Array [
+            Object {
+              "event_id": 1,
+            },
+          ]
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -280,6 +287,13 @@ ShallowWrapper {
     tabs={
         Array [
             "Schedule",
+          ]
+    }
+    unscheduledEvents={
+        Array [
+            Object {
+              "event_id": 1,
+            },
           ]
     }
 />,
@@ -545,6 +559,13 @@ ShallowWrapper {
             "Schedule",
           ]
     }
+    unscheduledEvents={
+        Array [
+            Object {
+              "event_id": 1,
+            },
+          ]
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -743,6 +764,276 @@ ShallowWrapper {
 }
 `;
 
+exports[`TabContainer should match the snapshot when Unscheduled Events is the active tab 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TabContainer
+    editSchedule={[Function]}
+    schedule={
+        Array [
+            Object {
+              "event_id": 1,
+            },
+          ]
+    }
+    scheduleGenerator={[Function]}
+    tabs={
+        Array [
+            "Schedule",
+          ]
+    }
+    unscheduledEvents={
+        Array [
+            Object {
+              "event_id": 1,
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <ul
+          className="tab-container-list"
+>
+          <Unknown
+                    handleTabClick={[Function]}
+                    isActive={false}
+                    tabName="Schedule"
+          />
+</ul>,
+        <article
+          className="active-content"
+>
+          <Schedule
+                    admin={undefined}
+                    deleteFromSchedule={undefined}
+                    editSchedule={[Function]}
+                    event={
+                              Object {
+                                        "event_id": 1,
+                                      }
+                    }
+                    staff={undefined}
+          />
+</article>,
+      ],
+      "className": "tab-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Unknown
+              handleTabClick={[Function]}
+              isActive={false}
+              tabName="Schedule"
+/>,
+          ],
+          "className": "tab-container-list",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "Schedule0",
+            "nodeType": "function",
+            "props": Object {
+              "handleTabClick": [Function],
+              "isActive": false,
+              "tabName": "Schedule",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "ul",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Schedule
+              admin={undefined}
+              deleteFromSchedule={undefined}
+              editSchedule={[Function]}
+              event={
+                            Object {
+                                          "event_id": 1,
+                                        }
+              }
+              staff={undefined}
+/>,
+          ],
+          "className": "active-content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "class",
+            "props": Object {
+              "admin": undefined,
+              "deleteFromSchedule": undefined,
+              "editSchedule": [Function],
+              "event": Object {
+                "event_id": 1,
+              },
+              "staff": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "article",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <ul
+            className="tab-container-list"
+>
+            <Unknown
+                        handleTabClick={[Function]}
+                        isActive={false}
+                        tabName="Schedule"
+            />
+</ul>,
+          <article
+            className="active-content"
+>
+            <Schedule
+                        admin={undefined}
+                        deleteFromSchedule={undefined}
+                        editSchedule={[Function]}
+                        event={
+                                    Object {
+                                                "event_id": 1,
+                                              }
+                        }
+                        staff={undefined}
+            />
+</article>,
+        ],
+        "className": "tab-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Unknown
+                handleTabClick={[Function]}
+                isActive={false}
+                tabName="Schedule"
+/>,
+            ],
+            "className": "tab-container-list",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "Schedule0",
+              "nodeType": "function",
+              "props": Object {
+                "handleTabClick": [Function],
+                "isActive": false,
+                "tabName": "Schedule",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Schedule
+                admin={undefined}
+                deleteFromSchedule={undefined}
+                editSchedule={[Function]}
+                event={
+                                Object {
+                                                "event_id": 1,
+                                              }
+                }
+                staff={undefined}
+/>,
+            ],
+            "className": "active-content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "class",
+              "props": Object {
+                "admin": undefined,
+                "deleteFromSchedule": undefined,
+                "editSchedule": [Function],
+                "event": Object {
+                  "event_id": 1,
+                },
+                "staff": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "article",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
 exports[`TabContainer should match the snapshot when submit Availability is the active tab 1`] = `
 ShallowWrapper {
   "length": 1,
@@ -760,6 +1051,13 @@ ShallowWrapper {
     tabs={
         Array [
             "Schedule",
+          ]
+    }
+    unscheduledEvents={
+        Array [
+            Object {
+              "event_id": 1,
+            },
           ]
     }
 />,
@@ -973,6 +1271,14 @@ ShallowWrapper {
             "Add New Staff",
             "Schedule",
             "Submit Availability",
+            "Unscheduled Events",
+          ]
+    }
+    unscheduledEvents={
+        Array [
+            Object {
+              "event_id": 1,
+            },
           ]
     }
 />,
@@ -1011,6 +1317,11 @@ ShallowWrapper {
                     handleTabClick={[Function]}
                     isActive={false}
                     tabName="Submit Availability"
+          />
+          <Unknown
+                    handleTabClick={[Function]}
+                    isActive={false}
+                    tabName="Unscheduled Events"
           />
 </ul>,
         <article
@@ -1058,6 +1369,11 @@ ShallowWrapper {
               handleTabClick={[Function]}
               isActive={false}
               tabName="Submit Availability"
+/>,
+            <Unknown
+              handleTabClick={[Function]}
+              isActive={false}
+              tabName="Unscheduled Events"
 />,
           ],
           "className": "tab-container-list",
@@ -1111,6 +1427,19 @@ ShallowWrapper {
               "handleTabClick": [Function],
               "isActive": false,
               "tabName": "Submit Availability",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Unscheduled Events4",
+            "nodeType": "function",
+            "props": Object {
+              "handleTabClick": [Function],
+              "isActive": false,
+              "tabName": "Unscheduled Events",
             },
             "ref": null,
             "rendered": null,
@@ -1194,6 +1523,11 @@ ShallowWrapper {
                         isActive={false}
                         tabName="Submit Availability"
             />
+            <Unknown
+                        handleTabClick={[Function]}
+                        isActive={false}
+                        tabName="Unscheduled Events"
+            />
 </ul>,
           <article
             className="active-content"
@@ -1240,6 +1574,11 @@ ShallowWrapper {
                 handleTabClick={[Function]}
                 isActive={false}
                 tabName="Submit Availability"
+/>,
+              <Unknown
+                handleTabClick={[Function]}
+                isActive={false}
+                tabName="Unscheduled Events"
 />,
             ],
             "className": "tab-container-list",
@@ -1293,6 +1632,19 @@ ShallowWrapper {
                 "handleTabClick": [Function],
                 "isActive": false,
                 "tabName": "Submit Availability",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Unscheduled Events4",
+              "nodeType": "function",
+              "props": Object {
+                "handleTabClick": [Function],
+                "isActive": false,
+                "tabName": "Unscheduled Events",
               },
               "ref": null,
               "rendered": null,
