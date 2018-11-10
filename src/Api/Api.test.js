@@ -25,11 +25,13 @@ describe('Api', () => {
     );
   });
 
-  it('should get staff', async () => {
-    const expected = 'http://localhost:3000/api/v1/staff';
-    await api.getStaff();
+  describe('getStaff', () => {
+    it('should call fetch with correct params', async () => {
+      const expected = 'http://localhost:3000/api/v1/staff';
+      await api.getStaff();
 
-    expect(window.fetch).toHaveBeenCalledWith(expected);
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
   });
 
   describe('postEvent', () => {
@@ -287,6 +289,15 @@ describe('Api', () => {
       expect(mockReturn).toEqual(mockStaff);
     });
   });
+
+  describe('shuffleStaffArray', () => {
+    it('should return the correct value', () => {
+      Math.random = jest.fn(() => 0.5);
+      const staffArray = [{ name: 'jared' }, { name: 'tk' }];
+      expect(api.shuffleStaffArray(staffArray)).toEqual(staffArray);
+    });
+  });
+
   describe('rolesRegex', () => {
     it('should return a cleaned word', () => {
       const expReturn = api.rolesRegex('Assistant Bar Manager');
