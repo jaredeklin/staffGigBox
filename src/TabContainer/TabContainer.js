@@ -66,13 +66,7 @@ export class TabContainer extends Component {
         />
       );
     } else {
-      return (
-        <EventForm
-          scheduleGenerator={this.props.scheduleGenerator}
-          checkManualSchedule={this.checkManualSchedule}
-          addEvent={this.props.addEvent}
-        />
-      );
+      return <EventForm addEvent={this.props.addEvent} />;
     }
   };
 

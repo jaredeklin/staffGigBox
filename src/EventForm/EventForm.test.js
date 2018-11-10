@@ -5,8 +5,6 @@ import { mockBuildRolesReturn, mockPostScheduleReturn } from '../mockData';
 
 describe('EventForm', () => {
   let wrapper;
-  const mockCheck = jest.fn();
-  const mockScheduleGenerator = jest.fn();
   const mockAddEvent = jest.fn();
   const mockState = {
     venue: 'Ogden Theatre',
@@ -21,13 +19,7 @@ describe('EventForm', () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(
-      <EventForm
-        checkManualSchedule={mockCheck}
-        scheduleGenerator={mockScheduleGenerator}
-        addEvent={mockAddEvent}
-      />
-    );
+    wrapper = shallow(<EventForm addEvent={mockAddEvent} />);
   });
 
   it('should match the snapshot', () => {
