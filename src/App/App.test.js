@@ -5,7 +5,11 @@ import {
   mockStaff,
   mockUnscheduledEvents,
   mockFillRolesReturn,
-  mockNewSchedule
+  mockNewSchedule,
+  mockEventInfo,
+  mockEmptySchedule,
+  mockUnscheduledEvent,
+  mockSchedule
 } from '../mockData';
 
 describe('App', () => {
@@ -88,10 +92,12 @@ describe('App', () => {
     });
   });
 
-  it('should add Staff', () => {
-    wrapper.instance().addStaff();
-    expect(wrapper.state('isCurrentStaff')).toEqual(true);
-    expect(wrapper.state('addNewStaff')).toEqual(false);
+  describe('addStaff', () => {
+    it('should update state', () => {
+      wrapper.instance().addStaff();
+      expect(wrapper.state('isCurrentStaff')).toEqual(true);
+      expect(wrapper.state('addNewStaff')).toEqual(false);
+    });
   });
 
   describe('deleteFromSchedule', () => {
@@ -147,9 +153,15 @@ describe('App', () => {
       expect(wrapper.state('events')).toEqual([mockEventInfo]);
     });
   });
+
   describe('editSchedule', () => {
-    it('should edit the schedule', async () => {
-      /////////
+    it('should update state with new schedule', async () => {
+      wrapper.setState({ staff: mockStaff, schedule: mockSchedule });
+      const mockChange = { staff_id: 2, event_id: 3, schedule_id: 1 };
+
+      wrapper.instance().editSchedule(mockChange);
+
+      expect(wrapper.state('schedule')).toEqual(mockSchedule);
     });
   });
   describe('scheduleGenerator', () => {
