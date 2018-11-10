@@ -287,4 +287,10 @@ describe('Api', () => {
       expect(mockReturn).toEqual(mockStaff);
     });
   });
+  describe('rolesRegex', () => {
+    it('should return a cleaned word', () => {
+      const expReturn = api.rolesRegex('Assistant Bar Manager');
+      expect(expReturn).toEqual('ass_bar_manager');
+    });
+  });
 });
