@@ -209,6 +209,7 @@ ShallowWrapper {
 >
           Generate schedule
 </button>,
+        false,
       ],
       "className": "event-div",
     },
@@ -1095,6 +1096,7 @@ ShallowWrapper {
         "rendered": "Generate schedule",
         "type": "button",
       },
+      false,
     ],
     "type": "div",
   },
@@ -1292,6 +1294,7 @@ ShallowWrapper {
 >
             Generate schedule
 </button>,
+          false,
         ],
         "className": "event-div",
       },
@@ -2178,6 +2181,7 @@ ShallowWrapper {
           "rendered": "Generate schedule",
           "type": "button",
         },
+        false,
       ],
       "type": "div",
     },
