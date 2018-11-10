@@ -1,6 +1,12 @@
 import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
+import {
+  mockStaff,
+  mockUnscheduledEvents,
+  mockFillRolesReturn,
+  mockNewSchedule
+} from '../mockData';
 
 describe('App', () => {
   let wrapper;
@@ -138,17 +144,32 @@ describe('App', () => {
       /////////
     });
   });
-
+  describe('scheduleGenerator', () => {
   it('should generate a schedule', async () => {
-    wrapper.instance().api.generateSchedule = jest.fn().mockReturnValue(true);
     wrapper.instance().api.modifySchedule = jest.fn();
-    wrapper.instance().editSchedule = jest.fn();
+      wrapper.instance().api.findAvailableStaff = jest.fn(() => mockStaff);
+      wrapper.instance().api.fillRoles = jest.fn(() => mockFillRolesReturn);
+      wrapper.instance().api.availableStaff = mockStaff;
+
+      wrapper.setState({
+        staff: mockStaff,
+        unscheduledEvents: mockUnscheduledEvents
+      });
 
     await wrapper.instance().scheduleGenerator();
 
-    expect(wrapper.instance().api.generateSchedule).toHaveBeenCalled();
-    expect(wrapper.instance().api.modifySchedule).toHaveBeenCalled();
-    expect(wrapper.instance().editSchedule).toHaveBeenCalled();
+      expect(wrapper.instance().api.findAvailableStaff).toHaveBeenCalledWith(
+        'Jul 20, 2018',
+        mockStaff
+      );
+      expect(wrapper.instance().api.fillRoles).toHaveBeenCalledTimes(1);
+      expect(wrapper.instance().api.modifySchedule).toHaveBeenCalledWith(
+        mockFillRolesReturn
+      );
+
+      expect(wrapper.state('schedule')).toEqual(mockNewSchedule);
+      expect(wrapper.state('unscheduledEvents')).toEqual([]);
+    });
   });
 
   describe('updateStateFromHelpers', () => {
