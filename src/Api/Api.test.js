@@ -1,10 +1,13 @@
 import { Api } from './Api';
 import {
   mockStaff,
-  // expectedStaff,
-  // expectedStaffRoles,
-  // mockEventInfo,
-  mockBuildRolesReturn
+  mockBuildRolesReturn,
+  mockEventToFillRoles,
+  mockFillRolesReturn,
+  mockApiSchedule,
+  mockEventInfo,
+  mockApiScheduleReturn,
+  mockEventsInfo
 } from '../mockData';
 
 describe('Api', () => {
@@ -309,6 +312,29 @@ describe('Api', () => {
     it('should return correct roles with staff', () => {
       api.availableStaff = mockStaff;
       expect(api.fillRoles(mockEventToFillRoles)).toEqual(mockFillRolesReturn);
+    });
+  });
+
+  describe('getSchedule', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(mockApiSchedule)
+        })
+      );
+    });
+
+    it('should call fetch with correct params', () => {
+      const url = 'http://localhost:3000/api/v1/schedule';
+      api.getSchedule(mockStaff, mockEventsInfo);
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+
+    it('should return correct values', async () => {
+      const expReturn = await api.getSchedule(mockStaff, [mockEventInfo]);
+
+      expect(expReturn).toEqual(mockApiScheduleReturn);
     });
   });
 
