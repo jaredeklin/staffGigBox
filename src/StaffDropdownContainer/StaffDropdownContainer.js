@@ -20,20 +20,6 @@ export class StaffDropdownContainer extends Component {
     });
   };
 
-  // displayStaff = role => {
-  //   const { availableStaff } = this.state;
-  //   const staffRole = this.api.rolesRegex(role);
-  //   const available = availableStaff.filter(staff => staff[staffRole]);
-
-  //   return available.map(person => {
-  //     return (
-  //       <option key={person.staff_id} value={person.staff_id}>
-  //         {person.name}
-  //       </option>
-  //     );
-  //   });
-  // };
-
   findAvailableStaff = async () => {
     const { date } = this.props.event;
 
