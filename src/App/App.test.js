@@ -88,48 +88,49 @@ describe('App', () => {
     expect(wrapper.state('addNewStaff')).toEqual(false);
   });
 
-  describe('deleteSchedule', () => {
-    it('should remove userId and event Id from schedule', async () => {
+  describe('deleteFromSchedule', () => {
+    it('fetch should be called with correct params', async () => {
       window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
-          status: 200,
-          json: () =>
-            Promise.resolve({
-              mockUser1
+          status: 200
             })
-        })
       );
       const expected = [
-        'http://localhost:3000/api/v1/schedule/1',
+        'http://localhost:3000/api/v1/schedule/34',
         {
           method: 'DELETE'
         }
       ];
-
-      wrapper.instance().editSchedule = jest.fn();
-
-      await wrapper.instance().deleteFromSchedule(1);
+      const person = { event_id: 2, schedule_id: 34 };
+      wrapper.instance().deleteFromSchedule(person);
 
       expect(window.fetch).toHaveBeenCalledWith(...expected);
-      expect(wrapper.instance().editSchedule).toHaveBeenCalled();
     });
-  });
 
   it('should set the state with new schedule', async () => {
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
-        status: 200,
-        json: () =>
-          Promise.resolve({
-            mockUser1
+          status: 200
           })
-      })
     );
-    wrapper.instance().editSchedule = jest.fn();
+      const mockSchedule = [
+        { event_id: 2, staff: [{ schedule_id: 34 }] },
+        { event_id: 1, staff: [{ schedule_id: 23 }] }
+      ];
 
-    await wrapper.instance().deleteFromSchedule(1);
+      const expected = [
+        { event_id: 2, staff: [] },
+        { event_id: 1, staff: [{ schedule_id: 23 }] }
+      ];
 
-    expect(wrapper.instance().editSchedule).toHaveBeenCalled();
+      wrapper.setState({ schedule: mockSchedule });
+
+      await wrapper
+        .instance()
+        .deleteFromSchedule({ event_id: 2, schedule_id: 34 });
+
+      expect(wrapper.state('schedule')).toEqual(expected);
+    });
   });
 
   describe('editSchedule', () => {
