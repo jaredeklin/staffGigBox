@@ -19,8 +19,8 @@ export class EventForm extends Component {
       ass_bar_manager: '',
       bartenders: '',
       barbacks: '',
-      beer_bucket: ''
-      // manualSchedule: ''
+      beer_bucket: '',
+      showMessage: false
     };
 
     this.defaultState = this.state;
@@ -40,20 +40,18 @@ export class EventForm extends Component {
       ...this.state,
       time: moment(dateWithTime, 'YYYY-MM-DD H:mm').format('h:mm a')
     };
+    delete eventObj.showMessage;
 
     const eventData = await this.api.postEvent(eventObj);
     const emptyScheduleArray = this.api.buildScheduleWithRoles(eventData);
     const emptySchedule = await this.api.postSchedule(emptyScheduleArray);
 
     this.props.addEvent(eventData, emptySchedule);
-    // if (manualSchedule === true) {
-    //   // const newEventSchedule = await this.api.getSchedule(eventData.event_id);
-    //   this.props.checkManualSchedule(newEventSchedule, manualSchedule);
-    // } else {
-    //   await this.props.scheduleGenerator();
-    // }
+    this.setState({ showMessage: true });
 
-    this.setState(this.defaultState);
+    setTimeout(() => {
+      this.setState(this.defaultState);
+    }, 2000);
   };
 
   render() {
@@ -189,6 +187,11 @@ export class EventForm extends Component {
         >
           Generate schedule
         </button>
+        {this.state.showMessage && (
+          <h4>
+            {name} at {venue} on {date} as been to unscheduled events
+          </h4>
+        )}
       </div>
     );
   }
