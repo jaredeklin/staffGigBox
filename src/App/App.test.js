@@ -137,6 +137,16 @@ describe('App', () => {
     });
   });
 
+  describe('addEvent', () => {
+    it('should update state with events and unscheduled events', () => {
+      wrapper.instance().addEvent(mockEventInfo, mockEmptySchedule);
+
+      expect(wrapper.state('unscheduledEvents')).toEqual([
+        mockUnscheduledEvent
+      ]);
+      expect(wrapper.state('events')).toEqual([mockEventInfo]);
+    });
+  });
   describe('editSchedule', () => {
     it('should edit the schedule', async () => {
       /////////
