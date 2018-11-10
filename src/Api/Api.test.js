@@ -270,4 +270,21 @@ describe('Api', () => {
       );
     });
   });
+
+  describe('findAvailableStaff', () => {
+    it('should return the correct value', async () => {
+      api.checkSchedule = jest.fn(() => []);
+      api.checkAvailability = jest.fn(() => []);
+      api.shuffleStaffArray = jest.fn(() => mockStaff);
+
+      const mockReturn = await api.findAvailableStaff(
+        'Jul 20, 2018',
+        mockStaff
+      );
+
+      expect(api.checkSchedule).toHaveBeenCalledWith('Jul 20, 2018');
+      expect(api.checkAvailability).toHaveBeenCalledWith('Jul 20, 2018');
+      expect(mockReturn).toEqual(mockStaff);
+    });
+  });
 });
