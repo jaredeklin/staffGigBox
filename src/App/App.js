@@ -67,64 +67,25 @@ class App extends Component {
     }
   };
 
-  deleteFromSchedule = async id => {
-    await fetch(`${this.url}api/v1/schedule/${id}`, {
+  deleteFromSchedule = async person => {
+    const { schedule_id, event_id } = person;
+
+    await fetch(`${this.url}api/v1/schedule/${schedule_id}`, {
       method: 'DELETE'
     });
 
-    this.editSchedule();
-  };
-
-  getSchedule = async (staff, events) => {
-    const response = await fetch(`${this.url}api/v1/schedule`);
-    const rawSchedule = await response.json();
-
-    const schedule = events.reduce(
-      (schedAcc, event) => {
-        const { event_id } = event;
-        const staffId = rawSchedule.filter(
-          sched => sched.event_id === event_id
+    const schedule = this.state.schedule.reduce((schedAcc, event) => {
+      if (event_id === event.event_id) {
+        const updatedStaff = event.staff.filter(
+          staff => staff.schedule_id !== schedule_id
         );
+        event = { ...event, staff: updatedStaff };
+      }
 
-        const eventStaff = staffId.map(person => {
-          const { role, schedule_id } = person;
-          const staffObj = staff.find(
-            member => person.staff_id === member.staff_id
-          );
+      return [...schedAcc, event];
+    }, []);
 
-          if (!staffObj) {
-            return {
-              staff_id: null,
-              name: 'Staff Needed',
-              event_id,
-              role,
-              schedule_id
-            };
-          }
-
-          return { ...staffObj, event_id, role, schedule_id };
-        });
-
-        const findUnscheduled = eventStaff.find(staff => !staff.staff_id);
-
-        if (!findUnscheduled) {
-          schedAcc.schedule = [
-            ...schedAcc.schedule,
-            { ...event, staff: eventStaff }
-          ];
-        } else {
-          schedAcc.unscheduledEvents = [
-            ...schedAcc.unscheduledEvents,
-            { ...event, staff: eventStaff }
-          ];
-        }
-
-        return schedAcc;
-      },
-      { schedule: [], unscheduledEvents: [] }
-    );
-
-    return schedule;
+    this.setState({ schedule });
   };
 
   editSchedule = updatedStaff => {
@@ -160,7 +121,10 @@ class App extends Component {
   };
 
   addEvent = (event, emptySchedule) => {
-    const newScheduleObj = { ...event, staff: emptySchedule };
+    const schedule = emptySchedule.map(staff => {
+      return { ...staff, name: 'Staff Needed' };
+    });
+    const newScheduleObj = { ...event, staff: schedule };
     const events = [...this.state.events, event];
     const unscheduledEvents = [...this.state.unscheduledEvents, newScheduleObj];
 
@@ -168,19 +132,47 @@ class App extends Component {
   };
 
   scheduleGenerator = async () => {
-    const { staff } = this.state;
-    const generatedSchedule = await this.api.generateSchedule(staff);
-    // console.log(generatedSchedule);
-    if (generatedSchedule) {
-      await this.api.modifySchedule(generatedSchedule);
-      this.editSchedule();
+    const { staff, unscheduledEvents } = this.state;
+
+    const combineDays = unscheduledEvents.reduce((acc, event) => {
+      const { date } = event;
+      if (!acc[date]) {
+        acc[date] = [event];
+      } else {
+        acc[date] = [...acc[date], event];
+      }
+      return acc;
+    }, {});
+
+    for (const date in combineDays) {
+      await this.api.findAvailableStaff(date, staff);
+      const allStaff = this.api.fillRoles(combineDays[date]);
+      await this.api.modifySchedule(allStaff);
+
+      for (let i = 0; i < combineDays[date].length; i++) {
+        const eventStaff = allStaff.filter(
+          staff => staff.event_id === combineDays[date][i].event_id
+        );
+        combineDays[date][i].staff = eventStaff;
+      }
     }
+
+    const newSchedule = Object.keys(combineDays).reduce(
+      (scheduleAcc, event) => {
+        return [...scheduleAcc, ...combineDays[event]];
+      },
+      []
+    );
+
+    const schedule = [...this.state.schedule, ...newSchedule];
+
+    this.setState({ schedule, unscheduledEvents: [] });
   };
 
   updateStateFromHelpers = async () => {
     const staff = await this.api.getStaff();
     const events = await this.api.getEvents();
-    const schedules = await this.getSchedule(staff, events);
+    const schedules = await this.api.getSchedule(staff, events);
     const { schedule, unscheduledEvents } = schedules;
 
     this.setState({ staff, events, schedule, unscheduledEvents });

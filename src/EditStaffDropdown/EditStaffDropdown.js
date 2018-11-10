@@ -21,11 +21,7 @@ export class EditStaffDropdown extends Component {
 
   displayStaff = role => {
     const { availableStaff } = this.state;
-    const staffRole = role
-      .toLowerCase()
-      .replace(/ /gi, '_')
-      .replace(/assistant/gi, 'ass');
-
+    const staffRole = this.api.rolesRegex(role);
     const available = availableStaff.filter(staff => staff[staffRole]);
 
     return available.map(person => {

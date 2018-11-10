@@ -32,24 +32,6 @@ export class EventForm extends Component {
     this.setState({ [name]: value });
   };
 
-  postEvent = async event => {
-    try {
-      const response = await fetch(`${this.url}api/v1/events`, {
-        method: 'POST',
-        body: JSON.stringify(event),
-        headers: { 'Content-Type': 'application/json' }
-      });
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.log(error); // eslint-disable-line
-    }
-  };
-
   handleSubmit = async event => {
     event.preventDefault();
     const { date, time } = this.state;
@@ -59,15 +41,11 @@ export class EventForm extends Component {
       time: moment(dateWithTime, 'YYYY-MM-DD H:mm').format('h:mm a')
     };
 
-    const eventData = await this.postEvent(eventObj);
+    const eventData = await this.api.postEvent(eventObj);
     const emptyScheduleArray = this.api.buildScheduleWithRoles(eventData);
-    const emptyScheduleWithId = await this.api.postSchedule(emptyScheduleArray);
+    const emptySchedule = await this.api.postSchedule(emptyScheduleArray);
 
-    const scheduleWithName = emptyScheduleWithId.map(schedule => {
-      return { ...schedule, name: 'Staff Needed' };
-    });
-
-    this.props.addEvent(eventData, scheduleWithName);
+    this.props.addEvent(eventData, emptySchedule);
     // if (manualSchedule === true) {
     //   // const newEventSchedule = await this.api.getSchedule(eventData.event_id);
     //   this.props.checkManualSchedule(newEventSchedule, manualSchedule);

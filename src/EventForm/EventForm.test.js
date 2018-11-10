@@ -1,17 +1,31 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { EventForm } from './EventForm';
+import { mockBuildRolesReturn, mockPostScheduleReturn } from '../mockData';
 
 describe('EventForm', () => {
   let wrapper;
   const mockCheck = jest.fn();
   const mockScheduleGenerator = jest.fn();
+  const mockAddEvent = jest.fn();
+  const mockState = {
+    venue: 'Ogden Theatre',
+    name: 'Ratatat',
+    date: '2018-06-30',
+    time: '18:00',
+    bar_manager: true,
+    ass_bar_manager: true,
+    bartenders: 4,
+    barbacks: 2,
+    beer_bucket: false
+  };
 
   beforeEach(() => {
     wrapper = shallow(
       <EventForm
         checkManualSchedule={mockCheck}
         scheduleGenerator={mockScheduleGenerator}
+        addEvent={mockAddEvent}
       />
     );
   });
@@ -31,42 +45,8 @@ describe('EventForm', () => {
     expect(wrapper.state('date')).toEqual('2018-06-06');
   });
 
-  describe('postEvent', () => {
-    const mockEventObj = {
-      venue: 'Gothic Theatre',
-      name: 'Ratatat',
-      date: '2018-06-06',
-      time: '6:00 pm'
-    };
-    beforeEach(() => {
-      window.fetch = jest.fn(() =>
-        Promise.resolve({
-          status: 201,
-          json: () => Promise.resolve(mockEventObj)
-        })
-      );
-    });
-
-    it('should call fetch with correct params', () => {
-      const expected = [
-        'http://localhost:3000/api/v1/events',
-        {
-          method: 'POST',
-          body: JSON.stringify(mockEventObj),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      ];
-      wrapper.instance().postEvent(mockEventObj);
-      expect(window.fetch).toHaveBeenCalledWith(...expected);
-    });
-
-    xit('should return a correct value', async () => {});
-  });
-
-  xdescribe('handleSubmit', () => {
-    it('should call functions with correct params', async () => {
+  describe('handleSubmit', () => {
+    it('should call all methods with correct params', async () => {
       const mockEvent = {
         preventDefault: jest.fn()
       };
@@ -83,26 +63,30 @@ describe('EventForm', () => {
         beer_bucket: ''
       };
 
-      wrapper.setState({
-        manualSchedule: true,
-        date: '2018-06-06',
-        time: '18:00'
-      });
-      wrapper.instance().api.postSchedule = jest.fn();
-      wrapper.instance().api.buildScheduleWithRoles = jest.fn();
-      wrapper.instance().api.getSchedule = jest.fn();
+      const expectedState = { ...mockState, time: '6:00 pm' };
+      const mockPostReturn = { ...expectedState, event_id: 24 };
+
+      wrapper.setState(mockState);
+      const mockPostEvent = (wrapper.instance().api.postEvent = jest.fn(
+        () => mockPostReturn
+      ));
+      const mockBuildSchedule = (wrapper.instance().api.buildScheduleWithRoles = jest.fn(
+        () => mockBuildRolesReturn
+      ));
+      const mockPostSchedule = (wrapper.instance().api.postSchedule = jest.fn(
+        () => mockPostScheduleReturn
+      ));
 
       await wrapper.instance().handleSubmit(mockEvent);
-      // expect(window.fetch).toHaveBeenCalledWith(...expected);
 
-      expect(wrapper.instance().api.buildScheduleWithRoles).toHaveBeenCalled();
-      expect(wrapper.instance().api.postSchedule).toHaveBeenCalled();
-      expect(wrapper.instance().api.getSchedule).toHaveBeenCalled();
-      expect(mockCheck).toHaveBeenCalled();
+      expect(mockPostEvent).toHaveBeenCalledWith(expectedState);
+      expect(mockBuildSchedule).toHaveBeenCalledWith(mockPostReturn);
+      expect(mockPostSchedule).toHaveBeenCalledWith(mockBuildRolesReturn);
+      expect(mockAddEvent).toHaveBeenCalledWith(
+        mockPostReturn,
+        mockPostScheduleReturn
+      );
       expect(wrapper.state()).toEqual(mockDefaultState);
-
-      await wrapper.instance().handleSubmit(mockEvent);
-      expect(mockScheduleGenerator).toHaveBeenCalled();
     });
   });
 });

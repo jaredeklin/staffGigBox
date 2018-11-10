@@ -10,6 +10,8 @@ ShallowWrapper {
     editSchedule={[Function]}
     event={
         Object {
+            "date": "2018-06-30",
+            "name": "Ratatat",
             "staff": Array [
               Object {
                 "role": "Bartender",
@@ -24,9 +26,10 @@ ShallowWrapper {
                 "role": "Assistant Bar Manager",
               },
             ],
+            "time": "7 pm",
+            "venue": "Ogden",
           }
     }
-    manualSchedule={false}
     staffList={Array []}
     updateSchedule={[Function]}
 />,
@@ -47,12 +50,18 @@ ShallowWrapper {
           className="schedule-container"
 >
           <h4>
-                    Nov 6, 2018
+                    Jun 30, 2018
           </h4>
-          <h4 />
-          <h4 />
+          <h4>
+                    Ogden
+          </h4>
+          <h4>
+                    7 pm
+          </h4>
 </div>,
-        <h2 />,
+        <h2>
+          Ratatat
+</h2>,
         <section
           className="staff-container"
 >
@@ -65,6 +74,8 @@ ShallowWrapper {
                               editSchedule={[Function]}
                               event={
                                         Object {
+                                                  "date": "2018-06-30",
+                                                  "name": "Ratatat",
                                                   "staff": Array [
                                                     Object {
                                                       "role": "Bartender",
@@ -79,10 +90,11 @@ ShallowWrapper {
                                                       "role": "Assistant Bar Manager",
                                                     },
                                                   ],
+                                                  "time": "7 pm",
+                                                  "venue": "Ogden",
                                                 }
                               }
                               handleEditClick={[Function]}
-                              manualSchedule={false}
                               staffList={Array []}
                               staffRole="Bar Manager"
                               updateSchedule={[Function]}
@@ -94,6 +106,8 @@ ShallowWrapper {
                     editSchedule={[Function]}
                     event={
                               Object {
+                                        "date": "2018-06-30",
+                                        "name": "Ratatat",
                                         "staff": Array [
                                           Object {
                                             "role": "Bartender",
@@ -108,10 +122,11 @@ ShallowWrapper {
                                             "role": "Assistant Bar Manager",
                                           },
                                         ],
+                                        "time": "7 pm",
+                                        "venue": "Ogden",
                                       }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Bartender"
                     updateSchedule={[Function]}
@@ -122,6 +137,8 @@ ShallowWrapper {
                     editSchedule={[Function]}
                     event={
                               Object {
+                                        "date": "2018-06-30",
+                                        "name": "Ratatat",
                                         "staff": Array [
                                           Object {
                                             "role": "Bartender",
@@ -136,10 +153,11 @@ ShallowWrapper {
                                             "role": "Assistant Bar Manager",
                                           },
                                         ],
+                                        "time": "7 pm",
+                                        "venue": "Ogden",
                                       }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Barback"
                     updateSchedule={[Function]}
@@ -158,10 +176,14 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h4>
-              Nov 6, 2018
+              Jun 30, 2018
 </h4>,
-            <h4 />,
-            <h4 />,
+            <h4>
+              Ogden
+</h4>,
+            <h4>
+              7 pm
+</h4>,
           ],
           "className": "schedule-container",
         },
@@ -172,10 +194,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Nov 6, 2018",
+              "children": "Jun 30, 2018",
             },
             "ref": null,
-            "rendered": "Nov 6, 2018",
+            "rendered": "Jun 30, 2018",
             "type": "h4",
           },
           Object {
@@ -183,10 +205,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "Ogden",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "Ogden",
             "type": "h4",
           },
           Object {
@@ -194,10 +216,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "7 pm",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "7 pm",
             "type": "h4",
           },
         ],
@@ -208,10 +230,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": undefined,
+          "children": "Ratatat",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": "Ratatat",
         "type": "h2",
       },
       Object {
@@ -229,6 +251,8 @@ ShallowWrapper {
                             editSchedule={[Function]}
                             event={
                                           Object {
+                                                        "date": "2018-06-30",
+                                                        "name": "Ratatat",
                                                         "staff": Array [
                                                           Object {
                                                             "role": "Bartender",
@@ -243,10 +267,11 @@ ShallowWrapper {
                                                             "role": "Assistant Bar Manager",
                                                           },
                                                         ],
+                                                        "time": "7 pm",
+                                                        "venue": "Ogden",
                                                       }
                             }
                             handleEditClick={[Function]}
-                            manualSchedule={false}
                             staffList={Array []}
                             staffRole="Bar Manager"
                             updateSchedule={[Function]}
@@ -258,6 +283,8 @@ ShallowWrapper {
               editSchedule={[Function]}
               event={
                             Object {
+                                          "date": "2018-06-30",
+                                          "name": "Ratatat",
                                           "staff": Array [
                                             Object {
                                               "role": "Bartender",
@@ -272,10 +299,11 @@ ShallowWrapper {
                                               "role": "Assistant Bar Manager",
                                             },
                                           ],
+                                          "time": "7 pm",
+                                          "venue": "Ogden",
                                         }
               }
               handleEditClick={[Function]}
-              manualSchedule={false}
               staffList={Array []}
               staffRole="Bartender"
               updateSchedule={[Function]}
@@ -286,6 +314,8 @@ ShallowWrapper {
               editSchedule={[Function]}
               event={
                             Object {
+                                          "date": "2018-06-30",
+                                          "name": "Ratatat",
                                           "staff": Array [
                                             Object {
                                               "role": "Bartender",
@@ -300,10 +330,11 @@ ShallowWrapper {
                                               "role": "Assistant Bar Manager",
                                             },
                                           ],
+                                          "time": "7 pm",
+                                          "venue": "Ogden",
                                         }
               }
               handleEditClick={[Function]}
-              manualSchedule={false}
               staffList={Array []}
               staffRole="Barback"
               updateSchedule={[Function]}
@@ -325,6 +356,8 @@ ShallowWrapper {
                   editSchedule={[Function]}
                   event={
                                     Object {
+                                                      "date": "2018-06-30",
+                                                      "name": "Ratatat",
                                                       "staff": Array [
                                                         Object {
                                                           "role": "Bartender",
@@ -339,10 +372,11 @@ ShallowWrapper {
                                                           "role": "Assistant Bar Manager",
                                                         },
                                                       ],
+                                                      "time": "7 pm",
+                                                      "venue": "Ogden",
                                                     }
                   }
                   handleEditClick={[Function]}
-                  manualSchedule={false}
                   staffList={Array []}
                   staffRole="Bar Manager"
                   updateSchedule={[Function]}
@@ -362,6 +396,8 @@ ShallowWrapper {
                   "deleteFromSchedule": [Function],
                   "editSchedule": [Function],
                   "event": Object {
+                    "date": "2018-06-30",
+                    "name": "Ratatat",
                     "staff": Array [
                       Object {
                         "role": "Bartender",
@@ -376,9 +412,10 @@ ShallowWrapper {
                         "role": "Assistant Bar Manager",
                       },
                     ],
+                    "time": "7 pm",
+                    "venue": "Ogden",
                   },
                   "handleEditClick": [Function],
-                  "manualSchedule": false,
                   "staffList": Array [],
                   "staffRole": "Bar Manager",
                   "updateSchedule": [Function],
@@ -400,6 +437,8 @@ ShallowWrapper {
               "deleteFromSchedule": [Function],
               "editSchedule": [Function],
               "event": Object {
+                "date": "2018-06-30",
+                "name": "Ratatat",
                 "staff": Array [
                   Object {
                     "role": "Bartender",
@@ -414,9 +453,10 @@ ShallowWrapper {
                     "role": "Assistant Bar Manager",
                   },
                 ],
+                "time": "7 pm",
+                "venue": "Ogden",
               },
               "handleEditClick": [Function],
-              "manualSchedule": false,
               "staffList": Array [],
               "staffRole": "Bartender",
               "updateSchedule": [Function],
@@ -434,6 +474,8 @@ ShallowWrapper {
               "deleteFromSchedule": [Function],
               "editSchedule": [Function],
               "event": Object {
+                "date": "2018-06-30",
+                "name": "Ratatat",
                 "staff": Array [
                   Object {
                     "role": "Bartender",
@@ -448,9 +490,10 @@ ShallowWrapper {
                     "role": "Assistant Bar Manager",
                   },
                 ],
+                "time": "7 pm",
+                "venue": "Ogden",
               },
               "handleEditClick": [Function],
-              "manualSchedule": false,
               "staffList": Array [],
               "staffRole": "Barback",
               "updateSchedule": [Function],
@@ -477,12 +520,18 @@ ShallowWrapper {
             className="schedule-container"
 >
             <h4>
-                        Nov 6, 2018
+                        Jun 30, 2018
             </h4>
-            <h4 />
-            <h4 />
+            <h4>
+                        Ogden
+            </h4>
+            <h4>
+                        7 pm
+            </h4>
 </div>,
-          <h2 />,
+          <h2>
+            Ratatat
+</h2>,
           <section
             className="staff-container"
 >
@@ -495,6 +544,8 @@ ShallowWrapper {
                                     editSchedule={[Function]}
                                     event={
                                                 Object {
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
                                                             "staff": Array [
                                                               Object {
                                                                 "role": "Bartender",
@@ -509,10 +560,11 @@ ShallowWrapper {
                                                                 "role": "Assistant Bar Manager",
                                                               },
                                                             ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                                     }
                                     handleEditClick={[Function]}
-                                    manualSchedule={false}
                                     staffList={Array []}
                                     staffRole="Bar Manager"
                                     updateSchedule={[Function]}
@@ -524,6 +576,8 @@ ShallowWrapper {
                         editSchedule={[Function]}
                         event={
                                     Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -538,10 +592,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                         }
                         handleEditClick={[Function]}
-                        manualSchedule={false}
                         staffList={Array []}
                         staffRole="Bartender"
                         updateSchedule={[Function]}
@@ -552,6 +607,8 @@ ShallowWrapper {
                         editSchedule={[Function]}
                         event={
                                     Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -566,10 +623,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                         }
                         handleEditClick={[Function]}
-                        manualSchedule={false}
                         staffList={Array []}
                         staffRole="Barback"
                         updateSchedule={[Function]}
@@ -588,10 +646,14 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h4>
-                Nov 6, 2018
+                Jun 30, 2018
 </h4>,
-              <h4 />,
-              <h4 />,
+              <h4>
+                Ogden
+</h4>,
+              <h4>
+                7 pm
+</h4>,
             ],
             "className": "schedule-container",
           },
@@ -602,10 +664,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Nov 6, 2018",
+                "children": "Jun 30, 2018",
               },
               "ref": null,
-              "rendered": "Nov 6, 2018",
+              "rendered": "Jun 30, 2018",
               "type": "h4",
             },
             Object {
@@ -613,10 +675,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "Ogden",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "Ogden",
               "type": "h4",
             },
             Object {
@@ -624,10 +686,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "7 pm",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "7 pm",
               "type": "h4",
             },
           ],
@@ -638,10 +700,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": "Ratatat",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "Ratatat",
           "type": "h2",
         },
         Object {
@@ -659,6 +721,8 @@ ShallowWrapper {
                                 editSchedule={[Function]}
                                 event={
                                                 Object {
+                                                                "date": "2018-06-30",
+                                                                "name": "Ratatat",
                                                                 "staff": Array [
                                                                   Object {
                                                                     "role": "Bartender",
@@ -673,10 +737,11 @@ ShallowWrapper {
                                                                     "role": "Assistant Bar Manager",
                                                                   },
                                                                 ],
+                                                                "time": "7 pm",
+                                                                "venue": "Ogden",
                                                               }
                                 }
                                 handleEditClick={[Function]}
-                                manualSchedule={false}
                                 staffList={Array []}
                                 staffRole="Bar Manager"
                                 updateSchedule={[Function]}
@@ -688,6 +753,8 @@ ShallowWrapper {
                 editSchedule={[Function]}
                 event={
                                 Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -702,10 +769,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                 }
                 handleEditClick={[Function]}
-                manualSchedule={false}
                 staffList={Array []}
                 staffRole="Bartender"
                 updateSchedule={[Function]}
@@ -716,6 +784,8 @@ ShallowWrapper {
                 editSchedule={[Function]}
                 event={
                                 Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -730,10 +800,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                 }
                 handleEditClick={[Function]}
-                manualSchedule={false}
                 staffList={Array []}
                 staffRole="Barback"
                 updateSchedule={[Function]}
@@ -755,6 +826,8 @@ ShallowWrapper {
                     editSchedule={[Function]}
                     event={
                                         Object {
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
                                                             "staff": Array [
                                                               Object {
                                                                 "role": "Bartender",
@@ -769,10 +842,11 @@ ShallowWrapper {
                                                                 "role": "Assistant Bar Manager",
                                                               },
                                                             ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Bar Manager"
                     updateSchedule={[Function]}
@@ -792,6 +866,8 @@ ShallowWrapper {
                     "deleteFromSchedule": [Function],
                     "editSchedule": [Function],
                     "event": Object {
+                      "date": "2018-06-30",
+                      "name": "Ratatat",
                       "staff": Array [
                         Object {
                           "role": "Bartender",
@@ -806,9 +882,10 @@ ShallowWrapper {
                           "role": "Assistant Bar Manager",
                         },
                       ],
+                      "time": "7 pm",
+                      "venue": "Ogden",
                     },
                     "handleEditClick": [Function],
-                    "manualSchedule": false,
                     "staffList": Array [],
                     "staffRole": "Bar Manager",
                     "updateSchedule": [Function],
@@ -830,6 +907,8 @@ ShallowWrapper {
                 "deleteFromSchedule": [Function],
                 "editSchedule": [Function],
                 "event": Object {
+                  "date": "2018-06-30",
+                  "name": "Ratatat",
                   "staff": Array [
                     Object {
                       "role": "Bartender",
@@ -844,9 +923,10 @@ ShallowWrapper {
                       "role": "Assistant Bar Manager",
                     },
                   ],
+                  "time": "7 pm",
+                  "venue": "Ogden",
                 },
                 "handleEditClick": [Function],
-                "manualSchedule": false,
                 "staffList": Array [],
                 "staffRole": "Bartender",
                 "updateSchedule": [Function],
@@ -864,6 +944,8 @@ ShallowWrapper {
                 "deleteFromSchedule": [Function],
                 "editSchedule": [Function],
                 "event": Object {
+                  "date": "2018-06-30",
+                  "name": "Ratatat",
                   "staff": Array [
                     Object {
                       "role": "Bartender",
@@ -878,9 +960,10 @@ ShallowWrapper {
                       "role": "Assistant Bar Manager",
                     },
                   ],
+                  "time": "7 pm",
+                  "venue": "Ogden",
                 },
                 "handleEditClick": [Function],
-                "manualSchedule": false,
                 "staffList": Array [],
                 "staffRole": "Barback",
                 "updateSchedule": [Function],
@@ -918,9 +1001,26 @@ ShallowWrapper {
     event={
         Object {
             "ass_bar_manager": true,
+            "date": "2018-06-30",
+            "name": "Ratatat",
+            "staff": Array [
+              Object {
+                "role": "Bartender",
+              },
+              Object {
+                "role": "Barback",
+              },
+              Object {
+                "role": "Bar Manager",
+              },
+              Object {
+                "role": "Assistant Bar Manager",
+              },
+            ],
+            "time": "7 pm",
+            "venue": "Ogden",
           }
     }
-    manualSchedule={false}
     staffList={Array []}
     updateSchedule={[Function]}
 />,
@@ -941,12 +1041,18 @@ ShallowWrapper {
           className="schedule-container"
 >
           <h4>
-                    Nov 6, 2018
+                    Jun 30, 2018
           </h4>
-          <h4 />
-          <h4 />
+          <h4>
+                    Ogden
+          </h4>
+          <h4>
+                    7 pm
+          </h4>
 </div>,
-        <h2 />,
+        <h2>
+          Ratatat
+</h2>,
         <section
           className="staff-container"
 >
@@ -960,10 +1066,27 @@ ShallowWrapper {
                               event={
                                         Object {
                                                   "ass_bar_manager": true,
+                                                  "date": "2018-06-30",
+                                                  "name": "Ratatat",
+                                                  "staff": Array [
+                                                    Object {
+                                                      "role": "Bartender",
+                                                    },
+                                                    Object {
+                                                      "role": "Barback",
+                                                    },
+                                                    Object {
+                                                      "role": "Bar Manager",
+                                                    },
+                                                    Object {
+                                                      "role": "Assistant Bar Manager",
+                                                    },
+                                                  ],
+                                                  "time": "7 pm",
+                                                  "venue": "Ogden",
                                                 }
                               }
                               handleEditClick={[Function]}
-                              manualSchedule={false}
                               staffList={Array []}
                               staffRole="Bar Manager"
                               updateSchedule={[Function]}
@@ -975,10 +1098,27 @@ ShallowWrapper {
                               event={
                                         Object {
                                                   "ass_bar_manager": true,
+                                                  "date": "2018-06-30",
+                                                  "name": "Ratatat",
+                                                  "staff": Array [
+                                                    Object {
+                                                      "role": "Bartender",
+                                                    },
+                                                    Object {
+                                                      "role": "Barback",
+                                                    },
+                                                    Object {
+                                                      "role": "Bar Manager",
+                                                    },
+                                                    Object {
+                                                      "role": "Assistant Bar Manager",
+                                                    },
+                                                  ],
+                                                  "time": "7 pm",
+                                                  "venue": "Ogden",
                                                 }
                               }
                               handleEditClick={[Function]}
-                              manualSchedule={false}
                               staffList={Array []}
                               staffRole="Assistant Bar Manager"
                               updateSchedule={[Function]}
@@ -991,10 +1131,27 @@ ShallowWrapper {
                     event={
                               Object {
                                         "ass_bar_manager": true,
+                                        "date": "2018-06-30",
+                                        "name": "Ratatat",
+                                        "staff": Array [
+                                          Object {
+                                            "role": "Bartender",
+                                          },
+                                          Object {
+                                            "role": "Barback",
+                                          },
+                                          Object {
+                                            "role": "Bar Manager",
+                                          },
+                                          Object {
+                                            "role": "Assistant Bar Manager",
+                                          },
+                                        ],
+                                        "time": "7 pm",
+                                        "venue": "Ogden",
                                       }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Bartender"
                     updateSchedule={[Function]}
@@ -1006,10 +1163,27 @@ ShallowWrapper {
                     event={
                               Object {
                                         "ass_bar_manager": true,
+                                        "date": "2018-06-30",
+                                        "name": "Ratatat",
+                                        "staff": Array [
+                                          Object {
+                                            "role": "Bartender",
+                                          },
+                                          Object {
+                                            "role": "Barback",
+                                          },
+                                          Object {
+                                            "role": "Bar Manager",
+                                          },
+                                          Object {
+                                            "role": "Assistant Bar Manager",
+                                          },
+                                        ],
+                                        "time": "7 pm",
+                                        "venue": "Ogden",
                                       }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Barback"
                     updateSchedule={[Function]}
@@ -1028,10 +1202,14 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h4>
-              Nov 6, 2018
+              Jun 30, 2018
 </h4>,
-            <h4 />,
-            <h4 />,
+            <h4>
+              Ogden
+</h4>,
+            <h4>
+              7 pm
+</h4>,
           ],
           "className": "schedule-container",
         },
@@ -1042,10 +1220,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Nov 6, 2018",
+              "children": "Jun 30, 2018",
             },
             "ref": null,
-            "rendered": "Nov 6, 2018",
+            "rendered": "Jun 30, 2018",
             "type": "h4",
           },
           Object {
@@ -1053,10 +1231,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "Ogden",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "Ogden",
             "type": "h4",
           },
           Object {
@@ -1064,10 +1242,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "7 pm",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "7 pm",
             "type": "h4",
           },
         ],
@@ -1078,10 +1256,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": undefined,
+          "children": "Ratatat",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": "Ratatat",
         "type": "h2",
       },
       Object {
@@ -1100,10 +1278,27 @@ ShallowWrapper {
                             event={
                                           Object {
                                                         "ass_bar_manager": true,
+                                                        "date": "2018-06-30",
+                                                        "name": "Ratatat",
+                                                        "staff": Array [
+                                                          Object {
+                                                            "role": "Bartender",
+                                                          },
+                                                          Object {
+                                                            "role": "Barback",
+                                                          },
+                                                          Object {
+                                                            "role": "Bar Manager",
+                                                          },
+                                                          Object {
+                                                            "role": "Assistant Bar Manager",
+                                                          },
+                                                        ],
+                                                        "time": "7 pm",
+                                                        "venue": "Ogden",
                                                       }
                             }
                             handleEditClick={[Function]}
-                            manualSchedule={false}
                             staffList={Array []}
                             staffRole="Bar Manager"
                             updateSchedule={[Function]}
@@ -1115,10 +1310,27 @@ ShallowWrapper {
                             event={
                                           Object {
                                                         "ass_bar_manager": true,
+                                                        "date": "2018-06-30",
+                                                        "name": "Ratatat",
+                                                        "staff": Array [
+                                                          Object {
+                                                            "role": "Bartender",
+                                                          },
+                                                          Object {
+                                                            "role": "Barback",
+                                                          },
+                                                          Object {
+                                                            "role": "Bar Manager",
+                                                          },
+                                                          Object {
+                                                            "role": "Assistant Bar Manager",
+                                                          },
+                                                        ],
+                                                        "time": "7 pm",
+                                                        "venue": "Ogden",
                                                       }
                             }
                             handleEditClick={[Function]}
-                            manualSchedule={false}
                             staffList={Array []}
                             staffRole="Assistant Bar Manager"
                             updateSchedule={[Function]}
@@ -1131,10 +1343,27 @@ ShallowWrapper {
               event={
                             Object {
                                           "ass_bar_manager": true,
+                                          "date": "2018-06-30",
+                                          "name": "Ratatat",
+                                          "staff": Array [
+                                            Object {
+                                              "role": "Bartender",
+                                            },
+                                            Object {
+                                              "role": "Barback",
+                                            },
+                                            Object {
+                                              "role": "Bar Manager",
+                                            },
+                                            Object {
+                                              "role": "Assistant Bar Manager",
+                                            },
+                                          ],
+                                          "time": "7 pm",
+                                          "venue": "Ogden",
                                         }
               }
               handleEditClick={[Function]}
-              manualSchedule={false}
               staffList={Array []}
               staffRole="Bartender"
               updateSchedule={[Function]}
@@ -1146,10 +1375,27 @@ ShallowWrapper {
               event={
                             Object {
                                           "ass_bar_manager": true,
+                                          "date": "2018-06-30",
+                                          "name": "Ratatat",
+                                          "staff": Array [
+                                            Object {
+                                              "role": "Bartender",
+                                            },
+                                            Object {
+                                              "role": "Barback",
+                                            },
+                                            Object {
+                                              "role": "Bar Manager",
+                                            },
+                                            Object {
+                                              "role": "Assistant Bar Manager",
+                                            },
+                                          ],
+                                          "time": "7 pm",
+                                          "venue": "Ogden",
                                         }
               }
               handleEditClick={[Function]}
-              manualSchedule={false}
               staffList={Array []}
               staffRole="Barback"
               updateSchedule={[Function]}
@@ -1172,10 +1418,27 @@ ShallowWrapper {
                   event={
                                     Object {
                                                       "ass_bar_manager": true,
+                                                      "date": "2018-06-30",
+                                                      "name": "Ratatat",
+                                                      "staff": Array [
+                                                        Object {
+                                                          "role": "Bartender",
+                                                        },
+                                                        Object {
+                                                          "role": "Barback",
+                                                        },
+                                                        Object {
+                                                          "role": "Bar Manager",
+                                                        },
+                                                        Object {
+                                                          "role": "Assistant Bar Manager",
+                                                        },
+                                                      ],
+                                                      "time": "7 pm",
+                                                      "venue": "Ogden",
                                                     }
                   }
                   handleEditClick={[Function]}
-                  manualSchedule={false}
                   staffList={Array []}
                   staffRole="Bar Manager"
                   updateSchedule={[Function]}
@@ -1187,10 +1450,27 @@ ShallowWrapper {
                   event={
                                     Object {
                                                       "ass_bar_manager": true,
+                                                      "date": "2018-06-30",
+                                                      "name": "Ratatat",
+                                                      "staff": Array [
+                                                        Object {
+                                                          "role": "Bartender",
+                                                        },
+                                                        Object {
+                                                          "role": "Barback",
+                                                        },
+                                                        Object {
+                                                          "role": "Bar Manager",
+                                                        },
+                                                        Object {
+                                                          "role": "Assistant Bar Manager",
+                                                        },
+                                                      ],
+                                                      "time": "7 pm",
+                                                      "venue": "Ogden",
                                                     }
                   }
                   handleEditClick={[Function]}
-                  manualSchedule={false}
                   staffList={Array []}
                   staffRole="Assistant Bar Manager"
                   updateSchedule={[Function]}
@@ -1210,9 +1490,26 @@ ShallowWrapper {
                   "editSchedule": [Function],
                   "event": Object {
                     "ass_bar_manager": true,
+                    "date": "2018-06-30",
+                    "name": "Ratatat",
+                    "staff": Array [
+                      Object {
+                        "role": "Bartender",
+                      },
+                      Object {
+                        "role": "Barback",
+                      },
+                      Object {
+                        "role": "Bar Manager",
+                      },
+                      Object {
+                        "role": "Assistant Bar Manager",
+                      },
+                    ],
+                    "time": "7 pm",
+                    "venue": "Ogden",
                   },
                   "handleEditClick": [Function],
-                  "manualSchedule": false,
                   "staffList": Array [],
                   "staffRole": "Bar Manager",
                   "updateSchedule": [Function],
@@ -1231,9 +1528,26 @@ ShallowWrapper {
                   "editSchedule": [Function],
                   "event": Object {
                     "ass_bar_manager": true,
+                    "date": "2018-06-30",
+                    "name": "Ratatat",
+                    "staff": Array [
+                      Object {
+                        "role": "Bartender",
+                      },
+                      Object {
+                        "role": "Barback",
+                      },
+                      Object {
+                        "role": "Bar Manager",
+                      },
+                      Object {
+                        "role": "Assistant Bar Manager",
+                      },
+                    ],
+                    "time": "7 pm",
+                    "venue": "Ogden",
                   },
                   "handleEditClick": [Function],
-                  "manualSchedule": false,
                   "staffList": Array [],
                   "staffRole": "Assistant Bar Manager",
                   "updateSchedule": [Function],
@@ -1255,9 +1569,26 @@ ShallowWrapper {
               "editSchedule": [Function],
               "event": Object {
                 "ass_bar_manager": true,
+                "date": "2018-06-30",
+                "name": "Ratatat",
+                "staff": Array [
+                  Object {
+                    "role": "Bartender",
+                  },
+                  Object {
+                    "role": "Barback",
+                  },
+                  Object {
+                    "role": "Bar Manager",
+                  },
+                  Object {
+                    "role": "Assistant Bar Manager",
+                  },
+                ],
+                "time": "7 pm",
+                "venue": "Ogden",
               },
               "handleEditClick": [Function],
-              "manualSchedule": false,
               "staffList": Array [],
               "staffRole": "Bartender",
               "updateSchedule": [Function],
@@ -1276,9 +1607,26 @@ ShallowWrapper {
               "editSchedule": [Function],
               "event": Object {
                 "ass_bar_manager": true,
+                "date": "2018-06-30",
+                "name": "Ratatat",
+                "staff": Array [
+                  Object {
+                    "role": "Bartender",
+                  },
+                  Object {
+                    "role": "Barback",
+                  },
+                  Object {
+                    "role": "Bar Manager",
+                  },
+                  Object {
+                    "role": "Assistant Bar Manager",
+                  },
+                ],
+                "time": "7 pm",
+                "venue": "Ogden",
               },
               "handleEditClick": [Function],
-              "manualSchedule": false,
               "staffList": Array [],
               "staffRole": "Barback",
               "updateSchedule": [Function],
@@ -1305,12 +1653,18 @@ ShallowWrapper {
             className="schedule-container"
 >
             <h4>
-                        Nov 6, 2018
+                        Jun 30, 2018
             </h4>
-            <h4 />
-            <h4 />
+            <h4>
+                        Ogden
+            </h4>
+            <h4>
+                        7 pm
+            </h4>
 </div>,
-          <h2 />,
+          <h2>
+            Ratatat
+</h2>,
           <section
             className="staff-container"
 >
@@ -1324,10 +1678,27 @@ ShallowWrapper {
                                     event={
                                                 Object {
                                                             "ass_bar_manager": true,
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                                     }
                                     handleEditClick={[Function]}
-                                    manualSchedule={false}
                                     staffList={Array []}
                                     staffRole="Bar Manager"
                                     updateSchedule={[Function]}
@@ -1339,10 +1710,27 @@ ShallowWrapper {
                                     event={
                                                 Object {
                                                             "ass_bar_manager": true,
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                                     }
                                     handleEditClick={[Function]}
-                                    manualSchedule={false}
                                     staffList={Array []}
                                     staffRole="Assistant Bar Manager"
                                     updateSchedule={[Function]}
@@ -1355,10 +1743,27 @@ ShallowWrapper {
                         event={
                                     Object {
                                                 "ass_bar_manager": true,
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                         }
                         handleEditClick={[Function]}
-                        manualSchedule={false}
                         staffList={Array []}
                         staffRole="Bartender"
                         updateSchedule={[Function]}
@@ -1370,10 +1775,27 @@ ShallowWrapper {
                         event={
                                     Object {
                                                 "ass_bar_manager": true,
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                         }
                         handleEditClick={[Function]}
-                        manualSchedule={false}
                         staffList={Array []}
                         staffRole="Barback"
                         updateSchedule={[Function]}
@@ -1392,10 +1814,14 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h4>
-                Nov 6, 2018
+                Jun 30, 2018
 </h4>,
-              <h4 />,
-              <h4 />,
+              <h4>
+                Ogden
+</h4>,
+              <h4>
+                7 pm
+</h4>,
             ],
             "className": "schedule-container",
           },
@@ -1406,10 +1832,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Nov 6, 2018",
+                "children": "Jun 30, 2018",
               },
               "ref": null,
-              "rendered": "Nov 6, 2018",
+              "rendered": "Jun 30, 2018",
               "type": "h4",
             },
             Object {
@@ -1417,10 +1843,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "Ogden",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "Ogden",
               "type": "h4",
             },
             Object {
@@ -1428,10 +1854,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "7 pm",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "7 pm",
               "type": "h4",
             },
           ],
@@ -1442,10 +1868,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": "Ratatat",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "Ratatat",
           "type": "h2",
         },
         Object {
@@ -1464,10 +1890,27 @@ ShallowWrapper {
                                 event={
                                                 Object {
                                                                 "ass_bar_manager": true,
+                                                                "date": "2018-06-30",
+                                                                "name": "Ratatat",
+                                                                "staff": Array [
+                                                                  Object {
+                                                                    "role": "Bartender",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Barback",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Bar Manager",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Assistant Bar Manager",
+                                                                  },
+                                                                ],
+                                                                "time": "7 pm",
+                                                                "venue": "Ogden",
                                                               }
                                 }
                                 handleEditClick={[Function]}
-                                manualSchedule={false}
                                 staffList={Array []}
                                 staffRole="Bar Manager"
                                 updateSchedule={[Function]}
@@ -1479,10 +1922,27 @@ ShallowWrapper {
                                 event={
                                                 Object {
                                                                 "ass_bar_manager": true,
+                                                                "date": "2018-06-30",
+                                                                "name": "Ratatat",
+                                                                "staff": Array [
+                                                                  Object {
+                                                                    "role": "Bartender",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Barback",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Bar Manager",
+                                                                  },
+                                                                  Object {
+                                                                    "role": "Assistant Bar Manager",
+                                                                  },
+                                                                ],
+                                                                "time": "7 pm",
+                                                                "venue": "Ogden",
                                                               }
                                 }
                                 handleEditClick={[Function]}
-                                manualSchedule={false}
                                 staffList={Array []}
                                 staffRole="Assistant Bar Manager"
                                 updateSchedule={[Function]}
@@ -1495,10 +1955,27 @@ ShallowWrapper {
                 event={
                                 Object {
                                                 "ass_bar_manager": true,
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                 }
                 handleEditClick={[Function]}
-                manualSchedule={false}
                 staffList={Array []}
                 staffRole="Bartender"
                 updateSchedule={[Function]}
@@ -1510,10 +1987,27 @@ ShallowWrapper {
                 event={
                                 Object {
                                                 "ass_bar_manager": true,
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
+                                                "staff": Array [
+                                                  Object {
+                                                    "role": "Bartender",
+                                                  },
+                                                  Object {
+                                                    "role": "Barback",
+                                                  },
+                                                  Object {
+                                                    "role": "Bar Manager",
+                                                  },
+                                                  Object {
+                                                    "role": "Assistant Bar Manager",
+                                                  },
+                                                ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                 }
                 handleEditClick={[Function]}
-                manualSchedule={false}
                 staffList={Array []}
                 staffRole="Barback"
                 updateSchedule={[Function]}
@@ -1536,10 +2030,27 @@ ShallowWrapper {
                     event={
                                         Object {
                                                             "ass_bar_manager": true,
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Bar Manager"
                     updateSchedule={[Function]}
@@ -1551,10 +2062,27 @@ ShallowWrapper {
                     event={
                                         Object {
                                                             "ass_bar_manager": true,
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
+                                                            "staff": Array [
+                                                              Object {
+                                                                "role": "Bartender",
+                                                              },
+                                                              Object {
+                                                                "role": "Barback",
+                                                              },
+                                                              Object {
+                                                                "role": "Bar Manager",
+                                                              },
+                                                              Object {
+                                                                "role": "Assistant Bar Manager",
+                                                              },
+                                                            ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Assistant Bar Manager"
                     updateSchedule={[Function]}
@@ -1574,9 +2102,26 @@ ShallowWrapper {
                     "editSchedule": [Function],
                     "event": Object {
                       "ass_bar_manager": true,
+                      "date": "2018-06-30",
+                      "name": "Ratatat",
+                      "staff": Array [
+                        Object {
+                          "role": "Bartender",
+                        },
+                        Object {
+                          "role": "Barback",
+                        },
+                        Object {
+                          "role": "Bar Manager",
+                        },
+                        Object {
+                          "role": "Assistant Bar Manager",
+                        },
+                      ],
+                      "time": "7 pm",
+                      "venue": "Ogden",
                     },
                     "handleEditClick": [Function],
-                    "manualSchedule": false,
                     "staffList": Array [],
                     "staffRole": "Bar Manager",
                     "updateSchedule": [Function],
@@ -1595,9 +2140,26 @@ ShallowWrapper {
                     "editSchedule": [Function],
                     "event": Object {
                       "ass_bar_manager": true,
+                      "date": "2018-06-30",
+                      "name": "Ratatat",
+                      "staff": Array [
+                        Object {
+                          "role": "Bartender",
+                        },
+                        Object {
+                          "role": "Barback",
+                        },
+                        Object {
+                          "role": "Bar Manager",
+                        },
+                        Object {
+                          "role": "Assistant Bar Manager",
+                        },
+                      ],
+                      "time": "7 pm",
+                      "venue": "Ogden",
                     },
                     "handleEditClick": [Function],
-                    "manualSchedule": false,
                     "staffList": Array [],
                     "staffRole": "Assistant Bar Manager",
                     "updateSchedule": [Function],
@@ -1619,9 +2181,26 @@ ShallowWrapper {
                 "editSchedule": [Function],
                 "event": Object {
                   "ass_bar_manager": true,
+                  "date": "2018-06-30",
+                  "name": "Ratatat",
+                  "staff": Array [
+                    Object {
+                      "role": "Bartender",
+                    },
+                    Object {
+                      "role": "Barback",
+                    },
+                    Object {
+                      "role": "Bar Manager",
+                    },
+                    Object {
+                      "role": "Assistant Bar Manager",
+                    },
+                  ],
+                  "time": "7 pm",
+                  "venue": "Ogden",
                 },
                 "handleEditClick": [Function],
-                "manualSchedule": false,
                 "staffList": Array [],
                 "staffRole": "Bartender",
                 "updateSchedule": [Function],
@@ -1640,9 +2219,26 @@ ShallowWrapper {
                 "editSchedule": [Function],
                 "event": Object {
                   "ass_bar_manager": true,
+                  "date": "2018-06-30",
+                  "name": "Ratatat",
+                  "staff": Array [
+                    Object {
+                      "role": "Bartender",
+                    },
+                    Object {
+                      "role": "Barback",
+                    },
+                    Object {
+                      "role": "Bar Manager",
+                    },
+                    Object {
+                      "role": "Assistant Bar Manager",
+                    },
+                  ],
+                  "time": "7 pm",
+                  "venue": "Ogden",
                 },
                 "handleEditClick": [Function],
-                "manualSchedule": false,
                 "staffList": Array [],
                 "staffRole": "Barback",
                 "updateSchedule": [Function],
@@ -1679,6 +2275,8 @@ ShallowWrapper {
     editSchedule={[Function]}
     event={
         Object {
+            "date": "2018-06-30",
+            "name": "Ratatat",
             "staff": Array [
               Object {
                 "role": "Bartender",
@@ -1693,9 +2291,10 @@ ShallowWrapper {
                 "role": "Assistant Bar Manager",
               },
             ],
+            "time": "7 pm",
+            "venue": "Ogden",
           }
     }
-    manualSchedule={false}
     staffList={Array []}
     updateSchedule={[Function]}
 />,
@@ -1716,12 +2315,18 @@ ShallowWrapper {
           className="schedule-container"
 >
           <h4>
-                    Nov 6, 2018
+                    Jun 30, 2018
           </h4>
-          <h4 />
-          <h4 />
+          <h4>
+                    Ogden
+          </h4>
+          <h4>
+                    7 pm
+          </h4>
 </div>,
-        <h2 />,
+        <h2>
+          Ratatat
+</h2>,
         <section
           className="staff-container"
 >
@@ -1734,6 +2339,8 @@ ShallowWrapper {
                               editSchedule={[Function]}
                               event={
                                         Object {
+                                                  "date": "2018-06-30",
+                                                  "name": "Ratatat",
                                                   "staff": Array [
                                                     Object {
                                                       "role": "Bartender",
@@ -1748,10 +2355,11 @@ ShallowWrapper {
                                                       "role": "Assistant Bar Manager",
                                                     },
                                                   ],
+                                                  "time": "7 pm",
+                                                  "venue": "Ogden",
                                                 }
                               }
                               handleEditClick={[Function]}
-                              manualSchedule={false}
                               staffList={Array []}
                               staffRole="Bar Manager"
                               updateSchedule={[Function]}
@@ -1763,6 +2371,8 @@ ShallowWrapper {
                     editSchedule={[Function]}
                     event={
                               Object {
+                                        "date": "2018-06-30",
+                                        "name": "Ratatat",
                                         "staff": Array [
                                           Object {
                                             "role": "Bartender",
@@ -1777,10 +2387,11 @@ ShallowWrapper {
                                             "role": "Assistant Bar Manager",
                                           },
                                         ],
+                                        "time": "7 pm",
+                                        "venue": "Ogden",
                                       }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Bartender"
                     updateSchedule={[Function]}
@@ -1791,6 +2402,8 @@ ShallowWrapper {
                     editSchedule={[Function]}
                     event={
                               Object {
+                                        "date": "2018-06-30",
+                                        "name": "Ratatat",
                                         "staff": Array [
                                           Object {
                                             "role": "Bartender",
@@ -1805,10 +2418,11 @@ ShallowWrapper {
                                             "role": "Assistant Bar Manager",
                                           },
                                         ],
+                                        "time": "7 pm",
+                                        "venue": "Ogden",
                                       }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Barback"
                     updateSchedule={[Function]}
@@ -1827,10 +2441,14 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h4>
-              Nov 6, 2018
+              Jun 30, 2018
 </h4>,
-            <h4 />,
-            <h4 />,
+            <h4>
+              Ogden
+</h4>,
+            <h4>
+              7 pm
+</h4>,
           ],
           "className": "schedule-container",
         },
@@ -1841,10 +2459,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Nov 6, 2018",
+              "children": "Jun 30, 2018",
             },
             "ref": null,
-            "rendered": "Nov 6, 2018",
+            "rendered": "Jun 30, 2018",
             "type": "h4",
           },
           Object {
@@ -1852,10 +2470,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "Ogden",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "Ogden",
             "type": "h4",
           },
           Object {
@@ -1863,10 +2481,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "7 pm",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "7 pm",
             "type": "h4",
           },
         ],
@@ -1877,10 +2495,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": undefined,
+          "children": "Ratatat",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": "Ratatat",
         "type": "h2",
       },
       Object {
@@ -1898,6 +2516,8 @@ ShallowWrapper {
                             editSchedule={[Function]}
                             event={
                                           Object {
+                                                        "date": "2018-06-30",
+                                                        "name": "Ratatat",
                                                         "staff": Array [
                                                           Object {
                                                             "role": "Bartender",
@@ -1912,10 +2532,11 @@ ShallowWrapper {
                                                             "role": "Assistant Bar Manager",
                                                           },
                                                         ],
+                                                        "time": "7 pm",
+                                                        "venue": "Ogden",
                                                       }
                             }
                             handleEditClick={[Function]}
-                            manualSchedule={false}
                             staffList={Array []}
                             staffRole="Bar Manager"
                             updateSchedule={[Function]}
@@ -1927,6 +2548,8 @@ ShallowWrapper {
               editSchedule={[Function]}
               event={
                             Object {
+                                          "date": "2018-06-30",
+                                          "name": "Ratatat",
                                           "staff": Array [
                                             Object {
                                               "role": "Bartender",
@@ -1941,10 +2564,11 @@ ShallowWrapper {
                                               "role": "Assistant Bar Manager",
                                             },
                                           ],
+                                          "time": "7 pm",
+                                          "venue": "Ogden",
                                         }
               }
               handleEditClick={[Function]}
-              manualSchedule={false}
               staffList={Array []}
               staffRole="Bartender"
               updateSchedule={[Function]}
@@ -1955,6 +2579,8 @@ ShallowWrapper {
               editSchedule={[Function]}
               event={
                             Object {
+                                          "date": "2018-06-30",
+                                          "name": "Ratatat",
                                           "staff": Array [
                                             Object {
                                               "role": "Bartender",
@@ -1969,10 +2595,11 @@ ShallowWrapper {
                                               "role": "Assistant Bar Manager",
                                             },
                                           ],
+                                          "time": "7 pm",
+                                          "venue": "Ogden",
                                         }
               }
               handleEditClick={[Function]}
-              manualSchedule={false}
               staffList={Array []}
               staffRole="Barback"
               updateSchedule={[Function]}
@@ -1994,6 +2621,8 @@ ShallowWrapper {
                   editSchedule={[Function]}
                   event={
                                     Object {
+                                                      "date": "2018-06-30",
+                                                      "name": "Ratatat",
                                                       "staff": Array [
                                                         Object {
                                                           "role": "Bartender",
@@ -2008,10 +2637,11 @@ ShallowWrapper {
                                                           "role": "Assistant Bar Manager",
                                                         },
                                                       ],
+                                                      "time": "7 pm",
+                                                      "venue": "Ogden",
                                                     }
                   }
                   handleEditClick={[Function]}
-                  manualSchedule={false}
                   staffList={Array []}
                   staffRole="Bar Manager"
                   updateSchedule={[Function]}
@@ -2031,6 +2661,8 @@ ShallowWrapper {
                   "deleteFromSchedule": [Function],
                   "editSchedule": [Function],
                   "event": Object {
+                    "date": "2018-06-30",
+                    "name": "Ratatat",
                     "staff": Array [
                       Object {
                         "role": "Bartender",
@@ -2045,9 +2677,10 @@ ShallowWrapper {
                         "role": "Assistant Bar Manager",
                       },
                     ],
+                    "time": "7 pm",
+                    "venue": "Ogden",
                   },
                   "handleEditClick": [Function],
-                  "manualSchedule": false,
                   "staffList": Array [],
                   "staffRole": "Bar Manager",
                   "updateSchedule": [Function],
@@ -2069,6 +2702,8 @@ ShallowWrapper {
               "deleteFromSchedule": [Function],
               "editSchedule": [Function],
               "event": Object {
+                "date": "2018-06-30",
+                "name": "Ratatat",
                 "staff": Array [
                   Object {
                     "role": "Bartender",
@@ -2083,9 +2718,10 @@ ShallowWrapper {
                     "role": "Assistant Bar Manager",
                   },
                 ],
+                "time": "7 pm",
+                "venue": "Ogden",
               },
               "handleEditClick": [Function],
-              "manualSchedule": false,
               "staffList": Array [],
               "staffRole": "Bartender",
               "updateSchedule": [Function],
@@ -2103,6 +2739,8 @@ ShallowWrapper {
               "deleteFromSchedule": [Function],
               "editSchedule": [Function],
               "event": Object {
+                "date": "2018-06-30",
+                "name": "Ratatat",
                 "staff": Array [
                   Object {
                     "role": "Bartender",
@@ -2117,9 +2755,10 @@ ShallowWrapper {
                     "role": "Assistant Bar Manager",
                   },
                 ],
+                "time": "7 pm",
+                "venue": "Ogden",
               },
               "handleEditClick": [Function],
-              "manualSchedule": false,
               "staffList": Array [],
               "staffRole": "Barback",
               "updateSchedule": [Function],
@@ -2146,12 +2785,18 @@ ShallowWrapper {
             className="schedule-container"
 >
             <h4>
-                        Nov 6, 2018
+                        Jun 30, 2018
             </h4>
-            <h4 />
-            <h4 />
+            <h4>
+                        Ogden
+            </h4>
+            <h4>
+                        7 pm
+            </h4>
 </div>,
-          <h2 />,
+          <h2>
+            Ratatat
+</h2>,
           <section
             className="staff-container"
 >
@@ -2164,6 +2809,8 @@ ShallowWrapper {
                                     editSchedule={[Function]}
                                     event={
                                                 Object {
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
                                                             "staff": Array [
                                                               Object {
                                                                 "role": "Bartender",
@@ -2178,10 +2825,11 @@ ShallowWrapper {
                                                                 "role": "Assistant Bar Manager",
                                                               },
                                                             ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                                     }
                                     handleEditClick={[Function]}
-                                    manualSchedule={false}
                                     staffList={Array []}
                                     staffRole="Bar Manager"
                                     updateSchedule={[Function]}
@@ -2193,6 +2841,8 @@ ShallowWrapper {
                         editSchedule={[Function]}
                         event={
                                     Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -2207,10 +2857,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                         }
                         handleEditClick={[Function]}
-                        manualSchedule={false}
                         staffList={Array []}
                         staffRole="Bartender"
                         updateSchedule={[Function]}
@@ -2221,6 +2872,8 @@ ShallowWrapper {
                         editSchedule={[Function]}
                         event={
                                     Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -2235,10 +2888,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                         }
                         handleEditClick={[Function]}
-                        manualSchedule={false}
                         staffList={Array []}
                         staffRole="Barback"
                         updateSchedule={[Function]}
@@ -2257,10 +2911,14 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h4>
-                Nov 6, 2018
+                Jun 30, 2018
 </h4>,
-              <h4 />,
-              <h4 />,
+              <h4>
+                Ogden
+</h4>,
+              <h4>
+                7 pm
+</h4>,
             ],
             "className": "schedule-container",
           },
@@ -2271,10 +2929,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Nov 6, 2018",
+                "children": "Jun 30, 2018",
               },
               "ref": null,
-              "rendered": "Nov 6, 2018",
+              "rendered": "Jun 30, 2018",
               "type": "h4",
             },
             Object {
@@ -2282,10 +2940,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "Ogden",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "Ogden",
               "type": "h4",
             },
             Object {
@@ -2293,10 +2951,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": undefined,
+                "children": "7 pm",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "7 pm",
               "type": "h4",
             },
           ],
@@ -2307,10 +2965,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": "Ratatat",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "Ratatat",
           "type": "h2",
         },
         Object {
@@ -2328,6 +2986,8 @@ ShallowWrapper {
                                 editSchedule={[Function]}
                                 event={
                                                 Object {
+                                                                "date": "2018-06-30",
+                                                                "name": "Ratatat",
                                                                 "staff": Array [
                                                                   Object {
                                                                     "role": "Bartender",
@@ -2342,10 +3002,11 @@ ShallowWrapper {
                                                                     "role": "Assistant Bar Manager",
                                                                   },
                                                                 ],
+                                                                "time": "7 pm",
+                                                                "venue": "Ogden",
                                                               }
                                 }
                                 handleEditClick={[Function]}
-                                manualSchedule={false}
                                 staffList={Array []}
                                 staffRole="Bar Manager"
                                 updateSchedule={[Function]}
@@ -2357,6 +3018,8 @@ ShallowWrapper {
                 editSchedule={[Function]}
                 event={
                                 Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -2371,10 +3034,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                 }
                 handleEditClick={[Function]}
-                manualSchedule={false}
                 staffList={Array []}
                 staffRole="Bartender"
                 updateSchedule={[Function]}
@@ -2385,6 +3049,8 @@ ShallowWrapper {
                 editSchedule={[Function]}
                 event={
                                 Object {
+                                                "date": "2018-06-30",
+                                                "name": "Ratatat",
                                                 "staff": Array [
                                                   Object {
                                                     "role": "Bartender",
@@ -2399,10 +3065,11 @@ ShallowWrapper {
                                                     "role": "Assistant Bar Manager",
                                                   },
                                                 ],
+                                                "time": "7 pm",
+                                                "venue": "Ogden",
                                               }
                 }
                 handleEditClick={[Function]}
-                manualSchedule={false}
                 staffList={Array []}
                 staffRole="Barback"
                 updateSchedule={[Function]}
@@ -2424,6 +3091,8 @@ ShallowWrapper {
                     editSchedule={[Function]}
                     event={
                                         Object {
+                                                            "date": "2018-06-30",
+                                                            "name": "Ratatat",
                                                             "staff": Array [
                                                               Object {
                                                                 "role": "Bartender",
@@ -2438,10 +3107,11 @@ ShallowWrapper {
                                                                 "role": "Assistant Bar Manager",
                                                               },
                                                             ],
+                                                            "time": "7 pm",
+                                                            "venue": "Ogden",
                                                           }
                     }
                     handleEditClick={[Function]}
-                    manualSchedule={false}
                     staffList={Array []}
                     staffRole="Bar Manager"
                     updateSchedule={[Function]}
@@ -2461,6 +3131,8 @@ ShallowWrapper {
                     "deleteFromSchedule": [Function],
                     "editSchedule": [Function],
                     "event": Object {
+                      "date": "2018-06-30",
+                      "name": "Ratatat",
                       "staff": Array [
                         Object {
                           "role": "Bartender",
@@ -2475,9 +3147,10 @@ ShallowWrapper {
                           "role": "Assistant Bar Manager",
                         },
                       ],
+                      "time": "7 pm",
+                      "venue": "Ogden",
                     },
                     "handleEditClick": [Function],
-                    "manualSchedule": false,
                     "staffList": Array [],
                     "staffRole": "Bar Manager",
                     "updateSchedule": [Function],
@@ -2499,6 +3172,8 @@ ShallowWrapper {
                 "deleteFromSchedule": [Function],
                 "editSchedule": [Function],
                 "event": Object {
+                  "date": "2018-06-30",
+                  "name": "Ratatat",
                   "staff": Array [
                     Object {
                       "role": "Bartender",
@@ -2513,9 +3188,10 @@ ShallowWrapper {
                       "role": "Assistant Bar Manager",
                     },
                   ],
+                  "time": "7 pm",
+                  "venue": "Ogden",
                 },
                 "handleEditClick": [Function],
-                "manualSchedule": false,
                 "staffList": Array [],
                 "staffRole": "Bartender",
                 "updateSchedule": [Function],
@@ -2533,6 +3209,8 @@ ShallowWrapper {
                 "deleteFromSchedule": [Function],
                 "editSchedule": [Function],
                 "event": Object {
+                  "date": "2018-06-30",
+                  "name": "Ratatat",
                   "staff": Array [
                     Object {
                       "role": "Bartender",
@@ -2547,9 +3225,10 @@ ShallowWrapper {
                       "role": "Assistant Bar Manager",
                     },
                   ],
+                  "time": "7 pm",
+                  "venue": "Ogden",
                 },
                 "handleEditClick": [Function],
-                "manualSchedule": false,
                 "staffList": Array [],
                 "staffRole": "Barback",
                 "updateSchedule": [Function],

@@ -31,7 +31,7 @@ describe('DisplayStaff', () => {
 
   describe('click events', () => {
     it('should call deleteFromSchedule with correct params when clicked', () => {
-      const expected = mockEvent.staff[0].schedule_id;
+      const expected = mockEvent.staff[0];
 
       wrapper.find('.delete').simulate('click');
       expect(mockDeleteSchedule).toHaveBeenCalledWith(expected);
