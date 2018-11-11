@@ -52,16 +52,29 @@ ShallowWrapper {
         <article
           className="active-content"
 >
-          <Schedule
-                    admin={undefined}
-                    deleteFromSchedule={undefined}
+          <ScheduleContainer
                     editSchedule={[Function]}
-                    event={
-                              Object {
-                                        "event_id": 1,
-                                      }
+                    schedule={
+                              Array [
+                                        Object {
+                                          "event_id": 1,
+                                        },
+                                      ]
                     }
-                    staff={undefined}
+                    scheduleGenerator={[Function]}
+                    tabs={
+                              Array [
+                                        "Schedule",
+                                      ]
+                    }
+                    type="Schedule"
+                    unscheduledEvents={
+                              Array [
+                                        Object {
+                                          "event_id": 1,
+                                        },
+                                      ]
+                    }
           />
 </article>,
       ],
@@ -106,41 +119,59 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            <Schedule
-              admin={undefined}
-              deleteFromSchedule={undefined}
-              editSchedule={[Function]}
-              event={
-                            Object {
-                                          "event_id": 1,
-                                        }
-              }
-              staff={undefined}
+          "children": <ScheduleContainer
+            editSchedule={[Function]}
+            schedule={
+                        Array [
+                                    Object {
+                                      "event_id": 1,
+                                    },
+                                  ]
+            }
+            scheduleGenerator={[Function]}
+            tabs={
+                        Array [
+                                    "Schedule",
+                                  ]
+            }
+            type="Schedule"
+            unscheduledEvents={
+                        Array [
+                                    Object {
+                                      "event_id": 1,
+                                    },
+                                  ]
+            }
 />,
-          ],
           "className": "active-content",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "1",
-            "nodeType": "class",
-            "props": Object {
-              "admin": undefined,
-              "deleteFromSchedule": undefined,
-              "editSchedule": [Function],
-              "event": Object {
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "editSchedule": [Function],
+            "schedule": Array [
+              Object {
                 "event_id": 1,
               },
-              "staff": undefined,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
+            ],
+            "scheduleGenerator": [Function],
+            "tabs": Array [
+              "Schedule",
+            ],
+            "type": "Schedule",
+            "unscheduledEvents": Array [
+              Object {
+                "event_id": 1,
+              },
+            ],
           },
-        ],
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": "article",
       },
     ],
@@ -165,16 +196,29 @@ ShallowWrapper {
           <article
             className="active-content"
 >
-            <Schedule
-                        admin={undefined}
-                        deleteFromSchedule={undefined}
+            <ScheduleContainer
                         editSchedule={[Function]}
-                        event={
-                                    Object {
-                                                "event_id": 1,
-                                              }
+                        schedule={
+                                    Array [
+                                                Object {
+                                                  "event_id": 1,
+                                                },
+                                              ]
                         }
-                        staff={undefined}
+                        scheduleGenerator={[Function]}
+                        tabs={
+                                    Array [
+                                                "Schedule",
+                                              ]
+                        }
+                        type="Schedule"
+                        unscheduledEvents={
+                                    Array [
+                                                Object {
+                                                  "event_id": 1,
+                                                },
+                                              ]
+                        }
             />
 </article>,
         ],
@@ -219,41 +263,59 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              <Schedule
-                admin={undefined}
-                deleteFromSchedule={undefined}
-                editSchedule={[Function]}
-                event={
-                                Object {
-                                                "event_id": 1,
-                                              }
-                }
-                staff={undefined}
+            "children": <ScheduleContainer
+              editSchedule={[Function]}
+              schedule={
+                            Array [
+                                          Object {
+                                            "event_id": 1,
+                                          },
+                                        ]
+              }
+              scheduleGenerator={[Function]}
+              tabs={
+                            Array [
+                                          "Schedule",
+                                        ]
+              }
+              type="Schedule"
+              unscheduledEvents={
+                            Array [
+                                          Object {
+                                            "event_id": 1,
+                                          },
+                                        ]
+              }
 />,
-            ],
             "className": "active-content",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "1",
-              "nodeType": "class",
-              "props": Object {
-                "admin": undefined,
-                "deleteFromSchedule": undefined,
-                "editSchedule": [Function],
-                "event": Object {
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "editSchedule": [Function],
+              "schedule": Array [
+                Object {
                   "event_id": 1,
                 },
-                "staff": undefined,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
+              ],
+              "scheduleGenerator": [Function],
+              "tabs": Array [
+                "Schedule",
+              ],
+              "type": "Schedule",
+              "unscheduledEvents": Array [
+                Object {
+                  "event_id": 1,
+                },
+              ],
             },
-          ],
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": "article",
         },
       ],
@@ -546,7 +608,7 @@ ShallowWrapper {
         <article
           className="active-content"
 >
-          <UnscheduledEventsContainer
+          <ScheduleContainer
                     editSchedule={[Function]}
                     schedule={
                               Array [
@@ -561,6 +623,7 @@ ShallowWrapper {
                                         "Schedule",
                                       ]
                     }
+                    type="Unscheduled Events"
                     unscheduledEvents={
                               Array [
                                         Object {
@@ -612,7 +675,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <UnscheduledEventsContainer
+          "children": <ScheduleContainer
             editSchedule={[Function]}
             schedule={
                         Array [
@@ -627,6 +690,7 @@ ShallowWrapper {
                                     "Schedule",
                                   ]
             }
+            type="Unscheduled Events"
             unscheduledEvents={
                         Array [
                                     Object {
@@ -653,6 +717,7 @@ ShallowWrapper {
             "tabs": Array [
               "Schedule",
             ],
+            "type": "Unscheduled Events",
             "unscheduledEvents": Array [
               Object {
                 "event_id": 1,
@@ -687,7 +752,7 @@ ShallowWrapper {
           <article
             className="active-content"
 >
-            <UnscheduledEventsContainer
+            <ScheduleContainer
                         editSchedule={[Function]}
                         schedule={
                                     Array [
@@ -702,6 +767,7 @@ ShallowWrapper {
                                                 "Schedule",
                                               ]
                         }
+                        type="Unscheduled Events"
                         unscheduledEvents={
                                     Array [
                                                 Object {
@@ -753,7 +819,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <UnscheduledEventsContainer
+            "children": <ScheduleContainer
               editSchedule={[Function]}
               schedule={
                             Array [
@@ -768,6 +834,7 @@ ShallowWrapper {
                                           "Schedule",
                                         ]
               }
+              type="Unscheduled Events"
               unscheduledEvents={
                             Array [
                                           Object {
@@ -794,6 +861,7 @@ ShallowWrapper {
               "tabs": Array [
                 "Schedule",
               ],
+              "type": "Unscheduled Events",
               "unscheduledEvents": Array [
                 Object {
                   "event_id": 1,
@@ -1113,16 +1181,32 @@ ShallowWrapper {
         <article
           className="active-content"
 >
-          <Schedule
-                    admin={undefined}
-                    deleteFromSchedule={undefined}
+          <ScheduleContainer
                     editSchedule={[Function]}
-                    event={
-                              Object {
-                                        "event_id": 1,
-                                      }
+                    schedule={
+                              Array [
+                                        Object {
+                                          "event_id": 1,
+                                        },
+                                      ]
                     }
-                    staff={undefined}
+                    tabs={
+                              Array [
+                                        "Add Event",
+                                        "Add New Staff",
+                                        "Schedule",
+                                        "Submit Availability",
+                                        "Unscheduled Events",
+                                      ]
+                    }
+                    type="Schedule"
+                    unscheduledEvents={
+                              Array [
+                                        Object {
+                                          "event_id": 1,
+                                        },
+                                      ]
+                    }
           />
 </article>,
       ],
@@ -1239,41 +1323,65 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            <Schedule
-              admin={undefined}
-              deleteFromSchedule={undefined}
-              editSchedule={[Function]}
-              event={
-                            Object {
-                                          "event_id": 1,
-                                        }
-              }
-              staff={undefined}
+          "children": <ScheduleContainer
+            editSchedule={[Function]}
+            schedule={
+                        Array [
+                                    Object {
+                                      "event_id": 1,
+                                    },
+                                  ]
+            }
+            tabs={
+                        Array [
+                                    "Add Event",
+                                    "Add New Staff",
+                                    "Schedule",
+                                    "Submit Availability",
+                                    "Unscheduled Events",
+                                  ]
+            }
+            type="Schedule"
+            unscheduledEvents={
+                        Array [
+                                    Object {
+                                      "event_id": 1,
+                                    },
+                                  ]
+            }
 />,
-          ],
           "className": "active-content",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "1",
-            "nodeType": "class",
-            "props": Object {
-              "admin": undefined,
-              "deleteFromSchedule": undefined,
-              "editSchedule": [Function],
-              "event": Object {
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "editSchedule": [Function],
+            "schedule": Array [
+              Object {
                 "event_id": 1,
               },
-              "staff": undefined,
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
+            ],
+            "tabs": Array [
+              "Add Event",
+              "Add New Staff",
+              "Schedule",
+              "Submit Availability",
+              "Unscheduled Events",
+            ],
+            "type": "Schedule",
+            "unscheduledEvents": Array [
+              Object {
+                "event_id": 1,
+              },
+            ],
           },
-        ],
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": "article",
       },
     ],
@@ -1318,16 +1426,32 @@ ShallowWrapper {
           <article
             className="active-content"
 >
-            <Schedule
-                        admin={undefined}
-                        deleteFromSchedule={undefined}
+            <ScheduleContainer
                         editSchedule={[Function]}
-                        event={
-                                    Object {
-                                                "event_id": 1,
-                                              }
+                        schedule={
+                                    Array [
+                                                Object {
+                                                  "event_id": 1,
+                                                },
+                                              ]
                         }
-                        staff={undefined}
+                        tabs={
+                                    Array [
+                                                "Add Event",
+                                                "Add New Staff",
+                                                "Schedule",
+                                                "Submit Availability",
+                                                "Unscheduled Events",
+                                              ]
+                        }
+                        type="Schedule"
+                        unscheduledEvents={
+                                    Array [
+                                                Object {
+                                                  "event_id": 1,
+                                                },
+                                              ]
+                        }
             />
 </article>,
         ],
@@ -1444,41 +1568,65 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              <Schedule
-                admin={undefined}
-                deleteFromSchedule={undefined}
-                editSchedule={[Function]}
-                event={
-                                Object {
-                                                "event_id": 1,
-                                              }
-                }
-                staff={undefined}
+            "children": <ScheduleContainer
+              editSchedule={[Function]}
+              schedule={
+                            Array [
+                                          Object {
+                                            "event_id": 1,
+                                          },
+                                        ]
+              }
+              tabs={
+                            Array [
+                                          "Add Event",
+                                          "Add New Staff",
+                                          "Schedule",
+                                          "Submit Availability",
+                                          "Unscheduled Events",
+                                        ]
+              }
+              type="Schedule"
+              unscheduledEvents={
+                            Array [
+                                          Object {
+                                            "event_id": 1,
+                                          },
+                                        ]
+              }
 />,
-            ],
             "className": "active-content",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "1",
-              "nodeType": "class",
-              "props": Object {
-                "admin": undefined,
-                "deleteFromSchedule": undefined,
-                "editSchedule": [Function],
-                "event": Object {
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "editSchedule": [Function],
+              "schedule": Array [
+                Object {
                   "event_id": 1,
                 },
-                "staff": undefined,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
+              ],
+              "tabs": Array [
+                "Add Event",
+                "Add New Staff",
+                "Schedule",
+                "Submit Availability",
+                "Unscheduled Events",
+              ],
+              "type": "Schedule",
+              "unscheduledEvents": Array [
+                Object {
+                  "event_id": 1,
+                },
+              ],
             },
-          ],
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": "article",
         },
       ],

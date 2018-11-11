@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Tab } from '../Tab/Tab';
 import { EventForm } from '../EventForm/EventForm';
 import { StaffForm } from '../StaffForm/StaffForm';
-import { Schedule } from '../Schedule/Schedule';
 import { Api } from '../Api/Api';
 import { Availability } from '../Availability/Availability';
 import './TabContainer.css';
 import PropTypes from 'prop-types';
-import UnscheduledEventsContainer from '../UnscheduledEventsContainer/UnscheduledEventsContainer';
+import ScheduleContainer from '../ScheduleContainer/ScheduleContainer';
 
 export class TabContainer extends Component {
   constructor(props) {
@@ -36,7 +35,9 @@ export class TabContainer extends Component {
   };
 
   activeContent = () => {
-    switch (this.state.activeTabName) {
+    const { activeTabName } = this.state;
+
+    switch (activeTabName) {
       case 'Add Event':
         return <EventForm addEvent={this.props.addEvent} />;
 
@@ -49,21 +50,16 @@ export class TabContainer extends Component {
         );
 
       case 'Unscheduled Events':
-        return <UnscheduledEventsContainer {...this.props} />;
+        return (
+          <ScheduleContainer
+            {...this.props}
+            schedule={this.props.unscheduledEvents}
+            type={activeTabName}
+          />
+        );
 
       default:
-        return this.props.schedule.map(event => {
-          return (
-            <Schedule
-              editSchedule={this.props.editSchedule}
-              staff={this.props.staff}
-              event={event}
-              key={event.event_id}
-              deleteFromSchedule={this.props.deleteFromSchedule}
-              admin={this.props.admin}
-            />
-          );
-        });
+        return <ScheduleContainer {...this.props} type={activeTabName} />;
     }
   };
 
