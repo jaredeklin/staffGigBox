@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Api } from '../Api/Api';
 
 const api = new Api();
@@ -21,6 +22,12 @@ const DisplayStaffDropdown = ({ staffRole, availableStaff, handleChange }) => {
       {staff}
     </select>
   );
+};
+
+DisplayStaffDropdown.propTypes = {
+  staffRole: PropTypes.string,
+  availableStaff: PropTypes.arrayOf(PropTypes.object),
+  handleChange: PropTypes.func
 };
 
 export default DisplayStaffDropdown;
