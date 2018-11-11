@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Schedule } from '../Schedule/Schedule';
 
 const UnscheduledEventsContainer = ({
@@ -9,7 +10,7 @@ const UnscheduledEventsContainer = ({
   admin,
   scheduleGenerator
 }) => {
-  const mapEvents = unscheduledEvents.map(event => {
+  const events = unscheduledEvents.map(event => {
     return (
       <Schedule
         editSchedule={editSchedule}
@@ -29,9 +30,14 @@ const UnscheduledEventsContainer = ({
       <button className="generate-schedule-btn" onClick={scheduleGenerator}>
         Generate schedule
       </button>
-      {mapEvents}
+      {events}
     </div>
   );
+};
+
+UnscheduledEventsContainer.propTypes = {
+  editSchedule: PropTypes.func,
+  staff: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default UnscheduledEventsContainer;
