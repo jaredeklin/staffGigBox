@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Schedule } from '../Schedule/Schedule';
+const moment = require('moment');
 
 const ScheduleContainer = ({
   unscheduledEvents,
@@ -12,7 +13,13 @@ const ScheduleContainer = ({
   schedule,
   type
 }) => {
-  const events = schedule.map(event => {
+  const sortedSchedule = schedule.sort((a, b) => {
+    const date1 = moment(a.date, 'YYYY-MM-DD');
+    const date2 = moment(b.date, 'YYYY-MM-DD');
+    return date1 - date2;
+  });
+
+  const events = sortedSchedule.map(event => {
     return (
       <Schedule
         editSchedule={editSchedule}
