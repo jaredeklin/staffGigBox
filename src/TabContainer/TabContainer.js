@@ -126,11 +126,12 @@ TabContainer.propTypes = {
   deleteFromSchedule: PropTypes.func,
   tabs: PropTypes.array,
   scheduleGenerator: PropTypes.func,
-  staff: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  staff: PropTypes.arrayOf(PropTypes.object),
   editSchedule: PropTypes.func,
   admin: PropTypes.bool,
   addStaff: PropTypes.func,
   user: PropTypes.object,
-  schedule: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  schedule: PropTypes.arrayOf(PropTypes.object),
+  unsheduledEvents: PropTypes.arrayOf(PropTypes.object),
   currentUserId: PropTypes.number
 };
