@@ -181,12 +181,6 @@ export class EventForm extends Component {
           </div>
           <button className="add-event-btn">Add Event</button>
         </form>
-        {/* <button
-          className="generate-schedule-btn"
-          onClick={this.props.scheduleGenerator}
-        >
-          Generate schedule
-        </button> */}
         {this.state.showMessage && (
           <h4>
             {name} at {venue} on {date} as been to unscheduled events
@@ -198,16 +192,5 @@ export class EventForm extends Component {
 }
 
 EventForm.propTypes = {
-  venue: PropTypes.string,
-  name: PropTypes.string,
-  date: PropTypes.string,
-  time: PropTypes.string,
-  bar_manager: PropTypes.string,
-  ass_bar_manager: PropTypes.string,
-  bartenders: PropTypes.string,
-  barbacks: PropTypes.string,
-  beer_bucket: PropTypes.string,
-  manualSchedule: PropTypes.string,
-  checkManualSchedule: PropTypes.func,
-  scheduleGenerator: PropTypes.func
+  addEvent: PropTypes.func
 };
