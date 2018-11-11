@@ -64,48 +64,4 @@ describe('TabContainer', () => {
     wrapper.instance().handleTabClick('Add Event');
     expect(wrapper.state('activeTabName')).toEqual('Add Event');
   });
-
-  describe('checkManualSchedule', () => {
-    it('should update state and call scheduleGenerator', () => {
-      const mockEventData = { event_id: 2 };
-      const mockManualSchedule = false;
-
-      wrapper.instance().checkManualSchedule(mockEventData, mockManualSchedule);
-
-      expect(wrapper.state('manualSchedule')).toEqual(false);
-      expect(mockScheduleGenerator).toHaveBeenCalled();
-    });
-
-    it('should update state when manualSchedule is truthy', () => {
-      const mockEventData = { event_id: 2 };
-      const mockManualSchedule = true;
-
-      wrapper.instance().checkManualSchedule(mockEventData, mockManualSchedule);
-
-      expect(wrapper.state('manualSchedule')).toEqual(true);
-      expect(wrapper.state('manualScheduleData')).toEqual(mockEventData);
-    });
-  });
-
-  describe('updateSchedule', () => {
-    it('should call getSchedule and update state', async () => {
-      wrapper.instance().api.getSchedule = jest
-        .fn()
-        .mockReturnValue({ event_id: 2 });
-
-      await wrapper.instance().updateSchedule(1);
-
-      expect(wrapper.instance().api.getSchedule).toHaveBeenCalledWith(1);
-      expect(wrapper.state('manualScheduleData')).toEqual({ event_id: 2 });
-    });
-  });
-
-  describe('checkForManual', () => {
-    it('should match the snapshot when manualSchedule state is true', () => {
-      wrapper.setState({ manualSchedule: true });
-
-      wrapper.instance().checkForManual();
-      expect(wrapper).toMatchSnapshot();
-    });
-  });
 });

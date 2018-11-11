@@ -7,36 +7,18 @@ import { Api } from '../Api/Api';
 import { Availability } from '../Availability/Availability';
 import './TabContainer.css';
 import PropTypes from 'prop-types';
+import UnscheduledEventsContainer from '../UnscheduledEventsContainer/UnscheduledEventsContainer';
 
 export class TabContainer extends Component {
   constructor(props) {
     super(props);
     this.api = new Api();
     this.state = {
-      manualSchedule: false,
-      manualScheduleData: {},
       activeTabName: 'Schedule'
     };
   }
 
   handleTabClick = activeTabName => this.setState({ activeTabName });
-
-  checkManualSchedule = (eventData, manualSchedule) => {
-    this.setState({
-      manualSchedule,
-      manualScheduleData: eventData
-    });
-
-    if (!manualSchedule) {
-      this.props.scheduleGenerator();
-    }
-  };
-
-  updateSchedule = async event_id => {
-    const manualScheduleData = await this.api.getSchedule(event_id);
-
-    this.setState({ manualScheduleData });
-  };
 
   displayTabs = () => {
     const { activeTabName } = this.state;
@@ -53,27 +35,10 @@ export class TabContainer extends Component {
     });
   };
 
-  checkForManual = () => {
-    if (this.state.manualSchedule) {
-      return (
-        <Schedule
-          staff={this.props.staff}
-          editSchedule={this.props.editSchedule}
-          event={this.state.manualScheduleData}
-          manualSchedule={true}
-          updateSchedule={this.updateSchedule}
-          admin={this.props.admin}
-        />
-      );
-    } else {
-      return <EventForm addEvent={this.props.addEvent} />;
-    }
-  };
-
   activeContent = () => {
     switch (this.state.activeTabName) {
       case 'Add Event':
-        return this.checkForManual();
+        return <EventForm addEvent={this.props.addEvent} />;
 
       case 'Submit Availability':
         return <Availability currentUserId={this.props.currentUserId} />;
@@ -84,18 +49,8 @@ export class TabContainer extends Component {
         );
 
       case 'Unscheduled Events':
-        return this.props.unscheduledEvents.map(event => {
-          return (
-            <Schedule
-              editSchedule={this.props.editSchedule}
-              staff={this.props.staff}
-              event={event}
-              key={event.event_id}
-              deleteFromSchedule={this.props.deleteFromSchedule}
-              admin={this.props.admin}
-            />
-          );
-        });
+        return <UnscheduledEventsContainer {...this.props} />;
+
       default:
         return this.props.schedule.map(event => {
           return (
