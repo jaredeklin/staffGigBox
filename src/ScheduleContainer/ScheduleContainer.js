@@ -43,7 +43,13 @@ const ScheduleContainer = ({
 
 ScheduleContainer.propTypes = {
   editSchedule: PropTypes.func,
-  staff: PropTypes.arrayOf(PropTypes.object)
+  staff: PropTypes.arrayOf(PropTypes.object),
+  event: PropTypes.arrayOf(PropTypes.object),
+  schedule: PropTypes.arrayOf(PropTypes.object),
+  unscheduledEvents: PropTypes.arrayOf(PropTypes.object),
+  admin: PropTypes.bool,
+  scheduleGenerator: PropTypes.func,
+  type: PropTypes.string
 };
 
 export default ScheduleContainer;
