@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditStaffDropdown should match the snapshot 1`] = `
+exports[`StaffDropdownContainer should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <EditStaffDropdown
+  Symbol(enzyme.__unrendered__): <StaffDropdownContainer
     closeModal={[Function]}
     currentPerson={
         Object {
@@ -48,13 +48,11 @@ ShallowWrapper {
          in a role of 
         Bartender
          with
-        <select
-                onChange={[Function]}
-        >
-                <option>
-                        Select staff
-                </option>
-        </select>
+        <DisplayStaffDropdown
+                availableStaff={Array []}
+                handleChange={[Function]}
+                staffRole="Bartender"
+        />
         <button
                 onClick={[Function]}
         >
@@ -80,13 +78,11 @@ ShallowWrapper {
           " in a role of ",
           "Bartender",
           " with",
-          <select
-            onChange={[Function]}
->
-            <option>
-                        Select staff
-            </option>
-</select>,
+          <DisplayStaffDropdown
+            availableStaff={Array []}
+            handleChange={[Function]}
+            staffRole="Bartender"
+/>,
           <button
             onClick={[Function]}
 >
@@ -110,31 +106,15 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              <option>
-                Select staff
-</option>,
-              Array [],
-            ],
-            "onChange": [Function],
+            "availableStaff": Array [],
+            "handleChange": [Function],
+            "staffRole": "Bartender",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Select staff",
-              },
-              "ref": null,
-              "rendered": "Select staff",
-              "type": "option",
-            },
-          ],
-          "type": "select",
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -179,13 +159,11 @@ ShallowWrapper {
            in a role of 
           Bartender
            with
-          <select
-                    onChange={[Function]}
-          >
-                    <option>
-                              Select staff
-                    </option>
-          </select>
+          <DisplayStaffDropdown
+                    availableStaff={Array []}
+                    handleChange={[Function]}
+                    staffRole="Bartender"
+          />
           <button
                     onClick={[Function]}
           >
@@ -211,13 +189,11 @@ ShallowWrapper {
             " in a role of ",
             "Bartender",
             " with",
-            <select
-              onChange={[Function]}
->
-              <option>
-                            Select staff
-              </option>
-</select>,
+            <DisplayStaffDropdown
+              availableStaff={Array []}
+              handleChange={[Function]}
+              staffRole="Bartender"
+/>,
             <button
               onClick={[Function]}
 >
@@ -241,31 +217,15 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": Array [
-                <option>
-                  Select staff
-</option>,
-                Array [],
-              ],
-              "onChange": [Function],
+              "availableStaff": Array [],
+              "handleChange": [Function],
+              "staffRole": "Bartender",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Select staff",
-                },
-                "ref": null,
-                "rendered": "Select staff",
-                "type": "option",
-              },
-            ],
-            "type": "select",
+            "rendered": null,
+            "type": [Function],
           },
           Object {
             "instance": null,

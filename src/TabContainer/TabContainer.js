@@ -2,41 +2,22 @@ import React, { Component } from 'react';
 import { Tab } from '../Tab/Tab';
 import { EventForm } from '../EventForm/EventForm';
 import { StaffForm } from '../StaffForm/StaffForm';
-import { Schedule } from '../Schedule/Schedule';
 import { Api } from '../Api/Api';
 import { Availability } from '../Availability/Availability';
 import './TabContainer.css';
 import PropTypes from 'prop-types';
+import ScheduleContainer from '../ScheduleContainer/ScheduleContainer';
 
 export class TabContainer extends Component {
   constructor(props) {
     super(props);
     this.api = new Api();
     this.state = {
-      manualSchedule: false,
-      manualScheduleData: {},
       activeTabName: 'Schedule'
     };
   }
 
   handleTabClick = activeTabName => this.setState({ activeTabName });
-
-  checkManualSchedule = (eventData, manualSchedule) => {
-    this.setState({
-      manualSchedule,
-      manualScheduleData: eventData
-    });
-
-    if (!manualSchedule) {
-      this.props.scheduleGenerator();
-    }
-  };
-
-  updateSchedule = async event_id => {
-    const manualScheduleData = await this.api.getSchedule(event_id);
-
-    this.setState({ manualScheduleData });
-  };
 
   displayTabs = () => {
     const { activeTabName } = this.state;
@@ -53,33 +34,12 @@ export class TabContainer extends Component {
     });
   };
 
-  checkForManual = () => {
-    if (this.state.manualSchedule) {
-      return (
-        <Schedule
-          staff={this.props.staff}
-          editSchedule={this.props.editSchedule}
-          event={this.state.manualScheduleData}
-          manualSchedule={true}
-          updateSchedule={this.updateSchedule}
-          admin={this.props.admin}
-        />
-      );
-    } else {
-      return (
-        <EventForm
-          scheduleGenerator={this.props.scheduleGenerator}
-          checkManualSchedule={this.checkManualSchedule}
-          addEvent={this.props.addEvent}
-        />
-      );
-    }
-  };
-
   activeContent = () => {
-    switch (this.state.activeTabName) {
+    const { activeTabName } = this.state;
+
+    switch (activeTabName) {
       case 'Add Event':
-        return this.checkForManual();
+        return <EventForm addEvent={this.props.addEvent} />;
 
       case 'Submit Availability':
         return <Availability currentUserId={this.props.currentUserId} />;
@@ -90,31 +50,16 @@ export class TabContainer extends Component {
         );
 
       case 'Unscheduled Events':
-        return this.props.unscheduledEvents.map(event => {
-          return (
-            <Schedule
-              editSchedule={this.props.editSchedule}
-              staff={this.props.staff}
-              event={event}
-              key={event.event_id}
-              deleteFromSchedule={this.props.deleteFromSchedule}
-              admin={this.props.admin}
-            />
-          );
-        });
+        return (
+          <ScheduleContainer
+            {...this.props}
+            schedule={this.props.unscheduledEvents}
+            type={activeTabName}
+          />
+        );
+
       default:
-        return this.props.schedule.map(event => {
-          return (
-            <Schedule
-              editSchedule={this.props.editSchedule}
-              staff={this.props.staff}
-              event={event}
-              key={event.event_id}
-              deleteFromSchedule={this.props.deleteFromSchedule}
-              admin={this.props.admin}
-            />
-          );
-        });
+        return <ScheduleContainer {...this.props} type={activeTabName} />;
     }
   };
 
@@ -132,11 +77,12 @@ TabContainer.propTypes = {
   deleteFromSchedule: PropTypes.func,
   tabs: PropTypes.array,
   scheduleGenerator: PropTypes.func,
-  staff: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  staff: PropTypes.arrayOf(PropTypes.object),
   editSchedule: PropTypes.func,
   admin: PropTypes.bool,
   addStaff: PropTypes.func,
   user: PropTypes.object,
-  schedule: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  schedule: PropTypes.arrayOf(PropTypes.object),
+  unsheduledEvents: PropTypes.arrayOf(PropTypes.object),
   currentUserId: PropTypes.number
 };

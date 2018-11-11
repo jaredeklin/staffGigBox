@@ -6,8 +6,6 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <EventForm
     addEvent={[Function]}
-    checkManualSchedule={[Function]}
-    scheduleGenerator={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -203,12 +201,7 @@ ShallowWrapper {
                     Add Event
           </button>
 </form>,
-        <button
-          className="generate-schedule-btn"
-          onClick={[Function]}
->
-          Generate schedule
-</button>,
+        false,
       ],
       "className": "event-div",
     },
@@ -1082,19 +1075,7 @@ ShallowWrapper {
         ],
         "type": "form",
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Generate schedule",
-          "className": "generate-schedule-btn",
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": "Generate schedule",
-        "type": "button",
-      },
+      false,
     ],
     "type": "div",
   },
@@ -1286,12 +1267,7 @@ ShallowWrapper {
                         Add Event
             </button>
 </form>,
-          <button
-            className="generate-schedule-btn"
-            onClick={[Function]}
->
-            Generate schedule
-</button>,
+          false,
         ],
         "className": "event-div",
       },
@@ -2165,19 +2141,7 @@ ShallowWrapper {
           ],
           "type": "form",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Generate schedule",
-            "className": "generate-schedule-btn",
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": "Generate schedule",
-          "type": "button",
-        },
+        false,
       ],
       "type": "div",
     },

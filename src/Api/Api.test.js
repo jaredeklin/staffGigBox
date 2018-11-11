@@ -1,10 +1,13 @@
 import { Api } from './Api';
 import {
   mockStaff,
-  // expectedStaff,
-  // expectedStaffRoles,
-  // mockEventInfo,
-  mockBuildRolesReturn
+  mockBuildRolesReturn,
+  mockEventToFillRoles,
+  mockFillRolesReturn,
+  mockApiSchedule,
+  mockEventInfo,
+  mockApiScheduleReturn,
+  mockEventsInfo
 } from '../mockData';
 
 describe('Api', () => {
@@ -25,11 +28,13 @@ describe('Api', () => {
     );
   });
 
-  it('should get staff', async () => {
-    const expected = 'http://localhost:3000/api/v1/staff';
-    await api.getStaff();
+  describe('getStaff', () => {
+    it('should call fetch with correct params', async () => {
+      const expected = 'http://localhost:3000/api/v1/staff';
+      await api.getStaff();
 
-    expect(window.fetch).toHaveBeenCalledWith(expected);
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
   });
 
   describe('postEvent', () => {
@@ -268,6 +273,84 @@ describe('Api', () => {
       expect(await api.checkAvailability('2018-06-30')).toEqual(
         mockReturnValue
       );
+    });
+  });
+
+  describe('findAvailableStaff', () => {
+    it('should return the correct value', async () => {
+      api.checkSchedule = jest.fn(() => []);
+      api.checkAvailability = jest.fn(() => []);
+      api.shuffleStaffArray = jest.fn(() => mockStaff);
+
+      const mockReturn = await api.findAvailableStaff(
+        'Jul 20, 2018',
+        mockStaff
+      );
+
+      expect(api.checkSchedule).toHaveBeenCalledWith('Jul 20, 2018');
+      expect(api.checkAvailability).toHaveBeenCalledWith('Jul 20, 2018');
+      expect(mockReturn).toEqual(mockStaff);
+    });
+  });
+
+  describe('shuffleStaffArray', () => {
+    it('should return the correct value', () => {
+      Math.random = jest.fn(() => 0.5);
+      const staffArray = [{ name: 'jared' }, { name: 'tk' }];
+      expect(api.shuffleStaffArray(staffArray)).toEqual(staffArray);
+    });
+  });
+
+  describe('rolesRegex', () => {
+    it('should return a cleaned word', () => {
+      const expReturn = api.rolesRegex('Assistant Bar Manager');
+      expect(expReturn).toEqual('ass_bar_manager');
+    });
+  });
+
+  describe('fillRoles', () => {
+    it('should return correct roles with staff', () => {
+      api.availableStaff = mockStaff;
+      expect(api.fillRoles(mockEventToFillRoles)).toEqual(mockFillRolesReturn);
+    });
+  });
+
+  describe('getSchedule', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(mockApiSchedule)
+        })
+      );
+    });
+
+    it('should call fetch with correct params', () => {
+      const url = 'http://localhost:3000/api/v1/schedule';
+      api.getSchedule(mockStaff, mockEventsInfo);
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+
+    it('should return correct values', async () => {
+      const expReturn = await api.getSchedule(mockStaff, [mockEventInfo]);
+
+      expect(expReturn).toEqual(mockApiScheduleReturn);
+    });
+  });
+
+  describe('checkSchedule', () => {
+    it('should call fetch with correct params', () => {
+      window.fetch = jest.fn(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve()
+        })
+      );
+
+      const url = 'http://localhost:3000/api/v1/schedule?event_date=2018-07-20';
+
+      api.checkSchedule('2018-07-20');
+      expect(window.fetch).toHaveBeenCalledWith(url);
     });
   });
 });

@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisplayStaffDropdown should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DisplayStaffDropdown
+    availableStaff={
+        Array [
+            Object {
+              "ass_bar_manager": true,
+              "bar_manager": true,
+              "barback": false,
+              "bartender": true,
+              "beer_bucket": false,
+              "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN1",
+              "name": "TK",
+              "staff_id": 5,
+            },
+            Object {
+              "ass_bar_manager": true,
+              "bar_manager": false,
+              "barback": false,
+              "bartender": true,
+              "beer_bucket": false,
+              "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN2",
+              "name": "Jared",
+              "staff_id": 2,
+            },
+            Object {
+              "ass_bar_manager": false,
+              "bar_manager": false,
+              "barback": false,
+              "bartender": true,
+              "beer_bucket": false,
+              "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN1",
+              "name": "Jesse",
+              "staff_id": 3,
+            },
+            Object {
+              "ass_bar_manager": false,
+              "bar_manager": false,
+              "barback": true,
+              "bartender": false,
+              "beer_bucket": false,
+              "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN2",
+              "name": "Ross",
+              "staff_id": 4,
+            },
+          ]
+    }
+    handleChange={[Function]}
+    staffRole="Bar Manager"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <option>
+          Select staff
+</option>,
+        Array [
+          <option
+            value={5}
+>
+            TK
+</option>,
+        ],
+      ],
+      "onChange": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Select staff",
+        },
+        "ref": null,
+        "rendered": "Select staff",
+        "type": "option",
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "host",
+        "props": Object {
+          "children": "TK",
+          "value": 5,
+        },
+        "ref": null,
+        "rendered": "TK",
+        "type": "option",
+      },
+    ],
+    "type": "select",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <option>
+            Select staff
+</option>,
+          Array [
+            <option
+              value={5}
+>
+              TK
+</option>,
+          ],
+        ],
+        "onChange": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Select staff",
+          },
+          "ref": null,
+          "rendered": "Select staff",
+          "type": "option",
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "host",
+          "props": Object {
+            "children": "TK",
+            "value": 5,
+          },
+          "ref": null,
+          "rendered": "TK",
+          "type": "option",
+        },
+      ],
+      "type": "select",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

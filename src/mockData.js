@@ -170,12 +170,11 @@ export const mockUnscheduledEvent = {
   staff: mockEmptyScheduleWName
 };
 
-// export const mockEventsInfo = [mockEventInfo, mockEvent2Info];
+export const mockEventsInfo = [mockEventInfo, mockEvent2Info];
+
 export const mockSchedule = [
   { ...mockEventInfo, staff: mockEmptyScheduleWName }
 ];
-
-// export const expectedEditScheduleReturn
 
 export const mockFillRolesReturn = [
   { event_id: 3, role: 'Bar Manager', staff_id: 5, name: 'TK' },
@@ -197,6 +196,28 @@ export const mockUnscheduledEvents = [
 export const mockNewSchedule = [
   { ...mockEventInfo, staff: mockFillRolesReturn },
   { ...mockEvent2Info, staff: [] }
+];
+
+export const mockEventToFillRoles = [
+  {
+    ...mockEventInfo,
+    staff: [
+      {
+        event_id: 3,
+        role: 'Bar Manager',
+        staff_id: null,
+        name: 'Staff Needed'
+      },
+      {
+        event_id: 3,
+        role: 'Assistant Bar Manager',
+        staff_id: null,
+        name: 'Staff Needed'
+      },
+      { event_id: 3, role: 'Bartender', staff_id: 3, name: 'Jesse' },
+      { event_id: 3, role: 'Barback', staff_id: null, name: 'Staff Needed' }
+    ]
+  }
 ];
 
 export const mockBuildRolesReturn = [
@@ -316,3 +337,73 @@ export const mockPostScheduleReturn = [
     schedule_id: 8
   }
 ];
+
+export const mockApiSchedule = [
+  { schedule_id: 1, event_id: 3, staff_id: 3, role: 'Bartender' },
+  { schedule_id: 2, event_id: 3, staff_id: 4, role: 'Barback' },
+  { schedule_id: 3, event_id: 3, staff_id: null, role: 'Bar Manager' },
+  {
+    schedule_id: 4,
+    event_id: 3,
+    staff_id: null,
+    role: 'Assistant Bar Manager'
+  },
+  { schedule_id: 5, event_id: 4, staff_id: 3, role: 'Bartender' }
+];
+
+export const mockApiScheduleReturn = {
+  schedule: [],
+  unscheduledEvents: [
+    {
+      ass_bar_manager: true,
+      bar_manager: true,
+      barbacks: 1,
+      bartenders: 1,
+      date: 'Jul 20, 2018',
+      event_id: 3,
+      name: 'Billy Prince Billy',
+      staff: [
+        {
+          staff_id: 3,
+          name: 'Jesse',
+          bartender: true,
+          barback: false,
+          bar_manager: false,
+          ass_bar_manager: false,
+          beer_bucket: false,
+          google_id: '1pLSNLEaSVT7hvRa5q4Vyy37IIN1',
+          event_id: 3,
+          role: 'Bartender',
+          schedule_id: 1
+        },
+        {
+          staff_id: 4,
+          name: 'Ross',
+          bartender: false,
+          barback: true,
+          bar_manager: false,
+          ass_bar_manager: false,
+          beer_bucket: false,
+          google_id: '1pLSNLEaSVT7hvRa5q4Vyy37IIN2',
+          event_id: 3,
+          role: 'Barback',
+          schedule_id: 2
+        },
+        {
+          staff_id: null,
+          name: 'Staff Needed',
+          event_id: 3,
+          role: 'Bar Manager',
+          schedule_id: 3
+        },
+        {
+          staff_id: null,
+          name: 'Staff Needed',
+          event_id: 3,
+          role: 'Assistant Bar Manager',
+          schedule_id: 4
+        }
+      ]
+    }
+  ]
+};

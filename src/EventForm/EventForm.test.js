@@ -5,8 +5,6 @@ import { mockBuildRolesReturn, mockPostScheduleReturn } from '../mockData';
 
 describe('EventForm', () => {
   let wrapper;
-  const mockCheck = jest.fn();
-  const mockScheduleGenerator = jest.fn();
   const mockAddEvent = jest.fn();
   const mockState = {
     venue: 'Ogden Theatre',
@@ -21,13 +19,7 @@ describe('EventForm', () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(
-      <EventForm
-        checkManualSchedule={mockCheck}
-        scheduleGenerator={mockScheduleGenerator}
-        addEvent={mockAddEvent}
-      />
-    );
+    wrapper = shallow(<EventForm addEvent={mockAddEvent} />);
   });
 
   it('should match the snapshot', () => {
@@ -46,37 +38,34 @@ describe('EventForm', () => {
   });
 
   describe('handleSubmit', () => {
-    it('should call all methods with correct params', async () => {
-      const mockEvent = {
-        preventDefault: jest.fn()
-      };
+    jest.useFakeTimers();
 
-      const mockDefaultState = {
-        venue: 'Ogden Theatre',
-        name: '',
-        date: '',
-        time: '18:00',
-        bar_manager: '',
-        ass_bar_manager: '',
-        bartenders: '',
-        barbacks: '',
-        beer_bucket: ''
-      };
+    const mockEvent = {
+      preventDefault: jest.fn()
+    };
+    let expectedState;
+    let mockPostReturn;
+    let mockPostEvent;
+    let mockBuildSchedule;
+    let mockPostSchedule;
 
-      const expectedState = { ...mockState, time: '6:00 pm' };
-      const mockPostReturn = { ...expectedState, event_id: 24 };
+    beforeEach(() => {
+      expectedState = { ...mockState, time: '6:00 pm' };
+      mockPostReturn = { ...expectedState, event_id: 24 };
 
       wrapper.setState(mockState);
-      const mockPostEvent = (wrapper.instance().api.postEvent = jest.fn(
+      mockPostEvent = wrapper.instance().api.postEvent = jest.fn(
         () => mockPostReturn
-      ));
-      const mockBuildSchedule = (wrapper.instance().api.buildScheduleWithRoles = jest.fn(
+      );
+      mockBuildSchedule = wrapper.instance().api.buildScheduleWithRoles = jest.fn(
         () => mockBuildRolesReturn
-      ));
-      const mockPostSchedule = (wrapper.instance().api.postSchedule = jest.fn(
+      );
+      mockPostSchedule = wrapper.instance().api.postSchedule = jest.fn(
         () => mockPostScheduleReturn
-      ));
+      );
+    });
 
+    it('should call all methods with correct params', async () => {
       await wrapper.instance().handleSubmit(mockEvent);
 
       expect(mockPostEvent).toHaveBeenCalledWith(expectedState);
@@ -86,6 +75,28 @@ describe('EventForm', () => {
         mockPostReturn,
         mockPostScheduleReturn
       );
+
+      expect(wrapper.state()).toEqual({ ...mockState, showMessage: true });
+    });
+
+    it('should call setTimeout and setState after 2 seconds', async () => {
+      const mockDefaultState = {
+        venue: 'Ogden Theatre',
+        name: '',
+        date: '',
+        time: '18:00',
+        bar_manager: '',
+        ass_bar_manager: '',
+        bartenders: '',
+        barbacks: '',
+        beer_bucket: '',
+        showMessage: false
+      };
+
+      await wrapper.instance().handleSubmit(mockEvent);
+
+      jest.runAllTimers();
+      expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 2000);
       expect(wrapper.state()).toEqual(mockDefaultState);
     });
   });

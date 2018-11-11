@@ -29,11 +29,7 @@ describe('App', () => {
 
   describe('addUser', () => {
     it('should update state and call checkAuthorization when there is a user', async () => {
-      const mockStaff = [
-        {
-          google_id: 12345
-        }
-      ];
+      const mockStaff = [{ google_id: 12345 }];
 
       wrapper.instance().checkAuthorization = jest.fn();
       wrapper.setState({ staff: mockStaff });
@@ -101,6 +97,12 @@ describe('App', () => {
   });
 
   describe('deleteFromSchedule', () => {
+    const person = {
+      event_id: 2,
+      schedule_id: 34,
+      role: 'Assistant Bar Manager'
+    };
+
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
@@ -112,11 +114,9 @@ describe('App', () => {
     it('fetch should be called with correct params', async () => {
       const expected = [
         'http://localhost:3000/api/v1/schedule/34',
-        {
-          method: 'DELETE'
-        }
+        { method: 'DELETE' }
       ];
-      const person = { event_id: 2, schedule_id: 34 };
+
       wrapper.instance().deleteFromSchedule(person);
 
       expect(window.fetch).toHaveBeenCalledWith(...expected);
@@ -124,20 +124,22 @@ describe('App', () => {
 
     it('should set the state with new schedule', async () => {
       const mockSchedule = [
-        { event_id: 2, staff: [{ schedule_id: 34 }] },
+        {
+          event_id: 2,
+          ass_bar_manager: true,
+          staff: [{ schedule_id: 34, role: 'Assistant Bar Manager' }]
+        },
         { event_id: 1, staff: [{ schedule_id: 23 }] }
       ];
 
       const expected = [
-        { event_id: 2, staff: [] },
+        { event_id: 2, ass_bar_manager: false, staff: [] },
         { event_id: 1, staff: [{ schedule_id: 23 }] }
       ];
 
       wrapper.setState({ schedule: mockSchedule });
 
-      await wrapper
-        .instance()
-        .deleteFromSchedule({ event_id: 2, schedule_id: 34 });
+      await wrapper.instance().deleteFromSchedule(person);
 
       expect(wrapper.state('schedule')).toEqual(expected);
     });
@@ -164,6 +166,7 @@ describe('App', () => {
       expect(wrapper.state('schedule')).toEqual(mockSchedule);
     });
   });
+
   describe('scheduleGenerator', () => {
     it('should generate a schedule', async () => {
       wrapper.instance().api.modifySchedule = jest.fn();
@@ -194,9 +197,25 @@ describe('App', () => {
 
   describe('updateStateFromHelpers', () => {
     it('should update the state with helpers', async () => {
-      const mockStaff = { name: 'taco' };
-      const mockEvent = { event: 'idone' };
-      const mockSchedule = { schedule: ['test'], unscheduledEvents: ['test1'] };
+      const mockStaff = [{ name: 'taco' }];
+      const mockEvent = [{ name: 'test event' }];
+      const mockSchedule = {
+        schedule: [{ name: 'test' }],
+        unscheduledEvents: [{ name: 'test1' }]
+      };
+
+      const expectedState = {
+        addNewStaff: false,
+        admin: false,
+        currentUserId: null,
+        events: [{ name: 'test event' }],
+        isCurrentStaff: false,
+        schedule: [{ name: 'test' }],
+        staff: [{ name: 'taco' }],
+        tabs: [],
+        unscheduledEvents: [{ name: 'test1' }],
+        user: null
+      };
 
       wrapper.instance().api.getStaff = jest.fn().mockReturnValue(mockStaff);
       wrapper.instance().api.getEvents = jest.fn().mockReturnValue(mockEvent);
@@ -213,20 +232,10 @@ describe('App', () => {
         mockEvent
       );
 
-      expect(wrapper.state()).toEqual({
-        addNewStaff: false,
-        admin: false,
-        currentUserId: null,
-        events: { event: 'idone' },
-        isCurrentStaff: false,
-        schedule: ['test'],
-        staff: { name: 'taco' },
-        tabs: [],
-        unscheduledEvents: ['test1'],
-        user: null
-      });
+      expect(wrapper.state()).toEqual(expectedState);
     });
   });
+
   describe('componentDidMount', () => {
     it('should call updateStateFromHelpers in componentDidMount', () => {
       wrapper.instance().updateStateFromHelpers = jest.fn();
