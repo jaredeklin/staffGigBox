@@ -68,7 +68,7 @@ class App extends Component {
   };
 
   deleteFromSchedule = async person => {
-    const { schedule_id, event_id } = person;
+    const { schedule_id, event_id, role } = person;
 
     await fetch(`${this.url}api/v1/schedule/${schedule_id}`, {
       method: 'DELETE'
@@ -79,6 +79,11 @@ class App extends Component {
         const updatedStaff = event.staff.filter(
           staff => staff.schedule_id !== schedule_id
         );
+
+        if (role === 'Assistant Bar Manager') {
+          event.ass_bar_manager = false;
+        }
+
         event = { ...event, staff: updatedStaff };
       }
 
