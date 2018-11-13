@@ -1,10 +1,24 @@
-
-
 .DayPicker-Month {
   width: 400px;
   height: 300px;
 }
 
+ul {
+  list-style: none;
+}
 
+.app {
+  display: grid;
+  grid-template-columns: 200px auto;
+}
 
+aside {
+  grid-column: 1;
+  margin: 20px;
+  position: fixed;
+  /* background-color: #f2f4f7; */
+}
 
+.main-container {
+  grid-column: 2;
+}
