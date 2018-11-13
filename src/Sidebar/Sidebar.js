@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { auth, provider } from '../firebase.js';
-import './Header.css';
+import './Sidebar.css';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-export class Header extends Component {
+export class Sidebar extends Component {
   constructor() {
     super();
     this.state = {
@@ -37,8 +38,7 @@ export class Header extends Component {
 
   render() {
     return (
-      <header>
-        <h1 className="app-title">Staff Gig Box</h1>
+      <aside>
         {this.state.user ? (
           <div className="log-out-container">
             <img
@@ -51,11 +51,39 @@ export class Header extends Component {
         ) : (
           <button onClick={this.login}>Log In</button>
         )}
-      </header>
+        <hr />
+        <ul>
+          <li>
+            <NavLink to="/schedule" className="nav">
+              Schedule
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/unscheduled-events" className="nav">
+              Unscheduled Events
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/availability" className="nav">
+              Availability
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/add-staff" className="nav">
+              Add Staff
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/add-events" className="nav">
+              Add Events
+            </NavLink>
+          </li>
+        </ul>
+      </aside>
     );
   }
 }
 
-Header.propTypes = {
+Sidebar.propTypes = {
   addUser: PropTypes.func
 };

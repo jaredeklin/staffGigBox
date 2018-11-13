@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Header } from './Header';
+import { Sidebar } from './Sidebar';
 import { auth } from '../firebase.js';
 
-describe('Header', () => {
+describe('Sidebar', () => {
   let wrapper;
   const mockAddUser = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<Header addUser={mockAddUser} />);
+    wrapper = shallow(<Sidebar addUser={mockAddUser} />);
   });
 
   it('should match the snapshot', () => {
