@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Header } from '../Header/Header';
+import { Sidebar } from '../Sidebar/Sidebar';
 import { TabContainer } from '../TabContainer/TabContainer';
 import { Api } from '../Api/Api';
+import { Route, Switch } from 'react-router-dom';
+// import { Schedule } from '../Schedule/Schedule';
+import ScheduleContainer from '../ScheduleContainer/ScheduleContainer';
 
 class App extends Component {
   constructor(props) {
@@ -187,7 +190,7 @@ class App extends Component {
     this.updateStateFromHelpers();
   };
 
-  render() {
+  displayStuff = () => {
     const {
       schedule,
       staff,
@@ -199,22 +202,55 @@ class App extends Component {
     } = this.state;
 
     return (
+      <TabContainer
+        editSchedule={this.editSchedule}
+        schedule={schedule}
+        unscheduledEvents={unscheduledEvents}
+        scheduleGenerator={this.scheduleGenerator}
+        staff={staff}
+        addStaff={this.addStaff}
+        addEvent={this.addEvent}
+        user={user}
+        deleteFromSchedule={this.deleteFromSchedule}
+        tabs={tabs}
+        admin={admin}
+        currentUserId={currentUserId}
+      />
+    );
+  };
+
+  render() {
+    return (
       <div className="app">
-        <Header addUser={this.addUser} />
-        <TabContainer
-          editSchedule={this.editSchedule}
-          schedule={schedule}
-          unscheduledEvents={unscheduledEvents}
-          scheduleGenerator={this.scheduleGenerator}
-          staff={staff}
-          addStaff={this.addStaff}
-          addEvent={this.addEvent}
-          user={user}
-          deleteFromSchedule={this.deleteFromSchedule}
-          tabs={tabs}
-          admin={admin}
-          currentUserId={currentUserId}
-        />
+        <Sidebar addUser={this.addUser} />
+        <div className="main-container">
+          <Switch>
+            <Route exact path="/" />
+            <Route
+              path="/schedule"
+              render={() => (
+                <ScheduleContainer
+                  editSchedule={this.editSchedule}
+                  schedule={this.state.schedule}
+                  unscheduledEvents={this.state.unscheduledEvents}
+                  // scheduleGenerator={this.scheduleGenerator}
+                  staff={this.state.staff}
+                  // addStaff={this.addStaff}
+                  // addEvent={this.addEvent}
+                  user={this.state.user}
+                  deleteFromSchedule={this.deleteFromSchedule}
+                  // tabs={this.state.tabs}
+                  admin={this.state.admin}
+                  currentUserId={this.state.currentUserId}
+                />
+              )}
+            />
+            <Route path="/unscheduled-events" render={this.displayStuff} />
+            <Route path="/availability" render={this.displayStuff} />
+            <Route path="/add-staff" render={this.displayStuff} />
+            <Route path="/add-events" render={this.displayStuff} />
+          </Switch>
+        </div>
       </div>
     );
   }
