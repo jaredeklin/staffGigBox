@@ -11,7 +11,7 @@ const ScheduleContainer = ({
   admin,
   scheduleGenerator,
   schedule,
-  type
+  scheduleType
 }) => {
   const sortedSchedule = schedule.sort((a, b) => {
     const date1 = moment(a.date, 'YYYY-MM-DD');
@@ -34,7 +34,7 @@ const ScheduleContainer = ({
 
   return (
     <div>
-      {type === 'Unscheduled Events' && (
+      {scheduleType === 'unscheduled' && (
         <div>
           {!unscheduledEvents.length && <h4>There are no unscheduledEvents</h4>}
           <h4>Would you like to fill all unscheduled events?</h4>
@@ -54,9 +54,10 @@ ScheduleContainer.propTypes = {
   event: PropTypes.arrayOf(PropTypes.object),
   schedule: PropTypes.arrayOf(PropTypes.object),
   unscheduledEvents: PropTypes.arrayOf(PropTypes.object),
+  deleteFromSchedule: PropTypes.func,
   admin: PropTypes.bool,
   scheduleGenerator: PropTypes.func,
-  type: PropTypes.string
+  scheduleType: PropTypes.string
 };
 
 export default ScheduleContainer;
