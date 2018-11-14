@@ -14,10 +14,18 @@ export class Sidebar extends Component {
 
   login = async () => {
     const result = await auth.signInWithPopup(provider);
-    const { user } = await result;
+    const {
+      user: { uid, photoURL, displayName }
+    } = result;
+
+    const user = {
+      uid,
+      photoURL,
+      displayName
+    };
 
     this.setState({ user });
-    this.props.addUser(user);
+    this.props.addUser(uid);
   };
 
   logout = async () => {
@@ -28,11 +36,13 @@ export class Sidebar extends Component {
 
   componentDidMount = () => {
     auth.onAuthStateChanged(user => {
+      const { uid, photoURL, displayName } = user;
+
       if (user) {
-        this.setState({ user });
+        this.setState({ user: { uid, photoURL, displayName } });
       }
 
-      this.props.addUser(user);
+      this.props.addUser(uid);
     });
   };
 
