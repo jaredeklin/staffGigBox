@@ -263,6 +263,17 @@ class App extends Component {
                 )}
               />
             )}
+            {this.state.currentUser.google_id && (
+              <Route
+                path="/add-staff"
+                render={() => (
+                  <StaffForm
+                    addStaff={this.addStaff}
+                    id={this.state.currentUser.google_id}
+                  />
+                )}
+              />
+            )}
           </Switch>
         </div>
       </div>
