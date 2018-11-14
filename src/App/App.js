@@ -253,9 +253,16 @@ class App extends Component {
                 />
               )}
             />
-            <Route path="/availability" render={this.displayStuff} />
-            <Route path="/add-staff" render={this.displayStuff} />
-            <Route path="/add-events" render={this.displayStuff} />
+            {this.state.currentUser.staff_id && (
+              <Route
+                path="/availability"
+                render={() => (
+                  <Availability
+                    currentUserId={this.state.currentUser.staff_id}
+                  />
+                )}
+              />
+            )}
           </Switch>
         </div>
       </div>
