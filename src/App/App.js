@@ -232,20 +232,27 @@ class App extends Component {
                 <ScheduleContainer
                   editSchedule={this.editSchedule}
                   schedule={this.state.schedule}
-                  unscheduledEvents={this.state.unscheduledEvents}
-                  // scheduleGenerator={this.scheduleGenerator}
                   staff={this.state.staff}
-                  // addStaff={this.addStaff}
-                  // addEvent={this.addEvent}
-                  user={this.state.user}
                   deleteFromSchedule={this.deleteFromSchedule}
-                  // tabs={this.state.tabs}
                   admin={this.state.admin}
-                  currentUserId={this.state.currentUserId}
                 />
               )}
             />
-            <Route path="/unscheduled-events" render={this.displayStuff} />
+            <Route
+              path="/unscheduled-events"
+              render={() => (
+                <ScheduleContainer
+                  editSchedule={this.editSchedule}
+                  schedule={this.state.unscheduledEvents}
+                  unscheduledEvents={this.state.unscheduledEvents}
+                  scheduleGenerator={this.scheduleGenerator}
+                  staff={this.state.staff}
+                  deleteFromSchedule={this.deleteFromSchedule}
+                  admin={this.state.admin}
+                  scheduleType="unscheduled"
+                />
+              )}
+            />
             <Route path="/availability" render={this.displayStuff} />
             <Route path="/add-staff" render={this.displayStuff} />
             <Route path="/add-events" render={this.displayStuff} />
