@@ -274,6 +274,11 @@ class App extends Component {
                 )}
               />
             )}
+            <Route
+              path="/add-events"
+              render={() => <EventForm addEvent={this.addEvent} />}
+            />
+            <Route render={() => <Redirect to="/" />} />
           </Switch>
         </div>
       </div>
