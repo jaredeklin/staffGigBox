@@ -5,11 +5,14 @@ import { Schedule } from '../Schedule/Schedule';
 const moment = require('moment');
 
 const ScheduleContainer = ({
+  methods: { editSchedule, deleteFromSchedule, scheduleGenerator },
+  appState: { unscheduledEvents, admin, staff, schedule, currentUser },
   location
 }) => {
   const getVenueSchedule = venue => {
     return schedule.filter(event => event.venue === venue);
   };
+
   const getIndividualSchedule = () => {
     const individualSchedule = schedule.filter(event => {
       return event.staff.find(staff => staff.staff_id === currentUser.staff_id);
@@ -17,6 +20,32 @@ const ScheduleContainer = ({
 
     return individualSchedule;
   };
+
+  const getSchedule = pathname => {
+    switch (pathname) {
+      case '/schedule/gothic':
+        return getVenueSchedule('Gothic Theatre');
+
+      case '/schedule/ogden':
+        return getVenueSchedule('Ogden Theatre');
+
+      case '/schedule/bluebird':
+        return getVenueSchedule('Bluebird Theater');
+
+      case '/schedule/individual':
+        return getIndividualSchedule();
+
+      case '/unscheduled-events':
+        return unscheduledEvents;
+
+      default:
+        return schedule;
+    }
+  };
+
+  const correctSchedule = getSchedule(location.pathname);
+
+  const sortedSchedule = correctSchedule.sort((a, b) => {
     const date1 = moment(a.date, 'YYYY-MM-DD');
     const date2 = moment(b.date, 'YYYY-MM-DD');
     return date1 - date2;
