@@ -10,6 +10,13 @@ const ScheduleContainer = ({
   const getVenueSchedule = venue => {
     return schedule.filter(event => event.venue === venue);
   };
+  const getIndividualSchedule = () => {
+    const individualSchedule = schedule.filter(event => {
+      return event.staff.find(staff => staff.staff_id === currentUser.staff_id);
+    });
+
+    return individualSchedule;
+  };
     const date1 = moment(a.date, 'YYYY-MM-DD');
     const date2 = moment(b.date, 'YYYY-MM-DD');
     return date1 - date2;
