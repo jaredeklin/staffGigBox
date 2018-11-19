@@ -95,5 +95,6 @@ export class Sidebar extends Component {
 }
 
 Sidebar.propTypes = {
-  addUser: PropTypes.func
+  addUser: PropTypes.func,
+  updateHeaderText: PropTypes.func
 };
