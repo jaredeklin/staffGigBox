@@ -1,17 +1,11 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Schedule } from '../Schedule/Schedule';
 const moment = require('moment');
 
 const ScheduleContainer = ({
-  unscheduledEvents,
-  staff,
-  editSchedule,
-  deleteFromSchedule,
-  admin,
-  scheduleGenerator,
-  schedule,
-  scheduleType
+  location
 }) => {
   const sortedSchedule = schedule.sort((a, b) => {
     const date1 = moment(a.date, 'YYYY-MM-DD');
@@ -34,7 +28,7 @@ const ScheduleContainer = ({
 
   return (
     <div>
-      {scheduleType === 'unscheduled' && (
+      {location.pathname.includes('unscheduled') && (
         <div>
           {!unscheduledEvents.length && <h4>There are no unscheduledEvents</h4>}
           <h4>Would you like to fill all unscheduled events?</h4>
@@ -60,4 +54,4 @@ ScheduleContainer.propTypes = {
   scheduleType: PropTypes.string
 };
 
-export default ScheduleContainer;
+export default withRouter(ScheduleContainer);
