@@ -1,61 +1,33 @@
-import React, { Component } from 'react';
-import { auth, provider } from '../firebase.js';
-import './Header.css';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import ScheduleNavBar from '../ScheduleNavBar/ScheduleNavBar';
 
-export class Header extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: null
-    };
-  }
+const Header = ({ location }) => {
+  const getHeaderText = () => {
+    switch (location.pathname) {
+      case '/availability':
+        return 'Availability';
 
-  login = async () => {
-    const result = await auth.signInWithPopup(provider);
-    const { user } = await result;
+      case '/add-events':
+        return 'Add Events';
 
-    this.setState({ user });
-    this.props.addUser(user);
+      case '/add-staff':
+        return 'Add Staff';
+
+      case '/unscheduled-events':
+        return 'Unscheduled Events';
+
+      default:
+        return 'Schedule';
+    }
   };
 
-  logout = async () => {
-    await auth.signOut();
-    this.setState({ user: null });
-    this.props.addUser(null);
-  };
-
-  componentDidMount = () => {
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        this.setState({ user });
-      }
-
-      this.props.addUser(user);
-    });
-  };
-
-  render() {
-    return (
-      <header>
-        <h1 className="app-title">Staff Gig Box</h1>
-        {this.state.user ? (
-          <div className="log-out-container">
-            <img
-              className="user-img"
-              src={this.state.user.photoURL}
-              alt="profile pic"
-            />
-            <button onClick={this.logout}>Log Out</button>
-          </div>
-        ) : (
-          <button onClick={this.login}>Log In</button>
-        )}
-      </header>
-    );
-  }
-}
-
-Header.propTypes = {
-  addUser: PropTypes.func
+  return (
+    <header className="main-header">
+      <h1>{getHeaderText()}</h1>
+      {location.pathname.includes('/schedule') && <ScheduleNavBar />}
+    </header>
+  );
 };
+
+export default withRouter(Header);

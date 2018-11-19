@@ -6,11 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <StaffForm
     addStaff={[Function]}
-    user={
-        Object {
-            "uid": 123456,
-          }
-    }
+    id="123456"
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

@@ -8,7 +8,7 @@ export class StaffForm extends Component {
     this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
 
     this.state = {
-      google_id: this.props.user.uid,
+      google_id: this.props.id,
       name: '',
       bar_manager: false,
       ass_bar_manager: false,
@@ -27,14 +27,21 @@ export class StaffForm extends Component {
   handleSubmit = async event => {
     event.preventDefault();
 
-    const response = await fetch(`${this.url}api/v1/staff`, {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: { 'Content-Type': 'application/json' }
-    });
+    try {
+      const response = await fetch(`${this.url}api/v1/staff`, {
+        method: 'POST',
+        body: JSON.stringify(this.state),
+        headers: { 'Content-Type': 'application/json' }
+      });
 
-    if (response.status === 201) {
-      this.props.addStaff();
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      const user = await response.json();
+      this.props.addStaff(user);
+    } catch (error) {
+      console.log(error); //eslint-disable-line
     }
   };
 
@@ -152,6 +159,6 @@ export class StaffForm extends Component {
 }
 
 StaffForm.propTypes = {
-  user: PropTypes.object,
+  id: PropTypes.string,
   addStaff: PropTypes.func
 };

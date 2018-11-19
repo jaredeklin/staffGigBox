@@ -1,19 +1,51 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Schedule } from '../Schedule/Schedule';
 const moment = require('moment');
 
 const ScheduleContainer = ({
-  unscheduledEvents,
-  staff,
-  editSchedule,
-  deleteFromSchedule,
-  admin,
-  scheduleGenerator,
-  schedule,
-  type
+  methods: { editSchedule, deleteFromSchedule, scheduleGenerator },
+  appState: { unscheduledEvents, admin, staff, schedule, currentUser },
+  location
 }) => {
-  const sortedSchedule = schedule.sort((a, b) => {
+  const getVenueSchedule = venue => {
+    return schedule.filter(event => event.venue === venue);
+  };
+
+  const getIndividualSchedule = () => {
+    const individualSchedule = schedule.filter(event => {
+      return event.staff.find(staff => staff.staff_id === currentUser.staff_id);
+    });
+
+    return individualSchedule;
+  };
+
+  const getSchedule = pathname => {
+    switch (pathname) {
+      case '/schedule/gothic':
+        return getVenueSchedule('Gothic Theatre');
+
+      case '/schedule/ogden':
+        return getVenueSchedule('Ogden Theatre');
+
+      case '/schedule/bluebird':
+        return getVenueSchedule('Bluebird Theater');
+
+      case '/schedule/individual':
+        return getIndividualSchedule();
+
+      case '/unscheduled-events':
+        return unscheduledEvents;
+
+      default:
+        return schedule;
+    }
+  };
+
+  const correctSchedule = getSchedule(location.pathname);
+
+  const sortedSchedule = correctSchedule.sort((a, b) => {
     const date1 = moment(a.date, 'YYYY-MM-DD');
     const date2 = moment(b.date, 'YYYY-MM-DD');
     return date1 - date2;
@@ -34,7 +66,7 @@ const ScheduleContainer = ({
 
   return (
     <div>
-      {type === 'Unscheduled Events' && (
+      {location.pathname.includes('unscheduled') && (
         <div>
           {!unscheduledEvents.length && <h4>There are no unscheduledEvents</h4>}
           <h4>Would you like to fill all unscheduled events?</h4>
@@ -54,9 +86,10 @@ ScheduleContainer.propTypes = {
   event: PropTypes.arrayOf(PropTypes.object),
   schedule: PropTypes.arrayOf(PropTypes.object),
   unscheduledEvents: PropTypes.arrayOf(PropTypes.object),
+  deleteFromSchedule: PropTypes.func,
   admin: PropTypes.bool,
   scheduleGenerator: PropTypes.func,
-  type: PropTypes.string
+  scheduleType: PropTypes.string
 };
 
-export default ScheduleContainer;
+export default withRouter(ScheduleContainer);

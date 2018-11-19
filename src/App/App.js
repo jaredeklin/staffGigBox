@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Header } from '../Header/Header';
-import { TabContainer } from '../TabContainer/TabContainer';
 import { Api } from '../Api/Api';
+import { Sidebar } from '../Sidebar/Sidebar';
+import './App.css';
+import Header from '../Header/Header';
+import Routes from '../Routes';
 
 class App extends Component {
   constructor(props) {
@@ -11,59 +12,37 @@ class App extends Component {
     this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
 
     this.state = {
-      user: null,
       staff: [],
       events: [],
       schedule: [],
       isCurrentStaff: false,
       addNewStaff: false,
-      tabs: [],
       admin: false,
-      currentUserId: null,
-      unscheduledEvents: []
+      unscheduledEvents: [],
+      currentUser: {}
+    };
+
+    this.methods = {
+      addEvent: this.addEvent,
+      addStaff: this.addStaff,
+      deleteFromSchedule: this.deleteFromSchedule,
+      scheduleGenerator: this.scheduleGenerator,
+      editSchedule: this.editSchedule
     };
   }
 
-  addUser = async user => {
+  addUser = async id => {
     const { staff } = this.state;
 
-    await this.setState({ user, isCurrentStaff: false });
+    if (id) {
+      const staffMember = staff.find(person => person.google_id === id);
 
-    if (user) {
-      const isAuthorized = staff.find(person => person.google_id === user.uid);
-
-      this.checkAuthorization(isAuthorized);
-    } else {
-      this.setState({
-        tabs: ['Schedule'],
-        admin: false
-      });
-    }
-  };
-
-  checkAuthorization = isAuthorized => {
-    if (isAuthorized) {
-      const isAdmin = isAuthorized.bar_manager;
-      const adminTabs = [
-        'Schedule',
-        'Unscheduled Events',
-        'Submit Availability',
-        'Add Event',
-        'Add New Staff'
-      ];
-      const staffTabs = ['Schedule', 'Submit Availability'];
-
-      this.setState({
-        isCurrentStaff: true,
-        tabs: isAdmin ? adminTabs : staffTabs,
-        admin: isAdmin ? true : false,
-        currentUserId: isAuthorized.staff_id
-      });
-    } else {
-      this.setState({
-        addNewStaff: true,
-        tabs: ['Schedule', 'Add New Staff']
-      });
+      if (staffMember) {
+        this.setState({
+          currentUser: staffMember,
+          admin: staffMember.bar_manager
+        });
+      }
     }
   };
 
@@ -118,10 +97,11 @@ class App extends Component {
     this.setState({ schedule });
   };
 
-  addStaff = () => {
+  addStaff = user => {
     this.setState({
       isCurrentStaff: true,
-      addNewStaff: false
+      addNewStaff: false,
+      staff: [...this.state.staff, user]
     });
   };
 
@@ -188,33 +168,15 @@ class App extends Component {
   };
 
   render() {
-    const {
-      schedule,
-      staff,
-      user,
-      tabs,
-      admin,
-      currentUserId,
-      unscheduledEvents
-    } = this.state;
-
     return (
       <div className="app">
-        <Header addUser={this.addUser} />
-        <TabContainer
-          editSchedule={this.editSchedule}
-          schedule={schedule}
-          unscheduledEvents={unscheduledEvents}
-          scheduleGenerator={this.scheduleGenerator}
-          staff={staff}
-          addStaff={this.addStaff}
-          addEvent={this.addEvent}
-          user={user}
-          deleteFromSchedule={this.deleteFromSchedule}
-          tabs={tabs}
-          admin={admin}
-          currentUserId={currentUserId}
-        />
+        <Sidebar addUser={this.addUser} />
+        <div className="main-container">
+          <Header />
+          <div className="main-display-container">
+            <Routes appState={this.state} methods={this.methods} />
+          </div>
+        </div>
       </div>
     );
   }

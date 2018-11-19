@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Exo');
 
-
 .schedule-card {
   width: 95%;
   border: 1px solid black;
@@ -43,16 +42,17 @@ h4 {
 }
 
 .edit-container {
-  display: inline-block;
-  float: right;
+  position: absolute;
+  right: 15px;
+  top: 0;
 }
 
-.delete, .edit {
+.delete,
+.edit {
   display: none;
   width: 20px;
   height: 20px;
   margin: 0 0 0 5px;
-  float: right;
   border: none;
 }
 
@@ -72,9 +72,12 @@ h4 {
   background-image: url('../images/pencil-hover.svg');
 }
 
-.active-content li:hover .delete,
-.active-content li:hover .edit {
-  display: unset;
+.individual-staff-name {
+  position: relative;
 }
 
-
+.individual-staff-name:hover .delete,
+.individual-staff-name:hover .edit {
+  display: inline-block;
+  cursor: pointer;
+}

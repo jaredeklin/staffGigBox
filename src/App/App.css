@@ -1,10 +1,75 @@
-
+.app {
+  display: grid;
+  grid-template-columns: 220px auto;
+}
 
 .DayPicker-Month {
   width: 400px;
   height: 300px;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
 
+li {
+  list-style: none;
+}
 
+aside {
+  grid-column: 1;
+  background-color: #f2f4f7;
+  width: 220px;
+}
 
+.main-container {
+  grid-column: 2;
+  position: relative;
+  min-height: 100vh;
+}
+
+.main-display-container {
+  height: 70vh;
+  overflow: scroll;
+  margin: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #636c73;
+}
+
+.sidebar-nav-list .active li {
+  background-color: #e9ebf0;
+  color: #343a43;
+}
+
+.main-header {
+  grid-column: 2;
+  height: 165px;
+  /* background-color: aqua; */
+  border-bottom: 1px solid #636c73;
+  padding: 20px 50px;
+  width: 100%;
+}
+
+.header-nav-list {
+  position: relative;
+  display: flex;
+  top: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.header-nav-list a {
+  margin-right: 5%;
+  height: 35px;
+}
+
+.header-nav-list .active,
+.header-nav-list a:hover {
+  border-bottom: 3px solid navy;
+  background-color: transparent;
+  color: navy;
+}

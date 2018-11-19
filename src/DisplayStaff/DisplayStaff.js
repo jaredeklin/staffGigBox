@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Api } from '../Api/Api';
+const api = new Api();
 
-const DisplayStaff = props => {
-  const {
-    event,
-    staffRole,
-    deleteFromSchedule,
-    handleEditClick,
-    admin
-  } = props;
-  const api = new Api();
-
+const DisplayStaff = ({
+  event,
+  staffRole,
+  deleteFromSchedule,
+  handleEditClick,
+  admin
+}) => {
   const mapStaff = staffRole => {
     const { staff } = event;
 
@@ -21,7 +19,7 @@ const DisplayStaff = props => {
         const { schedule_id, name } = person;
 
         return (
-          <li key={schedule_id}>
+          <li key={schedule_id} className="individual-staff-name">
             {name}
             {admin && (
               <div className="edit-container">
