@@ -18,13 +18,13 @@ export class Sidebar extends Component {
       user: { uid, photoURL, displayName }
     } = result;
 
-    const user = {
+    this.setState({
+      user: {
       uid,
       photoURL,
       displayName
-    };
-
-    this.setState({ user });
+      }
+    });
     this.props.addUser(uid);
   };
 
