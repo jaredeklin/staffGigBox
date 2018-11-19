@@ -24,32 +24,34 @@ ShallowWrapper {
         <div
           className="main-container"
 >
-          <Switch>
-                    <Route
-                              exact={true}
-                              path="/"
+          <withRouter(Header) />
+          <div
+                    className="main-display-container"
+          >
+                    <Routes
+                              appState={
+                                        Object {
+                                                  "addNewStaff": false,
+                                                  "admin": false,
+                                                  "currentUser": Object {},
+                                                  "events": Array [],
+                                                  "isCurrentStaff": false,
+                                                  "schedule": Array [],
+                                                  "staff": Array [],
+                                                  "unscheduledEvents": Array [],
+                                                }
+                              }
+                              methods={
+                                        Object {
+                                                  "addEvent": [Function],
+                                                  "addStaff": [Function],
+                                                  "deleteFromSchedule": [Function],
+                                                  "editSchedule": [Function],
+                                                  "scheduleGenerator": [Function],
+                                                }
+                              }
                     />
-                    <Route
-                              path="/schedule"
-                              render={[Function]}
-                    />
-                    <Route
-                              path="/unscheduled-events"
-                              render={[Function]}
-                    />
-                    <Route
-                              path="/availability"
-                              render={[Function]}
-                    />
-                    <Route
-                              path="/add-staff"
-                              render={[Function]}
-                    />
-                    <Route
-                              path="/add-events"
-                              render={[Function]}
-                    />
-          </Switch>
+          </div>
 </div>,
       ],
       "className": "app",
@@ -72,144 +74,110 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Switch>
-            <Route
-                        exact={true}
-                        path="/"
-            />
-            <Route
-                        path="/schedule"
-                        render={[Function]}
-            />
-            <Route
-                        path="/unscheduled-events"
-                        render={[Function]}
-            />
-            <Route
-                        path="/availability"
-                        render={[Function]}
-            />
-            <Route
-                        path="/add-staff"
-                        render={[Function]}
-            />
-            <Route
-                        path="/add-events"
-                        render={[Function]}
-            />
-</Switch>,
+          "children": Array [
+            <withRouter(Header) />,
+            <div
+              className="main-display-container"
+>
+              <Routes
+                            appState={
+                                          Object {
+                                                        "addNewStaff": false,
+                                                        "admin": false,
+                                                        "currentUser": Object {},
+                                                        "events": Array [],
+                                                        "isCurrentStaff": false,
+                                                        "schedule": Array [],
+                                                        "staff": Array [],
+                                                        "unscheduledEvents": Array [],
+                                                      }
+                            }
+                            methods={
+                                          Object {
+                                                        "addEvent": [Function],
+                                                        "addStaff": [Function],
+                                                        "deleteFromSchedule": [Function],
+                                                        "editSchedule": [Function],
+                                                        "scheduleGenerator": [Function],
+                                                      }
+                            }
+              />
+</div>,
+          ],
           "className": "main-container",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": Array [
-              <Route
-                exact={true}
-                path="/"
-/>,
-              <Route
-                path="/schedule"
-                render={[Function]}
-/>,
-              <Route
-                path="/unscheduled-events"
-                render={[Function]}
-/>,
-              <Route
-                path="/availability"
-                render={[Function]}
-/>,
-              <Route
-                path="/add-staff"
-                render={[Function]}
-/>,
-              <Route
-                path="/add-events"
-                render={[Function]}
-/>,
-            ],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": Array [
-            Object {
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Routes
+                appState={
+                                Object {
+                                                "addNewStaff": false,
+                                                "admin": false,
+                                                "currentUser": Object {},
+                                                "events": Array [],
+                                                "isCurrentStaff": false,
+                                                "schedule": Array [],
+                                                "staff": Array [],
+                                                "unscheduledEvents": Array [],
+                                              }
+                }
+                methods={
+                                Object {
+                                                "addEvent": [Function],
+                                                "addStaff": [Function],
+                                                "deleteFromSchedule": [Function],
+                                                "editSchedule": [Function],
+                                                "scheduleGenerator": [Function],
+                                              }
+                }
+/>,
+              "className": "main-display-container",
+            },
+            "ref": null,
+            "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
-                "exact": true,
-                "path": "/",
+                "appState": Object {
+                  "addNewStaff": false,
+                  "admin": false,
+                  "currentUser": Object {},
+                  "events": Array [],
+                  "isCurrentStaff": false,
+                  "schedule": Array [],
+                  "staff": Array [],
+                  "unscheduledEvents": Array [],
+                },
+                "methods": Object {
+                  "addEvent": [Function],
+                  "addStaff": [Function],
+                  "deleteFromSchedule": [Function],
+                  "editSchedule": [Function],
+                  "scheduleGenerator": [Function],
+                },
               },
               "ref": null,
               "rendered": null,
               "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "path": "/schedule",
-                "render": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "path": "/unscheduled-events",
-                "render": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "path": "/availability",
-                "render": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "path": "/add-staff",
-                "render": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "path": "/add-events",
-                "render": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": [Function],
-        },
+            "type": "div",
+          },
+        ],
         "type": "div",
       },
     ],
@@ -228,32 +196,34 @@ ShallowWrapper {
           <div
             className="main-container"
 >
-            <Switch>
-                        <Route
-                                    exact={true}
-                                    path="/"
+            <withRouter(Header) />
+            <div
+                        className="main-display-container"
+            >
+                        <Routes
+                                    appState={
+                                                Object {
+                                                            "addNewStaff": false,
+                                                            "admin": false,
+                                                            "currentUser": Object {},
+                                                            "events": Array [],
+                                                            "isCurrentStaff": false,
+                                                            "schedule": Array [],
+                                                            "staff": Array [],
+                                                            "unscheduledEvents": Array [],
+                                                          }
+                                    }
+                                    methods={
+                                                Object {
+                                                            "addEvent": [Function],
+                                                            "addStaff": [Function],
+                                                            "deleteFromSchedule": [Function],
+                                                            "editSchedule": [Function],
+                                                            "scheduleGenerator": [Function],
+                                                          }
+                                    }
                         />
-                        <Route
-                                    path="/schedule"
-                                    render={[Function]}
-                        />
-                        <Route
-                                    path="/unscheduled-events"
-                                    render={[Function]}
-                        />
-                        <Route
-                                    path="/availability"
-                                    render={[Function]}
-                        />
-                        <Route
-                                    path="/add-staff"
-                                    render={[Function]}
-                        />
-                        <Route
-                                    path="/add-events"
-                                    render={[Function]}
-                        />
-            </Switch>
+            </div>
 </div>,
         ],
         "className": "app",
@@ -276,144 +246,110 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Switch>
-              <Route
-                            exact={true}
-                            path="/"
-              />
-              <Route
-                            path="/schedule"
-                            render={[Function]}
-              />
-              <Route
-                            path="/unscheduled-events"
-                            render={[Function]}
-              />
-              <Route
-                            path="/availability"
-                            render={[Function]}
-              />
-              <Route
-                            path="/add-staff"
-                            render={[Function]}
-              />
-              <Route
-                            path="/add-events"
-                            render={[Function]}
-              />
-</Switch>,
+            "children": Array [
+              <withRouter(Header) />,
+              <div
+                className="main-display-container"
+>
+                <Routes
+                                appState={
+                                                Object {
+                                                                "addNewStaff": false,
+                                                                "admin": false,
+                                                                "currentUser": Object {},
+                                                                "events": Array [],
+                                                                "isCurrentStaff": false,
+                                                                "schedule": Array [],
+                                                                "staff": Array [],
+                                                                "unscheduledEvents": Array [],
+                                                              }
+                                }
+                                methods={
+                                                Object {
+                                                                "addEvent": [Function],
+                                                                "addStaff": [Function],
+                                                                "deleteFromSchedule": [Function],
+                                                                "editSchedule": [Function],
+                                                                "scheduleGenerator": [Function],
+                                                              }
+                                }
+                />
+</div>,
+            ],
             "className": "main-container",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                <Route
-                  exact={true}
-                  path="/"
-/>,
-                <Route
-                  path="/schedule"
-                  render={[Function]}
-/>,
-                <Route
-                  path="/unscheduled-events"
-                  render={[Function]}
-/>,
-                <Route
-                  path="/availability"
-                  render={[Function]}
-/>,
-                <Route
-                  path="/add-staff"
-                  render={[Function]}
-/>,
-                <Route
-                  path="/add-events"
-                  render={[Function]}
-/>,
-              ],
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
-            "ref": null,
-            "rendered": Array [
-              Object {
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Routes
+                  appState={
+                                    Object {
+                                                      "addNewStaff": false,
+                                                      "admin": false,
+                                                      "currentUser": Object {},
+                                                      "events": Array [],
+                                                      "isCurrentStaff": false,
+                                                      "schedule": Array [],
+                                                      "staff": Array [],
+                                                      "unscheduledEvents": Array [],
+                                                    }
+                  }
+                  methods={
+                                    Object {
+                                                      "addEvent": [Function],
+                                                      "addStaff": [Function],
+                                                      "deleteFromSchedule": [Function],
+                                                      "editSchedule": [Function],
+                                                      "scheduleGenerator": [Function],
+                                                    }
+                  }
+/>,
+                "className": "main-display-container",
+              },
+              "ref": null,
+              "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "exact": true,
-                  "path": "/",
+                  "appState": Object {
+                    "addNewStaff": false,
+                    "admin": false,
+                    "currentUser": Object {},
+                    "events": Array [],
+                    "isCurrentStaff": false,
+                    "schedule": Array [],
+                    "staff": Array [],
+                    "unscheduledEvents": Array [],
+                  },
+                  "methods": Object {
+                    "addEvent": [Function],
+                    "addStaff": [Function],
+                    "deleteFromSchedule": [Function],
+                    "editSchedule": [Function],
+                    "scheduleGenerator": [Function],
+                  },
                 },
                 "ref": null,
                 "rendered": null,
                 "type": [Function],
               },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "path": "/schedule",
-                  "render": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "path": "/unscheduled-events",
-                  "render": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "path": "/availability",
-                  "render": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "path": "/add-staff",
-                  "render": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "path": "/add-events",
-                  "render": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-            ],
-            "type": [Function],
-          },
+              "type": "div",
+            },
+          ],
           "type": "div",
         },
       ],

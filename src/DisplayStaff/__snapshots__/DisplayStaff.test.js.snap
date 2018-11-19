@@ -37,7 +37,9 @@ ShallowWrapper {
           Bar Manager
 </h4>,
         Array [
-          <li>
+          <li
+            className="individual-staff-name"
+>
             <div
                         className="edit-container"
             >
@@ -88,6 +90,7 @@ ShallowWrapper {
               />
 </div>,
           ],
+          "className": "individual-staff-name",
         },
         "ref": null,
         "rendered": Array [
@@ -155,7 +158,9 @@ ShallowWrapper {
             Bar Manager
 </h4>,
           Array [
-            <li>
+            <li
+              className="individual-staff-name"
+>
               <div
                             className="edit-container"
               >
@@ -206,6 +211,7 @@ ShallowWrapper {
                 />
 </div>,
             ],
+            "className": "individual-staff-name",
           },
           "ref": null,
           "rendered": Array [

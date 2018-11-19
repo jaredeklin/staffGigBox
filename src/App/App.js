@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Api } from '../Api/Api';
 import { Sidebar } from '../Sidebar/Sidebar';
 import './App.css';
-import Header from '../Header';
+import Header from '../Header/Header';
 import Routes from '../Routes';
 
 class App extends Component {
