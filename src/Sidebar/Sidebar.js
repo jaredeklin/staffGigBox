@@ -62,32 +62,26 @@ export class Sidebar extends Component {
           <button onClick={this.login}>Log In</button>
         )}
         <hr />
-        <ul>
-          <li>
-            <NavLink to="/schedule" className="nav">
-              Schedule
+        <ul className="sidebar-nav-list">
+          <NavLink to="/schedule" className="nav-link">
+            <li>Schedule</li>
             </NavLink>
-          </li>
-          <li>
-            <NavLink to="/unscheduled-events" className="nav">
-              Unscheduled Events
+
+          <NavLink to="/unscheduled-events" className="nav-link">
+            <li>Unscheduled Events</li>
             </NavLink>
-          </li>
-          <li>
-            <NavLink to="/availability" className="nav">
-              Availability
+
+          <NavLink to="/availability" className="nav-link">
+            <li>Availability</li>
             </NavLink>
-          </li>
-          <li>
-            <NavLink to="/add-staff" className="nav">
-              Add Staff
+
+          <NavLink to="/add-staff" className="nav-link">
+            <li>Add Staff</li>
             </NavLink>
-          </li>
-          <li>
-            <NavLink to="/add-events" className="nav">
-              Add Events
+
+          <NavLink to="/add-events" className="nav-link">
+            <li>Add Events</li>
             </NavLink>
-          </li>
         </ul>
       </aside>
     );
