@@ -5,12 +5,10 @@ import { StaffForm } from './StaffForm';
 describe('StaffForm', () => {
   let wrapper;
   const mockAddStaff = jest.fn();
-  const mockUser = {
-    uid: 123456
-  };
+  const mockId = '123456';
 
   beforeEach(() => {
-    wrapper = shallow(<StaffForm addStaff={mockAddStaff} user={mockUser} />);
+    wrapper = shallow(<StaffForm addStaff={mockAddStaff} id={mockId} />);
   });
 
   it('should match the snapshot', () => {
@@ -36,7 +34,7 @@ describe('StaffForm', () => {
     };
 
     const mockState = {
-      google_id: 123456,
+      google_id: '123456',
       name: '',
       bar_manager: false,
       ass_bar_manager: false,
@@ -59,6 +57,7 @@ describe('StaffForm', () => {
     window.fetch = jest.fn(() =>
       Promise.resolve({
         status: 201,
+        ok: true,
         json: () => Promise.resolve({})
       })
     );

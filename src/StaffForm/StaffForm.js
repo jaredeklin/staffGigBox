@@ -159,6 +159,6 @@ export class StaffForm extends Component {
 }
 
 StaffForm.propTypes = {
-  user: PropTypes.object,
+  id: PropTypes.string,
   addStaff: PropTypes.func
 };
