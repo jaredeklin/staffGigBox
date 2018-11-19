@@ -14,13 +14,9 @@ import {
 
 describe('App', () => {
   let wrapper;
-  let mockUser1;
 
   beforeEach(() => {
     wrapper = shallow(<App />, { disableLifecycleMethods: true });
-    mockUser1 = {
-      uid: 12345
-    };
   });
 
   it('should match the snapshot', () => {
@@ -28,63 +24,16 @@ describe('App', () => {
   });
 
   describe('addUser', () => {
-    it('should update state and call checkAuthorization when there is a user', async () => {
-      const mockStaff = [{ google_id: 12345 }];
-
-      wrapper.instance().checkAuthorization = jest.fn();
+    it('should update state when there is a user', async () => {
+      const mockStaff = [
+        { google_id: 12345, name: 'Jared', bar_manager: true }
+      ];
       wrapper.setState({ staff: mockStaff });
-      await wrapper.instance().addUser(mockUser1);
 
-      expect(wrapper.state('user')).toEqual(mockUser1);
-      expect(wrapper.state('isCurrentStaff')).toEqual(false);
-      expect(wrapper.instance().checkAuthorization).toHaveBeenCalledWith({
-        google_id: 12345
-      });
-    });
+      await wrapper.instance().addUser(12345);
 
-    it('should set admin and tabs state if not a user ', async () => {
-      await wrapper.instance().addUser();
-
-      expect(wrapper.state('tabs')).toEqual(['Schedule']);
-      expect(wrapper.state('admin')).toEqual(false);
-    });
-  });
-
-  describe('checkAuthorization', () => {
-    it('should set state with correct values when authorized', () => {
-      wrapper.instance().checkAuthorization({ google_id: 12345, staff_id: 3 });
-
-      expect(wrapper.state('isCurrentStaff')).toEqual(true);
-      expect(wrapper.state('tabs')).toEqual([
-        'Schedule',
-        'Submit Availability'
-      ]);
-      expect(wrapper.state('admin')).toEqual(false);
-      expect(wrapper.state('currentUserId')).toEqual(3);
-
-      wrapper.instance().checkAuthorization({
-        google_id: 12345,
-        staff_id: 3,
-        bar_manager: true
-      });
-
-      expect(wrapper.state('isCurrentStaff')).toEqual(true);
-      expect(wrapper.state('tabs')).toEqual([
-        'Schedule',
-        'Unscheduled Events',
-        'Submit Availability',
-        'Add Event',
-        'Add New Staff'
-      ]);
+      expect(wrapper.state('currentUser')).toEqual(mockStaff[0]);
       expect(wrapper.state('admin')).toEqual(true);
-      expect(wrapper.state('currentUserId')).toEqual(3);
-    });
-
-    it('should set state with correct values when not authorized', () => {
-      wrapper.instance().checkAuthorization();
-
-      expect(wrapper.state('addNewStaff')).toEqual(true);
-      expect(wrapper.state('tabs')).toEqual(['Schedule', 'Add New Staff']);
     });
   });
 
@@ -207,14 +156,12 @@ describe('App', () => {
       const expectedState = {
         addNewStaff: false,
         admin: false,
-        currentUserId: null,
         events: [{ name: 'test event' }],
         isCurrentStaff: false,
         schedule: [{ name: 'test' }],
         staff: [{ name: 'taco' }],
-        tabs: [],
         unscheduledEvents: [{ name: 'test1' }],
-        user: null
+        currentUser: {}
       };
 
       wrapper.instance().api.getStaff = jest.fn().mockReturnValue(mockStaff);
