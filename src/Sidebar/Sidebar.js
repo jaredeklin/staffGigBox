@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 export class Sidebar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      user: null
+      user: null,
+      showDropdown: false
     };
   }
 
@@ -46,6 +47,9 @@ export class Sidebar extends Component {
     });
   };
 
+  handleDropdown = e => {
+    this.setState({ showDropdown: !this.state.showDropdown });
+  };
   render() {
     return (
       <aside>
@@ -56,7 +60,21 @@ export class Sidebar extends Component {
               src={this.state.user.photoURL}
               alt="profile pic"
             />
-            <button onClick={this.logout}>Log Out</button>
+            <div className="user-dropdown-container">
+              {this.state.user.displayName}
+              <button
+                onClick={this.handleDropdown}
+                className="user-dropdown-container-btn"
+              >
+                &#9662;
+              </button>
+
+              {this.state.showDropdown && (
+                <div className="dropdown-content">
+                  <li onClick={this.logout}>Log Out</li>
+                </div>
+              )}
+            </div>
           </div>
         ) : (
           <button onClick={this.login}>Log In</button>
