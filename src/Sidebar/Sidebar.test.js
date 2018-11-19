@@ -6,9 +6,12 @@ import { auth } from '../firebase.js';
 describe('Sidebar', () => {
   let wrapper;
   const mockAddUser = jest.fn();
+  const mockUserInfo = { displayName: 'taco', uid: 12345, photoURL: 'url' };
 
   beforeEach(() => {
-    wrapper = shallow(<Sidebar addUser={mockAddUser} />);
+    wrapper = shallow(<Sidebar addUser={mockAddUser} />, {
+      disableLifecycleMethods: true
+    });
   });
 
   it('should match the snapshot', () => {
@@ -16,14 +19,13 @@ describe('Sidebar', () => {
   });
 
   it('should login a user', async () => {
-    const result = { user: 'taco' };
-    auth.signInWithPopup = jest.fn().mockReturnValue(result);
+    auth.signInWithPopup = jest.fn().mockReturnValue({ user: mockUserInfo });
 
     await wrapper.instance().login();
 
     expect(auth.signInWithPopup).toHaveBeenCalled();
-    expect(wrapper.state('user')).toEqual('taco');
-    expect(mockAddUser).toHaveBeenCalledWith('taco');
+    expect(mockAddUser).toHaveBeenCalledWith(mockUserInfo.uid);
+    expect(wrapper.state('user')).toEqual(mockUserInfo);
   });
 
   it('should logout a user', async () => {

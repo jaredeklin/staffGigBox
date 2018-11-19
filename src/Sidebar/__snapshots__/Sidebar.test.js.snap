@@ -26,57 +26,59 @@ ShallowWrapper {
           Log In
 </button>,
         <hr />,
-        <ul>
-          <li>
-                    <NavLink
-                              activeClassName="active"
-                              aria-current="page"
-                              className="nav"
-                              to="/schedule"
-                    >
+        <ul
+          className="sidebar-nav-list"
+>
+          <NavLink
+                    activeClassName="active"
+                    aria-current="page"
+                    className="nav-link"
+                    to="/schedule"
+          >
+                    <li>
                               Schedule
-                    </NavLink>
-          </li>
-          <li>
-                    <NavLink
-                              activeClassName="active"
-                              aria-current="page"
-                              className="nav"
-                              to="/unscheduled-events"
-                    >
+                    </li>
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    aria-current="page"
+                    className="nav-link"
+                    to="/unscheduled-events"
+          >
+                    <li>
                               Unscheduled Events
-                    </NavLink>
-          </li>
-          <li>
-                    <NavLink
-                              activeClassName="active"
-                              aria-current="page"
-                              className="nav"
-                              to="/availability"
-                    >
+                    </li>
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    aria-current="page"
+                    className="nav-link"
+                    to="/availability"
+          >
+                    <li>
                               Availability
-                    </NavLink>
-          </li>
-          <li>
-                    <NavLink
-                              activeClassName="active"
-                              aria-current="page"
-                              className="nav"
-                              to="/add-staff"
-                    >
+                    </li>
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    aria-current="page"
+                    className="nav-link"
+                    to="/add-staff"
+          >
+                    <li>
                               Add Staff
-                    </NavLink>
-          </li>
-          <li>
-                    <NavLink
-                              activeClassName="active"
-                              aria-current="page"
-                              className="nav"
-                              to="/add-events"
-                    >
+                    </li>
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    aria-current="page"
+                    className="nav-link"
+                    to="/add-events"
+          >
+                    <li>
                               Add Events
-                    </NavLink>
-          </li>
+                    </li>
+          </NavLink>
 </ul>,
       ],
     },
@@ -109,219 +111,195 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <li>
-              <NavLink
-                            activeClassName="active"
-                            aria-current="page"
-                            className="nav"
-                            to="/schedule"
-              >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link"
+              to="/schedule"
+>
+              <li>
                             Schedule
-              </NavLink>
-</li>,
-            <li>
-              <NavLink
-                            activeClassName="active"
-                            aria-current="page"
-                            className="nav"
-                            to="/unscheduled-events"
-              >
+              </li>
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link"
+              to="/unscheduled-events"
+>
+              <li>
                             Unscheduled Events
-              </NavLink>
-</li>,
-            <li>
-              <NavLink
-                            activeClassName="active"
-                            aria-current="page"
-                            className="nav"
-                            to="/availability"
-              >
+              </li>
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link"
+              to="/availability"
+>
+              <li>
                             Availability
-              </NavLink>
-</li>,
-            <li>
-              <NavLink
-                            activeClassName="active"
-                            aria-current="page"
-                            className="nav"
-                            to="/add-staff"
-              >
+              </li>
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link"
+              to="/add-staff"
+>
+              <li>
                             Add Staff
-              </NavLink>
-</li>,
-            <li>
-              <NavLink
-                            activeClassName="active"
-                            aria-current="page"
-                            className="nav"
-                            to="/add-events"
-              >
+              </li>
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="nav-link"
+              to="/add-events"
+>
+              <li>
                             Add Events
-              </NavLink>
-</li>,
+              </li>
+</NavLink>,
           ],
+          "className": "sidebar-nav-list",
         },
         "ref": null,
         "rendered": Array [
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": <NavLink
-                activeClassName="active"
-                aria-current="page"
-                className="nav"
-                to="/schedule"
->
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li>
                 Schedule
-</NavLink>,
+</li>,
+              "className": "nav-link",
+              "to": "/schedule",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "activeClassName": "active",
-                "aria-current": "page",
                 "children": "Schedule",
-                "className": "nav",
-                "to": "/schedule",
               },
               "ref": null,
               "rendered": "Schedule",
-              "type": [Function],
+              "type": "li",
             },
-            "type": "li",
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": <NavLink
-                activeClassName="active"
-                aria-current="page"
-                className="nav"
-                to="/unscheduled-events"
->
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li>
                 Unscheduled Events
-</NavLink>,
+</li>,
+              "className": "nav-link",
+              "to": "/unscheduled-events",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "activeClassName": "active",
-                "aria-current": "page",
                 "children": "Unscheduled Events",
-                "className": "nav",
-                "to": "/unscheduled-events",
               },
               "ref": null,
               "rendered": "Unscheduled Events",
-              "type": [Function],
+              "type": "li",
             },
-            "type": "li",
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": <NavLink
-                activeClassName="active"
-                aria-current="page"
-                className="nav"
-                to="/availability"
->
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li>
                 Availability
-</NavLink>,
+</li>,
+              "className": "nav-link",
+              "to": "/availability",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "activeClassName": "active",
-                "aria-current": "page",
                 "children": "Availability",
-                "className": "nav",
-                "to": "/availability",
               },
               "ref": null,
               "rendered": "Availability",
-              "type": [Function],
+              "type": "li",
             },
-            "type": "li",
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": <NavLink
-                activeClassName="active"
-                aria-current="page"
-                className="nav"
-                to="/add-staff"
->
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li>
                 Add Staff
-</NavLink>,
+</li>,
+              "className": "nav-link",
+              "to": "/add-staff",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "activeClassName": "active",
-                "aria-current": "page",
                 "children": "Add Staff",
-                "className": "nav",
-                "to": "/add-staff",
               },
               "ref": null,
               "rendered": "Add Staff",
-              "type": [Function],
+              "type": "li",
             },
-            "type": "li",
+            "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": <NavLink
-                activeClassName="active"
-                aria-current="page"
-                className="nav"
-                to="/add-events"
->
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <li>
                 Add Events
-</NavLink>,
+</li>,
+              "className": "nav-link",
+              "to": "/add-events",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "activeClassName": "active",
-                "aria-current": "page",
                 "children": "Add Events",
-                "className": "nav",
-                "to": "/add-events",
               },
               "ref": null,
               "rendered": "Add Events",
-              "type": [Function],
+              "type": "li",
             },
-            "type": "li",
+            "type": [Function],
           },
         ],
         "type": "ul",
@@ -342,57 +320,59 @@ ShallowWrapper {
             Log In
 </button>,
           <hr />,
-          <ul>
-            <li>
-                        <NavLink
-                                    activeClassName="active"
-                                    aria-current="page"
-                                    className="nav"
-                                    to="/schedule"
-                        >
+          <ul
+            className="sidebar-nav-list"
+>
+            <NavLink
+                        activeClassName="active"
+                        aria-current="page"
+                        className="nav-link"
+                        to="/schedule"
+            >
+                        <li>
                                     Schedule
-                        </NavLink>
-            </li>
-            <li>
-                        <NavLink
-                                    activeClassName="active"
-                                    aria-current="page"
-                                    className="nav"
-                                    to="/unscheduled-events"
-                        >
+                        </li>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        aria-current="page"
+                        className="nav-link"
+                        to="/unscheduled-events"
+            >
+                        <li>
                                     Unscheduled Events
-                        </NavLink>
-            </li>
-            <li>
-                        <NavLink
-                                    activeClassName="active"
-                                    aria-current="page"
-                                    className="nav"
-                                    to="/availability"
-                        >
+                        </li>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        aria-current="page"
+                        className="nav-link"
+                        to="/availability"
+            >
+                        <li>
                                     Availability
-                        </NavLink>
-            </li>
-            <li>
-                        <NavLink
-                                    activeClassName="active"
-                                    aria-current="page"
-                                    className="nav"
-                                    to="/add-staff"
-                        >
+                        </li>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        aria-current="page"
+                        className="nav-link"
+                        to="/add-staff"
+            >
+                        <li>
                                     Add Staff
-                        </NavLink>
-            </li>
-            <li>
-                        <NavLink
-                                    activeClassName="active"
-                                    aria-current="page"
-                                    className="nav"
-                                    to="/add-events"
-                        >
+                        </li>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        aria-current="page"
+                        className="nav-link"
+                        to="/add-events"
+            >
+                        <li>
                                     Add Events
-                        </NavLink>
-            </li>
+                        </li>
+            </NavLink>
 </ul>,
         ],
       },
@@ -425,219 +405,195 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <li>
-                <NavLink
-                                activeClassName="active"
-                                aria-current="page"
-                                className="nav"
-                                to="/schedule"
-                >
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="nav-link"
+                to="/schedule"
+>
+                <li>
                                 Schedule
-                </NavLink>
-</li>,
-              <li>
-                <NavLink
-                                activeClassName="active"
-                                aria-current="page"
-                                className="nav"
-                                to="/unscheduled-events"
-                >
+                </li>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="nav-link"
+                to="/unscheduled-events"
+>
+                <li>
                                 Unscheduled Events
-                </NavLink>
-</li>,
-              <li>
-                <NavLink
-                                activeClassName="active"
-                                aria-current="page"
-                                className="nav"
-                                to="/availability"
-                >
+                </li>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="nav-link"
+                to="/availability"
+>
+                <li>
                                 Availability
-                </NavLink>
-</li>,
-              <li>
-                <NavLink
-                                activeClassName="active"
-                                aria-current="page"
-                                className="nav"
-                                to="/add-staff"
-                >
+                </li>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="nav-link"
+                to="/add-staff"
+>
+                <li>
                                 Add Staff
-                </NavLink>
-</li>,
-              <li>
-                <NavLink
-                                activeClassName="active"
-                                aria-current="page"
-                                className="nav"
-                                to="/add-events"
-                >
+                </li>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="nav-link"
+                to="/add-events"
+>
+                <li>
                                 Add Events
-                </NavLink>
-</li>,
+                </li>
+</NavLink>,
             ],
+            "className": "sidebar-nav-list",
           },
           "ref": null,
           "rendered": Array [
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": <NavLink
-                  activeClassName="active"
-                  aria-current="page"
-                  className="nav"
-                  to="/schedule"
->
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <li>
                   Schedule
-</NavLink>,
+</li>,
+                "className": "nav-link",
+                "to": "/schedule",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "host",
                 "props": Object {
-                  "activeClassName": "active",
-                  "aria-current": "page",
                   "children": "Schedule",
-                  "className": "nav",
-                  "to": "/schedule",
                 },
                 "ref": null,
                 "rendered": "Schedule",
-                "type": [Function],
+                "type": "li",
               },
-              "type": "li",
+              "type": [Function],
             },
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": <NavLink
-                  activeClassName="active"
-                  aria-current="page"
-                  className="nav"
-                  to="/unscheduled-events"
->
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <li>
                   Unscheduled Events
-</NavLink>,
+</li>,
+                "className": "nav-link",
+                "to": "/unscheduled-events",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "host",
                 "props": Object {
-                  "activeClassName": "active",
-                  "aria-current": "page",
                   "children": "Unscheduled Events",
-                  "className": "nav",
-                  "to": "/unscheduled-events",
                 },
                 "ref": null,
                 "rendered": "Unscheduled Events",
-                "type": [Function],
+                "type": "li",
               },
-              "type": "li",
+              "type": [Function],
             },
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": <NavLink
-                  activeClassName="active"
-                  aria-current="page"
-                  className="nav"
-                  to="/availability"
->
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <li>
                   Availability
-</NavLink>,
+</li>,
+                "className": "nav-link",
+                "to": "/availability",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "host",
                 "props": Object {
-                  "activeClassName": "active",
-                  "aria-current": "page",
                   "children": "Availability",
-                  "className": "nav",
-                  "to": "/availability",
                 },
                 "ref": null,
                 "rendered": "Availability",
-                "type": [Function],
+                "type": "li",
               },
-              "type": "li",
+              "type": [Function],
             },
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": <NavLink
-                  activeClassName="active"
-                  aria-current="page"
-                  className="nav"
-                  to="/add-staff"
->
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <li>
                   Add Staff
-</NavLink>,
+</li>,
+                "className": "nav-link",
+                "to": "/add-staff",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "host",
                 "props": Object {
-                  "activeClassName": "active",
-                  "aria-current": "page",
                   "children": "Add Staff",
-                  "className": "nav",
-                  "to": "/add-staff",
                 },
                 "ref": null,
                 "rendered": "Add Staff",
-                "type": [Function],
+                "type": "li",
               },
-              "type": "li",
+              "type": [Function],
             },
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
-                "children": <NavLink
-                  activeClassName="active"
-                  aria-current="page"
-                  className="nav"
-                  to="/add-events"
->
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <li>
                   Add Events
-</NavLink>,
+</li>,
+                "className": "nav-link",
+                "to": "/add-events",
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "function",
+                "nodeType": "host",
                 "props": Object {
-                  "activeClassName": "active",
-                  "aria-current": "page",
                   "children": "Add Events",
-                  "className": "nav",
-                  "to": "/add-events",
                 },
                 "ref": null,
                 "rendered": "Add Events",
-                "type": [Function],
+                "type": "li",
               },
-              "type": "li",
+              "type": [Function],
             },
           ],
           "type": "ul",
@@ -652,6 +608,7 @@ ShallowWrapper {
         "enableComponentDidUpdateOnSetState": true,
       },
     },
+    "disableLifecycleMethods": true,
   },
 }
 `;
