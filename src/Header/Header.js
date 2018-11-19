@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ScheduleNavBar from '../ScheduleNavBar';
+import ScheduleNavBar from '../ScheduleNavBar/ScheduleNavBar';
 
 const Header = ({ location }) => {
   const getHeaderText = () => {
