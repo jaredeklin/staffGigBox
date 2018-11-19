@@ -7,7 +7,9 @@ const moment = require('moment');
 const ScheduleContainer = ({
   location
 }) => {
-  const sortedSchedule = schedule.sort((a, b) => {
+  const getVenueSchedule = venue => {
+    return schedule.filter(event => event.venue === venue);
+  };
     const date1 = moment(a.date, 'YYYY-MM-DD');
     const date2 = moment(b.date, 'YYYY-MM-DD');
     return date1 - date2;
