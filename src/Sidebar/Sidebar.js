@@ -32,7 +32,7 @@ export class Sidebar extends Component {
 
   logout = async () => {
     await auth.signOut();
-    this.setState({ user: null });
+    this.setState({ user: null, showDropdown: false });
     this.props.addUser(null);
   };
 
