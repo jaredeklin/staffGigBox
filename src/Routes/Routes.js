@@ -1,16 +1,16 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import ScheduleContainer from './ScheduleContainer/ScheduleContainer';
-import { Availability } from './Availability/Availability';
-import { StaffForm } from './StaffForm/StaffForm';
-import { EventForm } from './EventForm/EventForm';
+import ScheduleContainer from '../ScheduleContainer/ScheduleContainer';
+import { Availability } from '../Availability/Availability';
+import { StaffForm } from '../StaffForm/StaffForm';
+import { EventForm } from '../EventForm/EventForm';
 
 const Routes = ({ appState, methods }) => {
   const { addEvent, addStaff } = methods;
 
   return (
     <Switch>
-      <Route exact path="/" />
+      {/* <Route exact path="/" /> */}
       <Route
         exact
         path="/schedule"
@@ -71,7 +71,7 @@ const Routes = ({ appState, methods }) => {
         path="/add-events"
         render={() => <EventForm addEvent={addEvent} />}
       />
-      <Route render={() => <Redirect to="/" />} />
+      <Route render={() => <Redirect to="/schedule" />} />
     </Switch>
   );
 };

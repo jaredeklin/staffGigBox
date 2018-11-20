@@ -3,7 +3,7 @@ import { Api } from '../Api/Api';
 import { Sidebar } from '../Sidebar/Sidebar';
 import './App.css';
 import Header from '../Header/Header';
-import Routes from '../Routes';
+import Routes from '../Routes/Routes';
 
 class App extends Component {
   constructor(props) {
