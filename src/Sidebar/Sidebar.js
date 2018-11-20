@@ -3,6 +3,7 @@ import { auth, provider } from '../firebase.js';
 import './Sidebar.css';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import UserDropdownMenu from '../UserDropdownMenu/UserDropdownMenu.js';
 
 export class Sidebar extends Component {
   constructor(props) {
@@ -70,9 +71,10 @@ export class Sidebar extends Component {
               </button>
 
               {this.state.showDropdown && (
-                <div className="dropdown-content">
-                  <li onClick={this.logout}>Log Out</li>
-                </div>
+                <UserDropdownMenu
+                  logout={this.logout}
+                  handleDropdown={this.handleDropdown}
+                />
               )}
             </div>
           </div>
