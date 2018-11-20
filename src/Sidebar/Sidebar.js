@@ -22,9 +22,9 @@ export class Sidebar extends Component {
 
     this.setState({
       user: {
-      uid,
-      photoURL,
-      displayName
+        uid,
+        photoURL,
+        displayName
       }
     });
     this.props.addUser(uid);
@@ -38,19 +38,19 @@ export class Sidebar extends Component {
 
   componentDidMount = () => {
     auth.onAuthStateChanged(user => {
-      const { uid, photoURL, displayName } = user;
-
       if (user) {
-        this.setState({ user: { uid, photoURL, displayName } });
-      }
+        const { uid, photoURL, displayName } = user;
 
-      this.props.addUser(uid);
+        this.setState({ user: { uid, photoURL, displayName } });
+        this.props.addUser(user.uid);
+      }
     });
   };
 
-  handleDropdown = e => {
+  handleDropdown = () => {
     this.setState({ showDropdown: !this.state.showDropdown });
   };
+
   render() {
     return (
       <aside>
@@ -85,23 +85,23 @@ export class Sidebar extends Component {
         <ul className="sidebar-nav-list">
           <NavLink to="/schedule" className="nav-link">
             <li>Schedule</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/unscheduled-events" className="nav-link">
             <li>Unscheduled Events</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/availability" className="nav-link">
             <li>Availability</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/add-staff" className="nav-link">
             <li>Add Staff</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/add-events" className="nav-link">
             <li>Add Events</li>
-            </NavLink>
+          </NavLink>
         </ul>
       </aside>
     );
