@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Exo');
 
-
 .event-form {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  /* display: grid;
+  grid-template-columns: 50% 50%; */
+  border: 1px solid lightgrey;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 0px lightgrey;
 }
 
 select,
