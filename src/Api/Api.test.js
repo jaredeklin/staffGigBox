@@ -353,4 +353,21 @@ describe('Api', () => {
       expect(window.fetch).toHaveBeenCalledWith(url);
     });
   });
+  describe('getHeaderText', () => {
+    it('should return correct text', () => {
+      expect(api.getHeaderText({ pathname: '/availability' })).toEqual(
+        'Availability'
+      );
+      expect(api.getHeaderText({ pathname: '/add-events' })).toEqual(
+        'Add Events'
+      );
+      expect(api.getHeaderText({ pathname: '/add-staff' })).toEqual(
+        'Add Staff'
+      );
+      expect(api.getHeaderText({ pathname: '/unscheduled-events' })).toEqual(
+        'Unscheduled Events'
+      );
+      expect(api.getHeaderText({ pathname: '/schedule' })).toEqual('Schedule');
+    });
+  });
 });
