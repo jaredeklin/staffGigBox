@@ -45,4 +45,13 @@ describe('Sidebar', () => {
       expect(auth.onAuthStateChanged).toHaveBeenCalled();
     });
   });
+
+  describe('handleDropdown', () => {
+    it('should update showDropdown state', () => {
+      expect(wrapper.state('showDropdown')).toEqual(false);
+
+      wrapper.instance().handleDropdown();
+      expect(wrapper.state('showDropdown')).toEqual(true);
+    });
+  });
 });
