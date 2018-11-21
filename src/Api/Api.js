@@ -307,4 +307,23 @@ export class Api {
 
     return array;
   };
+
+  getHeaderText = ({ pathname }) => {
+    switch (pathname) {
+      case '/availability':
+        return 'Availability';
+
+      case '/add-events':
+        return 'Add Events';
+
+      case '/add-staff':
+        return 'Add Staff';
+
+      case '/unscheduled-events':
+        return 'Unscheduled Events';
+
+      default:
+        return 'Schedule';
+    }
+  };
 }
