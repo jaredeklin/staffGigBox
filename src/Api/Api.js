@@ -326,4 +326,45 @@ export class Api {
         return 'Schedule';
     }
   };
+
+  getIndividualSchedules = (
+    pathname,
+    schedule,
+    unscheduledEvents,
+    currentUser
+  ) => {
+    const getVenueSchedule = venue => {
+      return schedule.filter(event => event.venue === venue);
+    };
+
+    const getIndividualSchedule = () => {
+      const individualSchedule = schedule.filter(event => {
+        return event.staff.find(
+          staff => staff.staff_id === currentUser.staff_id
+        );
+      });
+
+      return individualSchedule;
+    };
+
+    switch (pathname) {
+      case '/schedule/gothic':
+        return getVenueSchedule('Gothic Theatre');
+
+      case '/schedule/ogden':
+        return getVenueSchedule('Ogden Theatre');
+
+      case '/schedule/bluebird':
+        return getVenueSchedule('Bluebird Theater');
+
+      case '/schedule/individual':
+        return getIndividualSchedule();
+
+      case '/unscheduled-events':
+        return unscheduledEvents;
+
+      default:
+        return schedule;
+    }
+  };
 }
