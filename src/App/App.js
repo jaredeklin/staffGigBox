@@ -35,6 +35,8 @@ class App extends Component {
           admin: staffMember.bar_manager
         });
       }
+    } else {
+      this.setState({ currentUser: {}, admin: false });
     }
   };
 
