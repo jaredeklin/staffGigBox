@@ -7,8 +7,14 @@ const moment = require('moment');
 const api = new Api();
 
 const ScheduleContainer = ({
-  methods: { editSchedule, deleteFromSchedule, scheduleGenerator },
-  appState: { unscheduledEvents, admin, staff, schedule, currentUser },
+  editSchedule,
+  deleteFromSchedule,
+  scheduleGenerator,
+  unscheduledEvents,
+  admin,
+  staff,
+  schedule,
+  currentUser,
   location
 }) => {
   const correctSchedule = api.getIndividualSchedules(
