@@ -5,8 +5,8 @@ import { Availability } from '../Availability/Availability';
 import { StaffForm } from '../StaffForm/StaffForm';
 import { EventForm } from '../EventForm/EventForm';
 
-const Routes = ({ appState, methods }) => {
-  const { addEvent, addStaff } = methods;
+export const Routes = props => {
+  const { currentUser, addEvent, addStaff, admin } = props;
 
   return (
     <Switch>
