@@ -176,6 +176,8 @@ export const mockSchedule = [
   { ...mockEventInfo, staff: mockEmptyScheduleWName }
 ];
 
+export const mockFEScheduleData = [{ ...mockEventInfo, staff: mockStaff }];
+
 export const mockFillRolesReturn = [
   { event_id: 3, role: 'Bar Manager', staff_id: 5, name: 'TK' },
   {
