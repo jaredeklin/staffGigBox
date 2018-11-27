@@ -1,0 +1,586 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    currentUser={
+        Object {
+            "google_id": "34567G",
+            "staff_id": 1,
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <PropsRoute
+          component={[Function]}
+          currentUser={
+                    Object {
+                              "google_id": "34567G",
+                              "staff_id": 1,
+                            }
+          }
+          exact={true}
+          path="/schedule"
+/>,
+        <PrivateRoute
+          authed={1}
+          component={[Function]}
+          currentUser={
+                    Object {
+                              "google_id": "34567G",
+                              "staff_id": 1,
+                            }
+          }
+          path="/schedule/ogden"
+          redirectTo="/"
+/>,
+        <PrivateRoute
+          authed={1}
+          component={[Function]}
+          currentUser={
+                    Object {
+                              "google_id": "34567G",
+                              "staff_id": 1,
+                            }
+          }
+          path="/schedule/gothic"
+          redirectTo="/"
+/>,
+        <PrivateRoute
+          authed={1}
+          component={[Function]}
+          currentUser={
+                    Object {
+                              "google_id": "34567G",
+                              "staff_id": 1,
+                            }
+          }
+          path="/schedule/bluebird"
+          redirectTo="/"
+/>,
+        <PrivateRoute
+          authed={1}
+          component={[Function]}
+          currentUser={
+                    Object {
+                              "google_id": "34567G",
+                              "staff_id": 1,
+                            }
+          }
+          path="/schedule/individual"
+          redirectTo="/"
+/>,
+        <PrivateRoute
+          authed={undefined}
+          component={[Function]}
+          currentUser={
+                    Object {
+                              "google_id": "34567G",
+                              "staff_id": 1,
+                            }
+          }
+          path="/unscheduled-events"
+          redirectTo="/"
+/>,
+        <PrivateRoute
+          authed={undefined}
+          component={[Function]}
+          currentUserId={1}
+          path="/availability"
+          redirectTo="/"
+/>,
+        <PrivateRoute
+          addStaff={undefined}
+          authed={undefined}
+          component={[Function]}
+          id="34567G"
+          path="/add-staff"
+          redirectTo="/"
+/>,
+        <PrivateRoute
+          addEvent={undefined}
+          authed={undefined}
+          component={[Function]}
+          path="/add-events"
+          redirectTo="/"
+/>,
+        <Redirect
+          push={false}
+          to="/schedule"
+/>,
+        " />",
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "component": [Function],
+          "currentUser": Object {
+            "google_id": "34567G",
+            "staff_id": 1,
+          },
+          "exact": true,
+          "path": "/schedule",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "authed": 1,
+          "component": [Function],
+          "currentUser": Object {
+            "google_id": "34567G",
+            "staff_id": 1,
+          },
+          "path": "/schedule/ogden",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "authed": 1,
+          "component": [Function],
+          "currentUser": Object {
+            "google_id": "34567G",
+            "staff_id": 1,
+          },
+          "path": "/schedule/gothic",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "authed": 1,
+          "component": [Function],
+          "currentUser": Object {
+            "google_id": "34567G",
+            "staff_id": 1,
+          },
+          "path": "/schedule/bluebird",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "authed": 1,
+          "component": [Function],
+          "currentUser": Object {
+            "google_id": "34567G",
+            "staff_id": 1,
+          },
+          "path": "/schedule/individual",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "authed": undefined,
+          "component": [Function],
+          "currentUser": Object {
+            "google_id": "34567G",
+            "staff_id": 1,
+          },
+          "path": "/unscheduled-events",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "authed": undefined,
+          "component": [Function],
+          "currentUserId": 1,
+          "path": "/availability",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "addStaff": undefined,
+          "authed": undefined,
+          "component": [Function],
+          "id": "34567G",
+          "path": "/add-staff",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "addEvent": undefined,
+          "authed": undefined,
+          "component": [Function],
+          "path": "/add-events",
+          "redirectTo": "/",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "push": false,
+          "to": "/schedule",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      " />",
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <PropsRoute
+            component={[Function]}
+            currentUser={
+                        Object {
+                                    "google_id": "34567G",
+                                    "staff_id": 1,
+                                  }
+            }
+            exact={true}
+            path="/schedule"
+/>,
+          <PrivateRoute
+            authed={1}
+            component={[Function]}
+            currentUser={
+                        Object {
+                                    "google_id": "34567G",
+                                    "staff_id": 1,
+                                  }
+            }
+            path="/schedule/ogden"
+            redirectTo="/"
+/>,
+          <PrivateRoute
+            authed={1}
+            component={[Function]}
+            currentUser={
+                        Object {
+                                    "google_id": "34567G",
+                                    "staff_id": 1,
+                                  }
+            }
+            path="/schedule/gothic"
+            redirectTo="/"
+/>,
+          <PrivateRoute
+            authed={1}
+            component={[Function]}
+            currentUser={
+                        Object {
+                                    "google_id": "34567G",
+                                    "staff_id": 1,
+                                  }
+            }
+            path="/schedule/bluebird"
+            redirectTo="/"
+/>,
+          <PrivateRoute
+            authed={1}
+            component={[Function]}
+            currentUser={
+                        Object {
+                                    "google_id": "34567G",
+                                    "staff_id": 1,
+                                  }
+            }
+            path="/schedule/individual"
+            redirectTo="/"
+/>,
+          <PrivateRoute
+            authed={undefined}
+            component={[Function]}
+            currentUser={
+                        Object {
+                                    "google_id": "34567G",
+                                    "staff_id": 1,
+                                  }
+            }
+            path="/unscheduled-events"
+            redirectTo="/"
+/>,
+          <PrivateRoute
+            authed={undefined}
+            component={[Function]}
+            currentUserId={1}
+            path="/availability"
+            redirectTo="/"
+/>,
+          <PrivateRoute
+            addStaff={undefined}
+            authed={undefined}
+            component={[Function]}
+            id="34567G"
+            path="/add-staff"
+            redirectTo="/"
+/>,
+          <PrivateRoute
+            addEvent={undefined}
+            authed={undefined}
+            component={[Function]}
+            path="/add-events"
+            redirectTo="/"
+/>,
+          <Redirect
+            push={false}
+            to="/schedule"
+/>,
+          " />",
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "component": [Function],
+            "currentUser": Object {
+              "google_id": "34567G",
+              "staff_id": 1,
+            },
+            "exact": true,
+            "path": "/schedule",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "authed": 1,
+            "component": [Function],
+            "currentUser": Object {
+              "google_id": "34567G",
+              "staff_id": 1,
+            },
+            "path": "/schedule/ogden",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "authed": 1,
+            "component": [Function],
+            "currentUser": Object {
+              "google_id": "34567G",
+              "staff_id": 1,
+            },
+            "path": "/schedule/gothic",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "authed": 1,
+            "component": [Function],
+            "currentUser": Object {
+              "google_id": "34567G",
+              "staff_id": 1,
+            },
+            "path": "/schedule/bluebird",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "authed": 1,
+            "component": [Function],
+            "currentUser": Object {
+              "google_id": "34567G",
+              "staff_id": 1,
+            },
+            "path": "/schedule/individual",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "authed": undefined,
+            "component": [Function],
+            "currentUser": Object {
+              "google_id": "34567G",
+              "staff_id": 1,
+            },
+            "path": "/unscheduled-events",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "authed": undefined,
+            "component": [Function],
+            "currentUserId": 1,
+            "path": "/availability",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "addStaff": undefined,
+            "authed": undefined,
+            "component": [Function],
+            "id": "34567G",
+            "path": "/add-staff",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "addEvent": undefined,
+            "authed": undefined,
+            "component": [Function],
+            "path": "/add-events",
+            "redirectTo": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "push": false,
+            "to": "/schedule",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        " />",
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
