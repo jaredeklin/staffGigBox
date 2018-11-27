@@ -1,77 +1,84 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import ScheduleContainer from '../ScheduleContainer/ScheduleContainer';
 import { Availability } from '../Availability/Availability';
 import { StaffForm } from '../StaffForm/StaffForm';
 import { EventForm } from '../EventForm/EventForm';
+import { PropsRoute, PrivateRoute } from 'react-router-with-props';
 
 export const Routes = props => {
   const { currentUser, addEvent, addStaff, admin } = props;
 
   return (
     <Switch>
-      {/* <Route exact path="/" /> */}
-      <Route
+      <PropsRoute
         exact
         path="/schedule"
-        render={() => (
-          <ScheduleContainer methods={methods} appState={appState} />
-        )}
+        component={ScheduleContainer}
+        {...props}
       />
-      <Route
+      <PrivateRoute
         path="/schedule/ogden"
-        render={() => (
-          <ScheduleContainer methods={methods} appState={appState} />
-        )}
+        authed={currentUser.staff_id}
+        redirectTo="/"
+        component={ScheduleContainer}
+        {...props}
       />
-      <Route
+      <PrivateRoute
         path="/schedule/gothic"
-        render={() => (
-          <ScheduleContainer methods={methods} appState={appState} />
-        )}
+        authed={currentUser.staff_id}
+        redirectTo="/"
+        component={ScheduleContainer}
+        {...props}
       />
-      <Route
+      <PrivateRoute
         path="/schedule/bluebird"
-        render={() => (
-          <ScheduleContainer methods={methods} appState={appState} />
-        )}
+        authed={currentUser.staff_id}
+        redirectTo="/"
+        component={ScheduleContainer}
+        {...props}
       />
-      <Route
+      <PrivateRoute
         path="/schedule/individual"
-        render={() => (
-          <ScheduleContainer methods={methods} appState={appState} />
-        )}
+        authed={currentUser.staff_id}
+        redirectTo="/"
+        component={ScheduleContainer}
+        {...props}
       />
-      <Route
+      <PrivateRoute
         path="/unscheduled-events"
-        render={() => (
-          <ScheduleContainer methods={methods} appState={appState} />
-        )}
+        authed={admin}
+        redirectTo="/"
+        component={ScheduleContainer}
+        {...props}
       />
-      {appState.currentUser.staff_id && (
-        <Route
+      {currentUser.staff_id && (
+        <PrivateRoute
           path="/availability"
-          render={() => (
-            <Availability currentUserId={appState.currentUser.staff_id} />
-          )}
+          authed={admin}
+          redirectTo="/"
+          component={Availability}
+          currentUserId={currentUser.staff_id}
         />
       )}
-      {appState.currentUser.google_id && (
-        <Route
+      {currentUser.google_id && (
+        <PrivateRoute
           path="/add-staff"
-          render={() => (
-            <StaffForm
-              addStaff={addStaff}
-              id={appState.currentUser.google_id}
-            />
-          )}
+          authed={admin}
+          redirectTo="/"
+          component={StaffForm}
+          addStaff={addStaff}
+          id={currentUser.google_id}
         />
       )}
-      <Route
+      <PrivateRoute
         path="/add-events"
-        render={() => <EventForm addEvent={addEvent} />}
+        authed={admin}
+        redirectTo="/"
+        component={EventForm}
+        addEvent={addEvent}
       />
-      <Route render={() => <Redirect to="/schedule" />} />
+      <Redirect to="/schedule" /> />
     </Switch>
   );
 };
