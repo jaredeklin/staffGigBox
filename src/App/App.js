@@ -23,7 +23,7 @@ class App extends Component {
     };
   }
 
-  addUser = async id => {
+  addUser = id => {
     const { staff } = this.state;
 
     if (id) {
