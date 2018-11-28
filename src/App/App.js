@@ -182,6 +182,7 @@ class App extends Component {
               deleteFromSchedule={this.deleteFromSchedule}
               scheduleGenerator={this.scheduleGenerator}
               editSchedule={this.editSchedule}
+              api={this.api}
             />
           </div>
         </div>
