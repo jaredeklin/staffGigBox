@@ -2,9 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Schedule } from '../Schedule/Schedule';
-import { Api } from '../Api/Api';
-const moment = require('moment');
-const api = new Api();
 
 const ScheduleContainer = ({
   editSchedule,
@@ -15,7 +12,8 @@ const ScheduleContainer = ({
   staff,
   schedule,
   currentUser,
-  location
+  location,
+  api
 }) => {
   const correctSchedule = api.getIndividualSchedules(
     location.pathname,
@@ -24,13 +22,7 @@ const ScheduleContainer = ({
     currentUser
   );
 
-  const sortedSchedule = correctSchedule.sort((a, b) => {
-    const date1 = moment(a.date, 'YYYY-MM-DD');
-    const date2 = moment(b.date, 'YYYY-MM-DD');
-    return date1 - date2;
-  });
-
-  const events = sortedSchedule.map(event => {
+  const events = correctSchedule.map(event => {
     return (
       <Schedule
         editSchedule={editSchedule}
