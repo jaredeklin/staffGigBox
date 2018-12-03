@@ -3,6 +3,7 @@ import { auth, provider } from '../firebase.js';
 import './Sidebar.css';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import UserDropdownMenu from '../UserDropdownMenu/UserDropdownMenu.js';
 
 export class Sidebar extends Component {
   constructor(props) {
@@ -21,9 +22,9 @@ export class Sidebar extends Component {
 
     this.setState({
       user: {
-      uid,
-      photoURL,
-      displayName
+        uid,
+        photoURL,
+        displayName
       }
     });
     this.props.addUser(uid);
@@ -31,25 +32,25 @@ export class Sidebar extends Component {
 
   logout = async () => {
     await auth.signOut();
-    this.setState({ user: null });
+    this.setState({ user: null, showDropdown: false });
     this.props.addUser(null);
   };
 
   componentDidMount = () => {
     auth.onAuthStateChanged(user => {
-      const { uid, photoURL, displayName } = user;
-
       if (user) {
-        this.setState({ user: { uid, photoURL, displayName } });
-      }
+        const { uid, photoURL, displayName } = user;
 
-      this.props.addUser(uid);
+        this.setState({ user: { uid, photoURL, displayName } });
+        this.props.addUser(user.uid);
+      }
     });
   };
 
-  handleDropdown = e => {
+  handleDropdown = () => {
     this.setState({ showDropdown: !this.state.showDropdown });
   };
+
   render() {
     return (
       <aside>
@@ -70,9 +71,10 @@ export class Sidebar extends Component {
               </button>
 
               {this.state.showDropdown && (
-                <div className="dropdown-content">
-                  <li onClick={this.logout}>Log Out</li>
-                </div>
+                <UserDropdownMenu
+                  logout={this.logout}
+                  handleDropdown={this.handleDropdown}
+                />
               )}
             </div>
           </div>
@@ -83,23 +85,23 @@ export class Sidebar extends Component {
         <ul className="sidebar-nav-list">
           <NavLink to="/schedule" className="nav-link">
             <li>Schedule</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/unscheduled-events" className="nav-link">
             <li>Unscheduled Events</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/availability" className="nav-link">
             <li>Availability</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/add-staff" className="nav-link">
             <li>Add Staff</li>
-            </NavLink>
+          </NavLink>
 
           <NavLink to="/add-events" className="nav-link">
             <li>Add Events</li>
-            </NavLink>
+          </NavLink>
         </ul>
       </aside>
     );

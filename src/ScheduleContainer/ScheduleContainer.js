@@ -2,56 +2,27 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Schedule } from '../Schedule/Schedule';
-const moment = require('moment');
 
 const ScheduleContainer = ({
-  methods: { editSchedule, deleteFromSchedule, scheduleGenerator },
-  appState: { unscheduledEvents, admin, staff, schedule, currentUser },
-  location
+  editSchedule,
+  deleteFromSchedule,
+  scheduleGenerator,
+  unscheduledEvents,
+  admin,
+  staff,
+  schedule,
+  currentUser,
+  location,
+  api
 }) => {
-  const getVenueSchedule = venue => {
-    return schedule.filter(event => event.venue === venue);
-  };
+  const correctSchedule = api.getIndividualSchedules(
+    location.pathname,
+    schedule,
+    unscheduledEvents,
+    currentUser
+  );
 
-  const getIndividualSchedule = () => {
-    const individualSchedule = schedule.filter(event => {
-      return event.staff.find(staff => staff.staff_id === currentUser.staff_id);
-    });
-
-    return individualSchedule;
-  };
-
-  const getSchedule = pathname => {
-    switch (pathname) {
-      case '/schedule/gothic':
-        return getVenueSchedule('Gothic Theatre');
-
-      case '/schedule/ogden':
-        return getVenueSchedule('Ogden Theatre');
-
-      case '/schedule/bluebird':
-        return getVenueSchedule('Bluebird Theater');
-
-      case '/schedule/individual':
-        return getIndividualSchedule();
-
-      case '/unscheduled-events':
-        return unscheduledEvents;
-
-      default:
-        return schedule;
-    }
-  };
-
-  const correctSchedule = getSchedule(location.pathname);
-
-  const sortedSchedule = correctSchedule.sort((a, b) => {
-    const date1 = moment(a.date, 'YYYY-MM-DD');
-    const date2 = moment(b.date, 'YYYY-MM-DD');
-    return date1 - date2;
-  });
-
-  const events = sortedSchedule.map(event => {
+  const events = correctSchedule.map(event => {
     return (
       <Schedule
         editSchedule={editSchedule}

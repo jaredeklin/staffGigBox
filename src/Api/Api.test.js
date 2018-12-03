@@ -7,7 +7,9 @@ import {
   mockApiSchedule,
   mockEventInfo,
   mockApiScheduleReturn,
-  mockEventsInfo
+  mockEventsInfo,
+  mockUnscheduledEvents,
+  mockFEScheduleData
 } from '../mockData';
 
 describe('Api', () => {
@@ -351,6 +353,77 @@ describe('Api', () => {
 
       api.checkSchedule('2018-07-20');
       expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+  });
+  describe('getHeaderText', () => {
+    it('should return correct text', () => {
+      expect(api.getHeaderText({ pathname: '/availability' })).toEqual(
+        'Availability'
+      );
+      expect(api.getHeaderText({ pathname: '/add-events' })).toEqual(
+        'Add Events'
+      );
+      expect(api.getHeaderText({ pathname: '/add-staff' })).toEqual(
+        'Add Staff'
+      );
+      expect(api.getHeaderText({ pathname: '/unscheduled-events' })).toEqual(
+        'Unscheduled Events'
+      );
+      expect(api.getHeaderText({ pathname: '/schedule' })).toEqual('Schedule');
+    });
+  });
+
+  describe('getIndividualSchedules', () => {
+    const mockCurrentUser = { staff_id: 3 };
+    const mockSchedules = [
+      { ...mockFEScheduleData[0], venue: 'Bluebird Theater' },
+      { ...mockFEScheduleData[0], venue: 'Gothic Theatre' },
+      { ...mockFEScheduleData[0], venue: 'Ogden Theatre' }
+    ];
+
+    it('should return the schedule when path is schedule', () => {
+      expect(
+        api.getIndividualSchedules('/schedule', mockFEScheduleData)
+      ).toEqual(mockFEScheduleData);
+    });
+
+    it('should return unscheduled events when path is unscheduled events', () => {
+      expect(
+        api.getIndividualSchedules(
+          '/unscheduled-events',
+          mockFEScheduleData,
+          mockUnscheduledEvents
+        )
+      ).toEqual(mockUnscheduledEvents);
+    });
+
+    it('should return an individual schedule', () => {
+      expect(
+        api.getIndividualSchedules(
+          '/schedule/individual',
+          mockSchedules,
+          mockUnscheduledEvents,
+          mockCurrentUser
+        )
+      ).toEqual(mockSchedules);
+    });
+
+    it('should return the bluebird schedule', () => {
+      expect(
+        api.getIndividualSchedules('/schedule/bluebird', mockSchedules)
+      ).toEqual([mockSchedules[0]]);
+    });
+
+    it('should return the gothic schedule', () => {
+      expect(
+        api.getIndividualSchedules('/schedule/gothic', mockSchedules)
+      ).toEqual([mockSchedules[1]]);
+    });
+
+    it('should return the Ogden schedule', () => {
+      expect(
+        api.getIndividualSchedules('/schedule/ogden', mockSchedules)
+      ).toEqual([mockSchedules[2]]);
     });
   });
 });

@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 export class Api {
   constructor() {
     this.url = process.env.REACT_APP_API_HOST || 'http://localhost:3000/';
@@ -306,5 +308,75 @@ export class Api {
     }
 
     return array;
+  };
+
+  getHeaderText = ({ pathname }) => {
+    switch (pathname) {
+      case '/availability':
+        return 'Availability';
+
+      case '/add-events':
+        return 'Add Events';
+
+      case '/add-staff':
+        return 'Add Staff';
+
+      case '/unscheduled-events':
+        return 'Unscheduled Events';
+
+      default:
+        return 'Schedule';
+    }
+  };
+
+  getIndividualSchedules = (
+    pathname,
+    schedule,
+    unscheduledEvents,
+    currentUser
+  ) => {
+    const sortedSchedule = schedule.sort((a, b) => {
+      const date1 = moment(a.date, 'YYYY-MM-DD');
+      const date2 = moment(b.date, 'YYYY-MM-DD');
+      return date1 - date2;
+    });
+
+    const getVenueSchedule = venue => {
+      return sortedSchedule.filter(event => event.venue === venue);
+    };
+
+    const getIndividualSchedule = () => {
+      const individualSchedule = sortedSchedule.filter(event => {
+        return event.staff.find(
+          staff => staff.staff_id === currentUser.staff_id
+        );
+      });
+
+      return individualSchedule;
+    };
+
+    switch (pathname) {
+      case '/schedule/gothic':
+        return getVenueSchedule('Gothic Theatre');
+
+      case '/schedule/ogden':
+        return getVenueSchedule('Ogden Theatre');
+
+      case '/schedule/bluebird':
+        return getVenueSchedule('Bluebird Theater');
+
+      case '/schedule/individual':
+        return getIndividualSchedule();
+
+      case '/unscheduled-events':
+        return unscheduledEvents.sort((a, b) => {
+          const date1 = moment(a.date, 'YYYY-MM-DD');
+          const date2 = moment(b.date, 'YYYY-MM-DD');
+          return date1 - date2;
+        });
+
+      default:
+        return schedule;
+    }
   };
 }

@@ -28,28 +28,45 @@ ShallowWrapper {
           <div
                     className="main-display-container"
           >
-                    <Routes
-                              appState={
-                                        Object {
-                                                  "addNewStaff": false,
-                                                  "admin": false,
-                                                  "currentUser": Object {},
-                                                  "events": Array [],
-                                                  "isCurrentStaff": false,
-                                                  "schedule": Array [],
-                                                  "staff": Array [],
-                                                  "unscheduledEvents": Array [],
+                    <Unknown
+                              addEvent={[Function]}
+                              addNewStaff={false}
+                              addStaff={[Function]}
+                              admin={false}
+                              api={
+                                        Api {
+                                                  "availableStaff": Array [],
+                                                  "buildScheduleWithRoles": [Function],
+                                                  "checkAvailability": [Function],
+                                                  "checkSchedule": [Function],
+                                                  "deleteAvailability": [Function],
+                                                  "fillRoles": [Function],
+                                                  "findAvailableStaff": [Function],
+                                                  "getAvailability": [Function],
+                                                  "getClassName": [Function],
+                                                  "getEvents": [Function],
+                                                  "getHeaderText": [Function],
+                                                  "getIndividualSchedules": [Function],
+                                                  "getSchedule": [Function],
+                                                  "getStaff": [Function],
+                                                  "modifySchedule": [Function],
+                                                  "postAvailability": [Function],
+                                                  "postEvent": [Function],
+                                                  "postSchedule": [Function],
+                                                  "rolesRegex": [Function],
+                                                  "shuffleStaffArray": [Function],
+                                                  "url": "http://localhost:3000/",
                                                 }
                               }
-                              methods={
-                                        Object {
-                                                  "addEvent": [Function],
-                                                  "addStaff": [Function],
-                                                  "deleteFromSchedule": [Function],
-                                                  "editSchedule": [Function],
-                                                  "scheduleGenerator": [Function],
-                                                }
-                              }
+                              currentUser={Object {}}
+                              deleteFromSchedule={[Function]}
+                              editSchedule={[Function]}
+                              events={Array []}
+                              isCurrentStaff={false}
+                              schedule={Array []}
+                              scheduleGenerator={[Function]}
+                              staff={Array []}
+                              unscheduledEvents={Array []}
                     />
           </div>
 </div>,
@@ -79,28 +96,45 @@ ShallowWrapper {
             <div
               className="main-display-container"
 >
-              <Routes
-                            appState={
-                                          Object {
-                                                        "addNewStaff": false,
-                                                        "admin": false,
-                                                        "currentUser": Object {},
-                                                        "events": Array [],
-                                                        "isCurrentStaff": false,
-                                                        "schedule": Array [],
-                                                        "staff": Array [],
-                                                        "unscheduledEvents": Array [],
+              <Unknown
+                            addEvent={[Function]}
+                            addNewStaff={false}
+                            addStaff={[Function]}
+                            admin={false}
+                            api={
+                                          Api {
+                                                        "availableStaff": Array [],
+                                                        "buildScheduleWithRoles": [Function],
+                                                        "checkAvailability": [Function],
+                                                        "checkSchedule": [Function],
+                                                        "deleteAvailability": [Function],
+                                                        "fillRoles": [Function],
+                                                        "findAvailableStaff": [Function],
+                                                        "getAvailability": [Function],
+                                                        "getClassName": [Function],
+                                                        "getEvents": [Function],
+                                                        "getHeaderText": [Function],
+                                                        "getIndividualSchedules": [Function],
+                                                        "getSchedule": [Function],
+                                                        "getStaff": [Function],
+                                                        "modifySchedule": [Function],
+                                                        "postAvailability": [Function],
+                                                        "postEvent": [Function],
+                                                        "postSchedule": [Function],
+                                                        "rolesRegex": [Function],
+                                                        "shuffleStaffArray": [Function],
+                                                        "url": "http://localhost:3000/",
                                                       }
                             }
-                            methods={
-                                          Object {
-                                                        "addEvent": [Function],
-                                                        "addStaff": [Function],
-                                                        "deleteFromSchedule": [Function],
-                                                        "editSchedule": [Function],
-                                                        "scheduleGenerator": [Function],
-                                                      }
-                            }
+                            currentUser={Object {}}
+                            deleteFromSchedule={[Function]}
+                            editSchedule={[Function]}
+                            events={Array []}
+                            isCurrentStaff={false}
+                            schedule={Array []}
+                            scheduleGenerator={[Function]}
+                            staff={Array []}
+                            unscheduledEvents={Array []}
               />
 </div>,
           ],
@@ -122,28 +156,45 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <Routes
-                appState={
-                                Object {
-                                                "addNewStaff": false,
-                                                "admin": false,
-                                                "currentUser": Object {},
-                                                "events": Array [],
-                                                "isCurrentStaff": false,
-                                                "schedule": Array [],
-                                                "staff": Array [],
-                                                "unscheduledEvents": Array [],
+              "children": <Unknown
+                addEvent={[Function]}
+                addNewStaff={false}
+                addStaff={[Function]}
+                admin={false}
+                api={
+                                Api {
+                                                "availableStaff": Array [],
+                                                "buildScheduleWithRoles": [Function],
+                                                "checkAvailability": [Function],
+                                                "checkSchedule": [Function],
+                                                "deleteAvailability": [Function],
+                                                "fillRoles": [Function],
+                                                "findAvailableStaff": [Function],
+                                                "getAvailability": [Function],
+                                                "getClassName": [Function],
+                                                "getEvents": [Function],
+                                                "getHeaderText": [Function],
+                                                "getIndividualSchedules": [Function],
+                                                "getSchedule": [Function],
+                                                "getStaff": [Function],
+                                                "modifySchedule": [Function],
+                                                "postAvailability": [Function],
+                                                "postEvent": [Function],
+                                                "postSchedule": [Function],
+                                                "rolesRegex": [Function],
+                                                "shuffleStaffArray": [Function],
+                                                "url": "http://localhost:3000/",
                                               }
                 }
-                methods={
-                                Object {
-                                                "addEvent": [Function],
-                                                "addStaff": [Function],
-                                                "deleteFromSchedule": [Function],
-                                                "editSchedule": [Function],
-                                                "scheduleGenerator": [Function],
-                                              }
-                }
+                currentUser={Object {}}
+                deleteFromSchedule={[Function]}
+                editSchedule={[Function]}
+                events={Array []}
+                isCurrentStaff={false}
+                schedule={Array []}
+                scheduleGenerator={[Function]}
+                staff={Array []}
+                unscheduledEvents={Array []}
 />,
               "className": "main-display-container",
             },
@@ -153,23 +204,42 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "appState": Object {
-                  "addNewStaff": false,
-                  "admin": false,
-                  "currentUser": Object {},
-                  "events": Array [],
-                  "isCurrentStaff": false,
-                  "schedule": Array [],
-                  "staff": Array [],
-                  "unscheduledEvents": Array [],
+                "addEvent": [Function],
+                "addNewStaff": false,
+                "addStaff": [Function],
+                "admin": false,
+                "api": Api {
+                  "availableStaff": Array [],
+                  "buildScheduleWithRoles": [Function],
+                  "checkAvailability": [Function],
+                  "checkSchedule": [Function],
+                  "deleteAvailability": [Function],
+                  "fillRoles": [Function],
+                  "findAvailableStaff": [Function],
+                  "getAvailability": [Function],
+                  "getClassName": [Function],
+                  "getEvents": [Function],
+                  "getHeaderText": [Function],
+                  "getIndividualSchedules": [Function],
+                  "getSchedule": [Function],
+                  "getStaff": [Function],
+                  "modifySchedule": [Function],
+                  "postAvailability": [Function],
+                  "postEvent": [Function],
+                  "postSchedule": [Function],
+                  "rolesRegex": [Function],
+                  "shuffleStaffArray": [Function],
+                  "url": "http://localhost:3000/",
                 },
-                "methods": Object {
-                  "addEvent": [Function],
-                  "addStaff": [Function],
-                  "deleteFromSchedule": [Function],
-                  "editSchedule": [Function],
-                  "scheduleGenerator": [Function],
-                },
+                "currentUser": Object {},
+                "deleteFromSchedule": [Function],
+                "editSchedule": [Function],
+                "events": Array [],
+                "isCurrentStaff": false,
+                "schedule": Array [],
+                "scheduleGenerator": [Function],
+                "staff": Array [],
+                "unscheduledEvents": Array [],
               },
               "ref": null,
               "rendered": null,
@@ -200,28 +270,45 @@ ShallowWrapper {
             <div
                         className="main-display-container"
             >
-                        <Routes
-                                    appState={
-                                                Object {
-                                                            "addNewStaff": false,
-                                                            "admin": false,
-                                                            "currentUser": Object {},
-                                                            "events": Array [],
-                                                            "isCurrentStaff": false,
-                                                            "schedule": Array [],
-                                                            "staff": Array [],
-                                                            "unscheduledEvents": Array [],
+                        <Unknown
+                                    addEvent={[Function]}
+                                    addNewStaff={false}
+                                    addStaff={[Function]}
+                                    admin={false}
+                                    api={
+                                                Api {
+                                                            "availableStaff": Array [],
+                                                            "buildScheduleWithRoles": [Function],
+                                                            "checkAvailability": [Function],
+                                                            "checkSchedule": [Function],
+                                                            "deleteAvailability": [Function],
+                                                            "fillRoles": [Function],
+                                                            "findAvailableStaff": [Function],
+                                                            "getAvailability": [Function],
+                                                            "getClassName": [Function],
+                                                            "getEvents": [Function],
+                                                            "getHeaderText": [Function],
+                                                            "getIndividualSchedules": [Function],
+                                                            "getSchedule": [Function],
+                                                            "getStaff": [Function],
+                                                            "modifySchedule": [Function],
+                                                            "postAvailability": [Function],
+                                                            "postEvent": [Function],
+                                                            "postSchedule": [Function],
+                                                            "rolesRegex": [Function],
+                                                            "shuffleStaffArray": [Function],
+                                                            "url": "http://localhost:3000/",
                                                           }
                                     }
-                                    methods={
-                                                Object {
-                                                            "addEvent": [Function],
-                                                            "addStaff": [Function],
-                                                            "deleteFromSchedule": [Function],
-                                                            "editSchedule": [Function],
-                                                            "scheduleGenerator": [Function],
-                                                          }
-                                    }
+                                    currentUser={Object {}}
+                                    deleteFromSchedule={[Function]}
+                                    editSchedule={[Function]}
+                                    events={Array []}
+                                    isCurrentStaff={false}
+                                    schedule={Array []}
+                                    scheduleGenerator={[Function]}
+                                    staff={Array []}
+                                    unscheduledEvents={Array []}
                         />
             </div>
 </div>,
@@ -251,28 +338,45 @@ ShallowWrapper {
               <div
                 className="main-display-container"
 >
-                <Routes
-                                appState={
-                                                Object {
-                                                                "addNewStaff": false,
-                                                                "admin": false,
-                                                                "currentUser": Object {},
-                                                                "events": Array [],
-                                                                "isCurrentStaff": false,
-                                                                "schedule": Array [],
-                                                                "staff": Array [],
-                                                                "unscheduledEvents": Array [],
+                <Unknown
+                                addEvent={[Function]}
+                                addNewStaff={false}
+                                addStaff={[Function]}
+                                admin={false}
+                                api={
+                                                Api {
+                                                                "availableStaff": Array [],
+                                                                "buildScheduleWithRoles": [Function],
+                                                                "checkAvailability": [Function],
+                                                                "checkSchedule": [Function],
+                                                                "deleteAvailability": [Function],
+                                                                "fillRoles": [Function],
+                                                                "findAvailableStaff": [Function],
+                                                                "getAvailability": [Function],
+                                                                "getClassName": [Function],
+                                                                "getEvents": [Function],
+                                                                "getHeaderText": [Function],
+                                                                "getIndividualSchedules": [Function],
+                                                                "getSchedule": [Function],
+                                                                "getStaff": [Function],
+                                                                "modifySchedule": [Function],
+                                                                "postAvailability": [Function],
+                                                                "postEvent": [Function],
+                                                                "postSchedule": [Function],
+                                                                "rolesRegex": [Function],
+                                                                "shuffleStaffArray": [Function],
+                                                                "url": "http://localhost:3000/",
                                                               }
                                 }
-                                methods={
-                                                Object {
-                                                                "addEvent": [Function],
-                                                                "addStaff": [Function],
-                                                                "deleteFromSchedule": [Function],
-                                                                "editSchedule": [Function],
-                                                                "scheduleGenerator": [Function],
-                                                              }
-                                }
+                                currentUser={Object {}}
+                                deleteFromSchedule={[Function]}
+                                editSchedule={[Function]}
+                                events={Array []}
+                                isCurrentStaff={false}
+                                schedule={Array []}
+                                scheduleGenerator={[Function]}
+                                staff={Array []}
+                                unscheduledEvents={Array []}
                 />
 </div>,
             ],
@@ -294,28 +398,45 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <Routes
-                  appState={
-                                    Object {
-                                                      "addNewStaff": false,
-                                                      "admin": false,
-                                                      "currentUser": Object {},
-                                                      "events": Array [],
-                                                      "isCurrentStaff": false,
-                                                      "schedule": Array [],
-                                                      "staff": Array [],
-                                                      "unscheduledEvents": Array [],
+                "children": <Unknown
+                  addEvent={[Function]}
+                  addNewStaff={false}
+                  addStaff={[Function]}
+                  admin={false}
+                  api={
+                                    Api {
+                                                      "availableStaff": Array [],
+                                                      "buildScheduleWithRoles": [Function],
+                                                      "checkAvailability": [Function],
+                                                      "checkSchedule": [Function],
+                                                      "deleteAvailability": [Function],
+                                                      "fillRoles": [Function],
+                                                      "findAvailableStaff": [Function],
+                                                      "getAvailability": [Function],
+                                                      "getClassName": [Function],
+                                                      "getEvents": [Function],
+                                                      "getHeaderText": [Function],
+                                                      "getIndividualSchedules": [Function],
+                                                      "getSchedule": [Function],
+                                                      "getStaff": [Function],
+                                                      "modifySchedule": [Function],
+                                                      "postAvailability": [Function],
+                                                      "postEvent": [Function],
+                                                      "postSchedule": [Function],
+                                                      "rolesRegex": [Function],
+                                                      "shuffleStaffArray": [Function],
+                                                      "url": "http://localhost:3000/",
                                                     }
                   }
-                  methods={
-                                    Object {
-                                                      "addEvent": [Function],
-                                                      "addStaff": [Function],
-                                                      "deleteFromSchedule": [Function],
-                                                      "editSchedule": [Function],
-                                                      "scheduleGenerator": [Function],
-                                                    }
-                  }
+                  currentUser={Object {}}
+                  deleteFromSchedule={[Function]}
+                  editSchedule={[Function]}
+                  events={Array []}
+                  isCurrentStaff={false}
+                  schedule={Array []}
+                  scheduleGenerator={[Function]}
+                  staff={Array []}
+                  unscheduledEvents={Array []}
 />,
                 "className": "main-display-container",
               },
@@ -325,23 +446,42 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "function",
                 "props": Object {
-                  "appState": Object {
-                    "addNewStaff": false,
-                    "admin": false,
-                    "currentUser": Object {},
-                    "events": Array [],
-                    "isCurrentStaff": false,
-                    "schedule": Array [],
-                    "staff": Array [],
-                    "unscheduledEvents": Array [],
+                  "addEvent": [Function],
+                  "addNewStaff": false,
+                  "addStaff": [Function],
+                  "admin": false,
+                  "api": Api {
+                    "availableStaff": Array [],
+                    "buildScheduleWithRoles": [Function],
+                    "checkAvailability": [Function],
+                    "checkSchedule": [Function],
+                    "deleteAvailability": [Function],
+                    "fillRoles": [Function],
+                    "findAvailableStaff": [Function],
+                    "getAvailability": [Function],
+                    "getClassName": [Function],
+                    "getEvents": [Function],
+                    "getHeaderText": [Function],
+                    "getIndividualSchedules": [Function],
+                    "getSchedule": [Function],
+                    "getStaff": [Function],
+                    "modifySchedule": [Function],
+                    "postAvailability": [Function],
+                    "postEvent": [Function],
+                    "postSchedule": [Function],
+                    "rolesRegex": [Function],
+                    "shuffleStaffArray": [Function],
+                    "url": "http://localhost:3000/",
                   },
-                  "methods": Object {
-                    "addEvent": [Function],
-                    "addStaff": [Function],
-                    "deleteFromSchedule": [Function],
-                    "editSchedule": [Function],
-                    "scheduleGenerator": [Function],
-                  },
+                  "currentUser": Object {},
+                  "deleteFromSchedule": [Function],
+                  "editSchedule": [Function],
+                  "events": Array [],
+                  "isCurrentStaff": false,
+                  "schedule": Array [],
+                  "scheduleGenerator": [Function],
+                  "staff": Array [],
+                  "unscheduledEvents": Array [],
                 },
                 "ref": null,
                 "rendered": null,

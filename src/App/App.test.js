@@ -24,16 +24,24 @@ describe('App', () => {
   });
 
   describe('addUser', () => {
-    it('should update state when there is a user', async () => {
+    it('should update state when there is a user', () => {
       const mockStaff = [
         { google_id: 12345, name: 'Jared', bar_manager: true }
       ];
       wrapper.setState({ staff: mockStaff });
 
-      await wrapper.instance().addUser(12345);
+      wrapper.instance().addUser(12345);
 
       expect(wrapper.state('currentUser')).toEqual(mockStaff[0]);
       expect(wrapper.state('admin')).toEqual(true);
+    });
+
+    it('should clear user and admin state when there is not a user', () => {
+      wrapper.setState({ admin: true, currentUser: { staff_id: 1 } });
+      wrapper.instance().addUser(null);
+
+      expect(wrapper.state('currentUser')).toEqual({});
+      expect(wrapper.state('admin')).toEqual(false);
     });
   });
 

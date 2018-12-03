@@ -3,7 +3,7 @@ import { Api } from '../Api/Api';
 import { Sidebar } from '../Sidebar/Sidebar';
 import './App.css';
 import Header from '../Header/Header';
-import Routes from '../Routes';
+import Routes from '../Routes/Routes';
 
 class App extends Component {
   constructor(props) {
@@ -21,17 +21,9 @@ class App extends Component {
       unscheduledEvents: [],
       currentUser: {}
     };
-
-    this.methods = {
-      addEvent: this.addEvent,
-      addStaff: this.addStaff,
-      deleteFromSchedule: this.deleteFromSchedule,
-      scheduleGenerator: this.scheduleGenerator,
-      editSchedule: this.editSchedule
-    };
   }
 
-  addUser = async id => {
+  addUser = id => {
     const { staff } = this.state;
 
     if (id) {
@@ -43,6 +35,8 @@ class App extends Component {
           admin: staffMember.bar_manager
         });
       }
+    } else {
+      this.setState({ currentUser: {}, admin: false });
     }
   };
 
@@ -174,7 +168,22 @@ class App extends Component {
         <div className="main-container">
           <Header />
           <div className="main-display-container">
-            <Routes appState={this.state} methods={this.methods} />
+            <Routes
+              staff={this.state.staff}
+              events={this.state.events}
+              schedule={this.state.schedule}
+              isCurrentStaff={this.state.isCurrentStaff}
+              addNewStaff={this.state.addNewStaff}
+              admin={this.state.admin}
+              unscheduledEvents={this.state.unscheduledEvents}
+              currentUser={this.state.currentUser}
+              addEvent={this.addEvent}
+              addStaff={this.addStaff}
+              deleteFromSchedule={this.deleteFromSchedule}
+              scheduleGenerator={this.scheduleGenerator}
+              editSchedule={this.editSchedule}
+              api={this.api}
+            />
           </div>
         </div>
       </div>
