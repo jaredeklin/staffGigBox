@@ -33,6 +33,31 @@ ShallowWrapper {
                               addNewStaff={false}
                               addStaff={[Function]}
                               admin={false}
+                              api={
+                                        Api {
+                                                  "availableStaff": Array [],
+                                                  "buildScheduleWithRoles": [Function],
+                                                  "checkAvailability": [Function],
+                                                  "checkSchedule": [Function],
+                                                  "deleteAvailability": [Function],
+                                                  "fillRoles": [Function],
+                                                  "findAvailableStaff": [Function],
+                                                  "getAvailability": [Function],
+                                                  "getClassName": [Function],
+                                                  "getEvents": [Function],
+                                                  "getHeaderText": [Function],
+                                                  "getIndividualSchedules": [Function],
+                                                  "getSchedule": [Function],
+                                                  "getStaff": [Function],
+                                                  "modifySchedule": [Function],
+                                                  "postAvailability": [Function],
+                                                  "postEvent": [Function],
+                                                  "postSchedule": [Function],
+                                                  "rolesRegex": [Function],
+                                                  "shuffleStaffArray": [Function],
+                                                  "url": "http://localhost:3000/",
+                                                }
+                              }
                               currentUser={Object {}}
                               deleteFromSchedule={[Function]}
                               editSchedule={[Function]}
@@ -76,6 +101,31 @@ ShallowWrapper {
                             addNewStaff={false}
                             addStaff={[Function]}
                             admin={false}
+                            api={
+                                          Api {
+                                                        "availableStaff": Array [],
+                                                        "buildScheduleWithRoles": [Function],
+                                                        "checkAvailability": [Function],
+                                                        "checkSchedule": [Function],
+                                                        "deleteAvailability": [Function],
+                                                        "fillRoles": [Function],
+                                                        "findAvailableStaff": [Function],
+                                                        "getAvailability": [Function],
+                                                        "getClassName": [Function],
+                                                        "getEvents": [Function],
+                                                        "getHeaderText": [Function],
+                                                        "getIndividualSchedules": [Function],
+                                                        "getSchedule": [Function],
+                                                        "getStaff": [Function],
+                                                        "modifySchedule": [Function],
+                                                        "postAvailability": [Function],
+                                                        "postEvent": [Function],
+                                                        "postSchedule": [Function],
+                                                        "rolesRegex": [Function],
+                                                        "shuffleStaffArray": [Function],
+                                                        "url": "http://localhost:3000/",
+                                                      }
+                            }
                             currentUser={Object {}}
                             deleteFromSchedule={[Function]}
                             editSchedule={[Function]}
@@ -111,6 +161,31 @@ ShallowWrapper {
                 addNewStaff={false}
                 addStaff={[Function]}
                 admin={false}
+                api={
+                                Api {
+                                                "availableStaff": Array [],
+                                                "buildScheduleWithRoles": [Function],
+                                                "checkAvailability": [Function],
+                                                "checkSchedule": [Function],
+                                                "deleteAvailability": [Function],
+                                                "fillRoles": [Function],
+                                                "findAvailableStaff": [Function],
+                                                "getAvailability": [Function],
+                                                "getClassName": [Function],
+                                                "getEvents": [Function],
+                                                "getHeaderText": [Function],
+                                                "getIndividualSchedules": [Function],
+                                                "getSchedule": [Function],
+                                                "getStaff": [Function],
+                                                "modifySchedule": [Function],
+                                                "postAvailability": [Function],
+                                                "postEvent": [Function],
+                                                "postSchedule": [Function],
+                                                "rolesRegex": [Function],
+                                                "shuffleStaffArray": [Function],
+                                                "url": "http://localhost:3000/",
+                                              }
+                }
                 currentUser={Object {}}
                 deleteFromSchedule={[Function]}
                 editSchedule={[Function]}
@@ -133,6 +208,29 @@ ShallowWrapper {
                 "addNewStaff": false,
                 "addStaff": [Function],
                 "admin": false,
+                "api": Api {
+                  "availableStaff": Array [],
+                  "buildScheduleWithRoles": [Function],
+                  "checkAvailability": [Function],
+                  "checkSchedule": [Function],
+                  "deleteAvailability": [Function],
+                  "fillRoles": [Function],
+                  "findAvailableStaff": [Function],
+                  "getAvailability": [Function],
+                  "getClassName": [Function],
+                  "getEvents": [Function],
+                  "getHeaderText": [Function],
+                  "getIndividualSchedules": [Function],
+                  "getSchedule": [Function],
+                  "getStaff": [Function],
+                  "modifySchedule": [Function],
+                  "postAvailability": [Function],
+                  "postEvent": [Function],
+                  "postSchedule": [Function],
+                  "rolesRegex": [Function],
+                  "shuffleStaffArray": [Function],
+                  "url": "http://localhost:3000/",
+                },
                 "currentUser": Object {},
                 "deleteFromSchedule": [Function],
                 "editSchedule": [Function],
@@ -177,6 +275,31 @@ ShallowWrapper {
                                     addNewStaff={false}
                                     addStaff={[Function]}
                                     admin={false}
+                                    api={
+                                                Api {
+                                                            "availableStaff": Array [],
+                                                            "buildScheduleWithRoles": [Function],
+                                                            "checkAvailability": [Function],
+                                                            "checkSchedule": [Function],
+                                                            "deleteAvailability": [Function],
+                                                            "fillRoles": [Function],
+                                                            "findAvailableStaff": [Function],
+                                                            "getAvailability": [Function],
+                                                            "getClassName": [Function],
+                                                            "getEvents": [Function],
+                                                            "getHeaderText": [Function],
+                                                            "getIndividualSchedules": [Function],
+                                                            "getSchedule": [Function],
+                                                            "getStaff": [Function],
+                                                            "modifySchedule": [Function],
+                                                            "postAvailability": [Function],
+                                                            "postEvent": [Function],
+                                                            "postSchedule": [Function],
+                                                            "rolesRegex": [Function],
+                                                            "shuffleStaffArray": [Function],
+                                                            "url": "http://localhost:3000/",
+                                                          }
+                                    }
                                     currentUser={Object {}}
                                     deleteFromSchedule={[Function]}
                                     editSchedule={[Function]}
@@ -220,6 +343,31 @@ ShallowWrapper {
                                 addNewStaff={false}
                                 addStaff={[Function]}
                                 admin={false}
+                                api={
+                                                Api {
+                                                                "availableStaff": Array [],
+                                                                "buildScheduleWithRoles": [Function],
+                                                                "checkAvailability": [Function],
+                                                                "checkSchedule": [Function],
+                                                                "deleteAvailability": [Function],
+                                                                "fillRoles": [Function],
+                                                                "findAvailableStaff": [Function],
+                                                                "getAvailability": [Function],
+                                                                "getClassName": [Function],
+                                                                "getEvents": [Function],
+                                                                "getHeaderText": [Function],
+                                                                "getIndividualSchedules": [Function],
+                                                                "getSchedule": [Function],
+                                                                "getStaff": [Function],
+                                                                "modifySchedule": [Function],
+                                                                "postAvailability": [Function],
+                                                                "postEvent": [Function],
+                                                                "postSchedule": [Function],
+                                                                "rolesRegex": [Function],
+                                                                "shuffleStaffArray": [Function],
+                                                                "url": "http://localhost:3000/",
+                                                              }
+                                }
                                 currentUser={Object {}}
                                 deleteFromSchedule={[Function]}
                                 editSchedule={[Function]}
@@ -255,6 +403,31 @@ ShallowWrapper {
                   addNewStaff={false}
                   addStaff={[Function]}
                   admin={false}
+                  api={
+                                    Api {
+                                                      "availableStaff": Array [],
+                                                      "buildScheduleWithRoles": [Function],
+                                                      "checkAvailability": [Function],
+                                                      "checkSchedule": [Function],
+                                                      "deleteAvailability": [Function],
+                                                      "fillRoles": [Function],
+                                                      "findAvailableStaff": [Function],
+                                                      "getAvailability": [Function],
+                                                      "getClassName": [Function],
+                                                      "getEvents": [Function],
+                                                      "getHeaderText": [Function],
+                                                      "getIndividualSchedules": [Function],
+                                                      "getSchedule": [Function],
+                                                      "getStaff": [Function],
+                                                      "modifySchedule": [Function],
+                                                      "postAvailability": [Function],
+                                                      "postEvent": [Function],
+                                                      "postSchedule": [Function],
+                                                      "rolesRegex": [Function],
+                                                      "shuffleStaffArray": [Function],
+                                                      "url": "http://localhost:3000/",
+                                                    }
+                  }
                   currentUser={Object {}}
                   deleteFromSchedule={[Function]}
                   editSchedule={[Function]}
@@ -277,6 +450,29 @@ ShallowWrapper {
                   "addNewStaff": false,
                   "addStaff": [Function],
                   "admin": false,
+                  "api": Api {
+                    "availableStaff": Array [],
+                    "buildScheduleWithRoles": [Function],
+                    "checkAvailability": [Function],
+                    "checkSchedule": [Function],
+                    "deleteAvailability": [Function],
+                    "fillRoles": [Function],
+                    "findAvailableStaff": [Function],
+                    "getAvailability": [Function],
+                    "getClassName": [Function],
+                    "getEvents": [Function],
+                    "getHeaderText": [Function],
+                    "getIndividualSchedules": [Function],
+                    "getSchedule": [Function],
+                    "getStaff": [Function],
+                    "modifySchedule": [Function],
+                    "postAvailability": [Function],
+                    "postEvent": [Function],
+                    "postSchedule": [Function],
+                    "rolesRegex": [Function],
+                    "shuffleStaffArray": [Function],
+                    "url": "http://localhost:3000/",
+                  },
                   "currentUser": Object {},
                   "deleteFromSchedule": [Function],
                   "editSchedule": [Function],

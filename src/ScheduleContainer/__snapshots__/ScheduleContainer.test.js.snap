@@ -5,6 +5,24 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <withRouter(ScheduleContainer)
+    admin={true}
+    api={
+        Object {
+            "getIndividualSchedules": [Function],
+          }
+    }
+    currentUser={
+        Object {
+            "staff_id": 3,
+          }
+    }
+    deleteFromSchedule={[Function]}
+    editSchedule={[Function]}
+    location={
+        Object {
+            "pathname": "/schedule/ogden",
+          }
+    }
     schedule={
         Array [
             Object {
@@ -17,68 +35,52 @@ ShallowWrapper {
               "name": "Billy Prince Billy",
               "staff": Array [
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bar Manager",
-                  "staff_id": null,
+                  "ass_bar_manager": true,
+                  "bar_manager": true,
+                  "barback": false,
+                  "bartender": true,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN1",
+                  "name": "TK",
+                  "staff_id": 5,
                 },
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Assistant Bar Manager",
-                  "staff_id": null,
+                  "ass_bar_manager": true,
+                  "bar_manager": false,
+                  "barback": false,
+                  "bartender": true,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN2",
+                  "name": "Jared",
+                  "staff_id": 2,
                 },
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bartender",
-                  "staff_id": null,
+                  "ass_bar_manager": false,
+                  "bar_manager": false,
+                  "barback": false,
+                  "bartender": true,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN1",
+                  "name": "Jesse",
+                  "staff_id": 3,
                 },
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Barback",
-                  "staff_id": null,
+                  "ass_bar_manager": false,
+                  "bar_manager": false,
+                  "barback": true,
+                  "bartender": false,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN2",
+                  "name": "Ross",
+                  "staff_id": 4,
                 },
               ],
-            },
-            Object {
-              "ass_bar_manager": true,
-              "bar_manager": true,
-              "barbacks": 1,
-              "bartenders": 1,
-              "date": "Jul 20, 2018",
-              "event_id": 4,
-              "name": "Not Billy Prince Billy",
-              "staff": Array [
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bar Manager",
-                  "staff_id": null,
-                },
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Assistant Bar Manager",
-                  "staff_id": null,
-                },
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bartender",
-                  "staff_id": null,
-                },
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Barback",
-                  "staff_id": null,
-                },
-              ],
+              "venue": "Ogden Theatre",
             },
           ]
     }
+    staff={Array []}
+    unscheduledEvents={Array []}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -126,6 +128,29 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <withRouter(ScheduleContainer)
+    admin={true}
+    api={
+        Object {
+            "getIndividualSchedules": [Function],
+          }
+    }
+    currentUser={
+        Object {
+            "staff_id": 3,
+          }
+    }
+    deleteFromSchedule={[Function]}
+    editSchedule={[Function]}
+    event={
+        Object {
+            "event_id": 1,
+          }
+    }
+    location={
+        Object {
+            "pathname": "/unscheduled-events",
+          }
+    }
     schedule={
         Array [
             Object {
@@ -138,69 +163,51 @@ ShallowWrapper {
               "name": "Billy Prince Billy",
               "staff": Array [
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bar Manager",
-                  "staff_id": null,
+                  "ass_bar_manager": true,
+                  "bar_manager": true,
+                  "barback": false,
+                  "bartender": true,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN1",
+                  "name": "TK",
+                  "staff_id": 5,
                 },
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Assistant Bar Manager",
-                  "staff_id": null,
+                  "ass_bar_manager": true,
+                  "bar_manager": false,
+                  "barback": false,
+                  "bartender": true,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN2",
+                  "name": "Jared",
+                  "staff_id": 2,
                 },
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bartender",
-                  "staff_id": null,
+                  "ass_bar_manager": false,
+                  "bar_manager": false,
+                  "barback": false,
+                  "bartender": true,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN1",
+                  "name": "Jesse",
+                  "staff_id": 3,
                 },
                 Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Barback",
-                  "staff_id": null,
+                  "ass_bar_manager": false,
+                  "bar_manager": false,
+                  "barback": true,
+                  "bartender": false,
+                  "beer_bucket": false,
+                  "google_id": "1pLSNLEaSVT7hvRa5q4Vyy37IIN2",
+                  "name": "Ross",
+                  "staff_id": 4,
                 },
               ],
-            },
-            Object {
-              "ass_bar_manager": true,
-              "bar_manager": true,
-              "barbacks": 1,
-              "bartenders": 1,
-              "date": "Jul 20, 2018",
-              "event_id": 4,
-              "name": "Not Billy Prince Billy",
-              "staff": Array [
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bar Manager",
-                  "staff_id": null,
-                },
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Assistant Bar Manager",
-                  "staff_id": null,
-                },
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Bartender",
-                  "staff_id": null,
-                },
-                Object {
-                  "event_id": 3,
-                  "name": "Staff Needed",
-                  "role": "Barback",
-                  "staff_id": null,
-                },
-              ],
+              "venue": "Ogden Theatre",
             },
           ]
     }
-    type="Unscheduled Events"
+    staff={Array []}
     unscheduledEvents={Array []}
 />,
   Symbol(enzyme.__renderer__): Object {
